@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		180866321E59799800EA1F23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866311E59799800EA1F23 /* AppDelegate.swift */; };
-		180866341E59799800EA1F23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866331E59799800EA1F23 /* ViewController.swift */; };
-		180866371E59799800EA1F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180866351E59799800EA1F23 /* Main.storyboard */; };
-		180866391E59799800EA1F23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180866381E59799800EA1F23 /* Assets.xcassets */; };
-		1808663C1E59799800EA1F23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1808663A1E59799800EA1F23 /* LaunchScreen.storyboard */; };
 		180866471E59799800EA1F23 /* SlideTabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866461E59799800EA1F23 /* SlideTabBarTests.swift */; };
 		180866521E59799800EA1F23 /* SlideTabBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866511E59799800EA1F23 /* SlideTabBarUITests.swift */; };
+		1808666A1E59909100EA1F23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866641E59909100EA1F23 /* AppDelegate.swift */; };
+		1808666B1E59909100EA1F23 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 180866651E59909100EA1F23 /* Info.plist */; };
+		1808666C1E59909100EA1F23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180866661E59909100EA1F23 /* Launch Screen.storyboard */; };
+		1808666D1E59909100EA1F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180866671E59909100EA1F23 /* Main.storyboard */; };
+		1808666E1E59909100EA1F23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866691E59909100EA1F23 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +35,17 @@
 
 /* Begin PBXFileReference section */
 		1808662E1E59799800EA1F23 /* SlideTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		180866311E59799800EA1F23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		180866331E59799800EA1F23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		180866361E59799800EA1F23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		180866381E59799800EA1F23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1808663B1E59799800EA1F23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1808663D1E59799800EA1F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180866421E59799800EA1F23 /* SlideTabBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideTabBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		180866461E59799800EA1F23 /* SlideTabBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTabBarTests.swift; sourceTree = "<group>"; };
 		180866481E59799800EA1F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1808664D1E59799800EA1F23 /* SlideTabBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideTabBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		180866511E59799800EA1F23 /* SlideTabBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTabBarUITests.swift; sourceTree = "<group>"; };
 		180866531E59799800EA1F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		180866641E59909100EA1F23 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		180866651E59909100EA1F23 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		180866661E59909100EA1F23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		180866671E59909100EA1F23 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		180866691E59909100EA1F23 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +76,7 @@
 		180866251E59799800EA1F23 = {
 			isa = PBXGroup;
 			children = (
-				180866301E59799800EA1F23 /* SlideTabBar */,
+				180866631E59909100EA1F23 /* SlideTabBar */,
 				180866451E59799800EA1F23 /* SlideTabBarTests */,
 				180866501E59799800EA1F23 /* SlideTabBarUITests */,
 				1808662F1E59799800EA1F23 /* Products */,
@@ -92,19 +91,6 @@
 				1808664D1E59799800EA1F23 /* SlideTabBarUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		180866301E59799800EA1F23 /* SlideTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				180866311E59799800EA1F23 /* AppDelegate.swift */,
-				180866331E59799800EA1F23 /* ViewController.swift */,
-				180866351E59799800EA1F23 /* Main.storyboard */,
-				180866381E59799800EA1F23 /* Assets.xcassets */,
-				1808663A1E59799800EA1F23 /* LaunchScreen.storyboard */,
-				1808663D1E59799800EA1F23 /* Info.plist */,
-			);
-			path = SlideTabBar;
 			sourceTree = "<group>";
 		};
 		180866451E59799800EA1F23 /* SlideTabBarTests */ = {
@@ -123,6 +109,26 @@
 				180866531E59799800EA1F23 /* Info.plist */,
 			);
 			path = SlideTabBarUITests;
+			sourceTree = "<group>";
+		};
+		180866631E59909100EA1F23 /* SlideTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				180866641E59909100EA1F23 /* AppDelegate.swift */,
+				180866691E59909100EA1F23 /* ViewController.swift */,
+				180866651E59909100EA1F23 /* Info.plist */,
+				180866661E59909100EA1F23 /* Launch Screen.storyboard */,
+				180866671E59909100EA1F23 /* Main.storyboard */,
+				1808666F1E5990CE00EA1F23 /* SlideTabBarController */,
+			);
+			path = SlideTabBar;
+			sourceTree = "<group>";
+		};
+		1808666F1E5990CE00EA1F23 /* SlideTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SlideTabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,9 +239,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1808663C1E59799800EA1F23 /* LaunchScreen.storyboard in Resources */,
-				180866391E59799800EA1F23 /* Assets.xcassets in Resources */,
-				180866371E59799800EA1F23 /* Main.storyboard in Resources */,
+				1808666D1E59909100EA1F23 /* Main.storyboard in Resources */,
+				1808666C1E59909100EA1F23 /* Launch Screen.storyboard in Resources */,
+				1808666B1E59909100EA1F23 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +266,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				180866341E59799800EA1F23 /* ViewController.swift in Sources */,
-				180866321E59799800EA1F23 /* AppDelegate.swift in Sources */,
+				1808666E1E59909100EA1F23 /* ViewController.swift in Sources */,
+				1808666A1E59909100EA1F23 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +301,6 @@
 			targetProxy = 1808664E1E59799800EA1F23 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		180866351E59799800EA1F23 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				180866361E59799800EA1F23 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1808663A1E59799800EA1F23 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1808663B1E59799800EA1F23 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		180866541E59799800EA1F23 /* Debug */ = {
@@ -508,6 +495,7 @@
 				180866581E59799800EA1F23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		180866591E59799800EA1F23 /* Build configuration list for PBXNativeTarget "SlideTabBarTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +504,7 @@
 				1808665B1E59799800EA1F23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1808665C1E59799800EA1F23 /* Build configuration list for PBXNativeTarget "SlideTabBarUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +513,7 @@
 				1808665E1E59799800EA1F23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
