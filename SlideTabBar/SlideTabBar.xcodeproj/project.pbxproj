@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DA39FC1E5A98570038F7A6 /* SlideTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA39FB1E5A98570038F7A6 /* SlideTitleLabel.swift */; };
+		04DA39FE1E5A988A0038F7A6 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA39FD1E5A988A0038F7A6 /* SlideViewController.swift */; };
+		04DA3A001E5A9DA30038F7A6 /* SlideFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA39FF1E5A9DA30038F7A6 /* SlideFlowLayout.swift */; };
+		04DA3A021E5ADB720038F7A6 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA3A011E5ADB720038F7A6 /* UIView+Frame.swift */; };
 		180866471E59799800EA1F23 /* SlideTabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866461E59799800EA1F23 /* SlideTabBarTests.swift */; };
 		180866521E59799800EA1F23 /* SlideTabBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866511E59799800EA1F23 /* SlideTabBarUITests.swift */; };
 		1808666A1E59909100EA1F23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866641E59909100EA1F23 /* AppDelegate.swift */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04DA39FB1E5A98570038F7A6 /* SlideTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideTitleLabel.swift; sourceTree = "<group>"; };
+		04DA39FD1E5A988A0038F7A6 /* SlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
+		04DA39FF1E5A9DA30038F7A6 /* SlideFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideFlowLayout.swift; sourceTree = "<group>"; };
+		04DA3A011E5ADB720038F7A6 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		1808662E1E59799800EA1F23 /* SlideTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		180866421E59799800EA1F23 /* SlideTabBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlideTabBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		180866461E59799800EA1F23 /* SlideTabBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTabBarTests.swift; sourceTree = "<group>"; };
@@ -127,6 +135,10 @@
 		1808666F1E5990CE00EA1F23 /* SlideTabBarController */ = {
 			isa = PBXGroup;
 			children = (
+				04DA3A011E5ADB720038F7A6 /* UIView+Frame.swift */,
+				04DA39FB1E5A98570038F7A6 /* SlideTitleLabel.swift */,
+				04DA39FF1E5A9DA30038F7A6 /* SlideFlowLayout.swift */,
+				04DA39FD1E5A988A0038F7A6 /* SlideViewController.swift */,
 			);
 			path = SlideTabBarController;
 			sourceTree = "<group>";
@@ -266,7 +278,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DA39FE1E5A988A0038F7A6 /* SlideViewController.swift in Sources */,
+				04DA39FC1E5A98570038F7A6 /* SlideTitleLabel.swift in Sources */,
+				04DA3A021E5ADB720038F7A6 /* UIView+Frame.swift in Sources */,
 				1808666E1E59909100EA1F23 /* ViewController.swift in Sources */,
+				04DA3A001E5A9DA30038F7A6 /* SlideFlowLayout.swift in Sources */,
 				1808666A1E59909100EA1F23 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
