@@ -16,7 +16,7 @@ class ViewController: SlideViewController {
         self.title = "SlideTabBar"
         self.view.backgroundColor = .white
         
-        let titles = ["推荐", "热点", "北京", "阳光宽频", "头条号", "社会聚集", "娱乐", "图片"]
+        let titles = ["推荐", "热点", "北京", "阳光宽频", "头条号", "社会聚集", "娱乐", "图片", "三生三世桃花开", "喜剧人"]
         for title in titles {
             let controller = UIViewController()
             controller.title = title

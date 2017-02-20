@@ -124,9 +124,9 @@
 			children = (
 				180866641E59909100EA1F23 /* AppDelegate.swift */,
 				180866691E59909100EA1F23 /* ViewController.swift */,
-				180866651E59909100EA1F23 /* Info.plist */,
 				180866661E59909100EA1F23 /* Launch Screen.storyboard */,
 				180866671E59909100EA1F23 /* Main.storyboard */,
+				180866651E59909100EA1F23 /* Info.plist */,
 				1808666F1E5990CE00EA1F23 /* SlideTabBarController */,
 			);
 			path = SlideTabBar;
