@@ -135,10 +135,10 @@
 		1808666F1E5990CE00EA1F23 /* SlideTabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				04DA3A011E5ADB720038F7A6 /* UIView+Frame.swift */,
 				04DA39FB1E5A98570038F7A6 /* SlideTitleLabel.swift */,
 				04DA39FF1E5A9DA30038F7A6 /* SlideFlowLayout.swift */,
 				04DA39FD1E5A988A0038F7A6 /* SlideViewController.swift */,
+				04DA3A011E5ADB720038F7A6 /* UIView+Frame.swift */,
 			);
 			path = SlideTabBarController;
 			sourceTree = "<group>";

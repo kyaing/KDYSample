@@ -17,10 +17,10 @@ open class SlideViewController: UIViewController {
     public var titleFont: UIFont = .systemFont(ofSize: 15)
     
     /// 标题默认颜色
-    public var titleNormalColor: UIColor = .black
+    public var titleNormalColor: UIColor = .gray
     
     /// 标题选中颜色
-    public var titleSelectColor: UIColor = .red
+    public var titleSelectColor: UIColor = .darkGray
     
     /// 标题高度
     public var titleHeight: CGFloat = 44.0
@@ -37,8 +37,11 @@ open class SlideViewController: UIViewController {
     /// 下划线高度
     public var underlineHieght: CGFloat = 3.0
     
-    /// 当前选中的下标
+    /// 选中的下标
     private var selectIndex: Int = 0
+    
+    /// 最后一次的偏移量
+    var lastXOffset: CGFloat = 0
     
     let kFrameWidth  = UIScreen.main.bounds.width
     let kFrameHeight = UIScreen.main.bounds.height
@@ -230,6 +233,7 @@ open class SlideViewController: UIViewController {
     func setupUnderline(_ selLabel: UILabel) {
         let width = getLableWidth(labelStr: selLabel.text!, font: titleFont)
         
+        // 设置下划线frame
         underlineView.y       = titleHeight - underlineHieght
         underlineView.width   = width
         underlineView.height  = underlineHieght
@@ -252,18 +256,19 @@ open class SlideViewController: UIViewController {
      */
     func clickTitleAction(_ sender: UITapGestureRecognizer) {
         
-        // 手势绑定的label
         let titleLabel = sender.view as! UILabel
         let index = titleLabel.tag
         
         // 集合视图偏移
-        let offsetX = CGFloat(index) * kFrameWidth
-        collectionView.contentOffset = CGPoint(x: offsetX, y: 0)
+        let xOffset = CGFloat(index) * kFrameWidth
+        collectionView.contentOffset = CGPoint(x: xOffset, y: 0)
         
         // 改变标题状态
         titleStateSelecting(titleLabel)
         
+        // 记录索引和偏移量
         selectIndex = index
+        lastXOffset = xOffset
     }
     
     /**
@@ -308,6 +313,24 @@ open class SlideViewController: UIViewController {
         
         titleScrollView.setContentOffset(CGPoint(x: currentOffsetX, y: 0), animated: true)
     }
+    
+    /**
+     *  设置下划线动画
+     */
+    func setUnderlineAnimation(_ leftLabel: UILabel, _ rightLabel: UILabel, _ offset: CGFloat) {
+        
+        let centerDiff = rightLabel.x - leftLabel.x
+        let offsetDiff = offset - lastXOffset
+        
+        let widthDiff  = getLableWidth(labelStr: rightLabel.text!, font: titleFont) - getLableWidth(labelStr: leftLabel.text!, font: titleFont)
+        
+        // xPos和增长的宽度的比例值
+        let xTransform  = centerDiff * (offsetDiff / kFrameWidth)
+        let updateWidth = widthDiff * (offsetDiff / kFrameWidth)
+        
+        underlineView.x += xTransform
+        underlineView.width += updateWidth
+    }
 }
 
 // MARK: -
@@ -338,12 +361,30 @@ extension SlideViewController: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        let xOffset = scrollView.contentOffset.x
+        let index = xOffset / kFrameWidth
+        
+        let leftLabel = titleLabelsArray[Int(index)] as! UILabel
+        var rightLabel: UILabel? = nil
+        
+        // 最后一个标题后面没有 rightLabel
+        if Int(index) < titleLabelsArray.count - 1 {
+            rightLabel = titleLabelsArray[Int(index)+1] as? UILabel
+        }
+        
+        // 先设置下划线动画
+        if let rightLabel = rightLabel {
+            setUnderlineAnimation(leftLabel, rightLabel, xOffset)
+        }
+        
+        // 再更新偏移量
+        lastXOffset = xOffset
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        let offsetX = scrollView.contentOffset.x
-        let index = offsetX / kFrameWidth
+        let xOffset = scrollView.contentOffset.x
+        let index = xOffset / kFrameWidth
     
         // 选中标题
         titleStateSelecting(titleLabelsArray[Int(index)] as! UILabel)
