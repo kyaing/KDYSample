@@ -20,7 +20,7 @@ open class SlideViewController: UIViewController {
     public var titleNormalColor: UIColor = .black
     
     /// 标题选中颜色
-    public var titleSlectColor: UIColor = .red
+    public var titleSelectColor: UIColor = .red
     
     /// 标题高度
     public var titleHeight: CGFloat = 44.0
@@ -37,8 +37,11 @@ open class SlideViewController: UIViewController {
     /// 下划线高度
     public var underlineHieght: CGFloat = 3.0
     
-    private let kFrameWidth  = UIScreen.main.bounds.width
-    private let kFrameHeight = UIScreen.main.bounds.height
+    /// 当前选中的下标
+    private var selectIndex: Int = 0
+    
+    let kFrameWidth  = UIScreen.main.bounds.width
+    let kFrameHeight = UIScreen.main.bounds.height
     
     /// 标题的总数组
     lazy var titleLabelsArray: NSMutableArray = {
@@ -63,12 +66,12 @@ open class SlideViewController: UIViewController {
     lazy var titleScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.frame = CGRect(x: 0, y: 0, width: self.view.width, height: self.titleHeight)
-        scrollView.backgroundColor = .gray //UIColor(white: 1, alpha: 0.6)
+        scrollView.backgroundColor = UIColor(white: 1, alpha: 0.6)
         scrollView.scrollsToTop = false
+        
         scrollView.showsVerticalScrollIndicator   = false
         scrollView.showsHorizontalScrollIndicator = false
-        
-        scrollView.addSubview(self.underlineView)
+    
         self.contentBgView.addSubview(scrollView)
     
         return scrollView
@@ -90,6 +93,7 @@ open class SlideViewController: UIViewController {
         collectionView.isPagingEnabled = true
         collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "SlideCell")
         collectionView.dataSource = self
+        collectionView.delegate = self
         
         self.contentBgView.addSubview(collectionView)
         
@@ -100,6 +104,9 @@ open class SlideViewController: UIViewController {
     lazy var underlineView: UIView = {
         let underlineView = UIView()
         underlineView.backgroundColor = .red
+        
+        self.titleScrollView.addSubview(underlineView)
+        
         return underlineView
     }()
 
@@ -110,6 +117,8 @@ open class SlideViewController: UIViewController {
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.automaticallyAdjustsScrollViewInsets = false
         
         collectionView.reloadData()
         
@@ -125,7 +134,7 @@ open class SlideViewController: UIViewController {
     func getLableWidth(labelStr: String, font: UIFont) -> CGFloat {
         
         let statusLabelText = labelStr as NSString
-        let size =  CGSize(width: 900, height: 0)
+        let size =  CGSize(width: 800, height: 0)
         let dic = NSDictionary(object: font, forKey: NSFontAttributeName as NSCopying)
         
         let strSize = statusLabelText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [String: AnyObject], context:nil).size
@@ -194,6 +203,17 @@ open class SlideViewController: UIViewController {
             
             label.frame = CGRect(x: labelX, y: labelY, width: labelW, height: labelH)
             
+            // 标题添加手势
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickTitleAction(_:)))
+            label.isUserInteractionEnabled = true
+            label.addGestureRecognizer(tapGesture)
+            
+            // 默认选中第一个title
+            if index == selectIndex {
+                clickTitleAction(tapGesture)
+            }
+            
+            // 存储到顶部标题数组
             titleLabelsArray.add(label)
             titleScrollView.addSubview(label)
         }
@@ -207,7 +227,87 @@ open class SlideViewController: UIViewController {
         collectionView.contentSize = CGSize(width: CGFloat(counts) * self.view.width, height: 0)
     }
     
+    func setupUnderline(_ selLabel: UILabel) {
+        let width = getLableWidth(labelStr: selLabel.text!, font: titleFont)
+        
+        underlineView.y       = titleHeight - underlineHieght
+        underlineView.width   = width
+        underlineView.height  = underlineHieght
+        
+        // 初始化时不做动画
+        if underlineView.x == 0 {
+            underlineView.x = selLabel.x
+            
+        } else {
+            UIView.animate(withDuration: 0.25) {
+                self.underlineView.centerX = selLabel.centerX
+            }
+        }
+    }
+    
     // MARK: - Events Response
+    
+    /**
+     *  点击标题事件
+     */
+    func clickTitleAction(_ sender: UITapGestureRecognizer) {
+        
+        // 手势绑定的label
+        let titleLabel = sender.view as! UILabel
+        let index = titleLabel.tag
+        
+        // 集合视图偏移
+        let offsetX = CGFloat(index) * kFrameWidth
+        collectionView.contentOffset = CGPoint(x: offsetX, y: 0)
+        
+        // 改变标题状态
+        titleStateSelecting(titleLabel)
+        
+        selectIndex = index
+    }
+    
+    /**
+     *  选中标题时更改样式
+     */
+    func titleStateSelecting(_ selLabel: UILabel) {
+        
+        selLabel.textColor = titleSelectColor
+        for lable in titleLabelsArray {
+            if selLabel == (lable as! UILabel) {
+                continue
+            }
+            (lable as! UILabel).textColor = titleNormalColor
+        }
+        
+        setupUnderline(selLabel)
+        setSeltitleToCenter(selLabel)
+    }
+    
+    /**
+     *  设置选中标题居中
+     */
+    func setSeltitleToCenter(_ selLabel: UILabel) {
+        
+        var currentOffsetX = selLabel.center.x - kFrameWidth * 0.5
+        var maxOffsetX = titleScrollView.contentSize.width - kFrameWidth + titleMargin
+        
+        // 滚动不足半屏
+        if currentOffsetX < 0 {
+            currentOffsetX = 0
+        }
+        
+        // 滚动区域不足一屏
+        if maxOffsetX < 0 {
+            maxOffsetX = 0
+        }
+        
+        // 超过最大滚动区域
+        if currentOffsetX > maxOffsetX {
+            currentOffsetX = maxOffsetX
+        }
+        
+        titleScrollView.setContentOffset(CGPoint(x: currentOffsetX, y: 0), animated: true)
+    }
 }
 
 // MARK: -
@@ -227,6 +327,12 @@ extension SlideViewController: UICollectionViewDataSource {
     }
 }
 
+extension SlideViewController: UICollectionViewDelegate {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+}
+
 // MARK: - 
 extension SlideViewController: UIScrollViewDelegate {
     
@@ -236,6 +342,11 @@ extension SlideViewController: UIScrollViewDelegate {
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
+        let offsetX = scrollView.contentOffset.x
+        let index = offsetX / kFrameWidth
+    
+        // 选中标题
+        titleStateSelecting(titleLabelsArray[Int(index)] as! UILabel)
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {

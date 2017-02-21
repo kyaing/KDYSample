@@ -28,6 +28,15 @@ class ViewController: SlideViewController {
             
             controller.view.backgroundColor = colorRundom
             self.addChildViewController(controller)
+            
+            // for test
+            let label = UILabel()
+            label.frame = CGRect(x: (controller.view.width-200)/2.0, y: 100, width: 200, height: 100)
+            label.text = title
+            label.textAlignment = .center
+            label.font = UIFont.systemFont(ofSize: 20)
+            label.textColor = .white
+            controller.view.addSubview(label)
         }
     }
 }
