@@ -8,34 +8,42 @@
 
 import UIKit
 
-/// 滑动的控制器
 open class SlideViewController: UIViewController {
 
+    enum SlideTabBarStyle {
+        case `default`   // 默认样式
+        case underline   // 下划线
+        case titleScale  // 字体扩大
+        case coverTitle  // 遮盖效果
+    }
+    
     // MARK: - Properties
     
+    /// 滑动的类型
+    var slideStyle: SlideTabBarStyle = .default
+    
+    static let cellIdentifier = "slideCell"
+    
     /// 标题字体大小
-    public var titleFont: UIFont = .systemFont(ofSize: 15)
+    var titleFont: UIFont = .systemFont(ofSize: 15)
     
     /// 标题默认颜色
-    public var titleNormalColor: UIColor = .gray
+    var titleNormalColor = UIColor.gray
     
     /// 标题选中颜色
-    public var titleSelectColor: UIColor = .darkGray
+    var titleSelectColor = UIColor.gray
     
     /// 标题高度
     public var titleHeight: CGFloat = 44.0
     
     /// 标题宽度
-    public var titleWidth: CGFloat = 0.0
-    
-    /// 默认标题间的间距
-    public let Margin: CGFloat = 20.0
+    var titleWidth: CGFloat = 0.0
     
     /// 标题间距
-    public var titleMargin: CGFloat = 0
+    public var titleMargin: CGFloat = 20.0
     
     /// 下划线高度
-    public var underlineHieght: CGFloat = 3.0
+    var underlineHieght: CGFloat = 3.0
     
     /// 选中的下标
     private var selectIndex: Int = 0
@@ -94,7 +102,7 @@ open class SlideViewController: UIViewController {
         collectionView.bounces = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "SlideCell")
+        collectionView.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: cellIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -129,6 +137,10 @@ open class SlideViewController: UIViewController {
         setupTitlesArray()
     }
     
+    // MARK: - Public Methods
+    
+    
+    
     // MARK: - Private Methods
     
     /**
@@ -137,7 +149,7 @@ open class SlideViewController: UIViewController {
     func getLableWidth(labelStr: String, font: UIFont) -> CGFloat {
         
         let statusLabelText = labelStr as NSString
-        let size =  CGSize(width: 800, height: 0)
+        let size = CGSize(width: 800, height: 0)
         let dic = NSDictionary(object: font, forKey: NSFontAttributeName as NSCopying)
         
         let strSize = statusLabelText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [String: AnyObject], context:nil).size
@@ -155,6 +167,7 @@ open class SlideViewController: UIViewController {
         
         for controller in self.childViewControllers {
             let title = controller.title
+            
             let width = getLableWidth(labelStr: title!, font: titleFont)
             
             totalWidth += width
@@ -162,9 +175,9 @@ open class SlideViewController: UIViewController {
         }
         
         let marginCounts = self.childViewControllers.count + 1
-        titleMargin = (totalWidth > kFrameWidth) ? Margin : (kFrameWidth - totalWidth) / CGFloat(marginCounts)
+        let margin = (totalWidth > kFrameWidth) ? titleMargin : (kFrameWidth - totalWidth) / CGFloat(marginCounts)
         
-        titleScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: titleMargin)
+        titleScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: margin)
     }
 
     /**
@@ -178,7 +191,6 @@ open class SlideViewController: UIViewController {
         var labelW = titleWidth
         let labelH = titleHeight
         
-        // 遍历所有子控制
         for controller in self.childViewControllers {
             let index = self.childViewControllers.index(of: controller)
             
@@ -206,7 +218,6 @@ open class SlideViewController: UIViewController {
             
             label.frame = CGRect(x: labelX, y: labelY, width: labelW, height: labelH)
             
-            // 标题添加手势
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickTitleAction(_:)))
             label.isUserInteractionEnabled = true
             label.addGestureRecognizer(tapGesture)
@@ -220,12 +231,10 @@ open class SlideViewController: UIViewController {
             titleLabelsArray.add(label)
             titleScrollView.addSubview(label)
         }
-        
-        // 顶部滚动区域
+    
         let lastLabel = titleLabelsArray.lastObject as! UILabel
         titleScrollView.contentSize = CGSize(width: lastLabel.frame.maxX, height: 0)
         
-        // 内容滚动区域
         let counts = self.childViewControllers.count
         collectionView.contentSize = CGSize(width: CGFloat(counts) * self.view.width, height: 0)
     }
@@ -340,7 +349,7 @@ extension SlideViewController: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SlideCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideViewController.cellIdentifier, for: indexPath)
         
         let controller = self.childViewControllers[indexPath.item] as UIViewController
         controller.view.frame = CGRect(x: 0, y: 0, width: collectionView.width, height: collectionView.height)

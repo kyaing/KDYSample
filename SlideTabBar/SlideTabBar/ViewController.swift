@@ -24,9 +24,9 @@ class ViewController: SlideViewController {
             let red   = CGFloat(arc4random_uniform(255))/CGFloat(255.0)
             let green = CGFloat( arc4random_uniform(255))/CGFloat(255.0)
             let blue  = CGFloat(arc4random_uniform(255))/CGFloat(255.0)
-            let colorRundom = UIColor(red:red, green:green, blue:blue , alpha: 1)
+            let colorRandom = UIColor(red:red, green:green, blue:blue , alpha: 1)
             
-            controller.view.backgroundColor = colorRundom
+            controller.view.backgroundColor = colorRandom
             self.addChildViewController(controller)
             
             // for test
@@ -39,5 +39,7 @@ class ViewController: SlideViewController {
             controller.view.addSubview(label)
         }
     }
+    
+    
 }
 
