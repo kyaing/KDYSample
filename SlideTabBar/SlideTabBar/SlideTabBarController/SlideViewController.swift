@@ -17,6 +17,8 @@ open class SlideViewController: UIViewController {
         case coverTitle  // 遮盖效果
     }
     
+    typealias defaultTitleClosure = (_ norColor: UIColor?, _ selColor: UIColor?) -> Void
+    
     // MARK: - Properties
     
     /// 滑动的类型
@@ -139,7 +141,9 @@ open class SlideViewController: UIViewController {
     
     // MARK: - Public Methods
     
-    
+    func setTitleStyle(_ closure: (_ norColor: UIColor?, _ selColor: UIColor?) -> Void) {
+        
+    }
     
     // MARK: - Private Methods
     
