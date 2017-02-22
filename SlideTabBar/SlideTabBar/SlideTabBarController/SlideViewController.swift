@@ -8,21 +8,23 @@
 
 import UIKit
 
+protocol SlideConcig {
+    
+}
+
 open class SlideViewController: UIViewController {
 
     enum SlideTabBarStyle {
-        case `default`   // 默认样式
-        case underline   // 下划线
-        case titleScale  // 字体扩大
-        case coverTitle  // 遮盖效果
+        case `default`(UIColor?, UIColor?, UIFont?, CGFloat?, CGFloat?)
+        case underline
+        case titleScale
+        case coverTitle
     }
-    
-    typealias defaultTitleClosure = (_ norColor: UIColor?, _ selColor: UIColor?) -> Void
     
     // MARK: - Properties
     
     /// 滑动的类型
-    var slideStyle: SlideTabBarStyle = .default
+    var slideStyle: SlideTabBarStyle?
     
     static let cellIdentifier = "slideCell"
     
@@ -141,8 +143,28 @@ open class SlideViewController: UIViewController {
     
     // MARK: - Public Methods
     
-    func setTitleStyle(_ closure: (_ norColor: UIColor?, _ selColor: UIColor?) -> Void) {
+    func setSlideSytle(_ slideStyle: SlideTabBarStyle) {
+        switch slideStyle {
+        case .default(let color, let selColor, let font, let width, let height):
+            setTitleDefaultStyle(norColor: color, selColor: selColor, font: font, width: width, height: height)
+        default:
+            return
+        }
+    }
+    
+    /**
+     *  设置默认标题属性
+     */
+    private func setTitleDefaultStyle(norColor: UIColor?, selColor: UIColor?, font: UIFont?, width: CGFloat?, height: CGFloat?) {
+        if let norColor = norColor { titleNormalColor = norColor }
         
+        if let selColor = selColor { titleSelectColor = selColor }
+        
+        if let font = font { titleFont = font }
+        
+        if let width = width { titleWidth = width }
+        
+        if let height = height { titleHeight = height }
     }
     
     // MARK: - Private Methods
@@ -150,7 +172,7 @@ open class SlideViewController: UIViewController {
     /**
      *  根据label字符串计算宽
      */
-    func getLableWidth(labelStr: String, font: UIFont) -> CGFloat {
+    private func getLableWidth(labelStr: String, font: UIFont) -> CGFloat {
         
         let statusLabelText = labelStr as NSString
         let size = CGSize(width: 800, height: 0)

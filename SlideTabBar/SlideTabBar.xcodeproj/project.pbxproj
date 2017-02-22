@@ -19,6 +19,7 @@
 		1808666C1E59909100EA1F23 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180866661E59909100EA1F23 /* Launch Screen.storyboard */; };
 		1808666D1E59909100EA1F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180866671E59909100EA1F23 /* Main.storyboard */; };
 		1808666E1E59909100EA1F23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866691E59909100EA1F23 /* ViewController.swift */; };
+		183E75C51E5DC0A600337E3C /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E75C41E5DC0A600337E3C /* SubViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		180866661E59909100EA1F23 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		180866671E59909100EA1F23 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		180866691E59909100EA1F23 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		183E75C41E5DC0A600337E3C /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				180866641E59909100EA1F23 /* AppDelegate.swift */,
 				180866691E59909100EA1F23 /* ViewController.swift */,
+				183E75C41E5DC0A600337E3C /* SubViewController.swift */,
 				180866661E59909100EA1F23 /* Launch Screen.storyboard */,
 				180866671E59909100EA1F23 /* Main.storyboard */,
 				180866651E59909100EA1F23 /* Info.plist */,
@@ -284,6 +287,7 @@
 				0454784A1E5D922D000F8E9E /* SlideConfigs.swift in Sources */,
 				04DA39FE1E5A988A0038F7A6 /* SlideViewController.swift in Sources */,
 				04DA39FC1E5A98570038F7A6 /* SlideTitleLabel.swift in Sources */,
+				183E75C51E5DC0A600337E3C /* SubViewController.swift in Sources */,
 				04DA3A021E5ADB720038F7A6 /* UIView+Frame.swift in Sources */,
 				1808666E1E59909100EA1F23 /* ViewController.swift in Sources */,
 				04DA3A001E5A9DA30038F7A6 /* SlideFlowLayout.swift in Sources */,

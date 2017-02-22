@@ -16,11 +16,15 @@ class ViewController: SlideViewController {
         self.title = "SlideTabBar"
         self.view.backgroundColor = .white
         
-        
         let titles = ["推荐", "热点", "北京", "阳光宽频", "头条号", "社会聚集", "娱乐", "图片", "三生三世桃花开", "喜剧人"]
         for title in titles {
-            let controller = UIViewController()
+            var controller = UIViewController()
             controller.title = title
+            
+            if title == "推荐" {
+                controller = SubViewController()
+                controller.title = title
+            }
             
             let red   = CGFloat(arc4random_uniform(255))/CGFloat(255.0)
             let green = CGFloat( arc4random_uniform(255))/CGFloat(255.0)
@@ -39,8 +43,9 @@ class ViewController: SlideViewController {
             label.textColor = .white
             controller.view.addSubview(label)
         }
+        
+        // 设置滑动类型
+        setSlideSytle(.default(.brown, .blue, nil, nil, 40))
     }
-    
-    
 }
 
