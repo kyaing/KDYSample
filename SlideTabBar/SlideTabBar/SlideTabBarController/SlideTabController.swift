@@ -1,5 +1,5 @@
 //
-//  SlideViewController.swift
+//  SlideTabController.swift
 //  SlideTabBar
 //
 //  Created by mac on 17/2/20.
@@ -12,11 +12,11 @@ protocol SlideConcig {
     
 }
 
-open class SlideViewController: UIViewController {
+open class SlideTabController: UIViewController {
 
-    enum SlideTabBarStyle {
-        case `default`(UIColor?, UIColor?, UIFont?, CGFloat?, CGFloat?)
-        case underline
+    public enum SlideTabBarStyle {
+        case `default`(UIColor?, UIColor?, CGFloat?, CGFloat?, CGFloat?)
+        case underline(UIColor?, CGFloat?, CGFloat?, Bool)
         case titleScale
         case coverTitle
     }
@@ -24,7 +24,7 @@ open class SlideViewController: UIViewController {
     // MARK: - Properties
     
     /// 滑动的类型
-    var slideStyle: SlideTabBarStyle?
+    var style: SlideTabBarStyle?
     
     static let cellIdentifier = "slideCell"
     
@@ -48,6 +48,9 @@ open class SlideViewController: UIViewController {
     
     /// 下划线高度
     var underlineHieght: CGFloat = 3.0
+    
+    /// 下划线颜色
+    var underlineColor: UIColor = .red
     
     /// 选中的下标
     private var selectIndex: Int = 0
@@ -118,7 +121,7 @@ open class SlideViewController: UIViewController {
     /// 下划线视图
     lazy var underlineView: UIView = {
         let underlineView = UIView()
-        underlineView.backgroundColor = .red
+        underlineView.backgroundColor = self.underlineColor
         
         self.titleScrollView.addSubview(underlineView)
         
@@ -143,28 +146,49 @@ open class SlideViewController: UIViewController {
     
     // MARK: - Public Methods
     
-    func setSlideSytle(_ slideStyle: SlideTabBarStyle) {
+    /**
+     *  设置顶部标题样式
+     */
+    public func setSlideSytle(_ slideStyle: SlideTabBarStyle) {
+        
+        style = slideStyle
+        
         switch slideStyle {
         case .default(let color, let selColor, let font, let width, let height):
-            setTitleDefaultStyle(norColor: color, selColor: selColor, font: font, width: width, height: height)
-        default:
-            return
+            setTitleDefaultStyle(color, selColor, font, width, height)
+            
+        case .underline(let color, let width, let height, let isEqual):
+            setTitleUnderlineStyle(color, width, height, isEqual)
+            
+        case .titleScale: break
+        case .coverTitle: break
         }
     }
     
-    /**
-     *  设置默认标题属性
-     */
-    private func setTitleDefaultStyle(norColor: UIColor?, selColor: UIColor?, font: UIFont?, width: CGFloat?, height: CGFloat?) {
+    func setTitleDefaultStyle(_ norColor: UIColor?, _ selColor: UIColor?, _ font: CGFloat?, _ width: CGFloat?, _ height: CGFloat?) {
         if let norColor = norColor { titleNormalColor = norColor }
         
         if let selColor = selColor { titleSelectColor = selColor }
         
-        if let font = font { titleFont = font }
+        if let font = font { titleFont = UIFont.systemFont(ofSize: font) }
         
         if let width = width { titleWidth = width }
         
         if let height = height { titleHeight = height }
+    }
+    
+    func setTitleUnderlineStyle(_ color: UIColor?, _ width: CGFloat?, _ height: CGFloat?, _ isEqualToTitle: Bool = true) {
+        if let color = color { underlineColor = color }
+        
+        if let height = height { underlineHieght = height }
+    }
+    
+    func setTitleScaleStyle() {
+        
+    }
+    
+    func setTitleCoverStyle() {
+        
     }
     
     // MARK: - Private Methods
@@ -294,12 +318,11 @@ open class SlideViewController: UIViewController {
         let titleLabel = sender.view as! UILabel
         let index = titleLabel.tag
         
-        // 集合视图偏移
         let xOffset = CGFloat(index) * kFrameWidth
         collectionView.contentOffset = CGPoint(x: xOffset, y: 0)
         
         // 改变标题状态
-        titleStateSelecting(titleLabel)
+        titleStateSelecting(titleLabel, style: style!)
         
         // 记录索引和偏移量
         selectIndex = index
@@ -309,7 +332,8 @@ open class SlideViewController: UIViewController {
     /**
      *  选中标题时更改样式
      */
-    func titleStateSelecting(_ selLabel: UILabel) {
+    func titleStateSelecting(_ selLabel: UILabel,
+                             style: SlideTabBarStyle = .default(nil, nil, nil, nil, nil)) {
         
         selLabel.textColor = titleSelectColor
         for lable in titleLabelsArray {
@@ -319,8 +343,15 @@ open class SlideViewController: UIViewController {
             (lable as! UILabel).textColor = titleNormalColor
         }
         
-        setupUnderline(selLabel)
+        // 居中显示
         setSeltitleToCenter(selLabel)
+        
+        switch style {
+        case .underline(_, _, _, _):
+            setupUnderline(selLabel)
+        default:
+            break
+        }
     }
     
     /**
@@ -369,13 +400,13 @@ open class SlideViewController: UIViewController {
 }
 
 // MARK: -
-extension SlideViewController: UICollectionViewDataSource {
+extension SlideTabController: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.childViewControllers.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideViewController.cellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideTabController.cellIdentifier, for: indexPath)
         
         let controller = self.childViewControllers[indexPath.item] as UIViewController
         controller.view.frame = CGRect(x: 0, y: 0, width: collectionView.width, height: collectionView.height)
@@ -385,14 +416,14 @@ extension SlideViewController: UICollectionViewDataSource {
     }
 }
 
-extension SlideViewController: UICollectionViewDelegate {
+extension SlideTabController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
 }
 
 // MARK: - 
-extension SlideViewController: UIScrollViewDelegate {
+extension SlideTabController: UIScrollViewDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         

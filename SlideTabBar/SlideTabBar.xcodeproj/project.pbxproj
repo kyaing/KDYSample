@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0454784A1E5D922D000F8E9E /* SlideConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045478491E5D922D000F8E9E /* SlideConfigs.swift */; };
 		04DA39FC1E5A98570038F7A6 /* SlideTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA39FB1E5A98570038F7A6 /* SlideTitleLabel.swift */; };
-		04DA39FE1E5A988A0038F7A6 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA39FD1E5A988A0038F7A6 /* SlideViewController.swift */; };
+		04DA39FE1E5A988A0038F7A6 /* SlideTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA39FD1E5A988A0038F7A6 /* SlideTabController.swift */; };
 		04DA3A001E5A9DA30038F7A6 /* SlideFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA39FF1E5A9DA30038F7A6 /* SlideFlowLayout.swift */; };
 		04DA3A021E5ADB720038F7A6 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA3A011E5ADB720038F7A6 /* UIView+Frame.swift */; };
 		180866471E59799800EA1F23 /* SlideTabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180866461E59799800EA1F23 /* SlideTabBarTests.swift */; };
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		045478491E5D922D000F8E9E /* SlideConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideConfigs.swift; sourceTree = "<group>"; };
 		04DA39FB1E5A98570038F7A6 /* SlideTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideTitleLabel.swift; sourceTree = "<group>"; };
-		04DA39FD1E5A988A0038F7A6 /* SlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
+		04DA39FD1E5A988A0038F7A6 /* SlideTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideTabController.swift; sourceTree = "<group>"; };
 		04DA39FF1E5A9DA30038F7A6 /* SlideFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideFlowLayout.swift; sourceTree = "<group>"; };
 		04DA3A011E5ADB720038F7A6 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		1808662E1E59799800EA1F23 /* SlideTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,7 +142,7 @@
 			children = (
 				04DA39FB1E5A98570038F7A6 /* SlideTitleLabel.swift */,
 				04DA39FF1E5A9DA30038F7A6 /* SlideFlowLayout.swift */,
-				04DA39FD1E5A988A0038F7A6 /* SlideViewController.swift */,
+				04DA39FD1E5A988A0038F7A6 /* SlideTabController.swift */,
 				04DA3A011E5ADB720038F7A6 /* UIView+Frame.swift */,
 				045478491E5D922D000F8E9E /* SlideConfigs.swift */,
 			);
@@ -285,7 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0454784A1E5D922D000F8E9E /* SlideConfigs.swift in Sources */,
-				04DA39FE1E5A988A0038F7A6 /* SlideViewController.swift in Sources */,
+				04DA39FE1E5A988A0038F7A6 /* SlideTabController.swift in Sources */,
 				04DA39FC1E5A98570038F7A6 /* SlideTitleLabel.swift in Sources */,
 				183E75C51E5DC0A600337E3C /* SubViewController.swift in Sources */,
 				04DA3A021E5ADB720038F7A6 /* UIView+Frame.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: SlideViewController {
+class ViewController: SlideTabController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +43,10 @@ class ViewController: SlideViewController {
             label.textColor = .white
             controller.view.addSubview(label)
         }
-        
-        // 设置滑动类型
-        setSlideSytle(.default(.brown, .blue, nil, nil, 40))
+    
+        // 设置Slide类型 (参数过多！)
+        setSlideSytle(.default(.brown, .blue, 16, nil, 40))
+        setSlideSytle(.underline(.black, nil, 5, true))
     }
 }
 
