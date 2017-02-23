@@ -1,2 +1,2 @@
 # KDYSampleCode
-一些Swift写的小例子
+Some demos with Swift.
