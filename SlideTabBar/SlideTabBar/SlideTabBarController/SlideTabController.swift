@@ -46,11 +46,17 @@ open class SlideTabController: UIViewController {
     /// 标题间距
     public var titleMargin: CGFloat = 20.0
     
+    /// 下划线宽度
+    var underlineWidth: CGFloat = 0.0
+    
     /// 下划线高度
     var underlineHieght: CGFloat = 3.0
     
     /// 下划线颜色
     var underlineColor: UIColor = .red
+    
+    /// 下划线是否与title等宽
+    var isEqualTitle: Bool = true
     
     /// 选中的下标
     private var selectIndex: Int = 0
@@ -177,10 +183,15 @@ open class SlideTabController: UIViewController {
         if let height = height { titleHeight = height }
     }
     
-    func setTitleUnderlineStyle(_ color: UIColor?, _ width: CGFloat?, _ height: CGFloat?, _ isEqualToTitle: Bool = true) {
+    func setTitleUnderlineStyle(_ color: UIColor?, _ width: CGFloat?, _ height: CGFloat?, _ isEqual: Bool = true) {
         if let color = color { underlineColor = color }
         
         if let height = height { underlineHieght = height }
+        
+        if !isEqual {  // 不与title宽度相等
+            isEqualTitle = isEqual
+            if let width  = width { underlineWidth = width }
+        }
     }
     
     func setTitleScaleStyle() {
@@ -297,9 +308,13 @@ open class SlideTabController: UIViewController {
         underlineView.width   = width
         underlineView.height  = underlineHieght
         
+        if !isEqualTitle {  // 重置宽度
+            underlineView.width = underlineWidth
+        }
+        
         // 初始化时不做动画
         if underlineView.x == 0 {
-            underlineView.x = selLabel.x
+            underlineView.centerX = selLabel.centerX
             
         } else {
             UIView.animate(withDuration: 0.25) {
@@ -385,17 +400,40 @@ open class SlideTabController: UIViewController {
      */
     func setUnderlineAnimation(_ leftLabel: UILabel, _ rightLabel: UILabel, _ offset: CGFloat) {
         
-        let centerDiff = rightLabel.x - leftLabel.x
-        let offsetDiff = offset - lastXOffset
-        
-        let widthDiff  = getLableWidth(labelStr: rightLabel.text!, font: titleFont) - getLableWidth(labelStr: leftLabel.text!, font: titleFont)
-        
-        // xPos和增长的宽度的比例值
-        let xTransform  = centerDiff * (offsetDiff / kFrameWidth)
-        let updateWidth = widthDiff * (offsetDiff / kFrameWidth)
-        
-        underlineView.x += xTransform
-        underlineView.width += updateWidth
+        if isEqualTitle {   // 普通样式
+            let centerDiff = rightLabel.x - leftLabel.x
+            let offsetDiff = offset - lastXOffset
+            
+            let widthDiff  = getLableWidth(labelStr: rightLabel.text!, font: titleFont) - getLableWidth(labelStr: leftLabel.text!, font: titleFont)
+            
+            // xPos和增长的宽度的比例值
+            let xTransform  = centerDiff * (offsetDiff / kFrameWidth)
+            let updateWidth = widthDiff * (offsetDiff / kFrameWidth)
+            
+            underlineView.x += xTransform
+            underlineView.width += updateWidth
+            
+        } else {   // 优酷样式
+            let centerDiff = rightLabel.centerX - leftLabel.centerX - 7.5
+            let offsetDiff = offset - lastXOffset
+            let halfFrameW = kFrameWidth * 0.5
+            var updateWidth: CGFloat = 0
+            
+            if offset <= halfFrameW {
+            
+                let newW = underlineWidth + offset * (centerDiff / halfFrameW )
+                updateWidth = centerDiff * (offsetDiff / halfFrameW)
+                print("offset = \(offsetDiff), updateW = \(updateWidth), centerDiff = \(centerDiff)")
+                underlineView.width = newW
+                
+            } else {
+//                let width =  (offset - halfFrameW) * (underlineView.width / halfFrameW)
+//                print("offset = \(offset - halfFrameW), updateW = \(width), frame = \(halfFrameW)")
+//                
+//                underlineView.width -= width
+//                underlineView.x += width
+            }
+        }
     }
 }
 
