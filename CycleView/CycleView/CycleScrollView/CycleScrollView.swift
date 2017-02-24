@@ -13,14 +13,21 @@ class CycleScrollView: UIView {
     // MARK: - Propertiesvar  
     
     /// 是否自动滚动
-    open let isAutoScroll: Bool = true
+    open var isAutoScroll: Bool! {
+        willSet {
+            if newValue == true {
+                setupTimer()
+            }
+        }
+    }
     
     /// 是否无限滚动
     open let isInfiniteScroll: Bool = true
 
     /// 滚动间隔时间
-    open let autoScrollTime: TimeInterval = 4.0
+    open let autoScrollTime: TimeInterval = 5
     
+    /// 倍数
     open let scrolTimes = 100
     
     /// 传入轮播图urls (至少一个)
@@ -71,22 +78,18 @@ class CycleScrollView: UIView {
     /// pageControl
     fileprivate lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
-        pageControl.frame = CGRect(x: 0, y: self.bounds.height - 30, width: self.bounds.width, height: 30)
+        pageControl.frame = CGRect(x: 0, y: self.bounds.height - 25, width: self.bounds.width, height: 30)
         pageControl.currentPage = 0
+        pageControl.pageIndicatorTintColor = .red
+        pageControl.currentPageIndicatorTintColor = .blue
         
-        self.addSubview(pageControl)
+        self.insertSubview(pageControl, aboveSubview: self.collectionView)
         
         return pageControl
     }()
     
     /// 定时器
-    fileprivate lazy var timer: Timer = {
-        var timer = Timer()
-        timer = Timer.scheduledTimer(timeInterval: self.autoScrollTime, target: self, selector: #selector(CycleScrollView.cycleScrollViewAction), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer, forMode: .commonModes)
-        
-        return timer
-    }()
+    fileprivate var timer: Timer?
     
     /// 具体显示个数
     fileprivate var imgItemCounts = 0
@@ -95,6 +98,7 @@ class CycleScrollView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -108,15 +112,36 @@ class CycleScrollView: UIView {
     // MARK: - Private Methods
     
     func cycleScrollViewAction() {
+        let index = getItemIndex()
+        let nextIndex = index + 1
         
+        let indexPath = IndexPath(row: nextIndex, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
-    func getCurrentImageIndex() {
+    func getImageIndex(_ index: Int) -> Int {
+        return index % (imgUrlsArray.count)
+    }
+    
+    func getItemIndex() -> Int {
+        var index = 0
+        let width = flowLayout.itemSize.width
+        index = Int((collectionView.contentOffset.x + width * 0.5)) / Int(width)
         
+        return index
+    }
+    
+    func setupTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: self.autoScrollTime, repeats: true) { (_) in
+            self.cycleScrollViewAction()
+        }
+        RunLoop.main.add(timer!, forMode: .commonModes)
     }
     
     func invalidateTimer() {
-        timer.invalidate()
+        if let _timer = timer {
+            _timer.invalidate()
+        }
     }
 }
 
@@ -148,7 +173,10 @@ extension CycleScrollView: UICollectionViewDelegate {
 // MARK: - 
 extension CycleScrollView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let index = getItemIndex()
+        let imageIndex = getImageIndex(index)
         
+        pageControl.currentPage = imageIndex
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

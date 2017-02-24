@@ -14,8 +14,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.title = "CycleView"
         
-        let cycleView = CycleScrollView(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: 150))
+        let cycleView = CycleScrollView()
+        cycleView.frame = CGRect(x: 0, y: 100, width: self.view.frame.width, height: 200)
         cycleView.imgUrlsArray = ["http://www.baidu.com", "http://www.baidu2.com", "http://www.baidu3.com"]
+        cycleView.isAutoScroll = true
         self.view.addSubview(cycleView)
     }
 }
