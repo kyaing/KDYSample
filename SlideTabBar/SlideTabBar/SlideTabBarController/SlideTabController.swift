@@ -406,7 +406,7 @@ open class SlideTabController: UIViewController {
             
             let widthDiff  = getLableWidth(labelStr: rightLabel.text!, font: titleFont) - getLableWidth(labelStr: leftLabel.text!, font: titleFont)
             
-            // xPos和增长的宽度的比例值
+            // xPos和增长宽度的比例值
             let xTransform  = centerDiff * (offsetDiff / kFrameWidth)
             let updateWidth = widthDiff * (offsetDiff / kFrameWidth)
             
@@ -414,24 +414,19 @@ open class SlideTabController: UIViewController {
             underlineView.width += updateWidth
             
         } else {   // 优酷样式
-            let centerDiff = rightLabel.centerX - leftLabel.centerX - 7.5
-            let offsetDiff = offset - lastXOffset
+            let centerDiff = rightLabel.x - leftLabel.x
             let halfFrameW = kFrameWidth * 0.5
-            var updateWidth: CGFloat = 0
             
             if offset <= halfFrameW {
-            
                 let newW = underlineWidth + offset * (centerDiff / halfFrameW )
-                updateWidth = centerDiff * (offsetDiff / halfFrameW)
-                print("offset = \(offsetDiff), updateW = \(updateWidth), centerDiff = \(centerDiff)")
                 underlineView.width = newW
-                
+
             } else {
-//                let width =  (offset - halfFrameW) * (underlineView.width / halfFrameW)
-//                print("offset = \(offset - halfFrameW), updateW = \(width), frame = \(halfFrameW)")
-//                
-//                underlineView.width -= width
-//                underlineView.x += width
+                let label = titleLabelsArray[0] as! UILabel
+                underlineView.x = (offset - halfFrameW) * (centerDiff / halfFrameW) + label.centerX - 7.5
+                
+                let width = underlineView.width - (offset - halfFrameW ) * (underlineView.width - underlineWidth) / halfFrameW
+                underlineView.width = width
             }
         }
     }

@@ -48,7 +48,7 @@ class ViewController: SlideTabController {
          * 设置Slide类型 (参数过多，待优化！)
          */
         setSlideSytle(.default(.brown, .blue, 16, nil, 40))
-        setSlideSytle(.underline(.black, 15, 5, false))
+        setSlideSytle(.underline(.black, 15, 5, true))
     }
 }
 
