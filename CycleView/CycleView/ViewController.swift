@@ -12,14 +12,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.title = "CycleView"
+        
+        let cycleView = CycleScrollView(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: 150))
+        cycleView.imgUrlsArray = ["http://www.baidu.com", "http://www.baidu2.com", "http://www.baidu3.com"]
+        self.view.addSubview(cycleView)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
