@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04026D301E5FF2B100A89387 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04026D2F1E5FF2B100A89387 /* AppDelegate.swift */; };
-		04026D321E5FF2B100A89387 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04026D311E5FF2B100A89387 /* ViewController.swift */; };
-		04026D351E5FF2B100A89387 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04026D331E5FF2B100A89387 /* Main.storyboard */; };
-		04026D371E5FF2B100A89387 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04026D361E5FF2B100A89387 /* Assets.xcassets */; };
-		04026D3A1E5FF2B100A89387 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04026D381E5FF2B100A89387 /* LaunchScreen.storyboard */; };
 		04026D451E5FF2B200A89387 /* PermissionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04026D441E5FF2B200A89387 /* PermissionTests.swift */; };
 		04026D501E5FF2B200A89387 /* PermissionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04026D4F1E5FF2B200A89387 /* PermissionUITests.swift */; };
+		183E76441E61486100337E3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E763C1E61486100337E3C /* AppDelegate.swift */; };
+		183E76451E61486100337E3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183E763D1E61486100337E3C /* Assets.xcassets */; };
+		183E76471E61486100337E3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183E76401E61486100337E3C /* Main.storyboard */; };
+		183E76481E61486100337E3C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183E76421E61486100337E3C /* Info.plist */; };
+		183E76491E61486100337E3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76431E61486100337E3C /* ViewController.swift */; };
+		183E764C1E61498500337E3C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183E764B1E61498500337E3C /* Launch Screen.storyboard */; };
+		183E76521E61550200337E3C /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76511E61550200337E3C /* Permissions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +37,19 @@
 
 /* Begin PBXFileReference section */
 		04026D2C1E5FF2B100A89387 /* Permission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Permission.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		04026D2F1E5FF2B100A89387 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04026D311E5FF2B100A89387 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		04026D341E5FF2B100A89387 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		04026D361E5FF2B100A89387 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04026D391E5FF2B100A89387 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		04026D3B1E5FF2B100A89387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04026D401E5FF2B200A89387 /* PermissionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PermissionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04026D441E5FF2B200A89387 /* PermissionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionTests.swift; sourceTree = "<group>"; };
 		04026D461E5FF2B200A89387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04026D4B1E5FF2B200A89387 /* PermissionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PermissionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04026D4F1E5FF2B200A89387 /* PermissionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionUITests.swift; sourceTree = "<group>"; };
 		04026D511E5FF2B200A89387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		183E763C1E61486100337E3C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		183E763D1E61486100337E3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		183E76411E61486100337E3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		183E76421E61486100337E3C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		183E76431E61486100337E3C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		183E764B1E61498500337E3C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		183E76511E61550200337E3C /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +80,7 @@
 		04026D231E5FF2B100A89387 = {
 			isa = PBXGroup;
 			children = (
-				04026D2E1E5FF2B100A89387 /* Permission */,
+				183E763B1E61486100337E3C /* Permission */,
 				04026D431E5FF2B200A89387 /* PermissionTests */,
 				04026D4E1E5FF2B200A89387 /* PermissionUITests */,
 				04026D2D1E5FF2B100A89387 /* Products */,
@@ -92,19 +95,6 @@
 				04026D4B1E5FF2B200A89387 /* PermissionUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		04026D2E1E5FF2B100A89387 /* Permission */ = {
-			isa = PBXGroup;
-			children = (
-				04026D2F1E5FF2B100A89387 /* AppDelegate.swift */,
-				04026D311E5FF2B100A89387 /* ViewController.swift */,
-				04026D331E5FF2B100A89387 /* Main.storyboard */,
-				04026D361E5FF2B100A89387 /* Assets.xcassets */,
-				04026D381E5FF2B100A89387 /* LaunchScreen.storyboard */,
-				04026D3B1E5FF2B100A89387 /* Info.plist */,
-			);
-			path = Permission;
 			sourceTree = "<group>";
 		};
 		04026D431E5FF2B200A89387 /* PermissionTests */ = {
@@ -123,6 +113,28 @@
 				04026D511E5FF2B200A89387 /* Info.plist */,
 			);
 			path = PermissionUITests;
+			sourceTree = "<group>";
+		};
+		183E763B1E61486100337E3C /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				183E763C1E61486100337E3C /* AppDelegate.swift */,
+				183E76431E61486100337E3C /* ViewController.swift */,
+				183E76401E61486100337E3C /* Main.storyboard */,
+				183E764B1E61498500337E3C /* Launch Screen.storyboard */,
+				183E763D1E61486100337E3C /* Assets.xcassets */,
+				183E76421E61486100337E3C /* Info.plist */,
+				183E76501E6154EE00337E3C /* Permissions */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		183E76501E6154EE00337E3C /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				183E76511E61550200337E3C /* Permissions.swift */,
+			);
+			path = Permissions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +247,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04026D3A1E5FF2B100A89387 /* LaunchScreen.storyboard in Resources */,
-				04026D371E5FF2B100A89387 /* Assets.xcassets in Resources */,
-				04026D351E5FF2B100A89387 /* Main.storyboard in Resources */,
+				183E76481E61486100337E3C /* Info.plist in Resources */,
+				183E76471E61486100337E3C /* Main.storyboard in Resources */,
+				183E764C1E61498500337E3C /* Launch Screen.storyboard in Resources */,
+				183E76451E61486100337E3C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +275,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04026D321E5FF2B100A89387 /* ViewController.swift in Sources */,
-				04026D301E5FF2B100A89387 /* AppDelegate.swift in Sources */,
+				183E76491E61486100337E3C /* ViewController.swift in Sources */,
+				183E76521E61550200337E3C /* Permissions.swift in Sources */,
+				183E76441E61486100337E3C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,20 +313,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04026D331E5FF2B100A89387 /* Main.storyboard */ = {
+		183E76401E61486100337E3C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				04026D341E5FF2B100A89387 /* Base */,
+				183E76411E61486100337E3C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		04026D381E5FF2B100A89387 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04026D391E5FF2B100A89387 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -512,6 +518,7 @@
 				04026D561E5FF2B200A89387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04026D571E5FF2B200A89387 /* Build configuration list for PBXNativeTarget "PermissionTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +527,7 @@
 				04026D591E5FF2B200A89387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04026D5A1E5FF2B200A89387 /* Build configuration list for PBXNativeTarget "PermissionUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +536,7 @@
 				04026D5C1E5FF2B200A89387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -13,6 +13,8 @@ public protocol CycleDelegate: NSObjectProtocol {
 }
 
 // MARK: -
+
+/// 轮播图
 public class CycleScrollView: UIView {
     
     // MARK:  Properties

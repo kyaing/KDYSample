@@ -12,6 +12,7 @@ protocol SlideConcig {
     
 }
 
+/// 滑块控制器
 open class SlideTabController: UIViewController {
 
     public enum SlideTabBarStyle {
