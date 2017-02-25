@@ -16,8 +16,27 @@
 		04026D991E5FF35400A89387 /* CycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04026D981E5FF35400A89387 /* CycleScrollView.swift */; };
 		04026D9B1E60058600A89387 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04026D9A1E60058600A89387 /* Launch Screen.storyboard */; };
 		04026D9D1E6006F800A89387 /* CycleScrollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04026D9C1E6006F800A89387 /* CycleScrollCell.swift */; };
-		04026D9F1E60075F00A89387 /* CycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04026D9E1E60075F00A89387 /* CycleModel.swift */; };
-		04026DA11E603FC900A89387 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04026DA01E603FC900A89387 /* placeholder@2x.png */; };
+		183E75C71E60877E00337E3C /* CycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E75C61E60877E00337E3C /* CycleModel.swift */; };
+		183E760F1E6138BF00337E3C /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E75FA1E6138BF00337E3C /* AnimatedImageView.swift */; };
+		183E76101E6138BF00337E3C /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E75FB1E6138BF00337E3C /* Box.swift */; };
+		183E76111E6138BF00337E3C /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E75FC1E6138BF00337E3C /* CacheSerializer.swift */; };
+		183E76121E6138BF00337E3C /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E75FD1E6138BF00337E3C /* Filter.swift */; };
+		183E76131E6138BF00337E3C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E75FE1E6138BF00337E3C /* Image.swift */; };
+		183E76141E6138BF00337E3C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E75FF1E6138BF00337E3C /* ImageCache.swift */; };
+		183E76151E6138BF00337E3C /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76001E6138BF00337E3C /* ImageDownloader.swift */; };
+		183E76161E6138BF00337E3C /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76011E6138BF00337E3C /* ImagePrefetcher.swift */; };
+		183E76171E6138BF00337E3C /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76021E6138BF00337E3C /* ImageProcessor.swift */; };
+		183E76181E6138BF00337E3C /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76031E6138BF00337E3C /* ImageTransition.swift */; };
+		183E76191E6138BF00337E3C /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76041E6138BF00337E3C /* ImageView+Kingfisher.swift */; };
+		183E761A1E6138BF00337E3C /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76051E6138BF00337E3C /* Indicator.swift */; };
+		183E761B1E6138BF00337E3C /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76071E6138BF00337E3C /* Kingfisher.swift */; };
+		183E761C1E6138BF00337E3C /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76081E6138BF00337E3C /* KingfisherManager.swift */; };
+		183E761D1E6138BF00337E3C /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76091E6138BF00337E3C /* KingfisherOptionsInfo.swift */; };
+		183E761E1E6138BF00337E3C /* RequestModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E760A1E6138BF00337E3C /* RequestModifier.swift */; };
+		183E761F1E6138BF00337E3C /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E760B1E6138BF00337E3C /* Resource.swift */; };
+		183E76201E6138BF00337E3C /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E760C1E6138BF00337E3C /* String+MD5.swift */; };
+		183E76211E6138BF00337E3C /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E760D1E6138BF00337E3C /* ThreadHelper.swift */; };
+		183E76221E6138BF00337E3C /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E760E1E6138BF00337E3C /* UIButton+Kingfisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +72,49 @@
 		04026D981E5FF35400A89387 /* CycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleScrollView.swift; sourceTree = "<group>"; };
 		04026D9A1E60058600A89387 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		04026D9C1E6006F800A89387 /* CycleScrollCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleScrollCell.swift; sourceTree = "<group>"; };
-		04026D9E1E60075F00A89387 /* CycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleModel.swift; sourceTree = "<group>"; };
-		04026DA01E603FC900A89387 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
+		183E75C61E60877E00337E3C /* CycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleModel.swift; sourceTree = "<group>"; };
+		183E75FA1E6138BF00337E3C /* AnimatedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
+		183E75FB1E6138BF00337E3C /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		183E75FC1E6138BF00337E3C /* CacheSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheSerializer.swift; sourceTree = "<group>"; };
+		183E75FD1E6138BF00337E3C /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		183E75FE1E6138BF00337E3C /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		183E75FF1E6138BF00337E3C /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		183E76001E6138BF00337E3C /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		183E76011E6138BF00337E3C /* ImagePrefetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePrefetcher.swift; sourceTree = "<group>"; };
+		183E76021E6138BF00337E3C /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		183E76031E6138BF00337E3C /* ImageTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
+		183E76041E6138BF00337E3C /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		183E76051E6138BF00337E3C /* Indicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		183E76061E6138BF00337E3C /* Kingfisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kingfisher.h; sourceTree = "<group>"; };
+		183E76071E6138BF00337E3C /* Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
+		183E76081E6138BF00337E3C /* KingfisherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherManager.swift; sourceTree = "<group>"; };
+		183E76091E6138BF00337E3C /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
+		183E760A1E6138BF00337E3C /* RequestModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModifier.swift; sourceTree = "<group>"; };
+		183E760B1E6138BF00337E3C /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		183E760C1E6138BF00337E3C /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		183E760D1E6138BF00337E3C /* ThreadHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadHelper.swift; sourceTree = "<group>"; };
+		183E760E1E6138BF00337E3C /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
+		183E76251E613BF100337E3C /* AnimatedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
+		183E76261E613BF100337E3C /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		183E76271E613BF100337E3C /* CacheSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheSerializer.swift; sourceTree = "<group>"; };
+		183E76281E613BF100337E3C /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		183E76291E613BF100337E3C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		183E762A1E613BF100337E3C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		183E762B1E613BF100337E3C /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		183E762C1E613BF100337E3C /* ImagePrefetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePrefetcher.swift; sourceTree = "<group>"; };
+		183E762D1E613BF100337E3C /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		183E762E1E613BF100337E3C /* ImageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
+		183E762F1E613BF100337E3C /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		183E76301E613BF100337E3C /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		183E76311E613BF100337E3C /* Kingfisher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kingfisher.h; sourceTree = "<group>"; };
+		183E76321E613BF100337E3C /* Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kingfisher.swift; sourceTree = "<group>"; };
+		183E76331E613BF100337E3C /* KingfisherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherManager.swift; sourceTree = "<group>"; };
+		183E76341E613BF100337E3C /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
+		183E76351E613BF100337E3C /* RequestModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModifier.swift; sourceTree = "<group>"; };
+		183E76361E613BF100337E3C /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		183E76371E613BF100337E3C /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		183E76381E613BF100337E3C /* ThreadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadHelper.swift; sourceTree = "<group>"; };
+		183E76391E613BF100337E3C /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +149,7 @@
 				04026D7D1E5FF2D700A89387 /* CycleViewTests */,
 				04026D881E5FF2D700A89387 /* CycleViewUITests */,
 				04026D671E5FF2D700A89387 /* Products */,
+				183E76231E613BF100337E3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +172,7 @@
 				04026D9A1E60058600A89387 /* Launch Screen.storyboard */,
 				04026D701E5FF2D700A89387 /* Assets.xcassets */,
 				04026D751E5FF2D700A89387 /* Info.plist */,
+				183E75F91E6138BF00337E3C /* Kingfisher */,
 				04026D971E5FF30B00A89387 /* CycleScrollView */,
 			);
 			path = CycleView;
@@ -137,12 +199,76 @@
 		04026D971E5FF30B00A89387 /* CycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				04026D981E5FF35400A89387 /* CycleScrollView.swift */,
+				183E75C61E60877E00337E3C /* CycleModel.swift */,
 				04026D9C1E6006F800A89387 /* CycleScrollCell.swift */,
-				04026D9E1E60075F00A89387 /* CycleModel.swift */,
-				04026DA01E603FC900A89387 /* placeholder@2x.png */,
+				04026D981E5FF35400A89387 /* CycleScrollView.swift */,
 			);
 			path = CycleScrollView;
+			sourceTree = "<group>";
+		};
+		183E75F91E6138BF00337E3C /* Kingfisher */ = {
+			isa = PBXGroup;
+			children = (
+				183E75FA1E6138BF00337E3C /* AnimatedImageView.swift */,
+				183E75FB1E6138BF00337E3C /* Box.swift */,
+				183E75FC1E6138BF00337E3C /* CacheSerializer.swift */,
+				183E75FD1E6138BF00337E3C /* Filter.swift */,
+				183E75FE1E6138BF00337E3C /* Image.swift */,
+				183E75FF1E6138BF00337E3C /* ImageCache.swift */,
+				183E76001E6138BF00337E3C /* ImageDownloader.swift */,
+				183E76011E6138BF00337E3C /* ImagePrefetcher.swift */,
+				183E76021E6138BF00337E3C /* ImageProcessor.swift */,
+				183E76031E6138BF00337E3C /* ImageTransition.swift */,
+				183E76041E6138BF00337E3C /* ImageView+Kingfisher.swift */,
+				183E76051E6138BF00337E3C /* Indicator.swift */,
+				183E76061E6138BF00337E3C /* Kingfisher.h */,
+				183E76071E6138BF00337E3C /* Kingfisher.swift */,
+				183E76081E6138BF00337E3C /* KingfisherManager.swift */,
+				183E76091E6138BF00337E3C /* KingfisherOptionsInfo.swift */,
+				183E760A1E6138BF00337E3C /* RequestModifier.swift */,
+				183E760B1E6138BF00337E3C /* Resource.swift */,
+				183E760C1E6138BF00337E3C /* String+MD5.swift */,
+				183E760D1E6138BF00337E3C /* ThreadHelper.swift */,
+				183E760E1E6138BF00337E3C /* UIButton+Kingfisher.swift */,
+			);
+			path = Kingfisher;
+			sourceTree = "<group>";
+		};
+		183E76231E613BF100337E3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				183E76241E613BF100337E3C /* Kingfisher */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		183E76241E613BF100337E3C /* Kingfisher */ = {
+			isa = PBXGroup;
+			children = (
+				183E76251E613BF100337E3C /* AnimatedImageView.swift */,
+				183E76261E613BF100337E3C /* Box.swift */,
+				183E76271E613BF100337E3C /* CacheSerializer.swift */,
+				183E76281E613BF100337E3C /* Filter.swift */,
+				183E76291E613BF100337E3C /* Image.swift */,
+				183E762A1E613BF100337E3C /* ImageCache.swift */,
+				183E762B1E613BF100337E3C /* ImageDownloader.swift */,
+				183E762C1E613BF100337E3C /* ImagePrefetcher.swift */,
+				183E762D1E613BF100337E3C /* ImageProcessor.swift */,
+				183E762E1E613BF100337E3C /* ImageTransition.swift */,
+				183E762F1E613BF100337E3C /* ImageView+Kingfisher.swift */,
+				183E76301E613BF100337E3C /* Indicator.swift */,
+				183E76311E613BF100337E3C /* Kingfisher.h */,
+				183E76321E613BF100337E3C /* Kingfisher.swift */,
+				183E76331E613BF100337E3C /* KingfisherManager.swift */,
+				183E76341E613BF100337E3C /* KingfisherOptionsInfo.swift */,
+				183E76351E613BF100337E3C /* RequestModifier.swift */,
+				183E76361E613BF100337E3C /* Resource.swift */,
+				183E76371E613BF100337E3C /* String+MD5.swift */,
+				183E76381E613BF100337E3C /* ThreadHelper.swift */,
+				183E76391E613BF100337E3C /* UIButton+Kingfisher.swift */,
+			);
+			name = Kingfisher;
+			path = CycleView/Kingfisher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +383,6 @@
 			files = (
 				04026D9B1E60058600A89387 /* Launch Screen.storyboard in Resources */,
 				04026D711E5FF2D700A89387 /* Assets.xcassets in Resources */,
-				04026DA11E603FC900A89387 /* placeholder@2x.png in Resources */,
 				04026D6F1E5FF2D700A89387 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,11 +408,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183E76141E6138BF00337E3C /* ImageCache.swift in Sources */,
+				183E76181E6138BF00337E3C /* ImageTransition.swift in Sources */,
 				04026D6C1E5FF2D700A89387 /* ViewController.swift in Sources */,
+				183E761F1E6138BF00337E3C /* Resource.swift in Sources */,
+				183E761B1E6138BF00337E3C /* Kingfisher.swift in Sources */,
+				183E76221E6138BF00337E3C /* UIButton+Kingfisher.swift in Sources */,
+				183E76211E6138BF00337E3C /* ThreadHelper.swift in Sources */,
+				183E76101E6138BF00337E3C /* Box.swift in Sources */,
 				04026D6A1E5FF2D700A89387 /* AppDelegate.swift in Sources */,
+				183E76171E6138BF00337E3C /* ImageProcessor.swift in Sources */,
+				183E761A1E6138BF00337E3C /* Indicator.swift in Sources */,
 				04026D991E5FF35400A89387 /* CycleScrollView.swift in Sources */,
-				04026D9F1E60075F00A89387 /* CycleModel.swift in Sources */,
+				183E761E1E6138BF00337E3C /* RequestModifier.swift in Sources */,
+				183E75C71E60877E00337E3C /* CycleModel.swift in Sources */,
+				183E76191E6138BF00337E3C /* ImageView+Kingfisher.swift in Sources */,
 				04026D9D1E6006F800A89387 /* CycleScrollCell.swift in Sources */,
+				183E761D1E6138BF00337E3C /* KingfisherOptionsInfo.swift in Sources */,
+				183E76111E6138BF00337E3C /* CacheSerializer.swift in Sources */,
+				183E76161E6138BF00337E3C /* ImagePrefetcher.swift in Sources */,
+				183E761C1E6138BF00337E3C /* KingfisherManager.swift in Sources */,
+				183E76121E6138BF00337E3C /* Filter.swift in Sources */,
+				183E760F1E6138BF00337E3C /* AnimatedImageView.swift in Sources */,
+				183E76151E6138BF00337E3C /* ImageDownloader.swift in Sources */,
+				183E76201E6138BF00337E3C /* String+MD5.swift in Sources */,
+				183E76131E6138BF00337E3C /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +573,7 @@
 		04026D8F1E5FF2D700A89387 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 36D935N6NX;
 				INFOPLIST_FILE = CycleView/Info.plist;
@@ -435,12 +581,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.CycleView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "${SRCRoot}";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "${SRCRoot}";
 			};
 			name = Debug;
 		};
 		04026D901E5FF2D700A89387 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 36D935N6NX;
 				INFOPLIST_FILE = CycleView/Info.plist;
@@ -448,6 +597,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.CycleView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "${SRCRoot}";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "${SRCRoot}";
 			};
 			name = Release;
 		};
@@ -528,6 +679,7 @@
 				04026D901E5FF2D700A89387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04026D911E5FF2D700A89387 /* Build configuration list for PBXNativeTarget "CycleViewTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +688,7 @@
 				04026D931E5FF2D700A89387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04026D941E5FF2D700A89387 /* Build configuration list for PBXNativeTarget "CycleViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +697,7 @@
 				04026D961E5FF2D700A89387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,12 +8,19 @@
 
 import UIKit
 
-class CycleScrollView: UIView {
+public protocol CycleDelegate: NSObjectProtocol {
+    func didSelectImageItem()
+}
+
+// MARK: -
+public class CycleScrollView: UIView {
     
-    // MARK: - Propertiesvar  
+    // MARK:  Properties
+    
+    public weak var delegate: CycleDelegate?
     
     /// 是否自动滚动
-    open var isAutoScroll: Bool! {
+    public var isAutoScroll: Bool! {
         willSet {
             if newValue == true {
                 setupTimer()
@@ -22,16 +29,16 @@ class CycleScrollView: UIView {
     }
     
     /// 是否无限滚动
-    open let isInfiniteScroll: Bool = true
+    public let isInfiniteScroll: Bool = true
 
     /// 滚动间隔时间
-    open let autoScrollTime: TimeInterval = 5
+    public let autoScrollTime: TimeInterval = 4.0
     
     /// 倍数
-    open let scrolTimes = 100
+    public let scrolTimes = 100
     
     /// 传入轮播图urls (至少一个)
-    open var imgUrlsArray: NSMutableArray! {
+    public var imgUrlsArray: NSMutableArray! {
         willSet {
             invalidateTimer()
             
@@ -43,7 +50,7 @@ class CycleScrollView: UIView {
     }
     
     /// 占位图
-    open var placehodlerImage: UIImage? = nil
+    public var placehodlerImage: UIImage? = nil
     
     fileprivate let cellIdentifier = "cycleCell"
     
@@ -80,8 +87,6 @@ class CycleScrollView: UIView {
         let pageControl = UIPageControl()
         pageControl.frame = CGRect(x: 0, y: self.bounds.height - 25, width: self.bounds.width, height: 30)
         pageControl.currentPage = 0
-        pageControl.pageIndicatorTintColor = .red
-        pageControl.currentPageIndicatorTintColor = .blue
         
         self.insertSubview(pageControl, aboveSubview: self.collectionView)
         
@@ -94,14 +99,13 @@ class CycleScrollView: UIView {
     /// 具体显示个数
     fileprivate var imgItemCounts = 0
     
-    // MARK: - Life Cycle 
+    // MARK: Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -109,7 +113,7 @@ class CycleScrollView: UIView {
         invalidateTimer()
     }
     
-    // MARK: - Private Methods
+    // MARK: Private Methods
     
     func cycleScrollViewAction() {
         let index = getItemIndex()
@@ -147,44 +151,47 @@ class CycleScrollView: UIView {
 
 // MARK: - 
 extension CycleScrollView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgItemCounts
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CycleScrollCell
         
-        //let item = indexPath.item % imgUrlsArray.count
-        //let imgUrl = imgUrlsArray.object(at: item)
+        let item = indexPath.item % imgUrlsArray.count
+        let imgUrl = imgUrlsArray.object(at: item)
         
-        cell.imageView.image = UIImage(named: "placeholder")
+        cell.imageView.kf.setImage(with: URL(string: imgUrl as! String), placeholder: UIImage(named: ""), options: nil, progressBlock: nil, completionHandler: nil)
         
         return cell
     }
 }
 
 extension CycleScrollView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
+        if let delegate = delegate {
+            delegate.didSelectImageItem()
+        }
     }
 }
 
 // MARK: - 
 extension CycleScrollView: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let index = getItemIndex()
         let imageIndex = getImageIndex(index)
         
         pageControl.currentPage = imageIndex
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        invalidateTimer()
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        setupTimer()
     }
 }
 
