@@ -16,6 +16,7 @@
 		183E76491E61486100337E3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76431E61486100337E3C /* ViewController.swift */; };
 		183E764C1E61498500337E3C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183E764B1E61498500337E3C /* Launch Screen.storyboard */; };
 		183E76521E61550200337E3C /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E76511E61550200337E3C /* Permissions.swift */; };
+		183E76541E62C8B500337E3C /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183E76531E62C8B500337E3C /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		183E76431E61486100337E3C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		183E764B1E61498500337E3C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		183E76511E61550200337E3C /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		183E76531E62C8B500337E3C /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				183E763C1E61486100337E3C /* AppDelegate.swift */,
+				183E76531E62C8B500337E3C /* ViewController.xib */,
 				183E76431E61486100337E3C /* ViewController.swift */,
 				183E76401E61486100337E3C /* Main.storyboard */,
 				183E764B1E61498500337E3C /* Launch Screen.storyboard */,
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183E76541E62C8B500337E3C /* ViewController.xib in Resources */,
 				183E76481E61486100337E3C /* Info.plist in Resources */,
 				183E76471E61486100337E3C /* Main.storyboard in Resources */,
 				183E764C1E61498500337E3C /* Launch Screen.storyboard in Resources */,
@@ -420,9 +424,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 36D935N6NX;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = Permission/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.Permission;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -433,9 +439,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 36D935N6NX;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = Permission/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.Permission;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
