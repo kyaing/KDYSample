@@ -18,8 +18,16 @@ class ViewController: UIViewController {
     // MARK: - Permission
     
     @IBAction func requestContacts(_ sender: Any) {
-        let stautus = Permissions.default.statusOfContacts()
-        print("\(stautus.description)")
+        let status = Permissions.default.statusOfContacts()
+        print("status = \(status.description)")
+        
+        Permissions.default.requestAccessContacts(agree: {
+            print("Agree access contacts")
+            self.showPermissionAlert(.contacts, success: true)
+        }) {
+            print("Denied access contacts")
+            self.showPermissionAlert(.contacts)
+        }
     }
     
     @IBAction func requestPhotos(_ sender: Any) {
