@@ -22,20 +22,32 @@ class ViewController: UIViewController {
         print("status = \(status.description)")
         
         Permissions.default.requestAccessContacts(agree: {
-            print("Agree access contacts")
             self.showPermissionAlert(.contacts, success: true)
         }) {
-            print("Denied access contacts")
             self.showPermissionAlert(.contacts)
         }
     }
     
     @IBAction func requestPhotos(_ sender: Any) {
+        let status = Permissions.default.statusOfPhotos()
+        print("status = \(status.description)")
         
+        Permissions.default.requestAccessPhotos(agree: { 
+            self.showPermissionAlert(.photos, success: true)
+        }) { 
+            self.showPermissionAlert(.photos)
+        }
     }
     
     @IBAction func requestCamera(_ sender: Any) {
+        let status = Permissions.default.statusOfCamera()
+        print("status = \(status.description)")
         
+        Permissions.default.requestAccessCamera(agree: {
+            self.showPermissionAlert(.camera, success: true)
+        }) {
+            self.showPermissionAlert(.camera)
+        }
     }
     
     @IBAction func requestLocation(_ sender: Any) {

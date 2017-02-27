@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		04026D451E5FF2B200A89387 /* PermissionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04026D441E5FF2B200A89387 /* PermissionTests.swift */; };
 		04026D501E5FF2B200A89387 /* PermissionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04026D4F1E5FF2B200A89387 /* PermissionUITests.swift */; };
-		04026DA41E63C8F900A89387 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04026DA31E63C8F900A89387 /* Photos.framework */; };
-		04026DA61E63C90500A89387 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04026DA51E63C90500A89387 /* AddressBook.framework */; };
-		04026DA81E63C90B00A89387 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04026DA71E63C90B00A89387 /* Contacts.framework */; };
 		183E76441E61486100337E3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E763C1E61486100337E3C /* AppDelegate.swift */; };
 		183E76451E61486100337E3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183E763D1E61486100337E3C /* Assets.xcassets */; };
 		183E76471E61486100337E3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183E76401E61486100337E3C /* Main.storyboard */; };
@@ -47,9 +44,6 @@
 		04026D4B1E5FF2B200A89387 /* PermissionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PermissionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04026D4F1E5FF2B200A89387 /* PermissionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionUITests.swift; sourceTree = "<group>"; };
 		04026D511E5FF2B200A89387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04026DA31E63C8F900A89387 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		04026DA51E63C90500A89387 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		04026DA71E63C90B00A89387 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		183E763C1E61486100337E3C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		183E763D1E61486100337E3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		183E76411E61486100337E3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,9 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04026DA81E63C90B00A89387 /* Contacts.framework in Frameworks */,
-				04026DA61E63C90500A89387 /* AddressBook.framework in Frameworks */,
-				04026DA41E63C8F900A89387 /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +86,6 @@
 				04026D431E5FF2B200A89387 /* PermissionTests */,
 				04026D4E1E5FF2B200A89387 /* PermissionUITests */,
 				04026D2D1E5FF2B100A89387 /* Products */,
-				04026DA21E63C8F800A89387 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,16 +115,6 @@
 				04026D511E5FF2B200A89387 /* Info.plist */,
 			);
 			path = PermissionUITests;
-			sourceTree = "<group>";
-		};
-		04026DA21E63C8F800A89387 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				04026DA71E63C90B00A89387 /* Contacts.framework */,
-				04026DA51E63C90500A89387 /* AddressBook.framework */,
-				04026DA31E63C8F900A89387 /* Photos.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		183E763B1E61486100337E3C /* Permission */ = {

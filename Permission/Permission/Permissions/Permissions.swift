@@ -10,6 +10,8 @@ import UIKit
 import Contacts
 import AddressBook
 import Photos
+import AssetsLibrary
+import AVFoundation
 
 public enum PermissionType: CustomStringConvertible {
     case contacts
@@ -55,24 +57,18 @@ public class Permissions: NSObject {
     
     func statusOfContacts() -> PermissionStatus {
         if #available(iOS 9.0, *) {
-            let contactStatus = CNContactStore.authorizationStatus(for: .contacts)
-            switch contactStatus {
-            case .authorized:
-                return .authorized
-            case .notDetermined:
-                return .notDetermined
-            case .denied, .restricted:
-                return .denied
+            let status = CNContactStore.authorizationStatus(for: .contacts)
+            switch status {
+            case .authorized:           return .authorized
+            case .notDetermined:        return .notDetermined
+            case .denied, .restricted:  return .denied
             }
         } else {
-            let contactStatus = ABAddressBookGetAuthorizationStatus()
-            switch contactStatus {
-            case .authorized:
-                return .authorized
-            case .notDetermined:
-                return .notDetermined
-            case .denied, .restricted:
-                return .denied
+            let status = ABAddressBookGetAuthorizationStatus()
+            switch status {
+            case .authorized:           return .authorized
+            case .notDetermined:        return .notDetermined
+            case .denied, .restricted:  return .denied
             }
         }
     }
@@ -106,12 +102,54 @@ public class Permissions: NSObject {
     
     // MARK: Photos
     func statusOfPhotos() -> PermissionStatus {
-        return .authorized
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:           return .authorized
+        case .notDetermined:        return .notDetermined
+        case .denied, .restricted:  return .denied
+        }
     }
     
     func requestAccessPhotos(agree agreeColsure: @escaping AccessColsure,
                              denied deniedColsure: @escaping AccessColsure) {
         
+        let photoStatus = statusOfPhotos()
+        switch photoStatus {
+        case .authorized:  agreeColsure()
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization { status in
+                switch status {
+                case .authorized:  agreeColsure()
+                default: deniedColsure()
+                }
+            }
+            
+        case .denied: deniedColsure()
+        }
+    }
+    
+    // MARK: Camera
+    func statusOfCamera() -> PermissionStatus {
+        let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        switch status {
+        case .authorized:           return .authorized
+        case .notDetermined:        return .notDetermined
+        case .denied, .restricted:  return .denied
+        }
+    }
+    
+    func requestAccessCamera(agree agreeColsure: @escaping AccessColsure,
+                             denied deniedColsure: @escaping AccessColsure) {
+        
+        let cameraStatus = statusOfCamera()
+        switch cameraStatus {
+        case .authorized:  agreeColsure()
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo) { (granted) in
+                granted == true ? agreeColsure() : deniedColsure()
+            }
+        case .denied: deniedColsure()
+        }
     }
 }
 
@@ -121,17 +159,19 @@ extension UIViewController {
     public func showPermissionAlert(_ style: PermissionType, success agree: Bool = false) {
         
         if agree {
-            var message = ""
-            switch style {
-            case .contacts:  message = "成功访问通讯录权限"
-            case .photos:    message = "成功访问照片权限"
-            case .camera:    message = "成功访问相机权限"
-            }
-            
-            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            let doneAction = UIAlertAction(title: "确定", style: .default, handler: nil)
-            alert.addAction(doneAction)
-            self.present(alert, animated: true, completion: nil)
+            #if DEBUG
+                var message = ""
+                switch style {
+                case .contacts:  message = "成功访问【通讯录】权限"
+                case .photos:    message = "成功访问【照片】权限"
+                case .camera:    message = "成功访问【相机】权限"
+                }
+                
+                let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "确定", style: .default, handler: nil)
+                alert.addAction(doneAction)
+                self.present(alert, animated: true, completion: nil)
+            #endif
             
         } else {
             var title = "", message = ""
@@ -164,7 +204,6 @@ extension UIViewController {
 // MARK: -
 public class ContactsManager: NSObject {
     
-    //
     public func getContacts() -> String {
         return ""
     }
@@ -172,8 +211,7 @@ public class ContactsManager: NSObject {
 
 // MARK: - 
 public class LocationManager: NSObject {
-    
-    //
+
     public func getLocations() -> (Float, Float) {
         return (2.0, 3.0)
     }
