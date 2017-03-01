@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -18,9 +19,6 @@ class ViewController: UIViewController {
     // MARK: - Permission
     
     @IBAction func requestContacts(_ sender: Any) {
-        let status = Permissions.default.statusOfContacts()
-        print("status = \(status.description)")
-        
         Permissions.default.requestAccessContacts(agree: {
             self.showPermissionAlert(.contacts, success: true)
         }) {
@@ -29,9 +27,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestPhotos(_ sender: Any) {
-        let status = Permissions.default.statusOfPhotos()
-        print("status = \(status.description)")
-        
         Permissions.default.requestAccessPhotos(agree: { 
             self.showPermissionAlert(.photos, success: true)
         }) { 
@@ -40,9 +35,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestCamera(_ sender: Any) {
-        let status = Permissions.default.statusOfCamera()
-        print("status = \(status.description)")
-        
         Permissions.default.requestAccessCamera(agree: {
             self.showPermissionAlert(.camera, success: true)
         }) {
@@ -51,7 +43,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestLocation(_ sender: Any) {
-        
+        Permissions.default.requestAccessLocation(.whenInUsage, agree: { 
+            self.showPermissionAlert(.location(.whenInUsage), success: true)
+        }) { 
+            self.showPermissionAlert(.location(.whenInUsage))
+        }
     }
     
     @IBAction func requestNotification(_ sender: Any) {
@@ -59,7 +55,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestVoice(_ sender: Any) {
-        
+        Permissions.default.requestAccessMicophone(agree: { 
+            self.showPermissionAlert(.microphone, success: true)
+        }) { 
+            self.showPermissionAlert(.microphone)
+        }
     }
     
     @IBAction func requestCalendar(_ sender: Any) {

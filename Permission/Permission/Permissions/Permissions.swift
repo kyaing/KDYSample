@@ -12,17 +12,28 @@ import AddressBook
 import Photos
 import AssetsLibrary
 import AVFoundation
+import CoreLocation
 
 public enum PermissionType: CustomStringConvertible {
+    
+    public enum LocationUsage {
+        case always
+        case whenInUsage
+    }
+    
     case contacts
     case photos
     case camera
+    case microphone
+    case location(LocationUsage)
     
     public var description: String {
         switch self {
-        case .contacts: return "Contacts"
-        case .photos:   return "Photos"
-        case .camera:   return "Camera"
+        case .contacts:     return "Contacts"
+        case .photos:       return "Photos"
+        case .camera:       return "Camera"
+        case .microphone:   return "Microphone"
+        case .location:     return "Location"
         }
     }
 }
@@ -151,6 +162,62 @@ public class Permissions: NSObject {
         case .denied: deniedColsure()
         }
     }
+    
+    // MARK: Microphone
+    func statusOfMicophone() -> PermissionStatus {
+        let status = AVAudioSession.sharedInstance().recordPermission()
+
+        switch status {
+        case AVAudioSessionRecordPermission.granted:      return .authorized
+        case AVAudioSessionRecordPermission.undetermined: return .notDetermined
+        case AVAudioSessionRecordPermission.denied:       return .denied
+        default: return .denied
+        }
+    }
+    
+    func requestAccessMicophone(agree agreeColsure: @escaping AccessColsure,
+                                denied deniedColsure: @escaping AccessColsure) {
+        let status = statusOfMicophone()
+        switch status {
+        case .authorized:  agreeColsure()
+        case .notDetermined:
+            AVAudioSession.sharedInstance().requestRecordPermission { granted in
+                granted == true ? agreeColsure() : deniedColsure()
+            }
+        case .denied: deniedColsure()
+        }
+    }
+    
+    // MARK: Location
+    func statusOfLocation() -> PermissionStatus {
+        let status = CLLocationManager.authorizationStatus()
+        switch status {
+        case .authorizedAlways:     return .authorized
+        case .authorizedWhenInUse:  return .authorized
+        case .notDetermined:        return .notDetermined
+        case .denied, .restricted:  return .denied
+        }
+    }
+    
+    func requestAccessLocation(_ useage: PermissionType.LocationUsage, agree agreeColsure: @escaping AccessColsure,
+                               denied deniedColsure: @escaping AccessColsure) {
+        let status = statusOfLocation()
+        switch status {
+        case .authorized:
+            if useage == .always {
+                
+            } else if useage == .whenInUsage {
+                
+            }
+        case .notDetermined:
+            if CLLocationManager.locationServicesEnabled() {
+                
+            } else {
+                deniedColsure()
+            }
+        case .denied: deniedColsure()
+        }
+    }
 }
 
 // MARK: -
@@ -162,9 +229,11 @@ extension UIViewController {
             #if DEBUG
                 var message = ""
                 switch style {
-                case .contacts:  message = "成功访问【通讯录】权限"
-                case .photos:    message = "成功访问【照片】权限"
-                case .camera:    message = "成功访问【相机】权限"
+                case .contacts:     message = "成功访问【通讯录】权限"
+                case .photos:       message = "成功访问【照片】权限"
+                case .camera:       message = "成功访问【相机】权限"
+                case .microphone:   message = "成功访问【麦克风】权限"
+                case .location:     message = "成功访问【定位】权限"
                 }
                 
                 let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
@@ -176,9 +245,11 @@ extension UIViewController {
         } else {
             var title = "", message = ""
             switch style {
-            case .contacts:  title = "通讯录权限未开启"; message = "进入设置-隐私-通讯录，开启通讯录功能"
-            case .photos:    title = "照片权限未开启";   message = "进入设置-隐私-照片，开启照片功能"
-            case .camera:    title = "相机权限未开启";   message = "进入设置-隐私-相机，开启相机功能"
+            case .contacts:     title = "通讯录权限未开启"; message = "进入设置-隐私-通讯录，开启通讯录功能"
+            case .photos:       title = "照片权限未开启";   message = "进入设置-隐私-照片，开启照片功能"
+            case .camera:       title = "相机权限未开启";   message = "进入设置-隐私-相机，开启相机功能"
+            case .microphone:   title = "麦克风权限未开启"; message = "进入设置-隐私-麦克风，开启麦克风功能"
+            case .location:     title = "定位权限未开启"; message = "进入设置-隐私-定位，开启定位功能"
             }
             
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
