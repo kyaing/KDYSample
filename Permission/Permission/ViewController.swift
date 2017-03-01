@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestLocation(_ sender: Any) {
-        Permissions.default.requestAccessLocation(.whenInUsage, agree: { 
+        Permissions.default.requestAccessLocation(.whenInUsage, agree: {
             self.showPermissionAlert(.location(.whenInUsage), success: true)
         }) { 
             self.showPermissionAlert(.location(.whenInUsage))
