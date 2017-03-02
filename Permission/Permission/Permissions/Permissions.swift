@@ -12,6 +12,7 @@ import AddressBook
 import Photos
 import AssetsLibrary
 import AVFoundation
+import UserNotifications
 import CoreLocation
 import EventKit
 import CoreBluetooth
@@ -32,6 +33,7 @@ public enum PermissionType: CustomStringConvertible {
     case photos
     case camera
     case microphone
+    case notification
     case location(LocationUsage)
     case event(EventType)
     case bluetooth
@@ -42,6 +44,7 @@ public enum PermissionType: CustomStringConvertible {
         case .photos:       return "Photos"
         case .camera:       return "Camera"
         case .microphone:   return "Microphone"
+        case .notification: return "NOtification"
         case .location:     return "Location"
         case .event:        return "Event"
         case .bluetooth:    return "Bluetooth"
@@ -83,6 +86,21 @@ public class Permissions: NSObject {
     
     public var deniedColsure: AccessColsure!
     
+    open func requestPermission(_ type: PermissionType, agree agreeColsure: @escaping AccessColsure,
+                                 denied deniedColsure: @escaping AccessColsure) {
+        
+        switch type {
+        case .contacts:            requestContacts(agree: agreeColsure, denied: deniedColsure)
+        case .photos:              requestPhotos(agree: agreeColsure, denied: deniedColsure)
+        case .camera:              requestCamera(agree: agreeColsure, denied: deniedColsure)
+        case .microphone:          requestMicophone(agree: agreeColsure, denied: deniedColsure)
+        case .notification:        requestNotification(agree: agreeColsure, denied: deniedColsure)
+        case .location(let usage): requestLocation(usage, agree: agreeColsure, denied: deniedColsure)
+        case .event(let event):    requestEvent(event, agree: agreeColsure, denied: deniedColsure)
+        case .bluetooth:           requestBluetooth(agree: agreeColsure, denied: deniedColsure)
+        }
+    }
+    
     // MARK: Contacts
     
     func statusOfContacts() -> PermissionStatus {
@@ -103,30 +121,22 @@ public class Permissions: NSObject {
         }
     }
     
-    func requestAccessContacts(agree agreeColsure: @escaping AccessColsure,
+    func requestContacts(agree agreeColsure: @escaping AccessColsure,
                                denied deniedColsure: @escaping AccessColsure) {
         
         let contactStatus = statusOfContacts()
         switch contactStatus {
-        case .authorized:
-            agreeColsure()
-            
+        case .authorized:  agreeColsure()
         case .notDetermined:
             if #available(iOS 9.0, *) {
                 let contactStore = CNContactStore()
-                contactStore.requestAccess(for: .contacts, completionHandler: { (granted, error) in
-                    if granted {
-                        agreeColsure()
-                    } else {
-                        deniedColsure()
-                    }
-                })
+                contactStore.requestAccess(for: .contacts) { (granted, error) in
+                    granted == true ? agreeColsure() : deniedColsure()
+                }
             } else {
                
             }
-        
-        case .denied:
-            deniedColsure()
+        case .denied:  deniedColsure()
         }
     }
     
@@ -140,7 +150,7 @@ public class Permissions: NSObject {
         }
     }
     
-    func requestAccessPhotos(agree agreeColsure: @escaping AccessColsure,
+    func requestPhotos(agree agreeColsure: @escaping AccessColsure,
                              denied deniedColsure: @escaping AccessColsure) {
         
         let photoStatus = statusOfPhotos()
@@ -168,7 +178,7 @@ public class Permissions: NSObject {
         }
     }
     
-    func requestAccessCamera(agree agreeColsure: @escaping AccessColsure,
+    func requestCamera(agree agreeColsure: @escaping AccessColsure,
                              denied deniedColsure: @escaping AccessColsure) {
         
         let cameraStatus = statusOfCamera()
@@ -178,7 +188,7 @@ public class Permissions: NSObject {
             AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo) { (granted) in
                 granted == true ? agreeColsure() : deniedColsure()
             }
-        case .denied: deniedColsure()
+        case .denied:  deniedColsure()
         }
     }
     
@@ -194,7 +204,7 @@ public class Permissions: NSObject {
         }
     }
     
-    func requestAccessMicophone(agree agreeColsure: @escaping AccessColsure,
+    func requestMicophone(agree agreeColsure: @escaping AccessColsure,
                                 denied deniedColsure: @escaping AccessColsure) {
         let status = statusOfMicophone()
         switch status {
@@ -204,6 +214,30 @@ public class Permissions: NSObject {
                 granted == true ? agreeColsure() : deniedColsure()
             }
         case .denied: deniedColsure()
+        }
+    }
+    
+    // MARK: Notification
+    func statusOfNotification() {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.getNotificationSettings { (settings) in
+                print("settings = \(settings)")
+            }
+            
+        } else {
+            
+        }
+    }
+    
+    func requestNotification(agree agreeColsure: @escaping AccessColsure,
+                          denied deniedColsure: @escaping AccessColsure) {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            let options = UNAuthorizationOptions.alert.rawValue | UNAuthorizationOptions.badge.rawValue | UNAuthorizationOptions.sound.rawValue
+            center.requestAuthorization(options: UNAuthorizationOptions(rawValue: options)) { (granted, error) in
+                granted == true ? agreeColsure() : deniedColsure()
+            }
         }
     }
     
@@ -218,7 +252,7 @@ public class Permissions: NSObject {
         }
     }
     
-    func requestAccessLocation(_ usage: PermissionType.LocationUsage, agree agreeColsure: @escaping AccessColsure,
+    func requestLocation(_ usage: PermissionType.LocationUsage, agree agreeColsure: @escaping AccessColsure,
                                denied deniedColsure: @escaping AccessColsure) {
         
         let status = statusOfLocation()
@@ -265,7 +299,7 @@ public class Permissions: NSObject {
         }
     }
     
-    func requestAccessEvent(_ eventType: PermissionType.EventType, agree agreeColsure: @escaping AccessColsure,
+    func requestEvent(_ eventType: PermissionType.EventType, agree agreeColsure: @escaping AccessColsure,
                             denied deniedColsure: @escaping AccessColsure) {
         let status = statusOfEventKit(eventType)
         switch status {
@@ -291,7 +325,7 @@ public class Permissions: NSObject {
         }
     }
     
-    func requestAccessBluetooth(agree agreeColsure: @escaping AccessColsure,
+    func requestBluetooth(agree agreeColsure: @escaping AccessColsure,
                                 denied deniedColsure: @escaping AccessColsure) {
         let status = statusOfBluetooth()
         switch status {

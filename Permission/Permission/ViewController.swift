@@ -19,15 +19,15 @@ class ViewController: UIViewController {
     // MARK: - Permission
     
     @IBAction func requestContacts(_ sender: Any) {
-        Permissions.default.requestAccessContacts(agree: {
-            self.showPermissionAlert(.contacts, success: true)
-        }) {
+        Permissions.default.requestPermission(.contacts, agree: { 
+            self.showPermissionAlert(.contacts,  success: true)
+        }) { 
             self.showPermissionAlert(.contacts)
         }
     }
     
     @IBAction func requestPhotos(_ sender: Any) {
-        Permissions.default.requestAccessPhotos(agree: { 
+        Permissions.default.requestPermission(.photos, agree: {
             self.showPermissionAlert(.photos, success: true)
         }) { 
             self.showPermissionAlert(.photos)
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestCamera(_ sender: Any) {
-        Permissions.default.requestAccessCamera(agree: {
+        Permissions.default.requestPermission(.camera, agree: {
             self.showPermissionAlert(.camera, success: true)
         }) {
             self.showPermissionAlert(.camera)
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestLocation(_ sender: Any) {
-        Permissions.default.requestAccessLocation(.whenInUsage, agree: {
+        Permissions.default.requestPermission(.location(.whenInUsage), agree: {
             self.showPermissionAlert(.location(.whenInUsage), success: true)
         }) { 
             self.showPermissionAlert(.location(.whenInUsage))
@@ -51,11 +51,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestNotification(_ sender: Any) {
-        
+        Permissions.default.requestPermission(.notification, agree: { 
+            self.showPermissionAlert(.notification, success: true)
+        }) { 
+            self.showPermissionAlert(.notification)
+        }
     }
     
     @IBAction func requestVoice(_ sender: Any) {
-        Permissions.default.requestAccessMicophone(agree: { 
+        Permissions.default.requestPermission(.microphone, agree: {
             self.showPermissionAlert(.microphone, success: true)
         }) { 
             self.showPermissionAlert(.microphone)
@@ -63,7 +67,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestCalendar(_ sender: Any) {
-        Permissions.default.requestAccessEvent(.calendar, agree: { 
+        Permissions.default.requestPermission(.event(.calendar), agree: {
             self.showPermissionAlert(.event(.calendar), success: true)
         }) { 
             self.showPermissionAlert(.event(.calendar))
@@ -71,7 +75,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestReminder(_ sender: Any) {
-        Permissions.default.requestAccessEvent(.reminder, agree: {
+        Permissions.default.requestPermission(.event(.reminder), agree: {
             self.showPermissionAlert(.event(.reminder), success: true)
         }) {
             self.showPermissionAlert(.event(.reminder))
@@ -79,7 +83,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestBluetooth(_ sender: Any) {
-        Permissions.default.requestAccessBluetooth(agree: { 
+        Permissions.default.requestPermission(.bluetooth,agree: {
             self.showPermissionAlert(.bluetooth, success: true)
         }) { 
             self.showPermissionAlert(.bluetooth)
