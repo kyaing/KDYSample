@@ -17,11 +17,14 @@ extension UIViewController {
             #if DEBUG
                 var message = ""
                 switch style {
-                case .contacts:     message = "成功访问【通讯录】权限"
-                case .photos:       message = "成功访问【照片】权限"
-                case .camera:       message = "成功访问【相机】权限"
-                case .microphone:   message = "成功访问【麦克风】权限"
-                case .location:     message = "成功访问【定位】权限"
+                case .contacts:         message = "成功访问【通讯录】权限"
+                case .photos:           message = "成功访问【照片】权限"
+                case .camera:           message = "成功访问【相机】权限"
+                case .microphone:       message = "成功访问【麦克风】权限"
+                case .location:         message = "成功访问【定位】权限"
+                case .event(.calendar): message = "成功访问【日历】权限"
+                case .event(.reminder): message = "成功访问【提醒事项】权限"
+                case .bluetooth:        message = "成功访问【蓝牙】权限"
                 }
                 
                 let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
@@ -33,11 +36,14 @@ extension UIViewController {
         } else {
             var title = "", message = ""
             switch style {
-            case .contacts:     title = "通讯录权限未开启"; message = "进入设置-隐私-通讯录，开启通讯录功能"
-            case .photos:       title = "照片权限未开启";   message = "进入设置-隐私-照片，开启照片功能"
-            case .camera:       title = "相机权限未开启";   message = "进入设置-隐私-相机，开启相机功能"
-            case .microphone:   title = "麦克风权限未开启"; message = "进入设置-隐私-麦克风，开启麦克风功能"
-            case .location:     title = "定位权限未开启"; message = "进入设置-隐私-定位，开启定位功能"
+            case .contacts:          title = "通讯录权限未开启"; message = "进入设置-隐私-通讯录，开启通讯录功能"
+            case .photos:            title = "照片权限未开启";   message = "进入设置-隐私-照片，开启照片功能"
+            case .camera:            title = "相机权限未开启";   message = "进入设置-隐私-相机，开启相机功能"
+            case .microphone:        title = "麦克风权限未开启"; message = "进入设置-隐私-麦克风，开启麦克风功能"
+            case .location:          title = "定位权限未开启"; message = "进入设置-隐私-定位，开启定位功能"
+            case .event(.calendar):  title = "日历权限未开启"; message = "进入设置-隐私-日历，开启日历功能"
+            case .event(.reminder):  title = "提醒事项权限未开启"; message = "进入设置-隐私-提醒事项，开启提醒事项功能"
+            case .bluetooth:         title = "蓝牙权限未开启"; message = "进入设置-隐私-蓝牙，开启蓝牙功能"
             }
             
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

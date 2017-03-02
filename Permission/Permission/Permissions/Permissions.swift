@@ -13,6 +13,8 @@ import Photos
 import AssetsLibrary
 import AVFoundation
 import CoreLocation
+import EventKit
+import CoreBluetooth
 
 public enum PermissionType: CustomStringConvertible {
     
@@ -21,11 +23,18 @@ public enum PermissionType: CustomStringConvertible {
         case whenInUsage
     }
     
+    public enum EventType {
+        case calendar
+        case reminder
+    }
+    
     case contacts
     case photos
     case camera
     case microphone
     case location(LocationUsage)
+    case event(EventType)
+    case bluetooth
     
     public var description: String {
         switch self {
@@ -34,6 +43,8 @@ public enum PermissionType: CustomStringConvertible {
         case .camera:       return "Camera"
         case .microphone:   return "Microphone"
         case .location:     return "Location"
+        case .event:        return "Event"
+        case .bluetooth:    return "Bluetooth"
         }
     }
 }
@@ -68,9 +79,9 @@ public class Permissions: NSObject {
     
     public typealias AccessColsure = () -> Void
     
-    public var _agreeColsure: AccessColsure!
+    public var agreeColsure: AccessColsure!
     
-    public var _deniedColsure: AccessColsure!
+    public var deniedColsure: AccessColsure!
     
     // MARK: Contacts
     
@@ -219,8 +230,8 @@ public class Permissions: NSObject {
                 locationManager = CLLocationManager()
                 locationManager.delegate = self
                 locationUsage = usage
-                _agreeColsure = agreeColsure
-                _deniedColsure = deniedColsure
+                self.agreeColsure = agreeColsure
+                self.deniedColsure = deniedColsure
                 
                 switch usage {
                 case .always:       locationManager.requestAlwaysAuthorization()
@@ -234,33 +245,73 @@ public class Permissions: NSObject {
         case .denied: deniedColsure()
         }
     }
-}
-
-extension Permissions: CLLocationManagerDelegate {
-    // 定位权限发生改变
-    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    
+    // MARK: EventKit
+    func statusOfEventKit(_ eventType: PermissionType.EventType) -> PermissionStatus {
+        if eventType == .calendar {
+            let status = EKEventStore.authorizationStatus(for: .event)
+            switch status {
+            case .authorized:           return .authorized
+            case .notDetermined:        return .notDetermined
+            case .denied, .restricted:  return .denied
+            }
+        } else {
+            let status = EKEventStore.authorizationStatus(for: .reminder)
+            switch status {
+            case .authorized:           return .authorized
+            case .notDetermined:        return .notDetermined
+            case .denied, .restricted:  return .denied
+            }
+        }
+    }
+    
+    func requestAccessEvent(_ eventType: PermissionType.EventType, agree agreeColsure: @escaping AccessColsure,
+                            denied deniedColsure: @escaping AccessColsure) {
+        let status = statusOfEventKit(eventType)
         switch status {
-        case .authorizedAlways: locationUsage == .always ? _agreeColsure() : _deniedColsure()
-        case .authorizedWhenInUse:  locationUsage == .whenInUsage ? _agreeColsure() : _deniedColsure()
-        case .denied: _deniedColsure()
-        default: break
+        case .authorized:   agreeColsure()
+        case .notDetermined:
+            var type = EKEntityType.event
+            if eventType == .reminder { type = .reminder }
+            EKEventStore().requestAccess(to: type) { (granted, error) in
+                granted == true ? agreeColsure() : deniedColsure()
+            }
+            
+        case .denied: deniedColsure()
+        }
+    }
+    
+    // MARK: Bluetooth
+    func statusOfBluetooth() -> PermissionStatus {
+        let status = CBPeripheralManager.authorizationStatus()
+        switch status {
+        case .authorized:           return .authorized
+        case .notDetermined:        return .notDetermined
+        case .denied, .restricted:  return .denied
+        }
+    }
+    
+    func requestAccessBluetooth(agree agreeColsure: @escaping AccessColsure,
+                                denied deniedColsure: @escaping AccessColsure) {
+        let status = statusOfBluetooth()
+        switch status {
+        case .authorized:   agreeColsure()
+        case .notDetermined:  CBPeripheralManager().startAdvertising(nil)
+        case .denied:   deniedColsure()
         }
     }
 }
 
 // MARK: -
-public class ContactsManager: NSObject {
-
-    public func getContacts() -> String {
-        return ""
-    }
-}
-
-// MARK: - 
-public class LocationManager: NSObject {
-
-    public func getLocations() -> (Float, Float) {
-        return (2.0, 3.0)
+extension Permissions: CLLocationManagerDelegate {
+    // 定位权限发生改变
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways: locationUsage == .always ? agreeColsure() : deniedColsure()
+        case .authorizedWhenInUse:  locationUsage == .whenInUsage ? agreeColsure() : deniedColsure()
+        case .denied: deniedColsure()
+        default: break
+        }
     }
 }
   

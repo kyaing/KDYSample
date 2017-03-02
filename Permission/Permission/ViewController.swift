@@ -63,15 +63,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func requestCalendar(_ sender: Any) {
-        
+        Permissions.default.requestAccessEvent(.calendar, agree: { 
+            self.showPermissionAlert(.event(.calendar), success: true)
+        }) { 
+            self.showPermissionAlert(.event(.calendar))
+        }
+    }
+    
+    @IBAction func requestReminder(_ sender: Any) {
+        Permissions.default.requestAccessEvent(.reminder, agree: {
+            self.showPermissionAlert(.event(.reminder), success: true)
+        }) {
+            self.showPermissionAlert(.event(.reminder))
+        }
     }
     
     @IBAction func requestBluetooth(_ sender: Any) {
-        
-    }
-    
-    @IBAction func requestHealthKit(_ sender: Any) {
-        
+        Permissions.default.requestAccessBluetooth(agree: { 
+            self.showPermissionAlert(.bluetooth, success: true)
+        }) { 
+            self.showPermissionAlert(.bluetooth)
+        }
     }
 }
 

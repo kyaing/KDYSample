@@ -24,12 +24,18 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>是否允许此App访问你的照相机？</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>是否允许此App访问你的日历？</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>是否允许此App访问你的提醒事项？</string>
 	<key>NSContactsUsageDescription</key>
 	<string>是否允许此App访问你的通讯录?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>我们需要通过您的地理位置信息获取您周边的相关数据</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许此App访问你的相册？</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>是否允许此App访问你的蓝牙？</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
