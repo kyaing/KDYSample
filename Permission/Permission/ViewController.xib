@@ -132,7 +132,7 @@
                 <constraint firstItem="Fcw-23-ZDL" firstAttribute="width" secondItem="iY6-Xg-u8q" secondAttribute="width" id="wcA-zj-Alh"/>
                 <constraint firstItem="9i3-mb-eeW" firstAttribute="width" secondItem="Ndi-Zj-1hl" secondAttribute="width" id="zAG-wO-TL1"/>
             </constraints>
-            <point key="canvasLocation" x="-458" y="-702"/>
+            <point key="canvasLocation" x="-558" y="-716"/>
         </view>
     </objects>
 </document>
