@@ -1,5 +1,5 @@
 //
-//  UIView+Extension.swift
+//  UIView+Frame.swift
 //  KDYWeChat
 //
 //  Created by kaideyi on 16/9/10.

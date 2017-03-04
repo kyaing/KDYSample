@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     public lazy var tableView: UITableView = {
         let tb = UITableView()
         tb.frame = CGRect(x: 0, y: 0, width: self.view.width, height: self.view.height)
-        tb.register(TimelinesCell.classForCoder(), forCellReuseIdentifier: "TimelinesCell")
+        tb.register(TimelinesTableCell.classForCoder(), forCellReuseIdentifier: "TimelinesCell")
         tb.tableFooterView = UIView()
         tb.dataSource = self
         tb.delegate = self
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 // MARK: -
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,7 +48,13 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        if indexPath.row == 0 {
+            return 80
+        } else if indexPath.row == 1 {
+            return 100
+        } else {
+            return 150
+        }
     }
 }
 
