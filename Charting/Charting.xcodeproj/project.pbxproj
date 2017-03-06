@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A530E61E6D06B000296BCC /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A530E51E6D06B000296BCC /* UIView+Frame.swift */; };
+		04A530EB1E6D0A5D00296BCC /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A530EA1E6D0A5D00296BCC /* BarChartView.swift */; };
+		04A530ED1E6D0A7B00296BCC /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A530EC1E6D0A7B00296BCC /* LineChartView.swift */; };
+		04A530EF1E6D0EAA00296BCC /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A530EE1E6D0EAA00296BCC /* PieChartView.swift */; };
 		1820AB211E6BFCD000DE1DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB201E6BFCD000DE1DD1 /* AppDelegate.swift */; };
 		1820AB231E6BFCD000DE1DD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB221E6BFCD000DE1DD1 /* ViewController.swift */; };
 		1820AB261E6BFCD000DE1DD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1820AB241E6BFCD000DE1DD1 /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04A530E51E6D06B000296BCC /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		04A530EA1E6D0A5D00296BCC /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		04A530EC1E6D0A7B00296BCC /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		04A530EE1E6D0EAA00296BCC /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		1820AB1D1E6BFCD000DE1DD1 /* Charting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1820AB201E6BFCD000DE1DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1820AB221E6BFCD000DE1DD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +82,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A530E41E6D06B000296BCC /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				04A530E71E6D0A2600296BCC /* BarChart */,
+				04A530E81E6D0A2600296BCC /* LineChart */,
+				04A530E91E6D0A2600296BCC /* PieChart */,
+				04A530E51E6D06B000296BCC /* UIView+Frame.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		04A530E71E6D0A2600296BCC /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				04A530EA1E6D0A5D00296BCC /* BarChartView.swift */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		04A530E81E6D0A2600296BCC /* LineChart */ = {
+			isa = PBXGroup;
+			children = (
+				04A530EC1E6D0A7B00296BCC /* LineChartView.swift */,
+			);
+			path = LineChart;
+			sourceTree = "<group>";
+		};
+		04A530E91E6D0A2600296BCC /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				04A530EE1E6D0EAA00296BCC /* PieChartView.swift */,
+			);
+			path = PieChart;
+			sourceTree = "<group>";
+		};
 		1820AB141E6BFCD000DE1DD1 = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +146,7 @@
 				1820AB501E6BFD3600DE1DD1 /* Launch Screen.storyboard */,
 				1820AB271E6BFCD000DE1DD1 /* Assets.xcassets */,
 				1820AB2C1E6BFCD000DE1DD1 /* Info.plist */,
-				1820AB4F1E6BFD2000DE1DD1 /* Charts */,
+				04A530E41E6D06B000296BCC /* Charts */,
 			);
 			path = Charting;
 			sourceTree = "<group>";
@@ -124,13 +167,6 @@
 				1820AB421E6BFCD000DE1DD1 /* Info.plist */,
 			);
 			path = ChartingUITests;
-			sourceTree = "<group>";
-		};
-		1820AB4F1E6BFD2000DE1DD1 /* Charts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A530EF1E6D0EAA00296BCC /* PieChartView.swift in Sources */,
 				1820AB231E6BFCD000DE1DD1 /* ViewController.swift in Sources */,
+				04A530ED1E6D0A7B00296BCC /* LineChartView.swift in Sources */,
 				1820AB211E6BFCD000DE1DD1 /* AppDelegate.swift in Sources */,
+				04A530E61E6D06B000296BCC /* UIView+Frame.swift in Sources */,
+				04A530EB1E6D0A5D00296BCC /* BarChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +554,7 @@
 				1820AB471E6BFCD000DE1DD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1820AB481E6BFCD000DE1DD1 /* Build configuration list for PBXNativeTarget "ChartingTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +563,7 @@
 				1820AB4A1E6BFCD000DE1DD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1820AB4B1E6BFCD000DE1DD1 /* Build configuration list for PBXNativeTarget "ChartingUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +572,7 @@
 				1820AB4D1E6BFCD000DE1DD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
