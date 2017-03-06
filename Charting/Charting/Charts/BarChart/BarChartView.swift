@@ -11,26 +11,26 @@ import UIKit
 /// 柱状图
 class BarChartView: UIView {
     
-    /// bar之间的间距
+    // MARK:
+    
+    /// bar的间距
     var margin: CGFloat = 15.0
     
+    var barWidth: CGFloat = 0.0
+    
+    var xLabelWidth: CGFloat = 0.0
+    
     /// x轴的内容
-    var xLable = [String]() {
+    var xLabels = [String]() {
         didSet {
-            
+            xLabelWidth = self.width / CGFloat(xLabels.count)
         }
     }
     
     /// y轴的内容
-    var yLabel = [String]() {
-        didSet {
-            
-        }
-    }
+    var yLabels = [CGFloat]()
     
-    /// bar的宽度
-    var barWidth: CGFloat = 0.0
-    
+    // MARK:
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
@@ -48,8 +48,8 @@ class BarChartView: UIView {
     func drawXYAxis() {
         // x axis
         let xPath = UIBezierPath()
-        xPath.move(to: CGPoint(x: margin, y: self.height - margin))
-        xPath.addLine(to: CGPoint(x: self.width - margin, y: self.height - margin))
+        xPath.move(to: CGPoint(x: 0, y: self.height))
+        xPath.addLine(to: CGPoint(x: self.width, y: self.height))
         xPath.lineCapStyle = .square
         
         let xLayer = CAShapeLayer()
@@ -61,8 +61,8 @@ class BarChartView: UIView {
     
         // y axis
         let yPath = UIBezierPath()
-        yPath.move(to: CGPoint(x: margin, y: self.height - margin))
-        yPath.addLine(to: CGPoint(x: margin, y: margin))
+        yPath.move(to: CGPoint(x: 0, y: self.height))
+        yPath.addLine(to: CGPoint(x: 0, y: 0))
         yPath.lineCapStyle = .square
         
         let yLayer = CAShapeLayer()
@@ -75,6 +75,23 @@ class BarChartView: UIView {
     
     func drawBars() {
         
+        var index: Int = 0
+        for value in yLabels {
+            var xPos: CGFloat = 0.0
+            
+            if barWidth > 0 {
+                xPos = xLabelWidth * CGFloat(index) + (xLabelWidth - barWidth) * 0.5
+            } else {
+                xPos = xLabelWidth * CGFloat(index) + xLabelWidth * 0.5
+            }
+            
+            let bar = BarView(frame: CGRect(x: xPos, y: 0, width: barWidth, height: self.height))
+            bar.grade = (value / self.height)
+            
+            self.addSubview(bar)
+            
+            index += 1
+        }
     }
 }
 

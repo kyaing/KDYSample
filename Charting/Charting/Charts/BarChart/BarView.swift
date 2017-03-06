@@ -19,7 +19,7 @@ class BarView: UIView {
             let baseAnimation = CABasicAnimation(keyPath: "strokeEnd")
             baseAnimation.fromValue = 0.0
             baseAnimation.toValue   = 1.0
-            baseAnimation.duration  = 1.0
+            baseAnimation.duration  = 1.5
             baseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             barShapeLayer.add(baseAnimation, forKey: nil)
             

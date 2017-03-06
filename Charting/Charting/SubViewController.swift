@@ -39,6 +39,9 @@ class SubViewController: UIViewController {
     
     func setupBarChartView() {
         let barView = BarChartView(frame: CGRect(x: (self.view.width - 350)/2.0, y: 200, width: 350, height: 300))
+        barView.xLabels  = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]
+        barView.yLabels  = [50, 100, 200, 260, 80, 150, 50, 100, 200, 260, 80, 280]
+        barView.barWidth = 20.0
         self.view.addSubview(barView)
     }
     
