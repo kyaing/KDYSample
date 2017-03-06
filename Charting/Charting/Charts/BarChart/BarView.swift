@@ -9,7 +9,7 @@
 import UIKit
 
 class BarView: UIView {
-
+    
     /// 柱形图层
     var barShapeLayer: CAShapeLayer!
     
@@ -33,15 +33,13 @@ class BarView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.backgroundColor = .lightGray
+        self.backgroundColor = UIColor.RGB(220, 220, 220)
         
         barShapeLayer = CAShapeLayer()
         barShapeLayer.lineWidth = self.width
         barShapeLayer.lineCap = kCALineCapButt
         barShapeLayer.fillColor = UIColor.gray.cgColor
         barShapeLayer.strokeColor = UIColor.blue.cgColor
-        
         self.layer.addSublayer(barShapeLayer)
     }
     

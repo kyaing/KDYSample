@@ -20,6 +20,7 @@
 		1820AB361E6BFCD000DE1DD1 /* ChartingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB351E6BFCD000DE1DD1 /* ChartingTests.swift */; };
 		1820AB411E6BFCD000DE1DD1 /* ChartingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB401E6BFCD000DE1DD1 /* ChartingUITests.swift */; };
 		1820AB511E6BFD3600DE1DD1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1820AB501E6BFD3600DE1DD1 /* Launch Screen.storyboard */; };
+		1820AB531E6DACFD00DE1DD1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB521E6DACFC00DE1DD1 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		1820AB401E6BFCD000DE1DD1 /* ChartingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartingUITests.swift; sourceTree = "<group>"; };
 		1820AB421E6BFCD000DE1DD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1820AB501E6BFD3600DE1DD1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1820AB521E6DACFC00DE1DD1 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				04A530E81E6D0A2600296BCC /* LineChart */,
 				04A530E91E6D0A2600296BCC /* PieChart */,
 				04A530E51E6D06B000296BCC /* UIView+Frame.swift */,
+				1820AB521E6DACFC00DE1DD1 /* UIColor+Extension.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				04A530EF1E6D0EAA00296BCC /* PieChartView.swift in Sources */,
 				1820AB231E6BFCD000DE1DD1 /* ViewController.swift in Sources */,
 				04A530F31E6D420100296BCC /* SubViewController.swift in Sources */,
+				1820AB531E6DACFD00DE1DD1 /* UIColor+Extension.swift in Sources */,
 				04A530ED1E6D0A7B00296BCC /* LineChartView.swift in Sources */,
 				1820AB211E6BFCD000DE1DD1 /* AppDelegate.swift in Sources */,
 				04A530E61E6D06B000296BCC /* UIView+Frame.swift in Sources */,

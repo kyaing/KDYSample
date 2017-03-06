@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIView {
+    
     /// xPos
     var x: CGFloat {
         get { return self.frame.origin.x }

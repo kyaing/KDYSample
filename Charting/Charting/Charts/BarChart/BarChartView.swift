@@ -20,6 +20,8 @@ class BarChartView: UIView {
     
     var xLabelWidth: CGFloat = 0.0
     
+    var xLabelHeight: CGFloat = 0.0
+    
     /// x轴的内容
     var xLabels = [String]() {
         didSet {
@@ -41,15 +43,18 @@ class BarChartView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        drawXYAxis()
-        drawBars()
+        let labelH: CGFloat = 15.0
+        let barHeight = self.height - labelH
+        
+        drawXYAxis(barHeight)
+        drawBarView(labelH, barHeight)
     }
     
-    func drawXYAxis() {
+    func drawXYAxis(_ height: CGFloat) {
         // x axis
         let xPath = UIBezierPath()
-        xPath.move(to: CGPoint(x: 0, y: self.height))
-        xPath.addLine(to: CGPoint(x: self.width, y: self.height))
+        xPath.move(to: CGPoint(x: 0, y: height))
+        xPath.addLine(to: CGPoint(x: self.width, y: height))
         xPath.lineCapStyle = .square
         
         let xLayer = CAShapeLayer()
@@ -61,7 +66,7 @@ class BarChartView: UIView {
     
         // y axis
         let yPath = UIBezierPath()
-        yPath.move(to: CGPoint(x: 0, y: self.height))
+        yPath.move(to: CGPoint(x: 0, y: height))
         yPath.addLine(to: CGPoint(x: 0, y: 0))
         yPath.lineCapStyle = .square
         
@@ -73,22 +78,35 @@ class BarChartView: UIView {
         self.layer.addSublayer(yLayer)
     }
     
-    func drawBars() {
+    func drawBarView(_ labelH: CGFloat, _ height: CGFloat) {
         
         var index: Int = 0
         for value in yLabels {
             var xPos: CGFloat = 0.0
             
             if barWidth > 0 {
+                if barWidth >= xLabelWidth {
+                    barWidth = xLabelWidth * 0.7
+                } else if barWidth < xLabelWidth * 0.5 {
+                    barWidth = xLabelWidth * 0.8
+                }
+                
                 xPos = xLabelWidth * CGFloat(index) + (xLabelWidth - barWidth) * 0.5
-            } else {
-                xPos = xLabelWidth * CGFloat(index) + xLabelWidth * 0.5
             }
             
-            let bar = BarView(frame: CGRect(x: xPos, y: 0, width: barWidth, height: self.height))
+            let bar = BarView(frame: CGRect(x: xPos, y: 0, width: barWidth, height: height))
             bar.grade = (value / self.height)
-            
             self.addSubview(bar)
+            
+            let xlabel = UILabel()
+            xlabel.frame = CGRect(x: 0, y: bar.frame.maxY, width: barWidth, height: labelH)
+            xlabel.centerX = bar.centerX
+            xlabel.textAlignment = .center
+            xlabel.textColor = .gray
+            xlabel.font = UIFont.systemFont(ofSize: 10)
+            xlabel.text = xLabels[index]
+            xlabel.adjustsFontSizeToFitWidth = true
+            self.addSubview(xlabel)
             
             index += 1
         }
