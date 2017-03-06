@@ -11,6 +11,8 @@
 		04A530EB1E6D0A5D00296BCC /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A530EA1E6D0A5D00296BCC /* BarChartView.swift */; };
 		04A530ED1E6D0A7B00296BCC /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A530EC1E6D0A7B00296BCC /* LineChartView.swift */; };
 		04A530EF1E6D0EAA00296BCC /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A530EE1E6D0EAA00296BCC /* PieChartView.swift */; };
+		04A530F11E6D130C00296BCC /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A530F01E6D130C00296BCC /* BarView.swift */; };
+		04A530F31E6D420100296BCC /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A530F21E6D420100296BCC /* SubViewController.swift */; };
 		1820AB211E6BFCD000DE1DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB201E6BFCD000DE1DD1 /* AppDelegate.swift */; };
 		1820AB231E6BFCD000DE1DD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB221E6BFCD000DE1DD1 /* ViewController.swift */; };
 		1820AB261E6BFCD000DE1DD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1820AB241E6BFCD000DE1DD1 /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 		04A530EA1E6D0A5D00296BCC /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		04A530EC1E6D0A7B00296BCC /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		04A530EE1E6D0EAA00296BCC /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		04A530F01E6D130C00296BCC /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		04A530F21E6D420100296BCC /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 		1820AB1D1E6BFCD000DE1DD1 /* Charting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1820AB201E6BFCD000DE1DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1820AB221E6BFCD000DE1DD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				04A530EA1E6D0A5D00296BCC /* BarChartView.swift */,
+				04A530F01E6D130C00296BCC /* BarView.swift */,
 			);
 			path = BarChart;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			children = (
 				1820AB201E6BFCD000DE1DD1 /* AppDelegate.swift */,
 				1820AB221E6BFCD000DE1DD1 /* ViewController.swift */,
+				04A530F21E6D420100296BCC /* SubViewController.swift */,
 				1820AB241E6BFCD000DE1DD1 /* Main.storyboard */,
 				1820AB501E6BFD3600DE1DD1 /* Launch Screen.storyboard */,
 				1820AB271E6BFCD000DE1DD1 /* Assets.xcassets */,
@@ -306,8 +312,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A530F11E6D130C00296BCC /* BarView.swift in Sources */,
 				04A530EF1E6D0EAA00296BCC /* PieChartView.swift in Sources */,
 				1820AB231E6BFCD000DE1DD1 /* ViewController.swift in Sources */,
+				04A530F31E6D420100296BCC /* SubViewController.swift in Sources */,
 				04A530ED1E6D0A7B00296BCC /* LineChartView.swift in Sources */,
 				1820AB211E6BFCD000DE1DD1 /* AppDelegate.swift in Sources */,
 				04A530E61E6D06B000296BCC /* UIView+Frame.swift in Sources */,
