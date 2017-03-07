@@ -15,13 +15,14 @@ class BarView: UIView {
     
     /// 柱形高占比
     var grade: CGFloat = 0 {
+        
         didSet {
-            let baseAnimation = CABasicAnimation(keyPath: "strokeEnd")
-            baseAnimation.fromValue = 0.0
-            baseAnimation.toValue   = 1.0
-            baseAnimation.duration  = 1.5
-            baseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            barShapeLayer.add(baseAnimation, forKey: nil)
+            let animation = CABasicAnimation(keyPath: "strokeEnd")
+            animation.fromValue = 0.0
+            animation.toValue   = 1.0
+            animation.duration  = 1.5
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            barShapeLayer.add(animation, forKey: nil)
             
             let barPath = UIBezierPath()
             barPath.move(to: CGPoint(x: self.width * 0.5, y: self.height))

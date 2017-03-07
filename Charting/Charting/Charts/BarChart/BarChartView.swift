@@ -58,7 +58,7 @@ class BarChartView: UIView {
         xPath.lineCapStyle = .square
         
         let xLayer = CAShapeLayer()
-        xLayer.lineWidth = 1.0
+        xLayer.lineWidth = 2.0
         xLayer.strokeColor = UIColor.gray.cgColor
         xLayer.path = xPath.cgPath
         xLayer.lineCap = kCALineCapButt
@@ -71,7 +71,7 @@ class BarChartView: UIView {
         yPath.lineCapStyle = .square
         
         let yLayer = CAShapeLayer()
-        yLayer.lineWidth = 1.0
+        yLayer.lineWidth = 2.0
         yLayer.strokeColor = UIColor.gray.cgColor
         yLayer.path = yPath.cgPath
         yLayer.lineCap = kCALineCapButt
