@@ -1,0 +1,46 @@
+{
+    "details": {
+        "configure": [
+                      {
+                      "key": "userinfo",
+                      "title": "基本信息",
+                      "subs": [
+                               "money",
+                               "month",
+                               "username",
+                               "iden_card",
+                               "iden_outdate",
+                               "marriage",
+                               "child_status",
+                               "zone_id",
+                               "company_name",
+                               "company_tel",
+                               "company_address",
+                               "gsd_zone_id"
+                               ]
+                      },
+                      {
+                      "key": "extendinfo",
+                      "title": "照片信息",
+                      "subs": [
+                               "iden_correct_side",
+                               "iden_opposite_side",
+                               "iden_scene",
+                               "work_photo"
+                               ]
+                      },
+                      {
+                      "key": "sosinfo",
+                      "title": "联系人信息",
+                      "subs": [
+                               "sos_name",
+                               "sos_phone",
+                               "sos_nexus",
+                               "sos_name2",
+                               "sos_phone2",
+                               "sos_nexus2"
+                               ]
+                      }
+                      ]
+    }
+}
