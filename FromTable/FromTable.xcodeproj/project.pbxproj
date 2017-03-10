@@ -54,6 +54,8 @@
 		04E866211E715FEA00D37BB1 /* ConfigureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8661E1E715FEA00D37BB1 /* ConfigureData.swift */; };
 		04E866221E715FEA00D37BB1 /* JsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8661F1E715FEA00D37BB1 /* JsonData.swift */; };
 		04E866231E715FEA00D37BB1 /* UserInputsCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E866201E715FEA00D37BB1 /* UserInputsCommit.swift */; };
+		04E866261E72867300D37BB1 /* base.json in Resources */ = {isa = PBXBuildFile; fileRef = 04E866251E72867300D37BB1 /* base.json */; };
+		04E866281E728DDE00D37BB1 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E866271E728DDE00D37BB1 /* ItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,8 @@
 		04E8661E1E715FEA00D37BB1 /* ConfigureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureData.swift; sourceTree = "<group>"; };
 		04E8661F1E715FEA00D37BB1 /* JsonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonData.swift; sourceTree = "<group>"; };
 		04E866201E715FEA00D37BB1 /* UserInputsCommit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputsCommit.swift; sourceTree = "<group>"; };
+		04E866251E72867300D37BB1 /* base.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = base.json; sourceTree = "<group>"; };
+		04E866271E728DDE00D37BB1 /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,7 @@
 			children = (
 				04E866091E7144FC00D37BB1 /* Cells */,
 				04E866121E7145C000D37BB1 /* Views */,
+				04E866241E72759D00D37BB1 /* Model */,
 				04E866101E7145C000D37BB1 /* Controllers */,
 				04E866161E71568B00D37BB1 /* Datas */,
 				04E8660A1E7144FC00D37BB1 /* Helper */,
@@ -302,6 +307,7 @@
 		04E866161E71568B00D37BB1 /* Datas */ = {
 			isa = PBXGroup;
 			children = (
+				04E866251E72867300D37BB1 /* base.json */,
 				04E866171E7156BC00D37BB1 /* test.json */,
 			);
 			path = Datas;
@@ -315,6 +321,14 @@
 				04E866201E715FEA00D37BB1 /* UserInputsCommit.swift */,
 			);
 			path = Parse;
+			sourceTree = "<group>";
+		};
+		04E866241E72759D00D37BB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04E866271E728DDE00D37BB1 /* ItemModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E866261E72867300D37BB1 /* base.json in Resources */,
 				04E865B61E70FE0200D37BB1 /* Launch Screen.storyboard in Resources */,
 				04E866181E7156BC00D37BB1 /* test.json in Resources */,
 				04E8658F1E70FDE400D37BB1 /* Assets.xcassets in Resources */,
@@ -483,6 +498,7 @@
 				04E866131E7145C000D37BB1 /* FormViewController.swift in Sources */,
 				04E865FD1E713FDF00D37BB1 /* ConstraintPriorityTarget.swift in Sources */,
 				04E866001E713FDF00D37BB1 /* ConstraintView+Extensions.swift in Sources */,
+				04E866281E728DDE00D37BB1 /* ItemModel.swift in Sources */,
 				04E865FF1E713FDF00D37BB1 /* ConstraintRelation.swift in Sources */,
 				04E865881E70FDE400D37BB1 /* AppDelegate.swift in Sources */,
 				04E865EE1E713FDF00D37BB1 /* ConstraintInsets.swift in Sources */,
@@ -736,6 +752,7 @@
 				04E865AE1E70FDE400D37BB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04E865AF1E70FDE400D37BB1 /* Build configuration list for PBXNativeTarget "FromTableTests" */ = {
 			isa = XCConfigurationList;
@@ -744,6 +761,7 @@
 				04E865B11E70FDE400D37BB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04E865B21E70FDE400D37BB1 /* Build configuration list for PBXNativeTarget "FromTableUITests" */ = {
 			isa = XCConfigurationList;
@@ -752,6 +770,7 @@
 				04E865B41E70FDE400D37BB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

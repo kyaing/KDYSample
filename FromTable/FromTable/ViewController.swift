@@ -16,8 +16,6 @@ class ViewController: FormViewController {
         self.title = "Froms"
         self.view.backgroundColor = .white
         
-        let array = JsonData.getInfosWithJson(fileName: "test", jsonKey: "configure")
-        print("array = \(array)")
     }
 }
 

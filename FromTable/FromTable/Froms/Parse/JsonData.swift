@@ -18,8 +18,8 @@ class JsonData: NSObject {
             
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: jsonData as! Data, options: JSONSerialization.ReadingOptions.mutableContainers)
-                let dic = (jsonObject as AnyObject).object(forKey: "details")
-                return dic as AnyObject?
+                let dic = (jsonObject as AnyObject).object(forKey: "details") as! NSDictionary
+                return dic.value(forKey: jsonKey) as AnyObject?
                 
             } catch {
                 print(error)

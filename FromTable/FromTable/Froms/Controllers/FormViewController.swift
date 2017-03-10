@@ -8,25 +8,11 @@
 
 import UIKit
 
-enum FormCellType {
-    case cash
-    case month
-    case text
-    case image
-    case city
-    case telphone
-}
-
-enum FormChannelType {
-    case haodai
-    case shandai
-}
-
-// MARK: -
-
 class FormViewController: UIViewController {
 
     // MARK: Properties
+    
+    let config = ConfigureData()
     
     var inputCommit: UserInputsCommit!
     
@@ -34,24 +20,14 @@ class FormViewController: UIViewController {
         let tb = UITableView()
         tb.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "formCell")
         tb.tableFooterView = UIView()
-        tb.backgroundColor = .gray
+        tb.sectionHeaderHeight = 48
+        tb.rowHeight = 50
         tb.dataSource = self
         tb.delegate = self
-        tb.rowHeight = 50
         
         self.view.addSubview(tb)
         
         return tb
-    }()
-    
-    public lazy var requestButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("立即提交", for: .normal)
-        button.backgroundColor = .blue
-        
-        self.view.addSubview(button)
-        
-        return button
     }()
     
     // MARK: Life Cycle
@@ -59,6 +35,8 @@ class FormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
+        config.start()
         
         formTableView.reloadData()
     }
@@ -71,12 +49,7 @@ class FormViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         formTableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(0, 0, 70, 0))
-        }
-        
-        requestButton.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(self.view).inset(UIEdgeInsetsMake(0, 15, 15, 15))
-            make.top.equalTo(formTableView.snp.bottom).offset(15)
+            make.edges.equalTo(self.view)
         }
     }
 }
@@ -84,12 +57,15 @@ class FormViewController: UIViewController {
 // MARK: -
 
 extension FormViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return config.getOriginalItems().count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        let dic   = config.getOriginalItems().object(at: section) as! NSDictionary
+        let array = dic.value(forKey: "subs") as! NSArray
+        return array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,12 +74,31 @@ extension FormViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
+        
+        let sectionView = UIView()
+        sectionView.backgroundColor = .gray
+        
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = UIColor.red
+        sectionView.addSubview(label)
+        
+        let dic = config.getOriginalItems().object(at: section) as! NSDictionary
+        label.text = dic.value(forKey: "title") as! String?
+
+        label.snp.makeConstraints { (make) in
+            make.centerY.equalTo(sectionView)
+            make.left.equalTo(sectionView).offset(15)
+        }
+        
+        return sectionView
     }
 }
 
 extension FormViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
