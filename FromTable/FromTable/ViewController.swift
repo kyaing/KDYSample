@@ -13,7 +13,7 @@ class ViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        self.title = "Froms"
+        self.title = "Forms"
         self.view.backgroundColor = .white
         
     }

@@ -86,15 +86,13 @@ extension FormViewController: UITableViewDataSource {
         
         cell?.textLabel?.text = model.name
         
-        
-        
         return cell!
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let sectionView = UIView()
-        sectionView.backgroundColor = .gray
+        sectionView.backgroundColor = .lightGray
         
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
@@ -117,6 +115,11 @@ extension FormViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let model = getItemModel(indexPath)
+        let controller = EditTextViewController()
+        controller.title = model.name
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

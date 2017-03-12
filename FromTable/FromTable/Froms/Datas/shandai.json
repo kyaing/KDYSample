@@ -20,25 +20,12 @@
                                ]
                       },
                       {
-                      "key": "extendinfo",
-                      "title": "照片信息",
-                      "subs": [
-                               "iden_correct_side",
-                               "iden_opposite_side",
-                               "iden_scene",
-                               "work_photo"
-                               ]
-                      },
-                      {
                       "key": "sosinfo",
                       "title": "联系人信息",
                       "subs": [
                                "sos_name",
                                "sos_phone",
                                "sos_nexus",
-                               "sos_name2",
-                               "sos_phone2",
-                               "sos_nexus2"
                                ]
                       }
                       ]

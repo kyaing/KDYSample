@@ -21,10 +21,12 @@ class ConfigureData: NSObject {
     // MARK: Public Methods
     
     func start() {
+        // 基础字典
         if let dic = JsonData.getInfosWithJson(fileName: "base", jsonKey: "data") {
             baseInputDic = dic as! NSDictionary
         }
         
+        // 扩展字典(重载某些字段)
         if let dic = JsonData.getInfosWithJson(fileName: "shandai", jsonKey: "data") {
             extendInputDic = dic as? NSDictionary
         } else {
@@ -43,7 +45,7 @@ class ConfigureData: NSObject {
     func getOriginalItems(array: NSArray) -> NSMutableArray {
     
         var index = 0
-        let itemArray = NSMutableArray()
+        let itemModelArray = NSMutableArray()
         for _ in array {
             let dic = array.object(at: index) as! NSDictionary
             
@@ -59,13 +61,13 @@ class ConfigureData: NSObject {
                 let item = genOriginalItemsWithArray(subs as! NSArray)
                 tempDic.setValue(item, forKey: "subs")
                 
-                itemArray.add(tempDic)
+                itemModelArray.add(tempDic)
             }
             
             index += 1
         }
         
-        return itemArray
+        return itemModelArray
     }
     
     func genOriginalItemsWithArray(_ array: NSArray) -> NSArray {

@@ -62,6 +62,7 @@
 		1820AB671E73EA0800DE1DD1 /* TextFormsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1820AB651E73EA0800DE1DD1 /* TextFormsCell.xib */; };
 		1820AB6A1E73EA6D00DE1DD1 /* ImageFormsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB681E73EA6D00DE1DD1 /* ImageFormsCell.swift */; };
 		1820AB6B1E73EA6D00DE1DD1 /* ImageFormsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1820AB691E73EA6D00DE1DD1 /* ImageFormsCell.xib */; };
+		1820AB6D1E7536D500DE1DD1 /* EditTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB6C1E7536D500DE1DD1 /* EditTextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,7 @@
 		1820AB651E73EA0800DE1DD1 /* TextFormsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFormsCell.xib; sourceTree = "<group>"; };
 		1820AB681E73EA6D00DE1DD1 /* ImageFormsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFormsCell.swift; sourceTree = "<group>"; };
 		1820AB691E73EA6D00DE1DD1 /* ImageFormsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageFormsCell.xib; sourceTree = "<group>"; };
+		1820AB6C1E7536D500DE1DD1 /* EditTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				04E866111E7145C000D37BB1 /* FormViewController.swift */,
+				1820AB6C1E7536D500DE1DD1 /* EditTextViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				1820AB6A1E73EA6D00DE1DD1 /* ImageFormsCell.swift in Sources */,
 				04E865F81E713FDF00D37BB1 /* ConstraintMakerFinalizable.swift in Sources */,
 				04E866011E713FDF00D37BB1 /* ConstraintView.swift in Sources */,
+				1820AB6D1E7536D500DE1DD1 /* EditTextViewController.swift in Sources */,
 				04E866221E715FEA00D37BB1 /* JsonData.swift in Sources */,
 				04E865F31E713FDF00D37BB1 /* ConstraintLayoutSupport.swift in Sources */,
 				04E866061E713FDF00D37BB1 /* UILayoutSupport+Extensions.swift in Sources */,
