@@ -25,7 +25,7 @@ class ConfigureData: NSObject {
             baseInputDic = dic as! NSDictionary
         }
         
-        if let dic = JsonData.getInfosWithJson(fileName: "test", jsonKey: "data") {
+        if let dic = JsonData.getInfosWithJson(fileName: "shandai", jsonKey: "data") {
             extendInputDic = dic as? NSDictionary
         } else {
             extendInputDic = nil
@@ -33,7 +33,7 @@ class ConfigureData: NSObject {
     }
     
     func getOriginalItems() -> NSMutableArray {
-        if let array = JsonData.getInfosWithJson(fileName: "test", jsonKey: "configure") {
+        if let array = JsonData.getInfosWithJson(fileName: "shandai", jsonKey: "configure") {
             originalData = array as! NSArray
         }
         

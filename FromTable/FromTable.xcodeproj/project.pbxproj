@@ -50,12 +50,18 @@
 		04E8660D1E7144FC00D37BB1 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8660B1E7144FC00D37BB1 /* UIView+Frame.swift */; };
 		04E8660E1E7144FC00D37BB1 /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8660C1E7144FC00D37BB1 /* Verification.swift */; };
 		04E866131E7145C000D37BB1 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E866111E7145C000D37BB1 /* FormViewController.swift */; };
-		04E866181E7156BC00D37BB1 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 04E866171E7156BC00D37BB1 /* test.json */; };
+		04E866181E7156BC00D37BB1 /* shandai.json in Resources */ = {isa = PBXBuildFile; fileRef = 04E866171E7156BC00D37BB1 /* shandai.json */; };
 		04E866211E715FEA00D37BB1 /* ConfigureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8661E1E715FEA00D37BB1 /* ConfigureData.swift */; };
 		04E866221E715FEA00D37BB1 /* JsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8661F1E715FEA00D37BB1 /* JsonData.swift */; };
 		04E866231E715FEA00D37BB1 /* UserInputsCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E866201E715FEA00D37BB1 /* UserInputsCommit.swift */; };
 		04E866261E72867300D37BB1 /* base.json in Resources */ = {isa = PBXBuildFile; fileRef = 04E866251E72867300D37BB1 /* base.json */; };
 		04E866281E728DDE00D37BB1 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E866271E728DDE00D37BB1 /* ItemModel.swift */; };
+		1820AB621E73E9CD00DE1DD1 /* SwitchFormsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB601E73E9CD00DE1DD1 /* SwitchFormsCell.swift */; };
+		1820AB631E73E9CD00DE1DD1 /* SwitchFormsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1820AB611E73E9CD00DE1DD1 /* SwitchFormsCell.xib */; };
+		1820AB661E73EA0800DE1DD1 /* TextFormsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB641E73EA0800DE1DD1 /* TextFormsCell.swift */; };
+		1820AB671E73EA0800DE1DD1 /* TextFormsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1820AB651E73EA0800DE1DD1 /* TextFormsCell.xib */; };
+		1820AB6A1E73EA6D00DE1DD1 /* ImageFormsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820AB681E73EA6D00DE1DD1 /* ImageFormsCell.swift */; };
+		1820AB6B1E73EA6D00DE1DD1 /* ImageFormsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1820AB691E73EA6D00DE1DD1 /* ImageFormsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,12 +131,18 @@
 		04E8660B1E7144FC00D37BB1 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		04E8660C1E7144FC00D37BB1 /* Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 		04E866111E7145C000D37BB1 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
-		04E866171E7156BC00D37BB1 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		04E866171E7156BC00D37BB1 /* shandai.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shandai.json; sourceTree = "<group>"; };
 		04E8661E1E715FEA00D37BB1 /* ConfigureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureData.swift; sourceTree = "<group>"; };
 		04E8661F1E715FEA00D37BB1 /* JsonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonData.swift; sourceTree = "<group>"; };
 		04E866201E715FEA00D37BB1 /* UserInputsCommit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInputsCommit.swift; sourceTree = "<group>"; };
 		04E866251E72867300D37BB1 /* base.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = base.json; sourceTree = "<group>"; };
 		04E866271E728DDE00D37BB1 /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		1820AB601E73E9CD00DE1DD1 /* SwitchFormsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchFormsCell.swift; sourceTree = "<group>"; };
+		1820AB611E73E9CD00DE1DD1 /* SwitchFormsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchFormsCell.xib; sourceTree = "<group>"; };
+		1820AB641E73EA0800DE1DD1 /* TextFormsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormsCell.swift; sourceTree = "<group>"; };
+		1820AB651E73EA0800DE1DD1 /* TextFormsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFormsCell.xib; sourceTree = "<group>"; };
+		1820AB681E73EA6D00DE1DD1 /* ImageFormsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFormsCell.swift; sourceTree = "<group>"; };
+		1820AB691E73EA6D00DE1DD1 /* ImageFormsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageFormsCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +288,12 @@
 		04E866091E7144FC00D37BB1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1820AB641E73EA0800DE1DD1 /* TextFormsCell.swift */,
+				1820AB651E73EA0800DE1DD1 /* TextFormsCell.xib */,
+				1820AB681E73EA6D00DE1DD1 /* ImageFormsCell.swift */,
+				1820AB691E73EA6D00DE1DD1 /* ImageFormsCell.xib */,
+				1820AB601E73E9CD00DE1DD1 /* SwitchFormsCell.swift */,
+				1820AB611E73E9CD00DE1DD1 /* SwitchFormsCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -308,7 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				04E866251E72867300D37BB1 /* base.json */,
-				04E866171E7156BC00D37BB1 /* test.json */,
+				04E866171E7156BC00D37BB1 /* shandai.json */,
 			);
 			path = Datas;
 			sourceTree = "<group>";
@@ -443,9 +461,12 @@
 			files = (
 				04E866261E72867300D37BB1 /* base.json in Resources */,
 				04E865B61E70FE0200D37BB1 /* Launch Screen.storyboard in Resources */,
-				04E866181E7156BC00D37BB1 /* test.json in Resources */,
+				1820AB631E73E9CD00DE1DD1 /* SwitchFormsCell.xib in Resources */,
+				04E866181E7156BC00D37BB1 /* shandai.json in Resources */,
+				1820AB6B1E73EA6D00DE1DD1 /* ImageFormsCell.xib in Resources */,
 				04E8658F1E70FDE400D37BB1 /* Assets.xcassets in Resources */,
 				04E865E61E713FDF00D37BB1 /* LICENSE in Resources */,
+				1820AB671E73EA0800DE1DD1 /* TextFormsCell.xib in Resources */,
 				04E8658D1E70FDE400D37BB1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,11 +505,13 @@
 				04E865F61E713FDF00D37BB1 /* ConstraintMakerEditable.swift in Sources */,
 				04E866231E715FEA00D37BB1 /* UserInputsCommit.swift in Sources */,
 				04E865EF1E713FDF00D37BB1 /* ConstraintInsetTarget.swift in Sources */,
+				1820AB6A1E73EA6D00DE1DD1 /* ImageFormsCell.swift in Sources */,
 				04E865F81E713FDF00D37BB1 /* ConstraintMakerFinalizable.swift in Sources */,
 				04E866011E713FDF00D37BB1 /* ConstraintView.swift in Sources */,
 				04E866221E715FEA00D37BB1 /* JsonData.swift in Sources */,
 				04E865F31E713FDF00D37BB1 /* ConstraintLayoutSupport.swift in Sources */,
 				04E866061E713FDF00D37BB1 /* UILayoutSupport+Extensions.swift in Sources */,
+				1820AB661E73EA0800DE1DD1 /* TextFormsCell.swift in Sources */,
 				04E865E71E713FDF00D37BB1 /* README.md in Sources */,
 				04E865EA1E713FDF00D37BB1 /* ConstraintConfig.swift in Sources */,
 				04E865ED1E713FDF00D37BB1 /* ConstraintDSL.swift in Sources */,
@@ -499,6 +522,7 @@
 				04E865FD1E713FDF00D37BB1 /* ConstraintPriorityTarget.swift in Sources */,
 				04E866001E713FDF00D37BB1 /* ConstraintView+Extensions.swift in Sources */,
 				04E866281E728DDE00D37BB1 /* ItemModel.swift in Sources */,
+				1820AB621E73E9CD00DE1DD1 /* SwitchFormsCell.swift in Sources */,
 				04E865FF1E713FDF00D37BB1 /* ConstraintRelation.swift in Sources */,
 				04E865881E70FDE400D37BB1 /* AppDelegate.swift in Sources */,
 				04E865EE1E713FDF00D37BB1 /* ConstraintInsets.swift in Sources */,

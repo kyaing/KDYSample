@@ -17,16 +17,14 @@ class FormViewController: UIViewController {
     var inputCommit: UserInputsCommit!
     
     public lazy var formTableView: UITableView = {
-        let tb = UITableView()
-        tb.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "formCell")
+        let tb: UITableView = UITableView(frame: self.view.bounds, style: .plain)
         tb.tableFooterView = UIView()
-        tb.sectionHeaderHeight = 48
-        tb.rowHeight = 50
+        tb.sectionHeaderHeight = 40
         tb.dataSource = self
         tb.delegate = self
         
         self.view.addSubview(tb)
-        
+
         return tb
     }()
     
@@ -45,12 +43,20 @@ class FormViewController: UIViewController {
         super.viewDidDisappear(animated)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    // MARK: Private Methods
+    
+    func getItemModel(_ indexPath: IndexPath) -> ItemModel {
+        let dic   = config.getOriginalItems().object(at: indexPath.section) as! NSDictionary
+        let array = dic.value(forKey: "subs") as! NSArray
+        let model = array.object(at: indexPath.row) as! ItemModel
         
-        formTableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view)
-        }
+        return model
+    }
+    
+    func getItemModelCount(_ section: Int) -> Int {
+        let dic   = config.getOriginalItems().object(at: section) as! NSDictionary
+        let array = dic.value(forKey: "subs") as! NSArray
+        return array.count
     }
 }
 
@@ -63,13 +69,25 @@ extension FormViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let dic   = config.getOriginalItems().object(at: section) as! NSDictionary
-        let array = dic.value(forKey: "subs") as! NSArray
-        return array.count
+        return getItemModelCount(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "formCell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "formCell")
+        if cell == nil {
+            cell = UITableViewCell(style: .value1, reuseIdentifier: "formCell")
+            cell?.accessoryType = .disclosureIndicator
+        }
+        
+        let model = getItemModel(indexPath)
+        
+        cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
+        cell?.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
+        
+        cell?.textLabel?.text = model.name
+        
+        
+        
         return cell!
     }
     

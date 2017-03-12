@@ -19,19 +19,19 @@ enum FormItemType {
 
 class ItemModel: NSObject {
     
-    var key: NSString?
-    var name: NSString?
+    var key: String?
+    var name: String?
     var type: FormItemType?
     var required: Bool?
-    var tip1: NSString?
-    var tip2: NSString?
-    var tip3: NSString?
+    var tip1: String?
+    var tip2: String?
+    var tip3: String?
     
     func mapDicToModel(_ dic: NSDictionary) -> ItemModel {
         let model = ItemModel()
         
-        model.key  = dic.value(forKey: "key") as! NSString?
-        model.name = dic.value(forKey: "name") as! NSString?
+        model.key  = dic.value(forKey: "key") as! String?
+        model.name = dic.value(forKey: "name") as! String?
         
         return model
     }
