@@ -106,3 +106,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == "remindLater" {
+            // 十分钟后再次触发
+            let newDate = Date(timeInterval: 10, since: Date())
+            scheduleNotification(at: newDate)
+        }
+    }
+}
+

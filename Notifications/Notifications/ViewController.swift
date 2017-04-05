@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         content.sound = UNNotificationSound.default()
         
         // 通知触发时机
-        let triger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: true)
+        let triger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: "request", content: content, trigger: triger)
         UNUserNotificationCenter.current().add(request) { (error) in
             if let error = error {
@@ -46,6 +46,7 @@ class ViewController: UIViewController {
         let action3 = UNNotificationAction(identifier: "cacel", title: "取消", options: .destructive)
         let category = UNNotificationCategory(identifier: "Normal", actions: [action1, action2, action3], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
+        content.categoryIdentifier = "Normal"
         
         scheduleNotification()
     }
@@ -71,8 +72,18 @@ extension ViewController: UNUserNotificationCenterDelegate {
         let content = response.notification.request.content
         print("推送接受的内容 = \(content)")
         
-        if  {
-            <#code#>
+        if content.categoryIdentifier == "Normal" {
+            if response.actionIdentifier == "text" {
+                let textResponse = response as! UNTextInputNotificationResponse
+                let text = textResponse.userText
+                print("用户输入的文本 = \(text)")
+                
+            } else if response.actionIdentifier == "remind" {
+                print("点击了稍后提醒.")
+                
+            } else {
+                print("点击了取消.")
+            }
         }
     }
 }
