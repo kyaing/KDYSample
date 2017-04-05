@@ -11,9 +11,9 @@
 		043178B91E94DF50003BA585 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178B81E94DF50003BA585 /* ViewController.swift */; };
 		043178BC1E94DF50003BA585 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043178BA1E94DF50003BA585 /* Main.storyboard */; };
 		043178BE1E94DF50003BA585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043178BD1E94DF50003BA585 /* Assets.xcassets */; };
-		043178C11E94DF50003BA585 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043178BF1E94DF50003BA585 /* LaunchScreen.storyboard */; };
 		043178CC1E94DF51003BA585 /* VideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178CB1E94DF51003BA585 /* VideoPlayerTests.swift */; };
 		043178D71E94DF51003BA585 /* VideoPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178D61E94DF51003BA585 /* VideoPlayerUITests.swift */; };
+		043178E51E94E64F003BA585 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043178E41E94E64F003BA585 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,6 @@
 		043178B81E94DF50003BA585 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		043178BB1E94DF50003BA585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		043178BD1E94DF50003BA585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		043178C01E94DF50003BA585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043178C21E94DF50003BA585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043178C71E94DF51003BA585 /* VideoPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		043178CB1E94DF51003BA585 /* VideoPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerTests.swift; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		043178D21E94DF51003BA585 /* VideoPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		043178D61E94DF51003BA585 /* VideoPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerUITests.swift; sourceTree = "<group>"; };
 		043178D81E94DF51003BA585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		043178E41E94E64F003BA585 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 				043178B81E94DF50003BA585 /* ViewController.swift */,
 				043178BA1E94DF50003BA585 /* Main.storyboard */,
 				043178BD1E94DF50003BA585 /* Assets.xcassets */,
-				043178BF1E94DF50003BA585 /* LaunchScreen.storyboard */,
+				043178E41E94E64F003BA585 /* Launch Screen.storyboard */,
 				043178C21E94DF50003BA585 /* Info.plist */,
 			);
 			path = VideoPlayer;
@@ -235,7 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043178C11E94DF50003BA585 /* LaunchScreen.storyboard in Resources */,
+				043178E51E94E64F003BA585 /* Launch Screen.storyboard in Resources */,
 				043178BE1E94DF50003BA585 /* Assets.xcassets in Resources */,
 				043178BC1E94DF50003BA585 /* Main.storyboard in Resources */,
 			);
@@ -305,14 +305,6 @@
 				043178BB1E94DF50003BA585 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		043178BF1E94DF50003BA585 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				043178C01E94DF50003BA585 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
