@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // MARK: Application
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window?.frame = UIScreen.main.bounds
@@ -24,29 +27,82 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
         
+        registerNotification()
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // 将 device token 转化为字符串
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
+        print("APNs device token: \(deviceTokenString)")
+        
+        // 再把 device token 发送到自己的服务器，或第三方推送中
+        // ...
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+       
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+    }
+    
+    // MARK: - Notifications
+    
+    /// 注册通知
+    func registerNotification() {
+        // 注册本地通知
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (accepted, error) in
+            if !accepted {
+                print("Notification access denied!")
+            } else {
+                print("Notification access success!")
+            }
+        }
+        
+        // 注册远程通知
+        UIApplication.shared.registerForRemoteNotifications()
+    }
+    
+    /// 创建通知
+    func scheduleNotification(at date: Date) {
+        // 触发机制
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar.dateComponents(in: .current, from: date)
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+        
+        // 通知内容
+        let content = UNMutableNotificationContent()
+        content.title = "Tutorial Reminder"
+        content.body = "Just a reminder to read your tutorial over at Soapyigu's Swift30Projects!"
+        content.sound = UNNotificationSound.default()
+        
+        // 传入参数
+        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
+        
+        // 将创建好的通知传入通知中心
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Uh oh! We had an error: \(error)")
+            }
+        }
     }
 }
 
