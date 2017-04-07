@@ -1,5 +1,5 @@
 //
-//  KYAssetsManager.swift
+//  AlbumTableViewCell.swift
 //  ImagePicker
 //
 //  Created by mac on 17/4/7.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KYAssetsManager: NSObject {
-
+class AlbumTableCell: UITableViewCell {
+    
 }
 

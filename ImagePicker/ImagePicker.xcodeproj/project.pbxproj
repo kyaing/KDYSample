@@ -46,9 +46,10 @@
 		043178661E8BA3FA003BA585 /* KYCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178651E8BA3FA003BA585 /* KYCollectionLayout.swift */; };
 		043178681E8BC40A003BA585 /* KYAlbumPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178671E8BC40A003BA585 /* KYAlbumPickerController.swift */; };
 		043178E81E9735EE003BA585 /* KYAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178E71E9735EE003BA585 /* KYAsset.swift */; };
-		043178EA1E973602003BA585 /* KYAssetsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178E91E973602003BA585 /* KYAssetsGroup.swift */; };
-		043178EC1E9736A3003BA585 /* KYAssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178EB1E9736A3003BA585 /* KYAssetsManager.swift */; };
-		043178EE1E9776BB003BA585 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178ED1E9776BB003BA585 /* AlbumTableViewCell.swift */; };
+		043178EA1E973602003BA585 /* KYAssetGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178E91E973602003BA585 /* KYAssetGroup.swift */; };
+		043178EC1E9736A3003BA585 /* KYAssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178EB1E9736A3003BA585 /* KYAssetManager.swift */; };
+		043178EE1E9776BB003BA585 /* AlbumTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178ED1E9776BB003BA585 /* AlbumTableCell.swift */; };
+		043178F01E978168003BA585 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178EF1E978168003BA585 /* UIView+Frame.swift */; };
 		047CF2891E8A45530049262F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CF2881E8A45530049262F /* AppDelegate.swift */; };
 		047CF28B1E8A45530049262F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CF28A1E8A45530049262F /* ViewController.swift */; };
 		047CF28E1E8A45530049262F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047CF28C1E8A45530049262F /* Main.storyboard */; };
@@ -115,9 +116,10 @@
 		043178651E8BA3FA003BA585 /* KYCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCollectionLayout.swift; sourceTree = "<group>"; };
 		043178671E8BC40A003BA585 /* KYAlbumPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYAlbumPickerController.swift; sourceTree = "<group>"; };
 		043178E71E9735EE003BA585 /* KYAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYAsset.swift; sourceTree = "<group>"; };
-		043178E91E973602003BA585 /* KYAssetsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYAssetsGroup.swift; sourceTree = "<group>"; };
-		043178EB1E9736A3003BA585 /* KYAssetsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYAssetsManager.swift; sourceTree = "<group>"; };
-		043178ED1E9776BB003BA585 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		043178E91E973602003BA585 /* KYAssetGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYAssetGroup.swift; sourceTree = "<group>"; };
+		043178EB1E9736A3003BA585 /* KYAssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYAssetManager.swift; sourceTree = "<group>"; };
+		043178ED1E9776BB003BA585 /* AlbumTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumTableCell.swift; sourceTree = "<group>"; };
+		043178EF1E978168003BA585 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		047CF2851E8A45530049262F /* ImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047CF2881E8A45530049262F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047CF28A1E8A45530049262F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -262,15 +264,16 @@
 		047CF2B91E8A4AEE0049262F /* KYImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				043178E71E9735EE003BA585 /* KYAsset.swift */,
+				043178E91E973602003BA585 /* KYAssetGroup.swift */,
+				043178EB1E9736A3003BA585 /* KYAssetManager.swift */,
 				043178631E8BA39D003BA585 /* KYNavigationController.swift */,
 				043178671E8BC40A003BA585 /* KYAlbumPickerController.swift */,
 				043178611E8BA369003BA585 /* KYPhotosPickerController.swift */,
 				043178651E8BA3FA003BA585 /* KYCollectionLayout.swift */,
-				043178ED1E9776BB003BA585 /* AlbumTableViewCell.swift */,
+				043178ED1E9776BB003BA585 /* AlbumTableCell.swift */,
 				0431785D1E8BA31D003BA585 /* AssetCollectionCell.swift */,
-				043178E71E9735EE003BA585 /* KYAsset.swift */,
-				043178E91E973602003BA585 /* KYAssetsGroup.swift */,
-				043178EB1E9736A3003BA585 /* KYAssetsManager.swift */,
+				043178EF1E978168003BA585 /* UIView+Frame.swift */,
 			);
 			path = KYImagePicker;
 			sourceTree = "<group>";
@@ -420,7 +423,7 @@
 				043178E81E9735EE003BA585 /* KYAsset.swift in Sources */,
 				0431784E1E8B9899003BA585 /* ConstraintMakerFinalizable.swift in Sources */,
 				043178641E8BA39D003BA585 /* KYNavigationController.swift in Sources */,
-				043178EC1E9736A3003BA585 /* KYAssetsManager.swift in Sources */,
+				043178EC1E9736A3003BA585 /* KYAssetManager.swift in Sources */,
 				0431783D1E8B9899003BA585 /* README.md in Sources */,
 				043178681E8BC40A003BA585 /* KYAlbumPickerController.swift in Sources */,
 				0431785B1E8B9899003BA585 /* UILayoutGuide+Extensions.swift in Sources */,
@@ -436,7 +439,7 @@
 				043178401E8B9899003BA585 /* ConstraintConfig.swift in Sources */,
 				043178521E8B9899003BA585 /* ConstraintOffsetTarget.swift in Sources */,
 				043178471E8B9899003BA585 /* ConstraintLayoutGuide.swift in Sources */,
-				043178EA1E973602003BA585 /* KYAssetsGroup.swift in Sources */,
+				043178EA1E973602003BA585 /* KYAssetGroup.swift in Sources */,
 				047CF2891E8A45530049262F /* AppDelegate.swift in Sources */,
 				0431785C1E8B9899003BA585 /* UILayoutSupport+Extensions.swift in Sources */,
 				0431784C1E8B9899003BA585 /* ConstraintMakerEditable.swift in Sources */,
@@ -445,9 +448,10 @@
 				0431785A1E8B9899003BA585 /* LayoutConstraint.swift in Sources */,
 				043178511E8B9899003BA585 /* ConstraintMultiplierTarget.swift in Sources */,
 				043178661E8BA3FA003BA585 /* KYCollectionLayout.swift in Sources */,
+				043178F01E978168003BA585 /* UIView+Frame.swift in Sources */,
 				043178531E8B9899003BA585 /* ConstraintPriorityTarget.swift in Sources */,
 				0431784F1E8B9899003BA585 /* ConstraintMakerPriortizable.swift in Sources */,
-				043178EE1E9776BB003BA585 /* AlbumTableViewCell.swift in Sources */,
+				043178EE1E9776BB003BA585 /* AlbumTableCell.swift in Sources */,
 				043178591E8B9899003BA585 /* Debugging.swift in Sources */,
 				043178441E8B9899003BA585 /* ConstraintInsets.swift in Sources */,
 				043178481E8B9899003BA585 /* ConstraintLayoutGuideDSL.swift in Sources */,
