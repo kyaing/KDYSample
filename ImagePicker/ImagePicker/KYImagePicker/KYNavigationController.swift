@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 自定义导航控制器
 class KYNavigationController: UINavigationController {
 
     override func viewDidLoad() {

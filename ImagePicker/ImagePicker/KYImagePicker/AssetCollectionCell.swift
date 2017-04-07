@@ -1,5 +1,5 @@
 //
-//  CameraCell.swift
+//  AssetCollectionCell.swift
 //  ImagePicker
 //
 //  Created by mac on 17/3/29.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CameraCell: UICollectionViewCell {
+class AssetCollectionCell: UICollectionViewCell {
     
 }
 

@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Photos
 
+/// 图片控制器
 class KYPhotosPickerController: UIViewController {
 
     override func viewDidLoad() {
