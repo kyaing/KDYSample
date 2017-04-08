@@ -193,7 +193,7 @@
 				TargetAttributes = {
 					181F252C1E7BDEE5003117CB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 36D935N6NX;
+						DevelopmentTeam = VXQWC7SN3H;
 						ProvisioningStyle = Automatic;
 					};
 					181F25401E7BDEE5003117CB = {
@@ -407,7 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 36D935N6NX;
+				DEVELOPMENT_TEAM = VXQWC7SN3H;
 				INFOPLIST_FILE = Algorithm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.Algorithm;
@@ -420,7 +420,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 36D935N6NX;
+				DEVELOPMENT_TEAM = VXQWC7SN3H;
 				INFOPLIST_FILE = Algorithm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.Algorithm;
@@ -506,6 +506,7 @@
 				181F25571E7BDEE5003117CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		181F25581E7BDEE5003117CB /* Build configuration list for PBXNativeTarget "AlgorithmTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +515,7 @@
 				181F255A1E7BDEE5003117CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		181F255B1E7BDEE5003117CB /* Build configuration list for PBXNativeTarget "AlgorithmUITests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +524,7 @@
 				181F255D1E7BDEE5003117CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

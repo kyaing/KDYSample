@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="55" id="KGk-i7-Jjw" customClass="AlbumTableCell" customModule="ImagePicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="297" height="54.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TuJ-OL-fAW" userLabel="pickerImage">
+                        <rect key="frame" x="10" y="5" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="vDU-7E-giZ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相册名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgc-4a-NYJ" userLabel="titleLabel">
+                        <rect key="frame" x="70" y="17" width="77.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（1000）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4V-s9-whm" userLabel="numberLabel">
+                        <rect key="frame" x="162.5" y="17" width="74" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sgc-4a-NYJ" firstAttribute="leading" secondItem="TuJ-OL-fAW" secondAttribute="trailing" constant="15" id="CT2-Dj-tEz"/>
+                    <constraint firstItem="TuJ-OL-fAW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Iwt-C3-JiL"/>
+                    <constraint firstAttribute="bottom" secondItem="TuJ-OL-fAW" secondAttribute="bottom" constant="5" id="QJn-Yq-oAw"/>
+                    <constraint firstItem="n4V-s9-whm" firstAttribute="leading" secondItem="sgc-4a-NYJ" secondAttribute="trailing" constant="15" id="QuI-kV-zq8"/>
+                    <constraint firstItem="sgc-4a-NYJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="bIu-Ss-krW"/>
+                    <constraint firstItem="TuJ-OL-fAW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="cf5-k2-MvH"/>
+                    <constraint firstItem="n4V-s9-whm" firstAttribute="firstBaseline" secondItem="sgc-4a-NYJ" secondAttribute="baseline" id="flk-Dd-vTT"/>
+                    <constraint firstAttribute="bottom" secondItem="sgc-4a-NYJ" secondAttribute="bottom" constant="17" id="uVk-MP-a22"/>
+                </constraints>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="numberLabel" destination="n4V-s9-whm" id="xs7-cm-50C"/>
+                <outlet property="pickerImage" destination="TuJ-OL-fAW" id="HPA-Oo-XQG"/>
+                <outlet property="titleLabel" destination="sgc-4a-NYJ" id="p6h-E5-Y1L"/>
+            </connections>
+            <point key="canvasLocation" x="-379" y="-245.5"/>
+        </tableViewCell>
+    </objects>
+</document>

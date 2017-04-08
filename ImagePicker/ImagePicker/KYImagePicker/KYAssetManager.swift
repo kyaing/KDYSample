@@ -33,12 +33,16 @@ class KYAssetManager: NSObject {
         
         // 遍历系统相册
         for i in 0..<smartResults.count {
-            let assetColletion = smartResults[i] 
-            let fetchResult = PHAsset.fetchAssets(in: assetColletion, options: fetchOptions)
+            let collection: PHCollection = smartResults[i]
             
-            // 过滤空相册
-            if fetchResult.count > 0 {
-                albumsArray.add(fetchResult)
+            if collection.isKind(of: PHAssetCollection.classForCoder()) {
+                let assetCollection = collection as! PHAssetCollection
+                let fetchResult = PHAsset.fetchAssets(in: assetCollection, options: fetchOptions)
+                
+                // 过滤空相册
+                if fetchResult.count > 0 {
+                    albumsArray.add(assetCollection)
+                }
             }
         }
         
@@ -46,14 +50,19 @@ class KYAssetManager: NSObject {
         
         // 遍历用户创建的相册
         for i in 0..<userResults.count {
-            let collection = userResults[i] as! PHAssetCollection
-            let fetchResult = PHAsset.fetchAssets(in: collection, options: fetchOptions)
+            let collection: PHCollection = userResults[i]
             
-            if fetchResult.count > 0 {
-                albumsArray.add(fetchResult)
+            if collection.isKind(of: PHAssetCollection.classForCoder()) {
+                let assetCollection = userResults[i] as! PHAssetCollection
+                let fetchResult = PHAsset.fetchAssets(in: assetCollection, options: fetchOptions)
+                
+                if fetchResult.count > 0 {
+                    albumsArray.add(assetCollection)
+                }
             }
         }
         
+        // 遍历所有的相册
         for i in 0..<albumsArray.count {
             let assetColletion = albumsArray[i] as! PHAssetCollection
             let groups = KYAssetGroup(phAssetCollection: assetColletion, phFetchOptions: fetchOptions)

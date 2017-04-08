@@ -17,7 +17,9 @@ class KYAlbumPickerController: UIViewController {
         let tb = UITableView(frame: CGRect.zero, style: .plain)
         tb.delegate = self
         tb.dataSource = self
-        tb.register(AlbumTableCell.classForCoder(), forCellReuseIdentifier: "AlbumCell")
+        tb.register(UINib(nibName: "AlbumTableCell", bundle: nil), forCellReuseIdentifier: "AlbumTableCell")
+        tb.tableFooterView = UIView()
+        tb.rowHeight = 55
         
         self.view.addSubview(tb)
         
@@ -49,7 +51,15 @@ extension KYAlbumPickerController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath)
+        let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumTableCell", for: indexPath) as! AlbumTableCell
+        
+        if indexPath.row < albumsArray.count {
+            let assetGroups = albumsArray.object(at: indexPath.row) as! KYAssetGroup
+            
+            albumCell.titleLabel.text = assetGroups.groupName
+            albumCell.numberLabel.text = "(\(assetGroups.numberOfGroup))"
+            albumCell.pickerImage.image = assetGroups.posterImage(CGSize(width: 45, height: 45))
+        }
         
         return albumCell
     }

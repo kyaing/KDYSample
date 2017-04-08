@@ -18,7 +18,8 @@ class KYAssetGroup: NSObject {
     
     /// 相册名称
     var groupName: String? {
-        return phAssetCollection.localizedTitle
+        let resultName = phAssetCollection.localizedTitle
+        return NSLocalizedString(resultName!, comment: resultName!)
     }
     
     /// 相册内资源数量
