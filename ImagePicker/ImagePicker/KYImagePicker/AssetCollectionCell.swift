@@ -16,7 +16,7 @@ class AssetCollectionCell: UICollectionViewCell {
         super.awakeFromNib()
         
         photoImage.contentMode = .scaleAspectFill
-        photoImage.layer.cornerRadius = 3.0
+        photoImage.layer.cornerRadius = 2.0
         photoImage.layer.masksToBounds = true
         photoImage.layer.borderWidth = 0.2
         photoImage.layer.borderColor = UIColor.lightGray.cgColor

@@ -93,7 +93,6 @@ class KYAsset: NSObject {
     /// 请求预览图
     func requestPreviewImage(assetBlock block: @escaping assetSuccessBlock) -> PHImageRequestID {
         
-        
         return 0
     }
 }

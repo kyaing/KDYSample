@@ -12,14 +12,19 @@ import Photos
 /// 图片控制器
 class KYPhotosPickerController: UIViewController {
 
+    /// 图片的列数
+    var photoColumns: Int = 4
+    
+    var margin: CGFloat = 5.0
+    
     lazy var photoLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 5
-        flowLayout.minimumInteritemSpacing = 5
         
-        let width: CGFloat = (self.view.width - 25) / 4.0
-        let hight = width
-        flowLayout.itemSize = CGSize(width: width, height: hight)
+        flowLayout.minimumLineSpacing = self.margin
+        flowLayout.minimumInteritemSpacing = self.margin
+        
+        let width: CGFloat = (self.view.width - CGFloat(self.photoColumns + 1) * self.margin) / CGFloat(self.photoColumns)
+        flowLayout.itemSize = CGSize(width: width, height: width)
         
         return flowLayout
     }()
@@ -27,6 +32,7 @@ class KYPhotosPickerController: UIViewController {
     lazy var photoCollection: UICollectionView = {
         let collect: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.photoLayout)
         collect.register(UINib.init(nibName: "AssetCollectionCell", bundle: nil), forCellWithReuseIdentifier: "AssetCollectionCell")
+        collect.contentInset = UIEdgeInsets(top: self.margin, left: self.margin, bottom: self.margin, right: self.margin)
         collect.backgroundColor = .clear
         collect.showsHorizontalScrollIndicator = false
         collect.dataSource = self
