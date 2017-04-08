@@ -70,6 +70,14 @@ extension KYAlbumPickerController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        if indexPath.row < albumsArray.count {
+            let assetGroups = albumsArray.object(at: indexPath.row) as! KYAssetGroup
+            
+            let photosConroller = KYPhotosPickerController()
+            photosConroller.title = assetGroups.groupName
+            photosConroller.assetGroups = assetGroups
+            self.navigationController?.pushViewController(photosConroller, animated: true)
+        }
     }
 }
 

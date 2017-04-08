@@ -63,7 +63,7 @@ class KYAssetGroup: NSObject {
     
     /// 遍历相册中所有资源
     func enumerationGroupAssets(assetBlock block: enumerationGroupBlock) {
-        for i in numberOfGroup-1...0 {
+        for i in 0..<numberOfGroup {
             let phAsset = phFetchResult[i] as! PHAsset
             let asset = KYAsset(phAsset: phAsset)
             

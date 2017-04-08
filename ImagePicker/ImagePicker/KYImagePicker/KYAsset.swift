@@ -12,24 +12,17 @@ import Photos
 /// 相册中一个资源
 class KYAsset: NSObject {
     
-    enum AssetType {
-        case image
-        case video
-        case audio
-        case unknow
-    }
-    
     var phAsset: PHAsset
-    
-    var phType: KYAsset.AssetType?
     
     init(phAsset asset: PHAsset) {
         phAsset = asset
     }
     
+    typealias assetSuccessBlock = (UIImage, NSDictionary) -> Void
+    
     // MARK: - Public Api
     
-    /// 获取原图
+    /// 原图
     func originImage() -> UIImage {
         let imageRequestOption = PHImageRequestOptions()
         var resultImage = UIImage()
@@ -43,7 +36,7 @@ class KYAsset: NSObject {
         return resultImage
     }
     
-    /// 获取指定的缩略图 (注意targetSize)
+    /// 指定的缩略图 (注意targetSize)
     func thumbnailImage(_ size: CGSize) -> UIImage {
         let imageRequestOption = PHImageRequestOptions()
         var resultImage = UIImage()
@@ -60,7 +53,7 @@ class KYAsset: NSObject {
         return resultImage
     }
     
-    /// 获取预览图
+    /// 预览图
     func previewImage() -> UIImage {
         let imageRequestOption = PHImageRequestOptions()
         var resultImage = UIImage()
@@ -74,6 +67,34 @@ class KYAsset: NSObject {
         }
         
         return resultImage
+    }
+    
+    /// 请求原图
+    func requestOriginImage(assetBlock block: @escaping assetSuccessBlock) -> PHImageRequestID {
+        return KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize:       PHImageManagerMaximumSize, contentMode: .default, options: nil) { (result, info) in
+            if let _result = result, let _info = info {
+                block(_result, _info as NSDictionary)
+            }
+        }
+    }
+    
+    /// 请求指定大小图
+    func requestThumbnailImage(_ size: CGSize, assetBlock block: @escaping assetSuccessBlock) -> PHImageRequestID {
+        let scale = UIScreen.main.scale
+        let newSize = CGSize(width: size.width * scale, height: size.height * scale)
+        
+        return KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize: newSize, contentMode: .aspectFill, options: nil, resultHandler: { (result, info) in
+            if let _result = result, let _info = info {
+                block(_result, _info as NSDictionary)
+            }
+        })
+    }
+    
+    /// 请求预览图
+    func requestPreviewImage(assetBlock block: @escaping assetSuccessBlock) -> PHImageRequestID {
+        
+        
+        return 0
     }
 }
 
