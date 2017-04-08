@@ -12,7 +12,7 @@ import Photos
 /// 图片控制器
 class KYPhotosPickerController: UIViewController {
 
-    /// 图片的列数
+    /// 展示的列数
     var photoColumns: Int = 4
     
     var margin: CGFloat = 5.0
@@ -31,7 +31,7 @@ class KYPhotosPickerController: UIViewController {
     
     lazy var photoCollection: UICollectionView = {
         let collect: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.photoLayout)
-        collect.register(UINib.init(nibName: "AssetCollectionCell", bundle: nil), forCellWithReuseIdentifier: "AssetCollectionCell")
+        collect.register(UINib.init(nibName: "AssetCollectionCell", bundle: nil), forCellWithReuseIdentifier: "AssetCell")
         collect.contentInset = UIEdgeInsets(top: self.margin, left: self.margin, bottom: self.margin, right: self.margin)
         collect.backgroundColor = .clear
         collect.showsHorizontalScrollIndicator = false
@@ -72,7 +72,7 @@ extension KYPhotosPickerController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let assetCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AssetCollectionCell", for: indexPath) as! AssetCollectionCell
+        let assetCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AssetCell", for: indexPath) as! AssetCollectionCell
 
         if indexPath.row < assetsArray.count {
             let phAsset = assetsArray.object(at: indexPath.row) as! KYAsset
@@ -90,6 +90,11 @@ extension KYPhotosPickerController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let previewController = KYPreviewViewController()
+        previewController.currentIndex = indexPath.row
+        previewController.assetsArray = assetsArray
+        self.navigationController?.pushViewController(previewController, animated: true)
     }
 }
 

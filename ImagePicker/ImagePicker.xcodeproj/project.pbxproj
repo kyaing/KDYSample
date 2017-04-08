@@ -58,6 +58,9 @@
 		18276CA81E98BE4A005608F0 /* AlbumTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18276CA61E98BE4A005608F0 /* AlbumTableCell.xib */; };
 		18276CBE1E98D285005608F0 /* AssetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18276CBC1E98D285005608F0 /* AssetCollectionCell.swift */; };
 		18276CBF1E98D285005608F0 /* AssetCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18276CBD1E98D285005608F0 /* AssetCollectionCell.xib */; };
+		18276CC11E99182E005608F0 /* KYPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18276CC01E99182E005608F0 /* KYPreviewViewController.swift */; };
+		18276CC41E9925F5005608F0 /* PreviewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18276CC21E9925F5005608F0 /* PreviewCollectionCell.swift */; };
+		18276CC51E9925F5005608F0 /* PreviewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18276CC31E9925F5005608F0 /* PreviewCollectionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +139,9 @@
 		18276CB51E98CC32005608F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		18276CBC1E98D285005608F0 /* AssetCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetCollectionCell.swift; sourceTree = "<group>"; };
 		18276CBD1E98D285005608F0 /* AssetCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssetCollectionCell.xib; sourceTree = "<group>"; };
+		18276CC01E99182E005608F0 /* KYPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYPreviewViewController.swift; sourceTree = "<group>"; };
+		18276CC21E9925F5005608F0 /* PreviewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCollectionCell.swift; sourceTree = "<group>"; };
+		18276CC31E9925F5005608F0 /* PreviewCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewCollectionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,10 +279,13 @@
 				043178631E8BA39D003BA585 /* KYNavigationController.swift */,
 				043178671E8BC40A003BA585 /* KYAlbumPickerController.swift */,
 				043178611E8BA369003BA585 /* KYPhotosPickerController.swift */,
+				18276CC01E99182E005608F0 /* KYPreviewViewController.swift */,
 				18276CA51E98BE4A005608F0 /* AlbumTableCell.swift */,
 				18276CA61E98BE4A005608F0 /* AlbumTableCell.xib */,
 				18276CBC1E98D285005608F0 /* AssetCollectionCell.swift */,
 				18276CBD1E98D285005608F0 /* AssetCollectionCell.xib */,
+				18276CC21E9925F5005608F0 /* PreviewCollectionCell.swift */,
+				18276CC31E9925F5005608F0 /* PreviewCollectionCell.xib */,
 				043178EF1E978168003BA585 /* UIView+Frame.swift */,
 			);
 			path = KYImagePicker;
@@ -392,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18276CC51E9925F5005608F0 /* PreviewCollectionCell.xib in Resources */,
 				047CF2B71E8A459A0049262F /* Launch Screen.storyboard in Resources */,
 				047CF2901E8A45530049262F /* Assets.xcassets in Resources */,
 				0431783C1E8B9899003BA585 /* LICENSE in Resources */,
@@ -447,6 +457,7 @@
 				043178521E8B9899003BA585 /* ConstraintOffsetTarget.swift in Sources */,
 				043178471E8B9899003BA585 /* ConstraintLayoutGuide.swift in Sources */,
 				043178EA1E973602003BA585 /* KYAssetGroup.swift in Sources */,
+				18276CC11E99182E005608F0 /* KYPreviewViewController.swift in Sources */,
 				047CF2891E8A45530049262F /* AppDelegate.swift in Sources */,
 				0431785C1E8B9899003BA585 /* UILayoutSupport+Extensions.swift in Sources */,
 				0431784C1E8B9899003BA585 /* ConstraintMakerEditable.swift in Sources */,
@@ -458,6 +469,7 @@
 				043178531E8B9899003BA585 /* ConstraintPriorityTarget.swift in Sources */,
 				0431784F1E8B9899003BA585 /* ConstraintMakerPriortizable.swift in Sources */,
 				043178591E8B9899003BA585 /* Debugging.swift in Sources */,
+				18276CC41E9925F5005608F0 /* PreviewCollectionCell.swift in Sources */,
 				043178441E8B9899003BA585 /* ConstraintInsets.swift in Sources */,
 				043178481E8B9899003BA585 /* ConstraintLayoutGuideDSL.swift in Sources */,
 				0431784A1E8B9899003BA585 /* ConstraintLayoutSupportDSL.swift in Sources */,

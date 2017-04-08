@@ -71,7 +71,10 @@ class KYAsset: NSObject {
     
     /// 请求原图
     func requestOriginImage(assetBlock block: @escaping assetSuccessBlock) -> PHImageRequestID {
-        return KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize:       PHImageManagerMaximumSize, contentMode: .default, options: nil) { (result, info) in
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.resizeMode = .fast
+        
+        return KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize:       PHImageManagerMaximumSize, contentMode: .default, options: requestOptions) { (result, info) in
             if let _result = result, let _info = info {
                 block(_result, _info as NSDictionary)
             }
@@ -80,10 +83,13 @@ class KYAsset: NSObject {
     
     /// 请求指定大小图
     func requestThumbnailImage(_ size: CGSize, assetBlock block: @escaping assetSuccessBlock) -> PHImageRequestID {
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.resizeMode = .fast
+        
         let scale = UIScreen.main.scale
         let newSize = CGSize(width: size.width * scale, height: size.height * scale)
         
-        return KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize: newSize, contentMode: .aspectFill, options: nil, resultHandler: { (result, info) in
+        return KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize: newSize, contentMode: .aspectFill, options: requestOptions, resultHandler: { (result, info) in
             if let _result = result, let _info = info {
                 block(_result, _info as NSDictionary)
             }
@@ -92,8 +98,16 @@ class KYAsset: NSObject {
     
     /// 请求预览图
     func requestPreviewImage(assetBlock block: @escaping assetSuccessBlock) -> PHImageRequestID {
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.resizeMode = .fast
         
-        return 0
+        let scale = UIScreen.main.scale
+        let size = CGSize(width: UIScreen.main.bounds.width * scale, height: UIScreen.main.bounds.height * scale)
+        return KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize: size, contentMode: .aspectFill, options: requestOptions) { (result, info) in
+            if let _result = result, let _info = info {
+                block(_result, _info as NSDictionary)
+            }
+        }
     }
 }
 
