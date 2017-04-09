@@ -14,7 +14,7 @@
 		0431788B1E948FC7003BA585 /* NotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431788A1E948FC7003BA585 /* NotificationsTests.swift */; };
 		043178961E948FC7003BA585 /* NotificationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178951E948FC7003BA585 /* NotificationsUITests.swift */; };
 		043178A41E949001003BA585 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043178A31E949001003BA585 /* Launch Screen.storyboard */; };
-		043178A91E94D713003BA585 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043178A81E94D713003BA585 /* test@2x.png */; };
+		18276CD91E9A18EB005608F0 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18276CD81E9A18EB005608F0 /* test@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		043178971E948FC7003BA585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043178A31E949001003BA585 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		043178A51E949D58003BA585 /* Notifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Notifications.entitlements; sourceTree = "<group>"; };
-		043178A81E94D713003BA585 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
+		18276CD81E9A18EB005608F0 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +106,8 @@
 				043178A31E949001003BA585 /* Launch Screen.storyboard */,
 				0431787C1E948FC7003BA585 /* Assets.xcassets */,
 				043178A51E949D58003BA585 /* Notifications.entitlements */,
-				043178A81E94D713003BA585 /* test@2x.png */,
 				043178811E948FC7003BA585 /* Info.plist */,
+				18276CD71E9A18EB005608F0 /* Resource */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -129,6 +129,15 @@
 			);
 			path = NotificationsUITests;
 			sourceTree = "<group>";
+		};
+		18276CD71E9A18EB005608F0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				18276CD81E9A18EB005608F0 /* test@2x.png */,
+			);
+			name = Resource;
+			path = NotificationsTests/Resource;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -201,8 +210,11 @@
 						DevelopmentTeam = 36D935N6NX;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -245,7 +257,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043178A91E94D713003BA585 /* test@2x.png in Resources */,
 				043178A41E949001003BA585 /* Launch Screen.storyboard in Resources */,
 				0431787D1E948FC7003BA585 /* Assets.xcassets in Resources */,
 				0431787B1E948FC7003BA585 /* Main.storyboard in Resources */,
@@ -256,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18276CD91E9A18EB005608F0 /* test@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,11 +429,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Notifications/Notifications.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 36D935N6NX;
 				INFOPLIST_FILE = Notifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.Notifications;
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -431,11 +445,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Notifications/Notifications.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 36D935N6NX;
 				INFOPLIST_FILE = Notifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.Notifications;
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -517,6 +533,7 @@
 				0431789C1E948FC7003BA585 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0431789D1E948FC7003BA585 /* Build configuration list for PBXNativeTarget "NotificationsTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +542,7 @@
 				0431789F1E948FC7003BA585 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		043178A01E948FC7003BA585 /* Build configuration list for PBXNativeTarget "NotificationsUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +551,7 @@
 				043178A21E948FC7003BA585 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

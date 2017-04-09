@@ -20,6 +20,8 @@ class AssetCollectionCell: UICollectionViewCell {
         photoImage.layer.masksToBounds = true
         photoImage.layer.borderWidth = 0.2
         photoImage.layer.borderColor = UIColor.lightGray.cgColor
+        
+        
     }
 }
 

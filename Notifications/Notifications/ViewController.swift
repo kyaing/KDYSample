@@ -19,8 +19,9 @@ class ViewController: UIViewController {
         self.title = "Notifications"
         self.view.backgroundColor = .white
         
-        scheduleNotification()
         UNUserNotificationCenter.current().delegate = self
+        
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(scheduleImageNotification), userInfo: nil, repeats: true)
     }
     
     func scheduleNotification() {
@@ -54,9 +55,12 @@ class ViewController: UIViewController {
     func scheduleImageNotification() {
         // 添加图片附件（图片上限10M）
         let imageString = Bundle.main.path(forResource: "test", ofType: "png")
+        
         do {
-            let imageAttachment = try UNNotificationAttachment(identifier: "imageAttachment", url: URL(fileURLWithPath: imageString!), options: nil)
-            content.attachments = [imageAttachment]
+            if let path = imageString {
+                let imageAttachment = try UNNotificationAttachment(identifier: "imageAttachment", url: URL(fileURLWithPath: path), options: nil)
+                content.attachments = [imageAttachment]
+            }
             
         } catch {
             print("error")
