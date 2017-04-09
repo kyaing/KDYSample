@@ -11,25 +11,24 @@ import UIKit
 /// 预览大图控制器
 class KYPreviewViewController: UIViewController {
     
-    lazy var previewLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: self.view.width, height: self.view.height)
-        layout.scrollDirection = .horizontal
+    var previewLayout = KYCollectionFlowLayout()
         
-        return layout
-    }()
-    
     lazy var previewCollection: UICollectionView = {
-        let collect: UICollectionView = UICollectionView(frame: CGRect.init(x: 0, y: 0, width: self.view.width, height: self.view.height), collectionViewLayout: self.previewLayout)
+        let collect: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.previewLayout)
         collect.register(UINib(nibName: "PreviewCollectionCell", bundle: nil), forCellWithReuseIdentifier: "PreviewCell")
-        collect.backgroundColor = .clear
+        collect.backgroundColor = .black
         collect.showsHorizontalScrollIndicator = false
         collect.scrollsToTop = false
+        collect.isPagingEnabled = true
         
         collect.dataSource = self
         collect.delegate = self
         
         self.view.addSubview(collect)
+        
+        collect.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
         
         return collect
     }()

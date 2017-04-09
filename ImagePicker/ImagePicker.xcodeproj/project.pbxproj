@@ -61,6 +61,7 @@
 		18276CC11E99182E005608F0 /* KYPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18276CC01E99182E005608F0 /* KYPreviewViewController.swift */; };
 		18276CC41E9925F5005608F0 /* PreviewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18276CC21E9925F5005608F0 /* PreviewCollectionCell.swift */; };
 		18276CC51E9925F5005608F0 /* PreviewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18276CC31E9925F5005608F0 /* PreviewCollectionCell.xib */; };
+		18276CC71E99CE49005608F0 /* KYCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18276CC61E99CE49005608F0 /* KYCollectionFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		18276CC01E99182E005608F0 /* KYPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYPreviewViewController.swift; sourceTree = "<group>"; };
 		18276CC21E9925F5005608F0 /* PreviewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCollectionCell.swift; sourceTree = "<group>"; };
 		18276CC31E9925F5005608F0 /* PreviewCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewCollectionCell.xib; sourceTree = "<group>"; };
+		18276CC61E99CE49005608F0 /* KYCollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCollectionFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 				043178671E8BC40A003BA585 /* KYAlbumPickerController.swift */,
 				043178611E8BA369003BA585 /* KYPhotosPickerController.swift */,
 				18276CC01E99182E005608F0 /* KYPreviewViewController.swift */,
+				18276CC61E99CE49005608F0 /* KYCollectionFlowLayout.swift */,
 				18276CA51E98BE4A005608F0 /* AlbumTableCell.swift */,
 				18276CA61E98BE4A005608F0 /* AlbumTableCell.xib */,
 				18276CBC1E98D285005608F0 /* AssetCollectionCell.swift */,
@@ -467,6 +470,7 @@
 				043178511E8B9899003BA585 /* ConstraintMultiplierTarget.swift in Sources */,
 				043178F01E978168003BA585 /* UIView+Frame.swift in Sources */,
 				043178531E8B9899003BA585 /* ConstraintPriorityTarget.swift in Sources */,
+				18276CC71E99CE49005608F0 /* KYCollectionFlowLayout.swift in Sources */,
 				0431784F1E8B9899003BA585 /* ConstraintMakerPriortizable.swift in Sources */,
 				043178591E8B9899003BA585 /* Debugging.swift in Sources */,
 				18276CC41E9925F5005608F0 /* PreviewCollectionCell.swift in Sources */,
