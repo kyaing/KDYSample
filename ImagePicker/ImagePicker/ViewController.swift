@@ -31,7 +31,8 @@ class ViewController: UIViewController {
     
     func selectPhotos() {
         let albumController = KYAlbumPickerController()
-        self.navigationController?.pushViewController(albumController, animated: true)
+        let navigation = KYNavigationController(rootViewController: albumController)
+        self.present(navigation, animated: true, completion: nil)
     }
 }
 

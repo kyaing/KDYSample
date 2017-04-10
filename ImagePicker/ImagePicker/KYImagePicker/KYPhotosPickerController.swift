@@ -54,6 +54,9 @@ class KYPhotosPickerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelAction))
         
         assetGroups?.enumerationGroupAssets(assetBlock: { (asset) in
             if asset != nil {
@@ -62,6 +65,10 @@ class KYPhotosPickerController: UIViewController {
                 photoCollection.reloadData()
             }
         })
+    }
+    
+    func cancelAction() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

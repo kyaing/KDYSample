@@ -33,6 +33,11 @@ class KYAlbumPickerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "照片"
+        self.view.backgroundColor = .white
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelAction))
+        
         // 遍历所有相册
         KYAssetManager.default.enumerationGroupAssets { (assetGroups) in
             if assetGroups != nil {
@@ -41,6 +46,10 @@ class KYAlbumPickerController: UIViewController {
                 albumTableVIew.reloadData()
             }
         }
+    }
+    
+    func cancelAction() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import AVFoundation
 
 /// 相册或资源集合
 class KYAssetGroup: NSObject {
