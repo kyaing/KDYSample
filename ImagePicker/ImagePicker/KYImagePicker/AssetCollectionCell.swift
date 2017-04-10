@@ -12,6 +12,8 @@ class AssetCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var photoImage: UIImageView!
     
+    @IBOutlet weak var selectButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -20,8 +22,6 @@ class AssetCollectionCell: UICollectionViewCell {
         photoImage.layer.masksToBounds = true
         photoImage.layer.borderWidth = 0.2
         photoImage.layer.borderColor = UIColor.lightGray.cgColor
-        
-        
     }
 }
 

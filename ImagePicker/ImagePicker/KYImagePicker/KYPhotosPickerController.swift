@@ -37,14 +37,32 @@ class KYPhotosPickerController: UIViewController {
         collect.showsHorizontalScrollIndicator = false
         collect.dataSource = self
         collect.delegate = self
-
-        self.view.addSubview(collect)
-        
-        collect.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view)
-        }
         
         return collect
+    }()
+    
+    /// 底部工具栏
+    lazy var toolBarView: UIView = {
+        let toolbar = UIView()
+        toolbar.frame = CGRect(x: 0, y: self.view.height - 44, width: self.view.width, height: 44)
+        toolbar.backgroundColor = UIColor(colorLiteralRed: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        
+        let previewBtn = UIButton()
+        previewBtn.frame = CGRect(x: 0, y: 0, width: 50, height: 44)
+        previewBtn.setTitle("预览", for: .normal)
+        previewBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        previewBtn.setTitleColor(.lightGray, for: .normal)
+        previewBtn.setTitleColor(.white, for: .selected)
+        toolbar.addSubview(previewBtn)
+        
+        let doneBtn = UIButton()
+        doneBtn.frame = CGRect(x: self.view.width-60, y: 0, width: 50, height: 44)
+        doneBtn.setTitle("完成", for: .normal)
+        doneBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        doneBtn.setTitleColor(UIColor.green, for: .normal)
+        toolbar.addSubview(doneBtn)
+        
+        return toolbar
     }()
     
     var assetGroups: KYAssetGroup?
@@ -53,8 +71,10 @@ class KYPhotosPickerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor(colorLiteralRed: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        setupViews()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelAction))
         
@@ -65,6 +85,21 @@ class KYPhotosPickerController: UIViewController {
                 photoCollection.reloadData()
             }
         })
+    }
+    
+    func setupViews() {
+        self.view.addSubview(photoCollection)
+        self.view.insertSubview(toolBarView, aboveSubview: photoCollection)
+        
+        photoCollection.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+            make.bottom.equalTo(toolBarView.snp.top)
+        }
+        
+        let lineView = UIView()
+        lineView.frame = CGRect(x: 0, y: 0, width: self.view.width, height: 0.5)
+        lineView.backgroundColor = .gray
+        toolBarView.addSubview(lineView)
     }
     
     func cancelAction() {
@@ -83,8 +118,9 @@ extension KYPhotosPickerController: UICollectionViewDataSource {
 
         if indexPath.row < assetsArray.count {
             let phAsset = assetsArray.object(at: indexPath.row) as! KYAsset
+            let size = CGSize(width: assetCell.width, height: assetCell.height)
             
-            _ = phAsset.requestThumbnailImage(CGSize(width: 80, height: 80), assetBlock: { (result, info) in
+            _ = phAsset.requestThumbnailImage(size, assetBlock: { (result, info) in
                 assetCell.photoImage.image = result
             })
         }

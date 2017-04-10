@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         
         let controller = ViewController()
-        let navigation = UINavigationController(rootViewController: controller)
+        let navigation = KYNavigationController(rootViewController: controller)
         
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()

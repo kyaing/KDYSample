@@ -48,6 +48,9 @@
 		043178EC1E9736A3003BA585 /* KYAssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178EB1E9736A3003BA585 /* KYAssetManager.swift */; };
 		043178F01E978168003BA585 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178EF1E978168003BA585 /* UIView+Frame.swift */; };
 		043178F21E9B4316003BA585 /* main_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043178F11E9B4316003BA585 /* main_back@2x.png */; };
+		043178F51E9B6C99003BA585 /* photo_normal_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043178F31E9B6C99003BA585 /* photo_normal_photo@2x.png */; };
+		043178F61E9B6C99003BA585 /* photo_sel_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 043178F41E9B6C99003BA585 /* photo_sel_photo@2x.png */; };
+		043178F81E9B9881003BA585 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043178F71E9B9881003BA585 /* UIColor+Extension.swift */; };
 		047CF2891E8A45530049262F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CF2881E8A45530049262F /* AppDelegate.swift */; };
 		047CF28B1E8A45530049262F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CF28A1E8A45530049262F /* ViewController.swift */; };
 		047CF28E1E8A45530049262F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047CF28C1E8A45530049262F /* Main.storyboard */; };
@@ -130,6 +133,9 @@
 		043178EB1E9736A3003BA585 /* KYAssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYAssetManager.swift; sourceTree = "<group>"; };
 		043178EF1E978168003BA585 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		043178F11E9B4316003BA585 /* main_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_back@2x.png"; sourceTree = "<group>"; };
+		043178F31E9B6C99003BA585 /* photo_normal_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_normal_photo@2x.png"; sourceTree = "<group>"; };
+		043178F41E9B6C99003BA585 /* photo_sel_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo_sel_photo@2x.png"; sourceTree = "<group>"; };
+		043178F71E9B9881003BA585 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		047CF2851E8A45530049262F /* ImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047CF2881E8A45530049262F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047CF28A1E8A45530049262F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +310,7 @@
 				18276CC21E9925F5005608F0 /* PreviewCollectionCell.swift */,
 				18276CC31E9925F5005608F0 /* PreviewCollectionCell.xib */,
 				043178EF1E978168003BA585 /* UIView+Frame.swift */,
+				043178F71E9B9881003BA585 /* UIColor+Extension.swift */,
 				18276CCA1E9A0512005608F0 /* Resources */,
 			);
 			path = KYImagePicker;
@@ -315,6 +322,8 @@
 				043178F11E9B4316003BA585 /* main_back@2x.png */,
 				18276CCB1E9A0512005608F0 /* navi_back@2x.png */,
 				18276CCC1E9A0512005608F0 /* photo_def_photoPickerVc@2x.png */,
+				043178F31E9B6C99003BA585 /* photo_normal_photo@2x.png */,
+				043178F41E9B6C99003BA585 /* photo_sel_photo@2x.png */,
 				18276CD51E9A089E005608F0 /* photo_original_def@2x.png */,
 				18276CCD1E9A0512005608F0 /* photo_def_previewVc@2x.png */,
 				18276CCE1E9A0512005608F0 /* photo_sel_photoPickerVc@2x.png */,
@@ -441,6 +450,8 @@
 				0431783C1E8B9899003BA585 /* LICENSE in Resources */,
 				18276CA81E98BE4A005608F0 /* AlbumTableCell.xib in Resources */,
 				18276CD41E9A0512005608F0 /* photo_sel_previewVc@2x.png in Resources */,
+				043178F51E9B6C99003BA585 /* photo_normal_photo@2x.png in Resources */,
+				043178F61E9B6C99003BA585 /* photo_sel_photo@2x.png in Resources */,
 				18276CD11E9A0512005608F0 /* photo_def_photoPickerVc@2x.png in Resources */,
 				18276CD31E9A0512005608F0 /* photo_sel_photoPickerVc@2x.png in Resources */,
 				18276CD21E9A0512005608F0 /* photo_def_previewVc@2x.png in Resources */,
@@ -505,6 +516,7 @@
 				0431785A1E8B9899003BA585 /* LayoutConstraint.swift in Sources */,
 				043178511E8B9899003BA585 /* ConstraintMultiplierTarget.swift in Sources */,
 				043178F01E978168003BA585 /* UIView+Frame.swift in Sources */,
+				043178F81E9B9881003BA585 /* UIColor+Extension.swift in Sources */,
 				043178531E8B9899003BA585 /* ConstraintPriorityTarget.swift in Sources */,
 				18276CC71E99CE49005608F0 /* KYCollectionFlowLayout.swift in Sources */,
 				0431784F1E8B9899003BA585 /* ConstraintMakerPriortizable.swift in Sources */,
