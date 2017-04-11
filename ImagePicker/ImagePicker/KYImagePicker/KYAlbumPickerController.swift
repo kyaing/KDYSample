@@ -34,7 +34,7 @@ class KYAlbumPickerController: UIViewController {
         super.viewDidLoad()
         
         self.title = "照片"
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor(colorLiteralRed: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelAction))
         

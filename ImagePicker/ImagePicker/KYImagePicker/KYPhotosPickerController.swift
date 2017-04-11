@@ -33,7 +33,7 @@ class KYPhotosPickerController: UIViewController {
         let collect: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.photoLayout)
         collect.register(UINib.init(nibName: "AssetCollectionCell", bundle: nil), forCellWithReuseIdentifier: "AssetCell")
         collect.contentInset = UIEdgeInsets(top: self.margin, left: self.margin, bottom: self.margin, right: self.margin)
-        collect.backgroundColor = .clear
+        collect.backgroundColor = UIColor(colorLiteralRed: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         collect.showsHorizontalScrollIndicator = false
         collect.dataSource = self
         collect.delegate = self
@@ -45,12 +45,12 @@ class KYPhotosPickerController: UIViewController {
     lazy var toolBarView: UIView = {
         let toolbar = UIView()
         toolbar.frame = CGRect(x: 0, y: self.view.height - 44, width: self.view.width, height: 44)
-        toolbar.backgroundColor = UIColor(colorLiteralRed: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        toolbar.backgroundColor = UIColor(colorLiteralRed: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         
         let previewBtn = UIButton()
         previewBtn.frame = CGRect(x: 0, y: 0, width: 50, height: 44)
         previewBtn.setTitle("预览", for: .normal)
-        previewBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        previewBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         previewBtn.setTitleColor(.lightGray, for: .normal)
         previewBtn.setTitleColor(.white, for: .selected)
         toolbar.addSubview(previewBtn)
@@ -71,7 +71,7 @@ class KYPhotosPickerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(colorLiteralRed: 210/255.0, green: 210/255.0, blue: 210/255.0, alpha: 1.0)
+        self.view.backgroundColor = .white
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         setupViews()
