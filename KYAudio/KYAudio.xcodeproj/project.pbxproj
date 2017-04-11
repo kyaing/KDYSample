@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		047EFD161E9CDBA900A6E642 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD151E9CDBA900A6E642 /* AppDelegate.swift */; };
+		047EFD181E9CDBA900A6E642 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD171E9CDBA900A6E642 /* ViewController.swift */; };
+		047EFD1B1E9CDBA900A6E642 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047EFD191E9CDBA900A6E642 /* Main.storyboard */; };
+		047EFD1D1E9CDBA900A6E642 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047EFD1C1E9CDBA900A6E642 /* Assets.xcassets */; };
+		047EFD2B1E9CDBA900A6E642 /* KYAudioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD2A1E9CDBA900A6E642 /* KYAudioTests.swift */; };
+		047EFD361E9CDBAA00A6E642 /* KYAudioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD351E9CDBAA00A6E642 /* KYAudioUITests.swift */; };
+		047EFD441E9CDBCB00A6E642 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047EFD431E9CDBCB00A6E642 /* Launch Screen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		047EFD271E9CDBA900A6E642 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 047EFD0A1E9CDBA900A6E642 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 047EFD111E9CDBA900A6E642;
+			remoteInfo = KYAudio;
+		};
+		047EFD321E9CDBAA00A6E642 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 047EFD0A1E9CDBA900A6E642 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 047EFD111E9CDBA900A6E642;
+			remoteInfo = KYAudio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		047EFD121E9CDBA900A6E642 /* KYAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		047EFD151E9CDBA900A6E642 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		047EFD171E9CDBA900A6E642 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		047EFD1A1E9CDBA900A6E642 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		047EFD1C1E9CDBA900A6E642 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		047EFD211E9CDBA900A6E642 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		047EFD261E9CDBA900A6E642 /* KYAudioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYAudioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		047EFD2A1E9CDBA900A6E642 /* KYAudioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYAudioTests.swift; sourceTree = "<group>"; };
+		047EFD2C1E9CDBA900A6E642 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		047EFD311E9CDBAA00A6E642 /* KYAudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYAudioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		047EFD351E9CDBAA00A6E642 /* KYAudioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYAudioUITests.swift; sourceTree = "<group>"; };
+		047EFD371E9CDBAA00A6E642 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		047EFD431E9CDBCB00A6E642 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		047EFD0F1E9CDBA900A6E642 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		047EFD231E9CDBA900A6E642 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		047EFD2E1E9CDBAA00A6E642 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		047EFD091E9CDBA900A6E642 = {
+			isa = PBXGroup;
+			children = (
+				047EFD141E9CDBA900A6E642 /* KYAudio */,
+				047EFD291E9CDBA900A6E642 /* KYAudioTests */,
+				047EFD341E9CDBAA00A6E642 /* KYAudioUITests */,
+				047EFD131E9CDBA900A6E642 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		047EFD131E9CDBA900A6E642 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				047EFD121E9CDBA900A6E642 /* KYAudio.app */,
+				047EFD261E9CDBA900A6E642 /* KYAudioTests.xctest */,
+				047EFD311E9CDBAA00A6E642 /* KYAudioUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		047EFD141E9CDBA900A6E642 /* KYAudio */ = {
+			isa = PBXGroup;
+			children = (
+				047EFD151E9CDBA900A6E642 /* AppDelegate.swift */,
+				047EFD171E9CDBA900A6E642 /* ViewController.swift */,
+				047EFD191E9CDBA900A6E642 /* Main.storyboard */,
+				047EFD1C1E9CDBA900A6E642 /* Assets.xcassets */,
+				047EFD431E9CDBCB00A6E642 /* Launch Screen.storyboard */,
+				047EFD211E9CDBA900A6E642 /* Info.plist */,
+			);
+			path = KYAudio;
+			sourceTree = "<group>";
+		};
+		047EFD291E9CDBA900A6E642 /* KYAudioTests */ = {
+			isa = PBXGroup;
+			children = (
+				047EFD2A1E9CDBA900A6E642 /* KYAudioTests.swift */,
+				047EFD2C1E9CDBA900A6E642 /* Info.plist */,
+			);
+			path = KYAudioTests;
+			sourceTree = "<group>";
+		};
+		047EFD341E9CDBAA00A6E642 /* KYAudioUITests */ = {
+			isa = PBXGroup;
+			children = (
+				047EFD351E9CDBAA00A6E642 /* KYAudioUITests.swift */,
+				047EFD371E9CDBAA00A6E642 /* Info.plist */,
+			);
+			path = KYAudioUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		047EFD111E9CDBA900A6E642 /* KYAudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 047EFD3A1E9CDBAA00A6E642 /* Build configuration list for PBXNativeTarget "KYAudio" */;
+			buildPhases = (
+				047EFD0E1E9CDBA900A6E642 /* Sources */,
+				047EFD0F1E9CDBA900A6E642 /* Frameworks */,
+				047EFD101E9CDBA900A6E642 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KYAudio;
+			productName = KYAudio;
+			productReference = 047EFD121E9CDBA900A6E642 /* KYAudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		047EFD251E9CDBA900A6E642 /* KYAudioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 047EFD3D1E9CDBAA00A6E642 /* Build configuration list for PBXNativeTarget "KYAudioTests" */;
+			buildPhases = (
+				047EFD221E9CDBA900A6E642 /* Sources */,
+				047EFD231E9CDBA900A6E642 /* Frameworks */,
+				047EFD241E9CDBA900A6E642 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				047EFD281E9CDBA900A6E642 /* PBXTargetDependency */,
+			);
+			name = KYAudioTests;
+			productName = KYAudioTests;
+			productReference = 047EFD261E9CDBA900A6E642 /* KYAudioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		047EFD301E9CDBAA00A6E642 /* KYAudioUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 047EFD401E9CDBAA00A6E642 /* Build configuration list for PBXNativeTarget "KYAudioUITests" */;
+			buildPhases = (
+				047EFD2D1E9CDBAA00A6E642 /* Sources */,
+				047EFD2E1E9CDBAA00A6E642 /* Frameworks */,
+				047EFD2F1E9CDBAA00A6E642 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				047EFD331E9CDBAA00A6E642 /* PBXTargetDependency */,
+			);
+			name = KYAudioUITests;
+			productName = KYAudioUITests;
+			productReference = 047EFD311E9CDBAA00A6E642 /* KYAudioUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		047EFD0A1E9CDBA900A6E642 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = mac;
+				TargetAttributes = {
+					047EFD111E9CDBA900A6E642 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3YR7CL6SMV;
+						ProvisioningStyle = Automatic;
+					};
+					047EFD251E9CDBA900A6E642 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3YR7CL6SMV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 047EFD111E9CDBA900A6E642;
+					};
+					047EFD301E9CDBAA00A6E642 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3YR7CL6SMV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 047EFD111E9CDBA900A6E642;
+					};
+				};
+			};
+			buildConfigurationList = 047EFD0D1E9CDBA900A6E642 /* Build configuration list for PBXProject "KYAudio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 047EFD091E9CDBA900A6E642;
+			productRefGroup = 047EFD131E9CDBA900A6E642 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				047EFD111E9CDBA900A6E642 /* KYAudio */,
+				047EFD251E9CDBA900A6E642 /* KYAudioTests */,
+				047EFD301E9CDBAA00A6E642 /* KYAudioUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		047EFD101E9CDBA900A6E642 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047EFD441E9CDBCB00A6E642 /* Launch Screen.storyboard in Resources */,
+				047EFD1D1E9CDBA900A6E642 /* Assets.xcassets in Resources */,
+				047EFD1B1E9CDBA900A6E642 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		047EFD241E9CDBA900A6E642 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		047EFD2F1E9CDBAA00A6E642 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		047EFD0E1E9CDBA900A6E642 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047EFD181E9CDBA900A6E642 /* ViewController.swift in Sources */,
+				047EFD161E9CDBA900A6E642 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		047EFD221E9CDBA900A6E642 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047EFD2B1E9CDBA900A6E642 /* KYAudioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		047EFD2D1E9CDBAA00A6E642 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047EFD361E9CDBAA00A6E642 /* KYAudioUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		047EFD281E9CDBA900A6E642 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 047EFD111E9CDBA900A6E642 /* KYAudio */;
+			targetProxy = 047EFD271E9CDBA900A6E642 /* PBXContainerItemProxy */;
+		};
+		047EFD331E9CDBAA00A6E642 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 047EFD111E9CDBA900A6E642 /* KYAudio */;
+			targetProxy = 047EFD321E9CDBAA00A6E642 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		047EFD191E9CDBA900A6E642 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				047EFD1A1E9CDBA900A6E642 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		047EFD381E9CDBAA00A6E642 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		047EFD391E9CDBAA00A6E642 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		047EFD3B1E9CDBAA00A6E642 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYAudio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KYAudio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		047EFD3C1E9CDBAA00A6E642 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYAudio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KYAudio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		047EFD3E1E9CDBAA00A6E642 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYAudioTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KYAudioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KYAudio.app/KYAudio";
+			};
+			name = Debug;
+		};
+		047EFD3F1E9CDBAA00A6E642 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYAudioTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KYAudioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KYAudio.app/KYAudio";
+			};
+			name = Release;
+		};
+		047EFD411E9CDBAA00A6E642 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYAudioUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KYAudioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = KYAudio;
+			};
+			name = Debug;
+		};
+		047EFD421E9CDBAA00A6E642 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYAudioUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KYAudioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = KYAudio;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		047EFD0D1E9CDBA900A6E642 /* Build configuration list for PBXProject "KYAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				047EFD381E9CDBAA00A6E642 /* Debug */,
+				047EFD391E9CDBAA00A6E642 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		047EFD3A1E9CDBAA00A6E642 /* Build configuration list for PBXNativeTarget "KYAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				047EFD3B1E9CDBAA00A6E642 /* Debug */,
+				047EFD3C1E9CDBAA00A6E642 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		047EFD3D1E9CDBAA00A6E642 /* Build configuration list for PBXNativeTarget "KYAudioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				047EFD3E1E9CDBAA00A6E642 /* Debug */,
+				047EFD3F1E9CDBAA00A6E642 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		047EFD401E9CDBAA00A6E642 /* Build configuration list for PBXNativeTarget "KYAudioUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				047EFD411E9CDBAA00A6E642 /* Debug */,
+				047EFD421E9CDBAA00A6E642 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 047EFD0A1E9CDBA900A6E642 /* Project object */;
+}
