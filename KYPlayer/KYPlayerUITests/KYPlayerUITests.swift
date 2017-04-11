@@ -1,14 +1,14 @@
 //
-//  VideoPlayerUITests.swift
-//  VideoPlayerUITests
+//  KYPlayerUITests.swift
+//  KYPlayerUITests
 //
-//  Created by mac on 17/4/5.
+//  Created by mac on 17/4/11.
 //  Copyright © 2017年 mac. All rights reserved.
 //
 
 import XCTest
 
-class VideoPlayerUITests: XCTestCase {
+class KYPlayerUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

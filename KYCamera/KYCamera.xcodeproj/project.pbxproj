@@ -103,6 +103,7 @@
 				043179461E9C84DF003BA585 /* Assets.xcassets */,
 				0431796D1E9CA8FF003BA585 /* Launch Screen.storyboard */,
 				0431794B1E9C84DF003BA585 /* Info.plist */,
+				047EFCCC1E9CB2AA00A6E642 /* Cameras */,
 			);
 			path = KYCamera;
 			sourceTree = "<group>";
@@ -123,6 +124,13 @@
 				043179611E9C84DF003BA585 /* Info.plist */,
 			);
 			path = KYCameraUITests;
+			sourceTree = "<group>";
+		};
+		047EFCCC1E9CB2AA00A6E642 /* Cameras */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cameras;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +415,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3YR7CL6SMV;
 				INFOPLIST_FILE = KYCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KYCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -420,6 +429,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3YR7CL6SMV;
 				INFOPLIST_FILE = KYCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KYCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -504,6 +514,7 @@
 				043179661E9C84DF003BA585 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		043179671E9C84DF003BA585 /* Build configuration list for PBXNativeTarget "KYCameraTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +523,7 @@
 				043179691E9C84DF003BA585 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0431796A1E9C84DF003BA585 /* Build configuration list for PBXNativeTarget "KYCameraUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +532,7 @@
 				0431796C1E9C84DF003BA585 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

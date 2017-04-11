@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  VideoPlayer
+//  KYPlayer
 //
-//  Created by mac on 17/4/5.
+//  Created by mac on 17/4/11.
 //  Copyright © 2017年 mac. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "VideoPlayer"
+        self.title = "播放器"
         self.view.backgroundColor = .white
     }
 }

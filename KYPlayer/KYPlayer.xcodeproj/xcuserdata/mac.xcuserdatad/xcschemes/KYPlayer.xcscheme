@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "043178B21E94DF50003BA585"
-               BuildableName = "VideoPlayer.app"
-               BlueprintName = "VideoPlayer"
-               ReferencedContainer = "container:VideoPlayer.xcodeproj">
+               BlueprintIdentifier = "047EFCD51E9CDA6600A6E642"
+               BuildableName = "KYPlayer.app"
+               BlueprintName = "KYPlayer"
+               ReferencedContainer = "container:KYPlayer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "043178C61E94DF51003BA585"
-               BuildableName = "VideoPlayerTests.xctest"
-               BlueprintName = "VideoPlayerTests"
-               ReferencedContainer = "container:VideoPlayer.xcodeproj">
+               BlueprintIdentifier = "047EFCE91E9CDA6600A6E642"
+               BuildableName = "KYPlayerTests.xctest"
+               BlueprintName = "KYPlayerTests"
+               ReferencedContainer = "container:KYPlayer.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "043178D11E94DF51003BA585"
-               BuildableName = "VideoPlayerUITests.xctest"
-               BlueprintName = "VideoPlayerUITests"
-               ReferencedContainer = "container:VideoPlayer.xcodeproj">
+               BlueprintIdentifier = "047EFCF41E9CDA6600A6E642"
+               BuildableName = "KYPlayerUITests.xctest"
+               BlueprintName = "KYPlayerUITests"
+               ReferencedContainer = "container:KYPlayer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "043178B21E94DF50003BA585"
-            BuildableName = "VideoPlayer.app"
-            BlueprintName = "VideoPlayer"
-            ReferencedContainer = "container:VideoPlayer.xcodeproj">
+            BlueprintIdentifier = "047EFCD51E9CDA6600A6E642"
+            BuildableName = "KYPlayer.app"
+            BlueprintName = "KYPlayer"
+            ReferencedContainer = "container:KYPlayer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "043178B21E94DF50003BA585"
-            BuildableName = "VideoPlayer.app"
-            BlueprintName = "VideoPlayer"
-            ReferencedContainer = "container:VideoPlayer.xcodeproj">
+            BlueprintIdentifier = "047EFCD51E9CDA6600A6E642"
+            BuildableName = "KYPlayer.app"
+            BlueprintName = "KYPlayer"
+            ReferencedContainer = "container:KYPlayer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "043178B21E94DF50003BA585"
-            BuildableName = "VideoPlayer.app"
-            BlueprintName = "VideoPlayer"
-            ReferencedContainer = "container:VideoPlayer.xcodeproj">
+            BlueprintIdentifier = "047EFCD51E9CDA6600A6E642"
+            BuildableName = "KYPlayer.app"
+            BlueprintName = "KYPlayer"
+            ReferencedContainer = "container:KYPlayer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

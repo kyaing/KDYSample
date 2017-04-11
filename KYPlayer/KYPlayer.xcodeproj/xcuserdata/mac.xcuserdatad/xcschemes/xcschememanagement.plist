@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>VideoPlayer.xcscheme</key>
+		<key>KYPlayer.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>043178B21E94DF50003BA585</key>
+		<key>047EFCD51E9CDA6600A6E642</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>043178C61E94DF51003BA585</key>
+		<key>047EFCE91E9CDA6600A6E642</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>043178D11E94DF51003BA585</key>
+		<key>047EFCF41E9CDA6600A6E642</key>
 		<dict>
 			<key>primary</key>
 			<true/>
