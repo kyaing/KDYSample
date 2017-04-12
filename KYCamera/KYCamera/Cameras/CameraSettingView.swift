@@ -20,6 +20,8 @@ class CameraSettingView: UIView {
         return back
     }()
     
+    var backColosure: () -> Void = {}
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -42,7 +44,7 @@ class CameraSettingView: UIView {
     }
     
     func backBtnAction() {
-        
+        backColosure()
     }
 }
 

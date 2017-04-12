@@ -23,9 +23,6 @@ class KYCameraManager: NSObject {
             session.sessionPreset = AVCaptureSessionPreset1280x720
         }
         
-        self.setupSessionInputs()
-        self.setupSessionOutputs()
-        
         return session
     }()
     
@@ -146,6 +143,21 @@ class KYCameraManager: NSObject {
         }
         
         return nil
+    }
+    
+    func startCaptureSession() {
+        if !captureSession.isRunning {
+            captureSession.startRunning()
+        }
+        
+        setupSessionInputs()
+        setupSessionOutputs()
+    }
+    
+    func stopCaptureSession() {
+        if captureSession.isRunning {
+            captureSession.stopRunning()
+        }
     }
 }
 

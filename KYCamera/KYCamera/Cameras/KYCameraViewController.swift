@@ -39,6 +39,8 @@ class KYCameraViewController: UIViewController {
         return true
     }
     
+    var cameraManger = KYCameraManager()
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -46,6 +48,7 @@ class KYCameraViewController: UIViewController {
         self.view.backgroundColor = .white
         
         setupChildViews()
+        cameraManger.startCaptureSession()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +58,7 @@ class KYCameraViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     // MARK: - Private Methods
@@ -63,11 +66,16 @@ class KYCameraViewController: UIViewController {
     func setupChildViews() {
         self.view.addSubview(settingView)
         self.view.addSubview(previewView)
+        self.view.layer.insertSublayer(previewView.previewLayer, at: 0)
         self.view.addSubview(recorderView)
+        
+        settingView.backColosure = {
+            _ = self.navigationController?.popViewController(animated: true)
+        }
         
         settingView.snp.makeConstraints { (make) in
             make.left.top.right.equalTo(self.view)
-            make.height.equalTo(50)
+            make.height.equalTo(44)
         }
         
         previewView.snp.makeConstraints { (make) in

@@ -10,6 +10,6 @@ import UIKit
 
 /// 相机拍摄视图
 class CameraRecorderView: UIView {
-
+    
 }
 

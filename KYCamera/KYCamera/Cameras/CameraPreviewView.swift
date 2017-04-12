@@ -22,7 +22,6 @@ class CameraPreviewView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.layer.addSublayer(previewLayer)
     }
     
     required init?(coder aDecoder: NSCoder) {
