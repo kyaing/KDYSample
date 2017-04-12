@@ -93,10 +93,16 @@ class KYCameraManager: NSObject {
     }()
     
     /// 视频连接
-    var videoConnection = AVCaptureConnection()
+    lazy var videoConnection: AVCaptureConnection = {
+        let connection = AVCaptureConnection()
+        return connection
+    }()
     
     /// 音频连接
-    var audioConnection = AVCaptureConnection()
+    lazy var audioConnection: AVCaptureConnection = {
+        let connection = AVCaptureConnection()
+        return connection
+    }()
     
     // MARK: - Private Methods
     

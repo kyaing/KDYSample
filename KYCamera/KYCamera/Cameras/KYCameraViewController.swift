@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 /**
  *  自定义相机实现的功能，可以拍照，可以录制.
@@ -20,18 +21,30 @@ class KYCameraViewController: UIViewController {
     lazy var settingView: CameraSettingView = {
         let setting = CameraSettingView()
         setting.backgroundColor = .gray
+        
         return setting
     }()
 
     lazy var previewView: CameraPreviewView = {
         let preview = CameraPreviewView()
         preview.backgroundColor = .white
+        
         return preview
+    }()
+    
+    /// 预览图层
+    lazy var previewLayer: AVCaptureVideoPreviewLayer = {
+        let captureSession = AVCaptureSession()
+        let previewLayer = AVCaptureVideoPreviewLayer(session: self.cameraManger.captureSession)
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        
+        return previewLayer!
     }()
     
     lazy var recorderView: CameraRecorderView = {
         let recorder = CameraRecorderView()
         recorder.backgroundColor = .gray
+        
         return recorder
     }()
     
@@ -39,7 +52,9 @@ class KYCameraViewController: UIViewController {
         return true
     }
     
-    var cameraManger = KYCameraManager()
+    lazy var cameraManger: KYCameraManager = {
+        return KYCameraManager()
+    }()
     
     // MARK: - Life Cycle
     
@@ -66,28 +81,31 @@ class KYCameraViewController: UIViewController {
     func setupChildViews() {
         self.view.addSubview(settingView)
         self.view.addSubview(previewView)
-        self.view.layer.insertSublayer(previewView.previewLayer, at: 0)
         self.view.addSubview(recorderView)
         
         settingView.backColosure = {
             _ = self.navigationController?.popViewController(animated: true)
         }
         
-        settingView.snp.makeConstraints { (make) in
-            make.left.top.right.equalTo(self.view)
-            make.height.equalTo(44)
-        }
+        previewLayer.frame = self.view.bounds;
+        previewLayer.backgroundColor = UIColor.red.cgColor
+        self.view.layer.insertSublayer(previewLayer, at: 0)
         
-        previewView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.view)
-            make.top.equalTo(settingView.snp.bottom)
-            make.bottom.equalTo(recorderView.snp.top)
-        }
-        
-        recorderView.snp.makeConstraints { (make) in
-            make.left.bottom.right.equalTo(self.view)
-            make.height.equalTo(100)
-        }
+//        settingView.snp.makeConstraints { (make) in
+//            make.left.top.right.equalTo(self.view)
+//            make.height.equalTo(44)
+//        }
+//        
+//        previewView.snp.makeConstraints { (make) in
+//            make.left.right.equalTo(self.view)
+//            make.top.equalTo(settingView.snp.bottom)
+//            make.bottom.equalTo(recorderView.snp.top)
+//        }
+//        
+//        recorderView.snp.makeConstraints { (make) in
+//            make.left.bottom.right.equalTo(self.view)
+//            make.height.equalTo(100)
+//        }
     }
 }
 
