@@ -92,6 +92,15 @@ class KYCameraManager: NSObject {
         return audioOutput
     }()
     
+    /// 预览图层
+    lazy var previewLayer: AVCaptureVideoPreviewLayer = {
+        let captureSession = AVCaptureSession()
+        let previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        
+        return previewLayer!
+    }()
+    
     /// 视频连接
     lazy var videoConnection: AVCaptureConnection = {
         let connection = AVCaptureConnection()
@@ -104,7 +113,22 @@ class KYCameraManager: NSObject {
         return connection
     }()
     
-    // MARK: - Private Methods
+    // MARK: - Public Methods
+    
+    func startCaptureSession() {
+        setupSessionInputs()
+        setupSessionOutputs()
+        
+        if !captureSession.isRunning {
+            captureSession.startRunning()
+        }
+    }
+    
+    func stopCaptureSession() {
+        if captureSession.isRunning {
+            captureSession.stopRunning()
+        }
+    }
     
     // 添加输入设备
     func setupSessionInputs() {
@@ -151,19 +175,51 @@ class KYCameraManager: NSObject {
         return nil
     }
     
-    func startCaptureSession() {
-        if !captureSession.isRunning {
-            captureSession.startRunning()
+    // 切换摄像头
+    func switchCameraDevice(isFront front: Bool) {
+        if front {
+            stopCaptureSession()
+            if let backCamera = backCameraInput, let frontCamera = frontCameraInput {
+                captureSession.removeInput(backCamera)
+                if captureSession.canAddInput(frontCamera) {
+                    captureSession.addInput(frontCamera)
+                    switchCameraAnimation()
+                }
+            }
+        } else {
+            stopCaptureSession()
+            if let backCamera = backCameraInput, let frontCamera = frontCameraInput {
+                captureSession.removeInput(frontCamera)
+                if captureSession.canAddInput(backCamera) {
+                    captureSession.addInput(backCamera)
+                    switchCameraAnimation()
+                }
+            }
         }
-        
-        setupSessionInputs()
-        setupSessionOutputs()
     }
     
-    func stopCaptureSession() {
-        if captureSession.isRunning {
-            captureSession.stopRunning()
-        }
+    // 切换摄像头动画
+    func switchCameraAnimation() {
+        let changeAnimation = CATransition()
+        changeAnimation.delegate = self
+        changeAnimation.duration = 0.45
+        changeAnimation.type = "oglFlip"
+        changeAnimation.subtype = kCATransitionFromRight
+        previewLayer.add(changeAnimation, forKey: nil)
+    }
+    
+    // 开关闪光灯
+    func falshLight(isOpen open: Bool) {
+        
+    }
+}
+
+// MARK:
+
+extension KYCameraManager: CAAnimationDelegate {
+    
+    func animationDidStart(_ anim: CAAnimation) {
+        startCaptureSession()
     }
 }
 

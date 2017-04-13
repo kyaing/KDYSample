@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYCamera/Cameras/KYCameraViewController.swift"
-            timestampString = "513686959.892582"
+            timestampString = "513768567.123355"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "setupChildViews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYCamera/Cameras/KYCameraManager.swift"
-            timestampString = "513687676.165868"
+            timestampString = "513768588.379993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "startCaptureSession()"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "switchCameraDevice(isFront:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

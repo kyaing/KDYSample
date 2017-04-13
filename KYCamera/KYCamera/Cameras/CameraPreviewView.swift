@@ -11,15 +11,6 @@ import AVFoundation
 
 class CameraPreviewView: UIView {
     
-    /// 预览图层
-    lazy var previewLayer: AVCaptureVideoPreviewLayer = {
-        let captureSession = AVCaptureSession()
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        
-        return previewLayer!
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

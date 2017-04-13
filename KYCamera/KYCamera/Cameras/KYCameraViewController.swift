@@ -20,7 +20,7 @@ class KYCameraViewController: UIViewController {
     
     lazy var settingView: CameraSettingView = {
         let setting = CameraSettingView()
-        setting.backgroundColor = .gray
+        setting.backgroundColor = .darkGray
         
         return setting
     }()
@@ -29,21 +29,12 @@ class KYCameraViewController: UIViewController {
         let preview = CameraPreviewView()
         preview.backgroundColor = .white
         
-        return preview
-    }()
-    
-    /// 预览图层
-    lazy var previewLayer: AVCaptureVideoPreviewLayer = {
-        let captureSession = AVCaptureSession()
-        let previewLayer = AVCaptureVideoPreviewLayer(session: self.cameraManger.captureSession)
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        
-        return previewLayer!
+        return preview 
     }()
     
     lazy var recorderView: CameraRecorderView = {
         let recorder = CameraRecorderView()
-        recorder.backgroundColor = .gray
+        recorder.backgroundColor = .darkGray
         
         return recorder
     }()
@@ -83,29 +74,33 @@ class KYCameraViewController: UIViewController {
         self.view.addSubview(previewView)
         self.view.addSubview(recorderView)
         
-        settingView.backColosure = {
+        cameraManger.previewLayer.frame = self.view.bounds;
+        cameraManger.previewLayer.backgroundColor = UIColor.red.cgColor
+        previewView.layer.insertSublayer(cameraManger.previewLayer, at: 0)
+        
+        settingView.snp.makeConstraints { (make) in
+            make.left.top.right.equalTo(self.view)
+            make.height.equalTo(44)
+        }
+        
+        previewView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(settingView.snp.bottom)
+            make.bottom.equalTo(recorderView.snp.top)
+        }
+        
+        recorderView.snp.makeConstraints { (make) in
+            make.left.bottom.right.equalTo(self.view)
+            make.height.equalTo(100)
+        }
+        
+        settingView.backClosure = {
             _ = self.navigationController?.popViewController(animated: true)
         }
         
-        previewLayer.frame = self.view.bounds;
-        previewLayer.backgroundColor = UIColor.red.cgColor
-        self.view.layer.insertSublayer(previewLayer, at: 0)
-        
-//        settingView.snp.makeConstraints { (make) in
-//            make.left.top.right.equalTo(self.view)
-//            make.height.equalTo(44)
-//        }
-//        
-//        previewView.snp.makeConstraints { (make) in
-//            make.left.right.equalTo(self.view)
-//            make.top.equalTo(settingView.snp.bottom)
-//            make.bottom.equalTo(recorderView.snp.top)
-//        }
-//        
-//        recorderView.snp.makeConstraints { (make) in
-//            make.left.bottom.right.equalTo(self.view)
-//            make.height.equalTo(100)
-//        }
+        settingView.switchClosure = { select in
+            self.cameraManger.switchCameraDevice(isFront: select)
+        }
     }
 }
 
