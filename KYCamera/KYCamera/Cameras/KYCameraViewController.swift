@@ -20,7 +20,7 @@ class KYCameraViewController: UIViewController {
     
     lazy var settingView: CameraSettingView = {
         let setting = CameraSettingView()
-        setting.backgroundColor = .darkGray
+        setting.backgroundColor = .black
         
         return setting
     }()
@@ -34,7 +34,7 @@ class KYCameraViewController: UIViewController {
     
     lazy var recorderView: CameraRecorderView = {
         let recorder = CameraRecorderView()
-        recorder.backgroundColor = .darkGray
+        recorder.backgroundColor = .black
         
         return recorder
     }()
@@ -100,6 +100,12 @@ class KYCameraViewController: UIViewController {
         
         settingView.switchClosure = { select in
             self.cameraManger.switchCameraDevice(isFront: select)
+        }
+        
+        recorderView.takePhotoClosure = {
+            self.cameraManger.takePhotos({ (image) in
+                self.recorderView.reload(image)
+            })
         }
     }
 }

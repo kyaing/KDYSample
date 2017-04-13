@@ -11,6 +11,8 @@ import AVFoundation
 
 class CameraPreviewView: UIView {
     
+    var coverImageView: UIImageView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

@@ -101,6 +101,12 @@ class KYCameraManager: NSObject {
         return previewLayer!
     }()
     
+    /// 图片连接
+    lazy var imageConnection: AVCaptureConnection = {
+        let connection = AVCaptureConnection()
+        return connection
+    }()
+    
     /// 视频连接
     lazy var videoConnection: AVCaptureConnection = {
         let connection = AVCaptureConnection()
@@ -150,6 +156,7 @@ class KYCameraManager: NSObject {
         if captureSession.canAddOutput(imageOutput) {
             captureSession.addOutput(imageOutput)
         }
+        imageConnection = imageOutput.connection(withMediaType: AVMediaTypeVideo)
         
         if captureSession.canAddOutput(videoOutput) {
             captureSession.addOutput(videoOutput)
@@ -210,6 +217,29 @@ class KYCameraManager: NSObject {
     
     // 开关闪光灯
     func falshLight(isOpen open: Bool) {
+        
+    }
+    
+    // 拍摄照片
+    func takePhotos(_ blcok: @escaping (UIImage) -> Void) {
+        imageOutput.captureStillImageAsynchronously(from: imageConnection) { (imageDataBuffer, error) in
+            if let imageBuffer = imageDataBuffer {
+                if let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer) {
+                    let tempImage = UIImage(data: imageData)
+                    UIImageWriteToSavedPhotosAlbum(tempImage!, nil, nil, nil)
+                    blcok(tempImage!)
+                }
+            }
+        }
+    }
+    
+    // 开始拍摄视频
+    func startTakeVideo() {
+        
+    }
+    
+    // 停止拍摄视频
+    func stopTakeVideo() {
         
     }
 }
