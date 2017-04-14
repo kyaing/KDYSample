@@ -12,10 +12,12 @@ import Photos
 /// 图片控制器
 class KYPhotosPickerController: UIViewController {
 
-    /// 展示的列数
-    var photoColumns: Int = 4
+    // MARK: - Properties
     
-    var margin: CGFloat = 5.0
+    /// 展示的列数
+    let photoColumns: Int = 4
+    
+    let margin: CGFloat = 5.0
     
     lazy var photoLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -31,7 +33,7 @@ class KYPhotosPickerController: UIViewController {
     
     lazy var photoCollection: UICollectionView = {
         let collect: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.photoLayout)
-        collect.register(UINib.init(nibName: "AssetCollectionCell", bundle: nil), forCellWithReuseIdentifier: "AssetCell")
+        collect.register(UINib(nibName: "AssetCollectionCell", bundle: nil), forCellWithReuseIdentifier: "AssetCell")
         collect.contentInset = UIEdgeInsets(top: self.margin, left: self.margin, bottom: self.margin, right: self.margin)
         collect.backgroundColor = UIColor(colorLiteralRed: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         collect.showsHorizontalScrollIndicator = false
@@ -67,27 +69,37 @@ class KYPhotosPickerController: UIViewController {
     
     var assetGroups: KYAssetGroup?
     
-    var assetsArray = NSMutableArray()
+    /// 总数据源
+    var allAssetsArray = NSMutableArray()
+    
+    /// 选中的数据源
+    var selAssetsArray = NSMutableArray()
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
-        setupViews()
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelAction))
+        setupAllViews()
         
         assetGroups?.enumerationGroupAssets(assetBlock: { (asset) in
             if asset != nil {
-                assetsArray.add(asset!)
+                allAssetsArray.add(asset!)
             } else {
                 photoCollection.reloadData()
             }
         })
     }
     
-    func setupViews() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    func setupAllViews() {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelAction))
+        
         self.view.addSubview(photoCollection)
         self.view.insertSubview(toolBarView, aboveSubview: photoCollection)
         
@@ -102,28 +114,100 @@ class KYPhotosPickerController: UIViewController {
         toolBarView.addSubview(lineView)
     }
     
+    // MARK: - Event Response
+    
     func cancelAction() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Private Methods
+    
+    func refeshToolBarViewState() {
+        
+    }
+    
+    func clickButtonsWithAnimation() {
+        
+    }
+    
+    func requestPreviewImage(withIndexPath indexPath: IndexPath) {
+        
+    }
+    
+    // 判断
+    func selectAssetInArray(_ selectAsset: KYAsset, _ selectedArray: NSMutableArray) -> Bool {
+        for tepAsset in selectedArray as! [KYAsset] {
+            if tepAsset.phAsset.localIdentifier == selectAsset.phAsset.localIdentifier {
+                return true
+            }
+        }
+        
+        return false
+    }
+}
+
+// MARK:
+
+extension UICollectionView {
+    
+    func indexPathOfView(_ sender: AnyObject) -> IndexPath? {
+        if sender.isKind(of: UIView.classForCoder()) {
+            let view = sender as! UIView
+            if let cell = parentCellwithView(view) {
+                return indexPath(for: cell)
+            }
+        }
+        
+        return nil
+    }
+    
+    func parentCellwithView(_ view: UIView) -> UICollectionViewCell? {
+        if view.superview == nil {
+            return nil
+        }
+        
+        if (view.superview?.isKind(of: UICollectionViewCell.classForCoder()))! {
+            return view.superview as? UICollectionViewCell
+        }
+        
+        return parentCellwithView(view.superview!)
     }
 }
 
 extension KYPhotosPickerController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return assetsArray.count
+        return allAssetsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let assetCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AssetCell", for: indexPath) as! AssetCollectionCell
 
-        if indexPath.row < assetsArray.count {
-            let phAsset = assetsArray.object(at: indexPath.row) as! KYAsset
-            let size = CGSize(width: assetCell.width, height: assetCell.height)
+        let phAsset = allAssetsArray.object(at: indexPath.row) as! KYAsset
+        let size = CGSize(width: assetCell.width, height: assetCell.height)
+        
+        _ = phAsset.requestThumbnailImage(size, assetBlock: { (result, info) in
+            assetCell.photoImage.image = result
+        })
+        
+        // 选择图片按钮事件
+        assetCell.didSelectBtnClosure = { sender in
+            let indexPath  = self.photoCollection.indexPathOfView(sender)
+            let selectCell = self.photoCollection.cellForItem(at: indexPath!) as! AssetCollectionCell
+            _ = self.allAssetsArray.object(at: (indexPath?.row)!) as! KYAsset
             
-            _ = phAsset.requestThumbnailImage(size, assetBlock: { (result, info) in
-                assetCell.photoImage.image = result
-            })
+            if selectCell.isChecked {
+                // 取消选择图片
+                selectCell.isChecked = false
+                
+            } else {
+                // 点击选择图片
+                selectCell.isChecked = true
+                self.requestPreviewImage(withIndexPath: indexPath!)
+            }
         }
+        
+        assetCell.isChecked = selectAssetInArray(phAsset, selAssetsArray)
         
         return assetCell
     }
@@ -136,7 +220,7 @@ extension KYPhotosPickerController: UICollectionViewDelegate {
         
         let previewController = KYPreviewViewController()
         previewController.currentIndex = indexPath.row
-        previewController.assetsArray = assetsArray
+        previewController.assetsArray = allAssetsArray
         self.navigationController?.pushViewController(previewController, animated: true)
     }
 }
