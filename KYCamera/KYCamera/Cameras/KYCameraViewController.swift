@@ -20,7 +20,7 @@ class KYCameraViewController: UIViewController {
     
     lazy var settingView: CameraSettingView = {
         let setting = CameraSettingView()
-        setting.backgroundColor = .black
+        setting.backgroundColor = .white
         
         return setting
     }()

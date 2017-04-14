@@ -18,6 +18,10 @@ class CameraRecorderView: UIView {
         cameraBtn.setTitle("拍照", for: .normal)
         cameraBtn.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         cameraBtn.addTarget(self, action: #selector(takePhotoAction), for: .touchUpInside)
+        cameraBtn.layer.cornerRadius = 35
+        cameraBtn.layer.masksToBounds = true
+        cameraBtn.layer.borderColor = UIColor.white.cgColor
+        cameraBtn.layer.borderWidth = 1.0
         
         return cameraBtn
     }()
@@ -49,7 +53,7 @@ class CameraRecorderView: UIView {
         
         cameraButton.snp.makeConstraints { (make) in
             make.center.equalTo(self)
-            make.size.equalTo(CGSize(width: 100, height: 50))
+            make.size.equalTo(CGSize(width: 70, height: 70))
         }
         
         photosButton.snp.makeConstraints { (make) in

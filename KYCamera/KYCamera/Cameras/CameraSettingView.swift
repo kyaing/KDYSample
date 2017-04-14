@@ -16,7 +16,13 @@ class CameraSettingView: UIView {
     /// 返回按钮
     lazy var backButton: UIButton = {
         let backBtn = UIButton()
-        backBtn.setImage(UIImage(named: "navi_back"), for: .normal)
+        backBtn.setTitle("返回", for: .normal)
+        backBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        backBtn.setTitleColor(.black, for: .normal)
+        backBtn.layer.cornerRadius = 3.0
+        backBtn.layer.masksToBounds = true
+        backBtn.layer.borderColor = UIColor.black.cgColor
+        backBtn.layer.borderWidth = 0.5
         backBtn.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
         
         return backBtn
@@ -25,17 +31,40 @@ class CameraSettingView: UIView {
     /// 切换相机按钮
     lazy var swtichButton: UIButton = {
         let switchbtn = UIButton()
-        switchbtn.setTitle("切换镜头", for: .normal)
+        switchbtn.setTitle("切换", for: .normal)
         switchbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        switchbtn.setTitleColor(.black, for: .normal)
+        switchbtn.layer.cornerRadius = 3.0
+        switchbtn.layer.masksToBounds = true
+        switchbtn.layer.borderColor = UIColor.black.cgColor
+        switchbtn.layer.borderWidth = 0.5
         switchbtn.isSelected = false
         switchbtn.addTarget(self, action: #selector(switchBtnAction(_:)), for: .touchUpInside)
         
         return switchbtn
     }()
     
+    /// 闪光灯按钮
+    lazy var flashButton: UIButton = {
+        let flashBtn = UIButton()
+        flashBtn.setTitle("闪光", for: .normal)
+        flashBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        flashBtn.setTitleColor(.black, for: .normal)
+        flashBtn.layer.cornerRadius = 3.0
+        flashBtn.layer.masksToBounds = true
+        flashBtn.layer.borderColor = UIColor.black.cgColor
+        flashBtn.layer.borderWidth = 0.5
+        flashBtn.isSelected = false
+        flashBtn.addTarget(self, action: #selector(flashBtnAction(_:)), for: .touchUpInside)
+        
+        return flashBtn
+    }()
+    
     var backClosure: () -> Void = {}
     
     var switchClosure: (Bool) -> Void = {_ in }
+    
+    var flashColsure: (Bool) -> Void = {_ in }
     
     // MARK: - Life Cycle
     
@@ -53,17 +82,23 @@ class CameraSettingView: UIView {
     func setupViews() {
         self.addSubview(backButton)
         self.addSubview(swtichButton)
+        self.addSubview(flashButton)
         
         backButton.snp.makeConstraints { (make) in
-            make.left.equalTo(self)
             make.centerY.equalTo(self)
-            make.size.equalTo(CGSize(width: 40, height: 40))
+            make.left.equalTo(self).offset(10)
+            make.size.equalTo(CGSize(width: 45, height: 22))
         }
         
         swtichButton.snp.makeConstraints { (make) in
-            make.right.equalTo(self)
             make.centerY.equalTo(self)
-            make.size.equalTo(CGSize(width: 80, height: 40))
+            make.right.equalTo(self).offset(-10)
+            make.size.equalTo(CGSize(width: 45, height: 22))
+        }
+        
+        flashButton.snp.makeConstraints { (make) in
+            make.center.equalTo(self)
+            make.size.equalTo(CGSize(width: 45, height: 22))
         }
     }
     
@@ -74,6 +109,11 @@ class CameraSettingView: UIView {
     func switchBtnAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         switchClosure(!sender.isSelected)
+    }
+    
+    func flashBtnAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        flashColsure(!sender.isSelected)
     }
 }
 
