@@ -64,7 +64,7 @@ class CameraSettingView: UIView {
     
     var switchClosure: (Bool) -> Void = {_ in }
     
-    var flashColsure: (Bool) -> Void = {_ in }
+    var flashClosure: (Bool) -> Void = {_ in }
     
     // MARK: - Life Cycle
     
@@ -80,6 +80,8 @@ class CameraSettingView: UIView {
     // MARK: - Private Methods
     
     func setupViews() {
+        self.backgroundColor = .white
+        
         self.addSubview(backButton)
         self.addSubview(swtichButton)
         self.addSubview(flashButton)
@@ -113,7 +115,7 @@ class CameraSettingView: UIView {
     
     func flashBtnAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        flashColsure(!sender.isSelected)
+        flashClosure(!sender.isSelected)
     }
 }
 

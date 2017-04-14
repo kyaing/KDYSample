@@ -18,34 +18,19 @@ class KYCameraViewController: UIViewController {
 
     // MARK: - Properites
     
-    lazy var settingView: CameraSettingView = {
-        let setting = CameraSettingView()
-        setting.backgroundColor = .white
-        
-        return setting
-    }()
-
-    lazy var previewView: CameraPreviewView = {
-        let preview = CameraPreviewView()
-        preview.backgroundColor = .white
-        
-        return preview 
-    }()
+    var settingView  = CameraSettingView()
     
-    lazy var recorderView: CameraRecorderView = {
-        let recorder = CameraRecorderView()
-        recorder.backgroundColor = .black
-        
-        return recorder
+    var previewView  = CameraPreviewView()
+    
+    var recorderView = CameraRecorderView()
+    
+    lazy var cameraManger: KYCameraManager = {
+        return KYCameraManager()
     }()
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
-    lazy var cameraManger: KYCameraManager = {
-        return KYCameraManager()
-    }()
     
     // MARK: - Life Cycle
     
@@ -100,6 +85,10 @@ class KYCameraViewController: UIViewController {
         
         settingView.switchClosure = { select in
             self.cameraManger.switchCameraDevice(isFront: select)
+        }
+        
+        settingView.flashClosure = { open in
+            self.cameraManger.falshLight(isOpen: open)
         }
         
         recorderView.takePhotoClosure = {

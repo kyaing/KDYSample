@@ -18,7 +18,7 @@
 		047EFD4A1E9DCB9800A6E642 /* KYCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD491E9DCB9800A6E642 /* KYCameraManager.swift */; };
 		047EFD4C1E9DCD6300A6E642 /* CameraSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD4B1E9DCD6300A6E642 /* CameraSettingView.swift */; };
 		047EFD4E1E9DCDA500A6E642 /* CameraRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD4D1E9DCDA500A6E642 /* CameraRecorderView.swift */; };
-		047EFD521E9DD3A800A6E642 /* KYCameraWriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD511E9DD3A800A6E642 /* KYCameraWriteManager.swift */; };
+		047EFD521E9DD3A800A6E642 /* KYCameraDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD511E9DD3A800A6E642 /* KYCameraDataManager.swift */; };
 		047EFD541E9E1E1000A6E642 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD531E9E1E1000A6E642 /* CameraPreviewView.swift */; };
 		047EFD781E9E2C4300A6E642 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 047EFD561E9E2C4300A6E642 /* LICENSE */; };
 		047EFD791E9E2C4300A6E642 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 047EFD571E9E2C4300A6E642 /* README.md */; };
@@ -90,7 +90,7 @@
 		047EFD491E9DCB9800A6E642 /* KYCameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCameraManager.swift; sourceTree = "<group>"; };
 		047EFD4B1E9DCD6300A6E642 /* CameraSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSettingView.swift; sourceTree = "<group>"; };
 		047EFD4D1E9DCDA500A6E642 /* CameraRecorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraRecorderView.swift; sourceTree = "<group>"; };
-		047EFD511E9DD3A800A6E642 /* KYCameraWriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCameraWriteManager.swift; sourceTree = "<group>"; };
+		047EFD511E9DD3A800A6E642 /* KYCameraDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCameraDataManager.swift; sourceTree = "<group>"; };
 		047EFD531E9E1E1000A6E642 /* CameraPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		047EFD561E9E2C4300A6E642 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		047EFD571E9E2C4300A6E642 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 				047EFD531E9E1E1000A6E642 /* CameraPreviewView.swift */,
 				047EFD4D1E9DCDA500A6E642 /* CameraRecorderView.swift */,
 				047EFD491E9DCB9800A6E642 /* KYCameraManager.swift */,
-				047EFD511E9DD3A800A6E642 /* KYCameraWriteManager.swift */,
+				047EFD511E9DD3A800A6E642 /* KYCameraDataManager.swift */,
 				047EFD471E9DCB0800A6E642 /* KYCameraViewController.swift */,
 			);
 			path = Cameras;
@@ -407,7 +407,7 @@
 				047EFD541E9E1E1000A6E642 /* CameraPreviewView.swift in Sources */,
 				043179421E9C84DF003BA585 /* ViewController.swift in Sources */,
 				047EFD871E9E2C4300A6E642 /* ConstraintMaker.swift in Sources */,
-				047EFD521E9DD3A800A6E642 /* KYCameraWriteManager.swift in Sources */,
+				047EFD521E9DD3A800A6E642 /* KYCameraDataManager.swift in Sources */,
 				047EFD831E9E2C4300A6E642 /* ConstraintLayoutGuide.swift in Sources */,
 				043179401E9C84DF003BA585 /* AppDelegate.swift in Sources */,
 				047EFD841E9E2C4300A6E642 /* ConstraintLayoutGuideDSL.swift in Sources */,

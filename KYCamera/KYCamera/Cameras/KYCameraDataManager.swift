@@ -1,5 +1,5 @@
 //
-//  KYCameraWriteManager.swift
+//  KYCameraDataManager.swift
 //  KYCamera
 //
 //  Created by mac on 17/4/12.
@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 /// 相机生成媒体管理类
-class KYCameraWriteManager: NSObject {
+class KYCameraDataManager: NSObject {
     
     var mediaWriter: AVAssetWriter!
     

@@ -136,6 +136,67 @@ class KYCameraManager: NSObject {
         }
     }
     
+    // 切换摄像头
+    func switchCameraDevice(isFront front: Bool) {
+        if front {
+            stopCaptureSession()
+            if let backCamera = backCameraInput, let frontCamera = frontCameraInput {
+                captureSession.removeInput(backCamera)
+                if captureSession.canAddInput(frontCamera) {
+                    captureSession.addInput(frontCamera)
+                    switchCameraAnimation()
+                }
+            }
+        } else {
+            stopCaptureSession()
+            if let backCamera = backCameraInput, let frontCamera = frontCameraInput {
+                captureSession.removeInput(frontCamera)
+                if captureSession.canAddInput(backCamera) {
+                    captureSession.addInput(backCamera)
+                    switchCameraAnimation()
+                }
+            }
+        }
+    }
+    
+    // 开关闪光灯
+    func falshLight(isOpen open: Bool) {
+        if open {
+            let flashMode = backCameraInput?.device.flashMode
+            if flashMode == .off {
+                
+            }
+            
+        } else {
+            
+        }
+    }
+    
+    // 拍摄照片
+    func takePhotos(_ blcok: @escaping (UIImage) -> Void) {
+        imageOutput.captureStillImageAsynchronously(from: imageConnection) { (imageDataBuffer, error) in
+            if let imageBuffer = imageDataBuffer {
+                if let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer) {
+                    let tempImage = UIImage(data: imageData)
+                    UIImageWriteToSavedPhotosAlbum(tempImage!, nil, nil, nil)
+                    blcok(tempImage!)
+                }
+            }
+        }
+    }
+    
+    // 开始拍摄视频
+    func startTakeVideo() {
+        
+    }
+    
+    // 停止拍摄视频
+    func stopTakeVideo() {
+        
+    }
+    
+    // MARK: - Private Methods
+    
     // 添加输入设备
     func setupSessionInputs() {
         if captureSession.canAddInput(audioInput) {
@@ -182,29 +243,6 @@ class KYCameraManager: NSObject {
         return nil
     }
     
-    // 切换摄像头
-    func switchCameraDevice(isFront front: Bool) {
-        if front {
-            stopCaptureSession()
-            if let backCamera = backCameraInput, let frontCamera = frontCameraInput {
-                captureSession.removeInput(backCamera)
-                if captureSession.canAddInput(frontCamera) {
-                    captureSession.addInput(frontCamera)
-                    switchCameraAnimation()
-                }
-            }
-        } else {
-            stopCaptureSession()
-            if let backCamera = backCameraInput, let frontCamera = frontCameraInput {
-                captureSession.removeInput(frontCamera)
-                if captureSession.canAddInput(backCamera) {
-                    captureSession.addInput(backCamera)
-                    switchCameraAnimation()
-                }
-            }
-        }
-    }
-    
     // 切换摄像头动画
     func switchCameraAnimation() {
         let changeAnimation = CATransition()
@@ -213,34 +251,6 @@ class KYCameraManager: NSObject {
         changeAnimation.type = "oglFlip"
         changeAnimation.subtype = kCATransitionFromRight
         previewLayer.add(changeAnimation, forKey: nil)
-    }
-    
-    // 开关闪光灯
-    func falshLight(isOpen open: Bool) {
-        
-    }
-    
-    // 拍摄照片
-    func takePhotos(_ blcok: @escaping (UIImage) -> Void) {
-        imageOutput.captureStillImageAsynchronously(from: imageConnection) { (imageDataBuffer, error) in
-            if let imageBuffer = imageDataBuffer {
-                if let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer) {
-                    let tempImage = UIImage(data: imageData)
-                    UIImageWriteToSavedPhotosAlbum(tempImage!, nil, nil, nil)
-                    blcok(tempImage!)
-                }
-            }
-        }
-    }
-    
-    // 开始拍摄视频
-    func startTakeVideo() {
-        
-    }
-    
-    // 停止拍摄视频
-    func stopTakeVideo() {
-        
     }
 }
 

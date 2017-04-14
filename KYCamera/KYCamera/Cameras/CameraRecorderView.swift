@@ -48,6 +48,8 @@ class CameraRecorderView: UIView {
     }
     
     func setupViews() {
+        self.backgroundColor = .black
+        
         self.addSubview(cameraButton)
         self.addSubview(photosButton)
         
