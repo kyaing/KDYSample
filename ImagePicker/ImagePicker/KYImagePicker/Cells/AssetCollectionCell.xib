@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,18 +31,18 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="Wzk-iX-3kf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9LN-T8-XAd"/>
                 <constraint firstItem="7eb-2l-gdj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RYi-zQ-rJd"/>
                 <constraint firstAttribute="bottom" secondItem="7eb-2l-gdj" secondAttribute="bottom" id="blf-ru-kfV"/>
                 <constraint firstAttribute="trailing" secondItem="Wzk-iX-3kf" secondAttribute="trailing" id="hvV-Ew-cHF"/>
                 <constraint firstAttribute="trailing" secondItem="7eb-2l-gdj" secondAttribute="trailing" id="qfa-PU-pnd"/>
                 <constraint firstItem="7eb-2l-gdj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tVU-9K-CLS"/>
-                <constraint firstItem="Wzk-iX-3kf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wUv-eB-5MA"/>
             </constraints>
             <connections>
                 <outlet property="photoImage" destination="7eb-2l-gdj" id="70d-Io-FCc"/>
                 <outlet property="selectButton" destination="Wzk-iX-3kf" id="MJO-aF-T5U"/>
             </connections>
-            <point key="canvasLocation" x="-295" y="-155"/>
+            <point key="canvasLocation" x="-219" y="-156"/>
         </collectionViewCell>
     </objects>
     <resources>

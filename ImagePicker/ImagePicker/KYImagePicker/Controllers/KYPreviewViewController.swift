@@ -80,7 +80,7 @@ class KYPreviewViewController: UIViewController {
         originBtn.frame = CGRect(x: 5, y: 0, width: 80, height: 44)
         originBtn.setTitle("原图", for: .normal)
         originBtn.setImage(UIImage(named: "photo_original_def"), for: .normal)
-        originBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0)
+        originBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
         originBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         originBtn.setTitleColor(.lightGray, for: .normal)
         originBtn.setTitleColor(.white, for: .selected)
@@ -102,6 +102,11 @@ class KYPreviewViewController: UIViewController {
     
     var assetsArray = NSMutableArray()
     
+    // 注意如何隐藏状态栏
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -122,11 +127,6 @@ class KYPreviewViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
-    // 注意如何隐藏状态栏
-    override var prefersStatusBarHidden: Bool {
-        return false
     }
 
     // MARK: - Private Methods
