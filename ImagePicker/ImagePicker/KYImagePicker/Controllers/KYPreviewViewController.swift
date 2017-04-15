@@ -34,17 +34,15 @@ class KYPreviewViewController: UIViewController {
         return collect
     }()
     
-    /// 返回按钮
-    var backButton: UIButton!
-    
-    /// 选择大图按钮
-    var selectButton: UIButton!
+    var backButton   = UIButton()
+    var selectButton = UIButton()
+    var naviTitleLabel = UILabel()
     
     /// 自定义导航栏
     lazy var navigationView: UIView = {
         let navigation = UIView()
         navigation.frame = CGRect(x: 0, y: 0, width: self.view.width, height: 64)
-        navigation.backgroundColor = UIColor(colorLiteralRed: 40/255.0, green: 40/255.0, blue: 40/255.0, alpha: 0.7)
+        navigation.backgroundColor = UIColor(colorLiteralRed: 40/255.0, green: 40/255.0, blue: 40/255.0, alpha: 0.8)
 
         let backBtn = UIButton()
         backBtn.frame = CGRect(x: 5, y: 10, width: 44, height: 44)
@@ -61,31 +59,37 @@ class KYPreviewViewController: UIViewController {
         navigation.addSubview(selectBtn)
         self.selectButton = selectBtn
         
+        let titleL = UILabel()
+        titleL.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
+        titleL.center = navigation.center
+        titleL.font = UIFont.boldSystemFont(ofSize: 18)
+        titleL.textColor = .white
+        titleL.textAlignment = .center
+        navigation.addSubview(titleL)
+        self.naviTitleLabel = titleL
+        
         return navigation
     }()
     
-    /// 查看原图按钮
-    var originsButton: UIButton!
-    
-    /// 选择完成按钮
-    var doneButton: UIButton!
+    var originButton = UIButton()
+    var doneButton   = UIButton()
     
     /// 底部工具栏
     lazy var toolBarView: UIView = {
         let toolbar = UIView()
         toolbar.frame = CGRect(x: 0, y: self.view.height - 44, width: self.view.width, height: 44)
-        toolbar.backgroundColor = UIColor(colorLiteralRed: 40/255.0, green: 40/255.0, blue: 40/255.0, alpha: 0.7)
+        toolbar.backgroundColor = UIColor(colorLiteralRed: 40/255.0, green: 40/255.0, blue: 40/255.0, alpha: 0.8)
         
         let originBtn = UIButton()
         originBtn.frame = CGRect(x: 5, y: 0, width: 80, height: 44)
         originBtn.setTitle("原图", for: .normal)
         originBtn.setImage(UIImage(named: "photo_original_def"), for: .normal)
         originBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
-        originBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        originBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         originBtn.setTitleColor(.lightGray, for: .normal)
         originBtn.setTitleColor(.white, for: .selected)
         toolbar.addSubview(originBtn)
-        self.originsButton = originBtn
+        self.originButton = originBtn
         
         let doneBtn = UIButton()
         doneBtn.frame = CGRect(x: self.view.width-60, y: 0, width: 50, height: 44)
@@ -97,10 +101,27 @@ class KYPreviewViewController: UIViewController {
         return toolbar
     }()
     
-    /// 当前图片索引
-    var currentIndex: Int = 0
+    lazy var totalImageCounts: Int = {
+        return !self.isPreviewSelected ? self.allAssetsArray.count : self.selAssetsArray.count
+    }()
     
-    var assetsArray = NSMutableArray()
+    /// 当前图片索引
+    var currentSelIndex: Int = 0 {
+        willSet {
+            let xPos = self.view.width * CGFloat(newValue)
+            previewCollection.setContentOffset(CGPoint(x: xPos, y: 0), animated: false)
+            
+            // 更新title
+            naviTitleLabel.text = String(format: "%d/%d", newValue+1, totalImageCounts)
+        }
+    }
+    
+    var allAssetsArray = NSMutableArray()
+    
+    var selAssetsArray = NSMutableArray()
+    
+    // 是否只是预览选中的图片
+    var isPreviewSelected: Bool = false
     
     // 注意如何隐藏状态栏
     override var prefersStatusBarHidden: Bool {
@@ -141,13 +162,21 @@ class KYPreviewViewController: UIViewController {
 extension KYPreviewViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return assetsArray.count
+        return !isPreviewSelected ? allAssetsArray.count : selAssetsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let previewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewCell", for: indexPath) as! PreviewCollectionCell
         
-        let phAsset = assetsArray.object(at: indexPath.row) as! KYAsset
+        // 请求预览图
+        var phAsset: KYAsset!
+        
+        if !isPreviewSelected {
+            phAsset = allAssetsArray.object(at: indexPath.item) as! KYAsset
+        } else {
+            phAsset = selAssetsArray.object(at: indexPath.item) as! KYAsset
+        }
+        
         _ = phAsset.requestPreviewImage { (image, info) in
             previewCell.previewImage.image = image
         }
@@ -160,6 +189,18 @@ extension KYPreviewViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+    }
+}
+
+extension KYPreviewViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // 计算下一页的页码
+        let pageWidth = scrollView.width
+        let currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1
+        
+        // 注意浮点数据的格式化 %0.f
+        naviTitleLabel.text = String(format: "%0.f/%d", currentPage+1, totalImageCounts)
     }
 }
 

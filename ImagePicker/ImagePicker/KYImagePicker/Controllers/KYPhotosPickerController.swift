@@ -56,12 +56,13 @@ class KYPhotosPickerController: UIViewController {
         toolbar.backgroundColor = UIColor(colorLiteralRed: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
         
         let previewBtn = UIButton()
-        previewBtn.frame = CGRect(x: 0, y: 0, width: 50, height: 44)
+        previewBtn.frame = CGRect(x: 5, y: 0, width: 50, height: 44)
         previewBtn.setTitle("预览", for: .normal)
         previewBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         previewBtn.setTitleColor(.lightGray, for: .normal)
         previewBtn.setTitleColor(.white, for: .selected)
         previewBtn.isEnabled = false
+        previewBtn.addTarget(self, action: #selector(previewBtnAction), for: .touchUpInside)
         toolbar.addSubview(previewBtn)
         self.previewButton = previewBtn
         
@@ -71,15 +72,16 @@ class KYPhotosPickerController: UIViewController {
         doneBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         doneBtn.setTitleColor(.green, for: .normal)
         doneBtn.isEnabled = false
+        previewBtn.addTarget(self, action: #selector(doneBtnAction), for: .touchUpInside)
         toolbar.addSubview(doneBtn)
         self.doneButton = doneBtn
         
         let numberBtn = UIButton()
-        numberBtn.frame = CGRect(x: self.view.width-85, y: 9, width: 26, height: 26)
+        numberBtn.frame = CGRect(x: self.view.width-80, y: 10, width: 24, height: 24)
         numberBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         numberBtn.setTitleColor(.white, for: .normal)
-        numberBtn.backgroundColor = .green
-        numberBtn.layer.cornerRadius  = 13.0
+        numberBtn.backgroundColor = KDYColor.ChatGreen.color
+        numberBtn.layer.cornerRadius  = 12.0
         numberBtn.layer.masksToBounds = true
         numberBtn.isHidden = true
         toolbar.addSubview(numberBtn)
@@ -141,6 +143,19 @@ class KYPhotosPickerController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func previewBtnAction() {
+        // 只预览选择的图片
+        let previewController = KYPreviewViewController()
+        previewController.isPreviewSelected = true
+        previewController.selAssetsArray = selAssetsArray
+        previewController.currentSelIndex = 0
+        self.navigationController?.pushViewController(previewController, animated: true)
+    }
+    
+    func doneBtnAction() {
+        
+    }
+    
     // MARK: - Private Methods
     
     func refeshToolBarViewState() {
@@ -149,6 +164,8 @@ class KYPhotosPickerController: UIViewController {
             previewButton.setTitleColor(.black, for: .normal)
             
             doneButton.isEnabled = true
+            doneButton.setTitleColor(KDYColor.ChatGreen.color, for: .normal)
+            
             numberButton.isHidden = false
             numberButton.setTitle(String("\(selAssetsArray.count)"), for: .normal)
             clickButtonsWithAnimation(numberButton)
@@ -158,6 +175,7 @@ class KYPhotosPickerController: UIViewController {
             previewButton.setTitleColor(.lightGray, for: .normal)
             
             doneButton.isEnabled = false
+            doneButton.setTitleColor(.green, for: .normal)
             numberButton.isHidden = true
         }
     }
@@ -290,8 +308,8 @@ extension KYPhotosPickerController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let previewController = KYPreviewViewController()
-        previewController.currentIndex = indexPath.item
-        previewController.assetsArray = allAssetsArray
+        previewController.allAssetsArray  = allAssetsArray
+        previewController.currentSelIndex = indexPath.item
         self.navigationController?.pushViewController(previewController, animated: true)
     }
 }
