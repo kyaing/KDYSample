@@ -77,11 +77,11 @@ class KYPhotosPickerController: UIViewController {
         self.doneButton = doneBtn
         
         let numberBtn = UIButton()
-        numberBtn.frame = CGRect(x: self.view.width-80, y: 10, width: 24, height: 24)
-        numberBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        numberBtn.frame = CGRect(x: self.view.width-80, y: 11.5, width: 23, height: 23)
+        numberBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         numberBtn.setTitleColor(.white, for: .normal)
         numberBtn.backgroundColor = KDYColor.ChatGreen.color
-        numberBtn.layer.cornerRadius  = 12.0
+        numberBtn.layer.cornerRadius  = 11.5
         numberBtn.layer.masksToBounds = true
         numberBtn.isHidden = true
         toolbar.addSubview(numberBtn)
@@ -127,7 +127,7 @@ class KYPhotosPickerController: UIViewController {
         self.view.insertSubview(toolBarView, aboveSubview: photoCollection)
         
         photoCollection.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view)
+            make.left.top.right.equalTo(self.view)
             make.bottom.equalTo(toolBarView.snp.top)
         }
         
@@ -309,6 +309,7 @@ extension KYPhotosPickerController: UICollectionViewDelegate {
         
         let previewController = KYPreviewViewController()
         previewController.allAssetsArray  = allAssetsArray
+        previewController.selAssetsArray  = selAssetsArray
         previewController.currentSelIndex = indexPath.item
         self.navigationController?.pushViewController(previewController, animated: true)
     }

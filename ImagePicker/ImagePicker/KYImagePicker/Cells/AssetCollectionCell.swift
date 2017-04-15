@@ -37,6 +37,7 @@ class AssetCollectionCell: UICollectionViewCell {
         
         selectButton.setImage(UIImage(named: "photo_normal_photo"), for: .normal)
         selectButton.setImage(UIImage(named: "photo_sel_photo"), for: .selected)
+        selectButton.setImage(UIImage(named: "photo_sel_photo"), for: .highlighted)
     }
     
     @IBAction func selectBtnAction(_ sender: UIButton) {
