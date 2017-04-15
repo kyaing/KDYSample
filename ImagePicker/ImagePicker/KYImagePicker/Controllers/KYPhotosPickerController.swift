@@ -19,6 +19,8 @@ class KYPhotosPickerController: UIViewController {
     
     let margin: CGFloat = 5.0
     
+    let maxSelImageCount: Int = 9
+    
     lazy var photoLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         
@@ -43,6 +45,10 @@ class KYPhotosPickerController: UIViewController {
         return collect
     }()
     
+    var previewButton = UIButton()
+    var doneButton    = UIButton()
+    var numberButton  = UIButton()
+    
     /// 底部工具栏
     lazy var toolBarView: UIView = {
         let toolbar = UIView()
@@ -52,17 +58,32 @@ class KYPhotosPickerController: UIViewController {
         let previewBtn = UIButton()
         previewBtn.frame = CGRect(x: 0, y: 0, width: 50, height: 44)
         previewBtn.setTitle("预览", for: .normal)
-        previewBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        previewBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         previewBtn.setTitleColor(.lightGray, for: .normal)
         previewBtn.setTitleColor(.white, for: .selected)
+        previewBtn.isEnabled = false
         toolbar.addSubview(previewBtn)
+        self.previewButton = previewBtn
         
         let doneBtn = UIButton()
         doneBtn.frame = CGRect(x: self.view.width-60, y: 0, width: 50, height: 44)
         doneBtn.setTitle("完成", for: .normal)
         doneBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        doneBtn.setTitleColor(UIColor.green, for: .normal)
+        doneBtn.setTitleColor(.green, for: .normal)
+        doneBtn.isEnabled = false
         toolbar.addSubview(doneBtn)
+        self.doneButton = doneBtn
+        
+        let numberBtn = UIButton()
+        numberBtn.frame = CGRect(x: self.view.width-85, y: 9, width: 26, height: 26)
+        numberBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        numberBtn.setTitleColor(.white, for: .normal)
+        numberBtn.backgroundColor = .green
+        numberBtn.layer.cornerRadius  = 13.0
+        numberBtn.layer.masksToBounds = true
+        numberBtn.isHidden = true
+        toolbar.addSubview(numberBtn)
+        self.numberButton = numberBtn
         
         return toolbar
     }()
@@ -123,19 +144,44 @@ class KYPhotosPickerController: UIViewController {
     // MARK: - Private Methods
     
     func refeshToolBarViewState() {
-        
+        if selAssetsArray.count > 0 {
+            previewButton.isEnabled = true
+            previewButton.setTitleColor(.black, for: .normal)
+            
+            doneButton.isEnabled = true
+            numberButton.isHidden = false
+            numberButton.setTitle(String("\(selAssetsArray.count)"), for: .normal)
+            clickButtonsWithAnimation(numberButton)
+            
+        } else {
+            previewButton.isEnabled = false
+            previewButton.setTitleColor(.lightGray, for: .normal)
+            
+            doneButton.isEnabled = false
+            numberButton.isHidden = true
+        }
     }
     
-    func clickButtonsWithAnimation() {
-        
+    func clickButtonsWithAnimation(_ sender: AnyObject) {
+        let changeAnimation = CAKeyframeAnimation()
+        changeAnimation.keyPath = "transform.scale"
+        changeAnimation.duration = 0.5
+        changeAnimation.values = [0.8, 1.1, 0.9, 1.0]
+        sender.layer.add(changeAnimation, forKey: nil)
     }
     
-    func requestPreviewImage(withIndexPath indexPath: IndexPath) {
+    func requestBigImage(withIndexPath indexPath: IndexPath) {
+        let phAsset = allAssetsArray.object(at: indexPath.item) as! KYAsset
+        _ = photoCollection.cellForItem(at: indexPath) as! AssetCollectionCell
         
+        // 请求源图（这里应该是请求预览图，但是没用！）
+        _ = phAsset.requestOriginImage { (image, info) in
+            self.selAssetsArray.add(phAsset)
+            self.refeshToolBarViewState()
+        }
     }
     
-    // 判断
-    func selectAssetInArray(_ selectAsset: KYAsset, _ selectedArray: NSMutableArray) -> Bool {
+    func selectAssetContainInArray(_ selectAsset: KYAsset, _ selectedArray: NSMutableArray) -> Bool {
         for tepAsset in selectedArray as! [KYAsset] {
             if tepAsset.phAsset.localIdentifier == selectAsset.phAsset.localIdentifier {
                 return true
@@ -144,12 +190,21 @@ class KYPhotosPickerController: UIViewController {
         
         return false
     }
+    
+    func selectAssetRemoveInArray(_ selectAsset: KYAsset, _ selectedArray: NSMutableArray) {
+        for tepAsset in selectedArray as! [KYAsset] {
+            if tepAsset.phAsset.localIdentifier == selectAsset.phAsset.localIdentifier {
+                selectedArray.remove(selectAsset)
+            }
+        }
+    }
 }
 
 // MARK:
 
 extension UICollectionView {
     
+    // 查询当前View所在的indexPath
     func indexPathOfView(_ sender: AnyObject) -> IndexPath? {
         if sender.isKind(of: UIView.classForCoder()) {
             let view = sender as! UIView
@@ -183,7 +238,7 @@ extension KYPhotosPickerController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let assetCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AssetCell", for: indexPath) as! AssetCollectionCell
 
-        let phAsset = allAssetsArray.object(at: indexPath.row) as! KYAsset
+        let phAsset = allAssetsArray.object(at: indexPath.item) as! KYAsset
         let size = CGSize(width: assetCell.width, height: assetCell.height)
         
         _ = phAsset.requestThumbnailImage(size, assetBlock: { (result, info) in
@@ -192,22 +247,38 @@ extension KYPhotosPickerController: UICollectionViewDataSource {
         
         // 选择图片按钮事件
         assetCell.didSelectBtnClosure = { sender in
+            
             let indexPath  = self.photoCollection.indexPathOfView(sender)
             let selectCell = self.photoCollection.cellForItem(at: indexPath!) as! AssetCollectionCell
-            _ = self.allAssetsArray.object(at: (indexPath?.row)!) as! KYAsset
+            _ = self.allAssetsArray.object(at: (indexPath?.item)!) as! KYAsset
             
             if selectCell.isChecked {
                 // 取消选择图片
                 selectCell.isChecked = false
                 
+                self.selectAssetRemoveInArray(phAsset, self.selAssetsArray)
+                self.refeshToolBarViewState()
+                
             } else {
                 // 点击选择图片
+                if self.selAssetsArray.count == self.maxSelImageCount {
+                    let msgString = String("您最多只能选择\(self.maxSelImageCount)张图片")
+                    let alertController = UIAlertController(title: nil, message: msgString, preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "我知道了", style: .default, handler: nil)
+                    alertController.addAction(doneAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    return
+                }
+                
                 selectCell.isChecked = true
-                self.requestPreviewImage(withIndexPath: indexPath!)
+                
+                self.requestBigImage(withIndexPath: indexPath!)
+                self.clickButtonsWithAnimation(sender)
             }
         }
         
-        assetCell.isChecked = selectAssetInArray(phAsset, selAssetsArray)
+        assetCell.isChecked = selectAssetContainInArray(phAsset, selAssetsArray)
         
         return assetCell
     }
@@ -219,7 +290,7 @@ extension KYPhotosPickerController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let previewController = KYPreviewViewController()
-        previewController.currentIndex = indexPath.row
+        previewController.currentIndex = indexPath.item
         previewController.assetsArray = allAssetsArray
         self.navigationController?.pushViewController(previewController, animated: true)
     }

@@ -35,12 +35,6 @@ class AssetCollectionCell: UICollectionViewCell {
         photoImage.layer.borderColor = UIColor.lightGray.cgColor
         photoImage.isUserInteractionEnabled = true
         
-        if isChecked {
-            selectButton.isSelected = true
-        } else {
-            selectButton.isSelected = false
-        }
-        
         selectButton.setImage(UIImage(named: "photo_normal_photo"), for: .normal)
         selectButton.setImage(UIImage(named: "photo_sel_photo"), for: .selected)
     }
