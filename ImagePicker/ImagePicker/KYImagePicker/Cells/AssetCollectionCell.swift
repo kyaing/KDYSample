@@ -28,6 +28,7 @@ class AssetCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // 这里使用CALayer需要优化
         photoImage.contentMode = .scaleAspectFill
         photoImage.layer.cornerRadius = 2.0
         photoImage.layer.masksToBounds = true

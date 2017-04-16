@@ -100,25 +100,17 @@ class KYPhotosPickerController: UIViewController {
     
     // MARK: - Life Cycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadControllerUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
         setupAllViews()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        assetGroups?.enumerationGroupAssets(assetBlock: { (asset) in
-            if asset != nil {
-                allAssetsArray.add(asset!)
-            } else {
-                photoCollection.reloadData()
-            }
-        })
-    
-        refeshToolBarViewState()
+        requestAssetsArray()
     }
     
     func setupAllViews() {
@@ -137,6 +129,23 @@ class KYPhotosPickerController: UIViewController {
         lineView.frame = CGRect(x: 0, y: 0, width: self.view.width, height: 0.5)
         lineView.backgroundColor = .gray
         toolBarView.addSubview(lineView)
+    }
+    
+    func reloadControllerUI() {
+        photoCollection.reloadData()
+        refeshToolBarViewState()
+    }
+    
+    func requestAssetsArray() {
+        assetGroups?.enumerationGroupAssets(assetBlock: { (asset) in
+            if asset != nil {
+                allAssetsArray.add(asset!)
+            } else {
+                photoCollection.reloadData()
+            }
+        })
+        
+        refeshToolBarViewState()
     }
     
     // MARK: - Event Response
