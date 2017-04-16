@@ -105,6 +105,10 @@ class KYPhotosPickerController: UIViewController {
         self.view.backgroundColor = .white
         
         setupAllViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         assetGroups?.enumerationGroupAssets(assetBlock: { (asset) in
             if asset != nil {
@@ -113,10 +117,8 @@ class KYPhotosPickerController: UIViewController {
                 photoCollection.reloadData()
             }
         })
-    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        refeshToolBarViewState()
     }
     
     func setupAllViews() {

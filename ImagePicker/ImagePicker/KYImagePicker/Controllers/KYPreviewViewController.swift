@@ -56,7 +56,7 @@ class KYPreviewViewController: UIViewController {
         selectBtn.setImage(UIImage(named: "photo_def_photoPickerVc"), for: .normal)
         selectBtn.setImage(UIImage(named: "photo_sel_photoPickerVc"), for: .selected)
         selectBtn.setImage(UIImage(named: "photo_sel_photoPickerVc"), for: .highlighted)
-        selectBtn.addTarget(self, action: #selector(originBtnAction), for: .touchUpInside)
+        selectBtn.addTarget(self, action: #selector(selectBtnAction), for: .touchUpInside)
         navigation.addSubview(selectBtn)
         self.selectButton = selectBtn
         
@@ -90,7 +90,7 @@ class KYPreviewViewController: UIViewController {
         originBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         originBtn.setTitleColor(.lightGray, for: .normal)
         originBtn.setTitleColor(.white, for: .selected)
-        originBtn.addTarget(self, action: #selector(selectBtnAction), for: .touchUpInside)
+        originBtn.addTarget(self, action: #selector(originBtnAction), for: .touchUpInside)
         toolbar.addSubview(originBtn)
         self.originButton = originBtn
         
@@ -132,7 +132,7 @@ class KYPreviewViewController: UIViewController {
         }
     }
     
-    /// 滑动下张图索引
+    /// 滑动下张图的索引
     var nextPageIndex: Float = 0 {
         willSet {
             refeshNaviAndToolStates(Int(newValue))
@@ -140,6 +140,10 @@ class KYPreviewViewController: UIViewController {
     }
     
     lazy var allAssetsArray = NSMutableArray()
+    
+    lazy var allSeletedAssetsArray: NSMutableArray = {
+        return NSMutableArray(array: self.selAssetsArray)
+    }()
     
     lazy var selAssetsArray = NSMutableArray()
     
@@ -159,7 +163,7 @@ class KYPreviewViewController: UIViewController {
         
         self.view.insertSubview(navigationView, aboveSubview: previewCollection)
         self.view.insertSubview(toolBarView, aboveSubview: previewCollection)
-        
+    
         previewCollection.reloadData()
     }
     
@@ -178,10 +182,12 @@ class KYPreviewViewController: UIViewController {
     // MARK: - Private Methods 
     
     func refeshNaviAndToolStates(_ index: Int) {
-        if isPreviewSelected {
-            selectButton.isSelected = true
-        } else {
+        if !isPreviewSelected {
             let phAsset = allAssetsArray.object(at: index) as! KYAsset
+            selectButton.isSelected = selAssetsArray.contains(phAsset)
+            
+        } else {
+            let phAsset = allSeletedAssetsArray.object(at: index) as! KYAsset
             selectButton.isSelected = selAssetsArray.contains(phAsset)
         }
         
@@ -202,11 +208,61 @@ class KYPreviewViewController: UIViewController {
     }
     
     func selectBtnAction() {
-        let msgString = String("您最多只能选择9张图片")
-        let alertController = UIAlertController(title: nil, message: msgString, preferredStyle: .alert)
-        let doneAction = UIAlertAction(title: "我知道了", style: .default, handler: nil)
-        alertController.addAction(doneAction)
-        self.present(alertController, animated: true, completion: nil)
+        if selectButton.isSelected {
+            // 取消图片
+            selectButton.isSelected = false
+            
+            if !isPreviewSelected {
+                let phAsset = allAssetsArray.object(at: Int(nextPageIndex)) as! KYAsset
+                selAssetsArray.remove(phAsset)
+                
+            } else {
+                let phAsset = allSeletedAssetsArray.object(at: Int(nextPageIndex)) as! KYAsset
+                selAssetsArray.remove(phAsset)
+            }
+            
+            if selAssetsArray.count > 0 {
+                numberButton.isHidden = false
+                numberButton.setTitle(String("\(selAssetsArray.count)"), for: .normal)
+                clickButtonsWithAnimation(numberButton)
+                
+            } else {
+                numberButton.isHidden = true
+            }
+
+            
+        } else {
+            // 选择图片
+            if selAssetsArray.count == 9 {
+                let msgString = String("您最多只能选择9张图片")
+                let alertController = UIAlertController(title: nil, message: msgString, preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "我知道了", style: .default, handler: nil)
+                alertController.addAction(doneAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+                return
+            }
+            
+            if !isPreviewSelected {
+                let phAsset = allAssetsArray.object(at: Int(nextPageIndex)) as! KYAsset
+                selAssetsArray.add(phAsset)
+                
+            } else {
+                let phAsset = allSeletedAssetsArray.object(at: Int(nextPageIndex)) as! KYAsset
+                selAssetsArray.add(phAsset)
+            }
+            
+            if selAssetsArray.count > 0 {
+                numberButton.isHidden = false
+                numberButton.setTitle(String("\(selAssetsArray.count)"), for: .normal)
+                clickButtonsWithAnimation(numberButton)
+                
+            } else {
+                numberButton.isHidden = true
+            }
+            
+            selectButton.isSelected = true
+        }
     }
     
     func originBtnAction() {
@@ -231,7 +287,7 @@ class KYPreviewViewController: UIViewController {
 extension KYPreviewViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return !isPreviewSelected ? allAssetsArray.count : selAssetsArray.count
+        return !isPreviewSelected ? allAssetsArray.count : allSeletedAssetsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -243,7 +299,7 @@ extension KYPreviewViewController: UICollectionViewDataSource {
         if !isPreviewSelected {
             phAsset = allAssetsArray.object(at: indexPath.item) as! KYAsset
         } else {
-            phAsset = selAssetsArray.object(at: indexPath.item) as! KYAsset
+            phAsset = allSeletedAssetsArray.object(at: indexPath.item) as! KYAsset
         }
         
         _ = phAsset.requestPreviewImage { (image, info) in
