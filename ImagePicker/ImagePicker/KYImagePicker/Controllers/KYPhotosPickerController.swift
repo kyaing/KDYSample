@@ -72,7 +72,7 @@ class KYPhotosPickerController: UIViewController {
         doneBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         doneBtn.setTitleColor(.green, for: .normal)
         doneBtn.isEnabled = false
-        previewBtn.addTarget(self, action: #selector(doneBtnAction), for: .touchUpInside)
+        doneBtn.addTarget(self, action: #selector(doneBtnAction), for: .touchUpInside)
         toolbar.addSubview(doneBtn)
         self.doneButton = doneBtn
         
@@ -97,6 +97,8 @@ class KYPhotosPickerController: UIViewController {
     
     /// 选中的数据源
     var selAssetsArray = NSMutableArray()
+    
+    var selectDoneClosure: (NSMutableArray) -> Void = {_ in }
     
     // MARK: - Life Cycle
     
@@ -159,12 +161,15 @@ class KYPhotosPickerController: UIViewController {
         let previewController = KYPreviewViewController()
         previewController.isPreviewSelected = true
         previewController.selAssetsArray = selAssetsArray
+        previewController.selectDoneClosure = selectDoneClosure
         previewController.currentSelIndex = 0
         self.navigationController?.pushViewController(previewController, animated: true)
     }
     
     func doneBtnAction() {
-        
+        // 处理选择完成后的图片
+        selectDoneClosure(selAssetsArray)
+        cancelAction()
     }
     
     // MARK: - Private Methods
@@ -321,6 +326,7 @@ extension KYPhotosPickerController: UICollectionViewDelegate {
         let previewController = KYPreviewViewController()
         previewController.allAssetsArray  = allAssetsArray
         previewController.selAssetsArray  = selAssetsArray
+        previewController.selectDoneClosure = selectDoneClosure
         previewController.currentSelIndex = indexPath.item
         self.navigationController?.pushViewController(previewController, animated: true)
     }

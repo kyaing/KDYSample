@@ -22,53 +22,6 @@ class KYAsset: NSObject {
     
     // MARK: - Public Api
     
-    /// 原图
-    func originImage() -> UIImage {
-        let requestOption = PHImageRequestOptions()
-        var resultImage = UIImage()
-        
-        KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: requestOption) { (image, dict) in
-            if let _image = image {
-                resultImage = _image
-            }
-        }
-        
-        return resultImage
-    }
-    
-    /// 指定的缩略图 (注意targetSize)
-    func thumbnailImage(_ size: CGSize) -> UIImage {
-        let requestOption = PHImageRequestOptions()
-        var resultImage = UIImage()
-        
-        let scale = UIScreen.main.scale
-        let newSize = CGSize(width: size.width * scale, height: size.height * scale)
-        
-        KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize: newSize, contentMode: .aspectFill, options: requestOption) { (image, dict) in
-            if let _image = image {
-                resultImage = _image
-            }
-        }
-        
-        return resultImage
-    }
-    
-    /// 预览图
-    func previewImage() -> UIImage {
-        let requestOption = PHImageRequestOptions()
-        var resultImage = UIImage()
-        
-        let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        
-        KYAssetManager.default.phCachingImageManger.requestImage(for: phAsset, targetSize: size, contentMode: .aspectFill, options: requestOption) { (image, dict) in
-            if let _image = image {
-                resultImage = _image
-            }
-        }
-        
-        return resultImage
-    }
-    
     /// 请求原图
     func requestOriginImage(assetBlock block: @escaping assetSuccessBlock) -> PHImageRequestID {
         let requestOptions = PHImageRequestOptions()

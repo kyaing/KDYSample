@@ -30,6 +30,8 @@ class KYAlbumPickerController: UIViewController {
         return tb
     }()
     
+    var selectDoneClosure: (NSMutableArray) -> Void = {_ in }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,6 +85,7 @@ extension KYAlbumPickerController: UITableViewDelegate {
             let assetGroups = albumsArray.object(at: indexPath.row) as! KYAssetGroup
             
             let photosConroller = KYPhotosPickerController()
+            photosConroller.selectDoneClosure = selectDoneClosure
             photosConroller.title = assetGroups.groupName
             photosConroller.assetGroups = assetGroups
             self.navigationController?.pushViewController(photosConroller, animated: true)

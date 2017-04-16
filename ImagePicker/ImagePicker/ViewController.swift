@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +33,12 @@ class ViewController: UIViewController {
         let albumController = KYAlbumPickerController()
         let navigation = KYNavigationController(rootViewController: albumController)
         self.present(navigation, animated: true, completion: nil)
+        
+        albumController.selectDoneClosure = { array in
+            for phAsset in array as! [KYAsset] {
+                print("phAsset = \(phAsset), count = \(array.count)")
+            }
+        }
     }
 }
 

@@ -40,7 +40,7 @@ class KYNavigationController: UINavigationController {
     /// 导航按钮字体
     var barItemTitleFont: UIFont {
         set { self.barItemTitleFont = newValue }
-        get { return UIFont.systemFont(ofSize: 16) }
+        get { return UIFont.systemFont(ofSize: 17) }
     }
     
     /// 改变状态栏样式

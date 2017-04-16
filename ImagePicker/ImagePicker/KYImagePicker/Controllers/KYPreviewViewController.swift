@@ -150,6 +150,8 @@ class KYPreviewViewController: UIViewController {
     // 是否只是预览选中的图片
     var isPreviewSelected: Bool = false
     
+    var selectDoneClosure: (NSMutableArray) -> Void = {_ in }
+    
     // 注意如何隐藏状态栏
     override var prefersStatusBarHidden: Bool {
         return true
@@ -270,7 +272,9 @@ class KYPreviewViewController: UIViewController {
     }
     
     func doneBtnAction() {
-        
+        // 处理选择完成后的图片
+        selectDoneClosure(selAssetsArray)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func clickButtonsWithAnimation(_ sender: AnyObject) {
