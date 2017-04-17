@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(String.init(format: "%p", self))
+        
         self.title = "Algorithm"
         self.view.backgroundColor = .white
 
@@ -32,7 +34,8 @@ class ViewController: UIViewController {
     
     deinit {
         print("销毁")
-        button.backgroundColor?.removeObserver(self, forKeyPath: "backgroundColor", context: nil)
+        print(String.init(format: "%p", self))
+        button.removeObserver(self, forKeyPath: "backgroundColor", context: nil)
     }
     
     // MARK:
