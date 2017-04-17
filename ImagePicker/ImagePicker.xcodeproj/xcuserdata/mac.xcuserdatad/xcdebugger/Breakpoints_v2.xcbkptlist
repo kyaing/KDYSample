@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
             endingLineNumber = "210"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkName = "requestBigImage(withIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
             endingLineNumber = "139"
-            landmarkName = "selectAssetInArray(_:_:)"
+            landmarkName = "reloadControllerUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

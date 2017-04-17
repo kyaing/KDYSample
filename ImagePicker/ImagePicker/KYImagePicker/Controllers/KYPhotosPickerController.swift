@@ -209,9 +209,11 @@ class KYPhotosPickerController: UIViewController {
         _ = photoCollection.cellForItem(at: indexPath) as! AssetCollectionCell
         
         // 请求源图（这里应该是请求预览图，但是没用！）
-        _ = phAsset.requestOriginImage { (image, info) in
-            self.selAssetsArray.add(phAsset)
-            self.refeshToolBarViewState()
+        _ = phAsset.requestOriginImage { [weak self] (image, info) in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.selAssetsArray.add(phAsset)
+            strongSelf.refeshToolBarViewState()
         }
     }
     

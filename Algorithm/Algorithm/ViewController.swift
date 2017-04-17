@@ -12,14 +12,35 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.title = "Algorithm"
+        self.view.backgroundColor = .white
+        
+        testCycleReference()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    deinit {
+        print("销毁")
     }
-
-
+    
+    // MARK:
+    
+    func testCycleReference() {
+        var a = 100
+        var b = 100
+        print("a = \(String(format: "%p", a))")
+        
+        typealias addNumClosure = () -> Void
+        let closure: addNumClosure = {
+            print("block a = \(String(format: "%p", a))")
+            print("block: a + b = \(a + b)")
+        }
+        
+        closure()
+        
+        a = 200
+        b = 200
+        print("outside: a + b = \(a + b)")
+    }
 }
 
