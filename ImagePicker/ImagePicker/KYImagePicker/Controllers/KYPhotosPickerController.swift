@@ -115,6 +115,10 @@ class KYPhotosPickerController: UIViewController {
         requestAssetsArray()
     }
     
+    deinit {
+        print("对象销毁, 没有内存泄露：\(self.classForCoder)")
+    }
+    
     func setupAllViews() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelAction))

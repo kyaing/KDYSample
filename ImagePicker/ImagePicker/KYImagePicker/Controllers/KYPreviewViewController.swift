@@ -180,6 +180,10 @@ class KYPreviewViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
+    deinit {
+        print("对象销毁, 没有内存泄露：\(self.classForCoder)")
+    }
 
     // MARK: - Private Methods 
     

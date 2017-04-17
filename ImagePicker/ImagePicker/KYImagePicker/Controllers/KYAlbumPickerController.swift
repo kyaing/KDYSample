@@ -50,6 +50,10 @@ class KYAlbumPickerController: UIViewController {
         }
     }
     
+    deinit {
+        print("对象销毁, 没有内存泄露：\(self.classForCoder)")
+    }
+    
     func cancelAction() {
         self.dismiss(animated: true, completion: nil)
     }
