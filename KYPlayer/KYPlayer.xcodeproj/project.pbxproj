@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041795031EB042A3004017D9 /* KYPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041795021EB042A3004017D9 /* KYPlayerView.swift */; };
+		041795051EB042BD004017D9 /* KYPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041795041EB042BD004017D9 /* KYPlayerViewController.swift */; };
+		041795071EB0441D004017D9 /* KYPlayerCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041795061EB0441D004017D9 /* KYPlayerCoverView.swift */; };
 		047EFCDA1E9CDA6600A6E642 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFCD91E9CDA6600A6E642 /* AppDelegate.swift */; };
 		047EFCDC1E9CDA6600A6E642 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFCDB1E9CDA6600A6E642 /* ViewController.swift */; };
 		047EFCDF1E9CDA6600A6E642 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047EFCDD1E9CDA6600A6E642 /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041795021EB042A3004017D9 /* KYPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYPlayerView.swift; sourceTree = "<group>"; };
+		041795041EB042BD004017D9 /* KYPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYPlayerViewController.swift; sourceTree = "<group>"; };
+		041795061EB0441D004017D9 /* KYPlayerCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYPlayerCoverView.swift; sourceTree = "<group>"; };
 		047EFCD61E9CDA6600A6E642 /* KYPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047EFCD91E9CDA6600A6E642 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047EFCDB1E9CDA6600A6E642 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 				047EFCE01E9CDA6600A6E642 /* Assets.xcassets */,
 				047EFD071E9CDAA000A6E642 /* Launch Screen.storyboard */,
 				047EFCE51E9CDA6600A6E642 /* Info.plist */,
+				048B166F1EA862F500EB9432 /* KYPlayer */,
 			);
 			path = KYPlayer;
 			sourceTree = "<group>";
@@ -123,6 +130,16 @@
 				047EFCFB1E9CDA6600A6E642 /* Info.plist */,
 			);
 			path = KYPlayerUITests;
+			sourceTree = "<group>";
+		};
+		048B166F1EA862F500EB9432 /* KYPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				041795021EB042A3004017D9 /* KYPlayerView.swift */,
+				041795061EB0441D004017D9 /* KYPlayerCoverView.swift */,
+				041795041EB042BD004017D9 /* KYPlayerViewController.swift */,
+			);
+			path = KYPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041795071EB0441D004017D9 /* KYPlayerCoverView.swift in Sources */,
 				047EFCDC1E9CDA6600A6E642 /* ViewController.swift in Sources */,
+				041795031EB042A3004017D9 /* KYPlayerView.swift in Sources */,
 				047EFCDA1E9CDA6600A6E642 /* AppDelegate.swift in Sources */,
+				041795051EB042BD004017D9 /* KYPlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +524,7 @@
 				047EFD001E9CDA6600A6E642 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		047EFD011E9CDA6600A6E642 /* Build configuration list for PBXNativeTarget "KYPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +533,7 @@
 				047EFD031E9CDA6600A6E642 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		047EFD041E9CDA6600A6E642 /* Build configuration list for PBXNativeTarget "KYPlayerUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +542,7 @@
 				047EFD061E9CDA6600A6E642 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
