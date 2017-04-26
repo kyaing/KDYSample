@@ -1,5 +1,5 @@
 //
-//  KYPlayerCoverView.swift
+//  KYPlayerMaskView.swift
 //  KYPlayer
 //
 //  Created by mac on 2017/4/26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KYPlayerCoverView: UIView {
+class KYPlayerMaskView: UIView {
 
 }
 

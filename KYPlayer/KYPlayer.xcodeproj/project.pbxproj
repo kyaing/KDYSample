@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		041795031EB042A3004017D9 /* KYPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041795021EB042A3004017D9 /* KYPlayerView.swift */; };
 		041795051EB042BD004017D9 /* KYPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041795041EB042BD004017D9 /* KYPlayerViewController.swift */; };
-		041795071EB0441D004017D9 /* KYPlayerCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041795061EB0441D004017D9 /* KYPlayerCoverView.swift */; };
+		041795071EB0441D004017D9 /* KYPlayerMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041795061EB0441D004017D9 /* KYPlayerMaskView.swift */; };
 		047EFCDA1E9CDA6600A6E642 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFCD91E9CDA6600A6E642 /* AppDelegate.swift */; };
 		047EFCDC1E9CDA6600A6E642 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFCDB1E9CDA6600A6E642 /* ViewController.swift */; };
 		047EFCDF1E9CDA6600A6E642 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047EFCDD1E9CDA6600A6E642 /* Main.storyboard */; };
@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		041795021EB042A3004017D9 /* KYPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYPlayerView.swift; sourceTree = "<group>"; };
 		041795041EB042BD004017D9 /* KYPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYPlayerViewController.swift; sourceTree = "<group>"; };
-		041795061EB0441D004017D9 /* KYPlayerCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYPlayerCoverView.swift; sourceTree = "<group>"; };
+		041795061EB0441D004017D9 /* KYPlayerMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYPlayerMaskView.swift; sourceTree = "<group>"; };
 		047EFCD61E9CDA6600A6E642 /* KYPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047EFCD91E9CDA6600A6E642 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047EFCDB1E9CDA6600A6E642 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				041795021EB042A3004017D9 /* KYPlayerView.swift */,
-				041795061EB0441D004017D9 /* KYPlayerCoverView.swift */,
+				041795061EB0441D004017D9 /* KYPlayerMaskView.swift */,
 				041795041EB042BD004017D9 /* KYPlayerViewController.swift */,
 			);
 			path = KYPlayer;
@@ -279,7 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041795071EB0441D004017D9 /* KYPlayerCoverView.swift in Sources */,
+				041795071EB0441D004017D9 /* KYPlayerMaskView.swift in Sources */,
 				047EFCDC1E9CDA6600A6E642 /* ViewController.swift in Sources */,
 				041795031EB042A3004017D9 /* KYPlayerView.swift in Sources */,
 				047EFCDA1E9CDA6600A6E642 /* AppDelegate.swift in Sources */,
