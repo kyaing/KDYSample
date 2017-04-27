@@ -10,9 +10,9 @@ import UIKit
 
 public protocol PlayerMaskDelegate: NSObjectProtocol {
     
-    func playerMaskViewTaped(withSlider slider: UISlider)
+    func playerMaskTaped(withSlider slider: UISlider)
     
-    func playerMaskViewDraging(withSlider slider: UISlider)
+    func playerMaskDraging(withSlider slider: UISlider)
 }
 
 // MARK: 
@@ -43,16 +43,39 @@ class KYPlayerMaskView: UIView {
     
     var lockButton: UIButton?
     
-    var playButton: UIButton?
+    lazy var playButton: UIButton = {
+        let playBtn = UIButton()
+        playBtn.setImage(UIImage(named: "player_pause"), for: .normal)
+        playBtn.setImage(UIImage(named: "player_play"), for: .selected)
+        playBtn.setImage(UIImage(named: "player_play"), for: .highlighted)
+        playBtn.addTarget(self, action: #selector(clickPlayOrPauseBtnAction(_:)), for: .touchUpInside)
+        
+        return playBtn
+    }()
     
-    var fullButton: UIButton?
+    lazy var fullButton: UIButton = {
+        let fullBtn = UIButton()
+        fullBtn.setImage(UIImage(named: "player_fullscreen"), for: .normal)
+        fullBtn.setImage(UIImage(named: "player_shrinkscreen"), for: .selected)
+        fullBtn.setImage(UIImage(named: "player_shrinkscreen"), for: .highlighted)
+        fullBtn.addTarget(self, action: #selector(clickPlayOrPauseBtnAction(_:)), for: .touchUpInside)
+        
+        return fullBtn
+    }()
     
-    lazy var currentTimeLabel: UILabel = {
+    var isFullScreen: Bool = false {
+        didSet {
+            
+        }
+    }
+    
+    lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .right
         label.textColor = .white
         label.text = "00:00"
+        label.sizeToFit()
         
         return label
     }()
@@ -63,6 +86,7 @@ class KYPlayerMaskView: UIView {
         label.textAlignment = .left
         label.textColor = .white
         label.text = "00:00"
+        label.sizeToFit()
         
         return label
     }()
@@ -117,21 +141,49 @@ class KYPlayerMaskView: UIView {
     
     func setupBottomViews() {
         self.addSubview(bottomView)
-        self.addSubview(bufferSlider)
-        self.addSubview(playSlider)
+        
+        bottomView.addSubview(timeLabel)
+        bottomView.addSubview(totalTimeLabel)
+        bottomView.addSubview(playButton)
+        bottomView.addSubview(fullButton)
+        bottomView.addSubview(bufferSlider)
+        bottomView.addSubview(playSlider)
         
         bottomView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(self)
             make.height.equalTo(40)
         }
         
+        playButton.snp.makeConstraints { (make) in
+            make.left.equalTo(bottomView).offset(5)
+            make.centerY.equalTo(bottomView)
+            make.size.equalTo(CGSize(width: 30, height: 30))
+        }
+        
+        fullButton.snp.makeConstraints { (make) in
+            make.right.equalTo(bottomView).offset(-5)
+            make.centerY.equalTo(bottomView)
+            make.size.equalTo(CGSize(width: 30, height: 30))
+        }
+        
+        timeLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(playButton.snp.right).offset(5)
+            make.centerY.equalTo(bottomView)
+        }
+        
+        totalTimeLabel.snp.makeConstraints { (make) in
+            make.right.equalTo(fullButton.snp.left).offset(-5)
+            make.centerY.equalTo(bottomView)
+        }
+        
         bufferSlider.snp.makeConstraints { (make) in
             make.centerY.equalTo(bottomView)
-            make.left.right.equalTo(bottomView).inset(UIEdgeInsetsMake(0, 15, 0, 15))
+            make.left.equalTo(timeLabel.snp.right).offset(5)
+            make.right.equalTo(totalTimeLabel.snp.left).offset(-5)
         }
         
         playSlider.snp.makeConstraints { (make) in
-            make.edges.equalTo(bufferSlider).inset(UIEdgeInsets.zero)
+            make.edges.equalTo(bufferSlider)
         }
     }
     
@@ -139,14 +191,22 @@ class KYPlayerMaskView: UIView {
     
     func handleSliderTaped(_ slider: UISlider) {
         if let delegate = maskDelegate {
-            delegate.playerMaskViewTaped(withSlider: slider)
+            delegate.playerMaskTaped(withSlider: slider)
         }
     }
     
     func handleSliderPosition(_ slider: UISlider) {
         if let delegate = maskDelegate {
-            delegate.playerMaskViewDraging(withSlider: slider)
+            delegate.playerMaskDraging(withSlider: slider)
         }
+    }
+    
+    func clickPlayOrPauseBtnAction(_ button: UIButton) {
+        
+    }
+    
+    func clickFullScreenOrNotBtnAction(_ button: UIButton) {
+        
     }
 }
 

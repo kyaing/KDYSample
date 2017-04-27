@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         
         let playerView = KYPlayerView()
-        playerView.backgroundColor = .red
+        playerView.backgroundColor = .black
         self.view.addSubview(playerView)
     
         playerView.snp.makeConstraints { (make) in

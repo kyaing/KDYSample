@@ -194,11 +194,11 @@ class KYPlayerView: UIView {
 
 extension KYPlayerViewController: PlayerMaskDelegate {
     
-    func playerMaskViewTaped(withSlider slider: UISlider) {
+    func playerMaskTaped(withSlider slider: UISlider) {
         
     }
     
-    func playerMaskViewDraging(withSlider slider: UISlider) {
+    func playerMaskDraging(withSlider slider: UISlider) {
         
     }
 }
