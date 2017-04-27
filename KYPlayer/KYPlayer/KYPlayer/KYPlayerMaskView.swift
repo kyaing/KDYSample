@@ -30,7 +30,7 @@ class KYPlayerMaskView: UIView {
     
     lazy var bottomView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .clear
         
         return view
     }()
@@ -69,10 +69,12 @@ class KYPlayerMaskView: UIView {
     
     lazy var playSlider: UISlider = {
         let slider = UISlider()
-        slider.setThumbImage(UIImage(named: ""), for: .normal)
+        slider.setThumbImage(UIImage(named: "slider_thumb"), for: .normal)
         slider.addTarget(self, action: #selector(handleSliderPosition(_:)), for: .valueChanged)
         slider.minimumTrackTintColor = .white
         slider.maximumTrackTintColor = .clear
+        slider.maximumValue = 1.0
+        slider.minimumValue = 0.0
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSliderTaped(_:)))
         slider.addGestureRecognizer(tapGesture)
@@ -115,7 +117,22 @@ class KYPlayerMaskView: UIView {
     
     func setupBottomViews() {
         self.addSubview(bottomView)
+        self.addSubview(bufferSlider)
+        self.addSubview(playSlider)
         
+        bottomView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(self)
+            make.height.equalTo(40)
+        }
+        
+        bufferSlider.snp.makeConstraints { (make) in
+            make.centerY.equalTo(bottomView)
+            make.left.right.equalTo(bottomView).inset(UIEdgeInsetsMake(0, 15, 0, 15))
+        }
+        
+        playSlider.snp.makeConstraints { (make) in
+            make.edges.equalTo(bufferSlider).inset(UIEdgeInsets.zero)
+        }
     }
     
     // MARK: - Event Response

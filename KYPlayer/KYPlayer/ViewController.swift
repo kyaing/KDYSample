@@ -15,13 +15,17 @@ class ViewController: UIViewController {
         
         self.title = "播放器"
         self.view.backgroundColor = .white
+        self.navigationController?.navigationBar.isTranslucent = false
         
-        let playerController = KYPlayerViewController()
-        playerController.view.bounds = self.view.bounds
-        self.addChildViewController(playerController)
-        
-        self.view.addSubview(playerController.view)
-        playerController.didMove(toParentViewController: self)
+        let playerView = KYPlayerView()
+        playerView.backgroundColor = .red
+        self.view.addSubview(playerView)
+    
+        playerView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view).offset(10)
+            make.left.right.equalTo(self.view)
+            make.height.equalTo(playerView.snp.width).multipliedBy(9.0/16.0)
+        }
     }
 }
 

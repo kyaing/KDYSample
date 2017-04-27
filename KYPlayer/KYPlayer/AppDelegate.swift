@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
         
-        //let navigation = UINavigationController(rootViewController: KYPlayerViewController())
-        window?.rootViewController = KYPlayerViewController()
+        let navigation = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = navigation
         window?.makeKeyAndVisible()
         
         return true
