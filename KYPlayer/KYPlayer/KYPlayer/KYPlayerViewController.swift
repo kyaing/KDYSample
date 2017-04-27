@@ -92,6 +92,14 @@ class KYPlayerViewController: UIViewController {
     
     var displayLink: CADisplayLink!
     
+    lazy var playerMaskView: KYPlayerMaskView = {
+        let maskView = KYPlayerMaskView()
+        maskView.frame = self.view.bounds
+        maskView.maskDelegate = self
+        
+        return maskView
+    }()
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -133,6 +141,19 @@ class KYPlayerViewController: UIViewController {
     
     func updateTime() {
         
+    }
+    
+    func availableDuration() -> TimeInterval? {
+        let loadedTimeRanges = playerItem.loadedTimeRanges
+        
+        // 获取缓冲区
+        if let timeRange = loadedTimeRanges.first?.timeRangeValue {
+            let bufferedTime = CMTimeGetSeconds(CMTimeAdd(timeRange.start, timeRange.duration))
+            return bufferedTime
+            
+        } else {
+            return nil
+        }
     }
     
     func addAllObservers() {
@@ -197,16 +218,18 @@ class KYPlayerViewController: UIViewController {
         guard let playerItem = object as? AVPlayerItem else { return }
         
         if keyPath == PlayerLoadedTimeKey {
-            // 通过监听AVPlayerItem的"loadedTimeRanges"，可以实时知道当前视频的进度缓冲
-            //            let loadedTime = avalableDurationWithplayerItem()
-            //            let totalTime = CMTimeGetSeconds(playerItem.duration)
-            //            let percent = loadedTime/totalTime
+            // 通过监听"loadedTimeRanges"，实时知道当前视频的进度缓冲
+            guard let loadedTime = availableDuration() else { return }
+            
+            let totalTime = CMTimeGetSeconds(playerItem.duration)
+            let percent = loadedTime / totalTime
+            print("precent = %ld", percent)
             
         } else if keyPath == PlayerStatusKey {
-            // AVPlayerItemStatusUnknown,AVPlayerItemStatusReadyToPlay, AVPlayerItemStatusFailed。只有当status为AVPlayerItemStatusReadyToPlay是调用 AVPlayer的play方法视频才能播放。
+            // 只有当status为readyToPlay是调用 AVPlayer的play方法视频才能播放
             print(playerItem.status.rawValue)
             
-            if playerItem.status == AVPlayerItemStatus.readyToPlay {
+            if playerItem.status == .readyToPlay {
                 // 只有在这个状态下才能播放
                 avplayer.play()
                 
@@ -214,6 +237,19 @@ class KYPlayerViewController: UIViewController {
                 print("加载异常")
             }
         }
+    }
+}
+
+// MARK: - 
+
+extension KYPlayerViewController: PlayerMaskDelegate {
+    
+    func playerMaskViewTaped(withSlider slider: UISlider) {
+        
+    }
+    
+    func playerMaskViewDraging(withSlider slider: UISlider) {
+        
     }
 }
 

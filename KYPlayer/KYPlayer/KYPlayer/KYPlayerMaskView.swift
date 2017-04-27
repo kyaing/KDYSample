@@ -8,7 +8,128 @@
 
 import UIKit
 
-class KYPlayerMaskView: UIView {
+public protocol PlayerMaskDelegate: NSObjectProtocol {
+    
+    func playerMaskViewTaped(withSlider slider: UISlider)
+    
+    func playerMaskViewDraging(withSlider slider: UISlider)
+}
 
+// MARK: 
+
+class KYPlayerMaskView: UIView {
+    
+    // MARK: Properites
+    
+    lazy var topView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        
+        return view
+    }()
+    
+    lazy var bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        
+        return view
+    }()
+    
+    private var topViewLayer: CAGradientLayer!
+    
+    private var bottomViewLayer: CAGradientLayer!
+    
+    var backButton: UIButton?
+    
+    var lockButton: UIButton?
+    
+    var playButton: UIButton?
+    
+    var fullButton: UIButton?
+    
+    lazy var currentTimeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textAlignment = .right
+        label.textColor = .white
+        label.text = "00:00"
+        
+        return label
+    }()
+    
+    lazy var totalTimeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textAlignment = .left
+        label.textColor = .white
+        label.text = "00:00"
+        
+        return label
+    }()
+    
+    lazy var playSlider: UISlider = {
+        let slider = UISlider()
+        slider.setThumbImage(UIImage(named: ""), for: .normal)
+        slider.addTarget(self, action: #selector(handleSliderPosition(_:)), for: .valueChanged)
+        slider.minimumTrackTintColor = .white
+        slider.maximumTrackTintColor = .clear
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSliderTaped(_:)))
+        slider.addGestureRecognizer(tapGesture)
+    
+        return slider
+    }()
+    
+    lazy var bufferSlider: UISlider = {
+        let slider = UISlider()
+        slider.isUserInteractionEnabled = false
+        slider.setThumbImage(UIImage(), for: .normal)
+        slider.minimumTrackTintColor = .red
+        slider.maximumValue = 1.0
+        slider.minimumValue = 0.0
+        
+        return slider
+    }()
+    
+    weak var maskDelegate: PlayerMaskDelegate?
+    
+    // MARK: - Life Cycle
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupAllViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupAllViews() {
+        setupTopViews()
+        setupBottomViews()
+    }
+    
+    func setupTopViews() {
+        self.addSubview(topView)
+    }
+    
+    func setupBottomViews() {
+        self.addSubview(bottomView)
+        
+    }
+    
+    // MARK: - Event Response
+    
+    func handleSliderTaped(_ slider: UISlider) {
+        if let delegate = maskDelegate {
+            delegate.playerMaskViewTaped(withSlider: slider)
+        }
+    }
+    
+    func handleSliderPosition(_ slider: UISlider) {
+        if let delegate = maskDelegate {
+            delegate.playerMaskViewDraging(withSlider: slider)
+        }
+    }
 }
 
