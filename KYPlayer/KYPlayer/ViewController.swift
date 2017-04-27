@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         self.view.addSubview(playerView)
     
         playerView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view).offset(10)
+            make.top.equalTo(self.view)
             make.left.right.equalTo(self.view)
             make.height.equalTo(playerView.snp.width).multipliedBy(9.0/16.0)
         }

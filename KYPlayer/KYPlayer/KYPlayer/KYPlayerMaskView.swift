@@ -23,7 +23,7 @@ class KYPlayerMaskView: UIView {
     
     lazy var topView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .clear
         
         return view
     }()
@@ -34,10 +34,6 @@ class KYPlayerMaskView: UIView {
         
         return view
     }()
-    
-    private var topViewLayer: CAGradientLayer!
-    
-    private var bottomViewLayer: CAGradientLayer!
     
     var backButton: UIButton?
     
@@ -74,8 +70,6 @@ class KYPlayerMaskView: UIView {
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .right
         label.textColor = .white
-        label.text = "00:00"
-        label.sizeToFit()
         
         return label
     }()
@@ -85,8 +79,6 @@ class KYPlayerMaskView: UIView {
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .left
         label.textColor = .white
-        label.text = "00:00"
-        label.sizeToFit()
         
         return label
     }()
@@ -95,7 +87,7 @@ class KYPlayerMaskView: UIView {
         let slider = UISlider()
         slider.setThumbImage(UIImage(named: "slider_thumb"), for: .normal)
         slider.addTarget(self, action: #selector(handleSliderPosition(_:)), for: .valueChanged)
-        slider.minimumTrackTintColor = .white
+        slider.minimumTrackTintColor = .red
         slider.maximumTrackTintColor = .clear
         slider.maximumValue = 1.0
         slider.minimumValue = 0.0
@@ -110,7 +102,7 @@ class KYPlayerMaskView: UIView {
         let slider = UISlider()
         slider.isUserInteractionEnabled = false
         slider.setThumbImage(UIImage(), for: .normal)
-        slider.minimumTrackTintColor = .red
+        slider.minimumTrackTintColor = .white
         slider.maximumValue = 1.0
         slider.minimumValue = 0.0
         
@@ -128,6 +120,10 @@ class KYPlayerMaskView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     func setupAllViews() {
@@ -169,17 +165,19 @@ class KYPlayerMaskView: UIView {
         timeLabel.snp.makeConstraints { (make) in
             make.left.equalTo(playButton.snp.right).offset(5)
             make.centerY.equalTo(bottomView)
+            make.width.equalTo(35)
         }
         
         totalTimeLabel.snp.makeConstraints { (make) in
             make.right.equalTo(fullButton.snp.left).offset(-5)
             make.centerY.equalTo(bottomView)
+            make.width.equalTo(35)
         }
         
         bufferSlider.snp.makeConstraints { (make) in
             make.centerY.equalTo(bottomView)
-            make.left.equalTo(timeLabel.snp.right).offset(5)
-            make.right.equalTo(totalTimeLabel.snp.left).offset(-5)
+            make.left.equalTo(timeLabel.snp.right).offset(8)
+            make.right.equalTo(totalTimeLabel.snp.left).offset(-8)
         }
         
         playSlider.snp.makeConstraints { (make) in

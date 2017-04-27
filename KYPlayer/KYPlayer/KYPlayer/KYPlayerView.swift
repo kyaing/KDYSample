@@ -78,6 +78,7 @@ class KYPlayerView: UIView {
         displayLink = CADisplayLink(target: self, selector: #selector(updateTime))
         displayLink.add(to: RunLoop.main, forMode: .defaultRunLoopMode)
         
+        // 遮罩视图
         self.addSubview(playerMaskView)
         playerMaskView.snp.makeConstraints { (make) in
             make.edges.equalTo(self)
@@ -124,11 +125,29 @@ class KYPlayerView: UIView {
     
     // MARK: - Event Response
     
+    func formatPlayTime(seconds: TimeInterval) -> String {
+        if seconds.isNaN {
+            return "00:00"
+        }
+        
+        let min = Int(seconds / 60)
+        let sec = Int(seconds.truncatingRemainder(dividingBy: 60))  // Swift3.x之后的求余计算
+        
+        if min >= 100 {
+            return String(format: "%03d:%02d", min, sec)
+        }
+        
+        return String(format: "%02d:%02d", min, sec)
+    }
+    
     func updateTime() {
         let currentTime = CMTimeGetSeconds(playerItem.currentTime())
         let totalTime = TimeInterval(playerItem.duration.value) / TimeInterval(playerItem.duration.timescale)
         
         playerMaskView.playSlider.value = Float(currentTime / totalTime)
+        
+        playerMaskView.timeLabel.text = formatPlayTime(seconds: currentTime)
+        playerMaskView.totalTimeLabel.text = formatPlayTime(seconds: totalTime)
     }
     
     func availableDuration() -> TimeInterval? {
