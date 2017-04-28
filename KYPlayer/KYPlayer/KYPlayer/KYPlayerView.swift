@@ -15,8 +15,53 @@ private let PlayerLoadedTimeKey   = "loadedTimeRanges"
 private let PlayerEmptyBufferKey  = "playbackBufferEmpty"
 private let PlayerKeepUpKey       = "playbackLikelyToKeepUp"
 
+// AVPlayer KVO Key
+private let PlayerRateKey = "rate"
+
 // Context
 private var PlayerItemContext = 0
+private var PlayerContext = 0
+
+/// 显示模式
+public enum FillMode: String {
+    case resize           = "AVLayerVideoGravityResize"
+    case resizeAspect     = "AVLayerVideoGravityResizeAspect"
+    case resizeAspectFill = "AVLayerVideoGravityResizeAspectFill"
+}
+
+/// 播放状态
+public enum PlaybackState: Int, CustomStringConvertible {
+    case playing = 0
+    case paused
+    case stopped
+    case failed
+    
+    public var description: String {
+        switch self {
+        case .playing: return "Playing"
+        case .paused:  return "Paused"
+        case .stopped: return "Stoped"
+        case .failed:  return "Failed"
+        }
+    }
+}
+
+/// 缓冲状态
+public enum BufferingState: Int, CustomStringConvertible {
+    case ready = 0
+    case delayed
+    case unknown
+    
+    public var description: String {
+        switch self {
+        case .ready:   return "Buffering Ready"
+        case .delayed: return "Buffering Delayed"
+        case .unknown: return "Buffering Unknown"
+        }
+    }
+}
+
+// MARK:
 
 class KYPlayerView: UIView {
     
@@ -36,10 +81,20 @@ class KYPlayerView: UIView {
     
     var displayLink: CADisplayLink!
     
+    var playbackState: PlaybackState = .stopped {
+        willSet {
+        }
+    }
+    
+    var bufferingState: BufferingState = .unknown {
+        willSet {
+        }
+    }
+    
     lazy var playerMaskView: KYPlayerMaskView = {
         let maskView = KYPlayerMaskView()
         maskView.backgroundColor = .clear
-        maskView.maskDelegate = self as? PlayerMaskDelegate
+        maskView.maskDelegate = self
         
         return maskView
     }()
@@ -108,6 +163,10 @@ class KYPlayerView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(playerItemFailedToPlayToEndTime), name: .AVPlayerItemFailedToPlayToEndTime, object: playerItem)
     }
     
+    func addPlayerObservers() {
+        avplayer.addObserver(self, forKeyPath: PlayerRateKey, options: ([.new, .old]), context: &PlayerContext)
+    }
+    
     func removeAllObservers() {
         NotificationCenter.default.removeObserver(self)
         removePlayerItemObservers()
@@ -123,7 +182,11 @@ class KYPlayerView: UIView {
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemFailedToPlayToEndTime, object: playerItem)
     }
     
-    // MARK: - Event Response
+    func removerPlayerObservers() {
+        avplayer.removeObserver(self, forKeyPath: PlayerRateKey, context: &PlayerContext)
+    }
+    
+    // MARK: - Private Methods
     
     func formatPlayTime(seconds: TimeInterval) -> String {
         if seconds.isNaN {
@@ -140,16 +203,6 @@ class KYPlayerView: UIView {
         return String(format: "%02d:%02d", min, sec)
     }
     
-    func updateTime() {
-        let currentTime = CMTimeGetSeconds(playerItem.currentTime())
-        let totalTime = TimeInterval(playerItem.duration.value) / TimeInterval(playerItem.duration.timescale)
-        
-        playerMaskView.playSlider.value = Float(currentTime / totalTime)
-        
-        playerMaskView.timeLabel.text = formatPlayTime(seconds: currentTime)
-        playerMaskView.totalTimeLabel.text = formatPlayTime(seconds: totalTime)
-    }
-    
     func availableDuration() -> TimeInterval? {
         let loadedTimeRanges = playerItem.loadedTimeRanges
         
@@ -161,6 +214,30 @@ class KYPlayerView: UIView {
         } else {
             return nil
         }
+    }
+    
+    func interfaceOrientation(_ oriendtaion: UIDeviceOrientation) {
+//        if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+//            SEL selector = NSSelectorFromString(@"setOrientation:");
+//            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+//            [invocation setSelector:selector];
+//            [invocation setTarget:[UIDevice currentDevice]];
+//            int val = orientation;
+//            [invocation setArgument:&val atIndex:2];
+//            [invocation invoke];
+//        }
+    }
+    
+    // MARK: - Event Response
+    
+    func updateTime() {
+        let currentTime = CMTimeGetSeconds(playerItem.currentTime())
+        let totalTime = TimeInterval(playerItem.duration.value) / TimeInterval(playerItem.duration.timescale)
+        
+        playerMaskView.playSlider.value = Float(currentTime / totalTime)
+        
+        playerMaskView.timeLabel.text = formatPlayTime(seconds: currentTime)
+        playerMaskView.totalTimeLabel.text = formatPlayTime(seconds: totalTime)
     }
     
     func applicationWillResignActive() {
@@ -200,18 +277,47 @@ class KYPlayerView: UIView {
             
             if playerItem.status == .readyToPlay {
                 // 在这个状态下才能播放
-                avplayer.play()
+                // avplayer.play()
+                bufferingState = .ready
                 
             } else {
                 print("加载异常")
+                bufferingState = .unknown
             }
+            
+        } else if keyPath == PlayerRateKey {
+            
         }
     }
 }
 
 // MARK: -
 
-extension KYPlayerViewController: PlayerMaskDelegate {
+extension KYPlayerView: PlayerMaskDelegate {
+    
+    func handlePlayPauseButton(_ button: UIButton) {
+        if bufferingState == .ready {
+            if button.isSelected {
+                avplayer.pause()
+            } else {
+                avplayer.play()
+            }
+            
+            button.isSelected = !button.isSelected
+        }
+    }
+    
+    func handleFullscreenButton(_ button: UIButton) {
+        let orientation = UIDevice.current.orientation
+        
+        switch orientation {
+            case .portraitUpsideDown: interfaceOrientation(.landscapeRight)
+            case .portrait:           interfaceOrientation(.landscapeRight)
+            case .landscapeLeft:      interfaceOrientation(.portrait)
+            case .landscapeRight:     interfaceOrientation(.portrait)
+            default: break
+        }
+    }
     
     func playerMaskTaped(withSlider slider: UISlider) {
         
