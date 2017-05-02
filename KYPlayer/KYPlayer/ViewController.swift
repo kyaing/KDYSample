@@ -16,16 +16,6 @@ class ViewController: UIViewController {
         self.title = "播放器"
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.isTranslucent = false
-        
-        let playerView = KYPlayerView()
-        playerView.backgroundColor = .black
-        self.view.addSubview(playerView)
-    
-        playerView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view)
-            make.left.right.equalTo(self.view)
-            make.height.equalTo(playerView.snp.width).multipliedBy(9.0/16.0)
-        }
     }
 }
 

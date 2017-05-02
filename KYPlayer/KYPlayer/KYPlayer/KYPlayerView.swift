@@ -94,10 +94,14 @@ class KYPlayerView: UIView {
     lazy var playerMaskView: KYPlayerMaskView = {
         let maskView = KYPlayerMaskView()
         maskView.backgroundColor = .clear
-        maskView.maskDelegate = self
+        maskView.maskDelegate = self as? PlayerMaskDelegate
         
         return maskView
     }()
+    
+    var isFullScreen: Bool = false
+    
+    var isShowMaskView: Bool = true
     
     // MARK: - Life Cycle
     
@@ -107,6 +111,9 @@ class KYPlayerView: UIView {
         // 设置音频可以在iOS10下外放
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayback)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideMaskView))
+        self.addGestureRecognizer(tapGesture)
         
         setupUrl()
     }
@@ -216,19 +223,6 @@ class KYPlayerView: UIView {
         }
     }
     
-    func interfaceOrientation(_ oriendtaion: UIDeviceOrientation) {
-//        if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
-//            SEL selector = NSSelectorFromString(@"setOrientation:");
-//            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-//            [invocation setSelector:selector];
-//            [invocation setTarget:[UIDevice currentDevice]];
-//            int val = orientation;
-//            [invocation setArgument:&val atIndex:2];
-//            [invocation invoke];
-//        }
-        
-    }
-    
     // MARK: - Event Response
     
     func updateTime() {
@@ -239,6 +233,23 @@ class KYPlayerView: UIView {
         
         playerMaskView.timeLabel.text = formatPlayTime(seconds: currentTime)
         playerMaskView.totalTimeLabel.text = formatPlayTime(seconds: totalTime)
+    }
+    
+    func hideMaskView() {
+        if isShowMaskView {
+            UIView.animate(withDuration: 0.45, animations: {
+                self.playerMaskView.alpha = 0
+            }, completion: { (finished) in
+                self.isShowMaskView = false
+            })
+            
+        } else {
+            UIView.animate(withDuration: 0.45, animations: {
+                self.playerMaskView.alpha = 1.0
+            }, completion: { (finished) in
+                self.isShowMaskView = true
+            })
+        }
     }
     
     func applicationWillResignActive() {
@@ -289,43 +300,6 @@ class KYPlayerView: UIView {
         } else if keyPath == PlayerRateKey {
             
         }
-    }
-}
-
-// MARK: -
-
-extension KYPlayerView: PlayerMaskDelegate {
-    
-    func handlePlayPauseButton(_ button: UIButton) {
-        if bufferingState == .ready {
-            if button.isSelected {
-                avplayer.pause()
-            } else {
-                avplayer.play()
-            }
-            
-            button.isSelected = !button.isSelected
-        }
-    }
-    
-    func handleFullscreenButton(_ button: UIButton) {
-        let orientation = UIDevice.current.orientation
-        
-        switch orientation {
-            case .portraitUpsideDown: interfaceOrientation(.landscapeRight)
-            case .portrait:           interfaceOrientation(.landscapeRight)
-            case .landscapeLeft:      interfaceOrientation(.portrait)
-            case .landscapeRight:     interfaceOrientation(.portrait)
-            default: break
-        }
-    }
-    
-    func playerMaskTaped(withSlider slider: UISlider) {
-        
-    }
-    
-    func playerMaskDraging(withSlider slider: UISlider) {
-        
     }
 }
 

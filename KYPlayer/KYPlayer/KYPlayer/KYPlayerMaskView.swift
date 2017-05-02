@@ -191,11 +191,7 @@ class KYPlayerMaskView: UIView {
         }
     }
     
-    // MARK: - Private Methods
-    
-    func hidePlayerMaskView(_ isShow: Bool) {
-        
-    }
+    // MARK: - Public Methods
     
     // MARK: - Event Response
     
