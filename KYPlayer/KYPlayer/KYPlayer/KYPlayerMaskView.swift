@@ -45,20 +45,22 @@ class KYPlayerMaskView: UIView {
     
     lazy var pauseButton: UIButton = {
         let pauseBtn = UIButton()
-        pauseBtn.setImage(UIImage(named: "player_pause"), for: .normal)
-        pauseBtn.setImage(UIImage(named: "player_play"), for: .selected)
-        pauseBtn.setImage(UIImage(named: "player_play"), for: .highlighted)
-        pauseBtn.addTarget(self, action: #selector(clickPlayOrPauseBtnAction(_:)), for: .touchUpInside)
+        pauseBtn.backgroundColor = .clear
+        pauseBtn.setImage(UIImage(named: "full_play_btn_hl"), for: .normal)
+        pauseBtn.setImage(UIImage(named: "full_pause_btn_hl"), for: .selected)
+        pauseBtn.setImage(UIImage(named: "full_pause_btn_hl"), for: .highlighted)
+        pauseBtn.addTarget(self, action: #selector(clickPlayPauseBtnAction(_:)), for: .touchUpInside)
         
         return pauseBtn
     }()
     
     lazy var fullButton: UIButton = {
         let fullBtn = UIButton()
+        fullBtn.backgroundColor = .clear
         fullBtn.setImage(UIImage(named: "player_fullscreen"), for: .normal)
         fullBtn.setImage(UIImage(named: "player_shrinkscreen"), for: .selected)
         fullBtn.setImage(UIImage(named: "player_shrinkscreen"), for: .highlighted)
-        fullBtn.addTarget(self, action: #selector(clickPlayOrPauseBtnAction(_:)), for: .touchUpInside)
+        fullBtn.addTarget(self, action: #selector(clickFullScreenBtnAction(_:)), for: .touchUpInside)
         
         return fullBtn
     }()
@@ -89,7 +91,7 @@ class KYPlayerMaskView: UIView {
     
     lazy var playSlider: UISlider = {
         let slider = UISlider()
-        slider.setThumbImage(UIImage(named: "slider_thumb"), for: .normal)
+        slider.setThumbImage(UIImage(named: "thumbImage"), for: .normal)
         slider.addTarget(self, action: #selector(handleSliderPosition(_:)), for: .valueChanged)
         slider.minimumTrackTintColor = .red
         slider.maximumTrackTintColor = .clear
@@ -151,19 +153,19 @@ class KYPlayerMaskView: UIView {
         
         bottomView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(self)
-            make.height.equalTo(35)
+            make.height.equalTo(40)
         }
         
         pauseButton.snp.makeConstraints { (make) in
             make.left.equalTo(bottomView).offset(5)
             make.centerY.equalTo(bottomView)
-            make.size.equalTo(CGSize(width: 30, height: 30))
+            make.size.equalTo(CGSize(width: 35, height: 35))
         }
         
         fullButton.snp.makeConstraints { (make) in
             make.right.equalTo(bottomView).offset(-5)
             make.centerY.equalTo(bottomView)
-            make.size.equalTo(CGSize(width: 30, height: 30))
+            make.size.equalTo(CGSize(width: 35, height: 35))
         }
         
         timeLabel.snp.makeConstraints { (make) in
@@ -189,15 +191,21 @@ class KYPlayerMaskView: UIView {
         }
     }
     
+    // MARK: - Private Methods
+    
+    func hidePlayerMaskView(_ isShow: Bool) {
+        
+    }
+    
     // MARK: - Event Response
     
-    func clickPlayOrPauseBtnAction(_ button: UIButton) {
+    func clickPlayPauseBtnAction(_ button: UIButton) {
         if let delegate = maskDelegate {
             delegate.handlePlayPauseButton(button)
         }
     }
     
-    func clickFullScreenOrNotBtnAction(_ button: UIButton) {
+    func clickFullScreenBtnAction(_ button: UIButton) {
         if let delegate = maskDelegate {
             delegate.handleFullscreenButton(button)
         }
