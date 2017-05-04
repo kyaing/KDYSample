@@ -106,6 +106,10 @@ class KYPlayerView: UIView {
     
     var isFullScreen: Bool = false
     
+    var movieViewParentView: UIView!
+    
+    var movieViewFrame: CGRect = .zero
+    
     lazy var topView: UIView = {
         let view = UIView()
         view.backgroundColor = .gray
@@ -324,7 +328,8 @@ class KYPlayerView: UIView {
         bottomView.addSubview(playSlider)
         
         bottomView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self)
+            make.left.right.bottom.equalTo(self)
+            make.height.equalTo(40)
         }
         
         pauseButton.snp.makeConstraints { (make) in

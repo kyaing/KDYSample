@@ -72,6 +72,14 @@ class KYPlayerViewController: UIViewController {
              }
          */
         
+        playerView.movieViewParentView = playerView.superview
+        playerView.movieViewFrame = playerView.frame
+        
+        let rectInWindow = playerView.convert(playerView.bounds, to: UIApplication.shared.keyWindow)
+        playerView.removeFromSuperview()
+        playerView.frame = rectInWindow
+        UIApplication.shared.keyWindow?.addSubview(playerView)
+    
         UIView.animate(withDuration: 0.35, animations: {
             self.playerView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
             self.playerView.bounds = CGRect(x: 0, y: 0, width: (self.playerView.superview?.bounds)!.height, height: (self.playerView.superview?.bounds)!.width)

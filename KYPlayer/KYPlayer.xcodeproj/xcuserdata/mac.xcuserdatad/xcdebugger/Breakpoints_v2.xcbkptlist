@@ -38,11 +38,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYPlayer/KYPlayer/KYPlayerView.swift"
-            timestampString = "515584636.70166"
+            timestampString = "515587610.378643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
             landmarkName = "clickPlayPauseBtnAction(_:)"
             landmarkType = "7">
             <Locations>
@@ -54,11 +54,11 @@
                   moduleName = "KYPlayer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/SourceTree/KDYSample/KYPlayer/KYPlayer/KYPlayer/KYPlayerView.swift"
-                  timestampString = "515584637.885996"
+                  timestampString = "515587788.596947"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "400"
-                  endingLineNumber = "400"
+                  startingLineNumber = "405"
+                  endingLineNumber = "405"
                   offsetFromSymbolStart = "23">
                </Location>
                <Location
@@ -69,11 +69,11 @@
                   moduleName = "KYPlayer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/SourceTree/KDYSample/KYPlayer/KYPlayer/KYPlayer/KYPlayerView.swift"
-                  timestampString = "515584637.889909"
+                  timestampString = "515587788.599305"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "400"
-                  endingLineNumber = "400"
+                  startingLineNumber = "405"
+                  endingLineNumber = "405"
                   offsetFromSymbolStart = "74">
                </Location>
             </Locations>
@@ -86,11 +86,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYPlayer/KYPlayer/KYPlayerViewController.swift"
-            timestampString = "515584398.227136"
+            timestampString = "515587786.029437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "handlePlayPauseButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -102,11 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KYPlayer/KYPlayer/KYPlayerViewController.swift"
-            timestampString = "515584398.227136"
+            timestampString = "515587786.029437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "interfaceOrientation(_:)"
             landmarkType = "7">
          </BreakpointContent>
