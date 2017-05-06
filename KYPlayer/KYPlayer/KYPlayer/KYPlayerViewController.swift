@@ -18,6 +18,7 @@ class KYPlayerViewController: UIViewController {
     
     var url: URL? {
         didSet {
+            
         }
     }
     
@@ -39,6 +40,10 @@ class KYPlayerViewController: UIViewController {
         return false
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -47,7 +52,7 @@ class KYPlayerViewController: UIViewController {
         self.title = "播放器"
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.isTranslucent = false
-        playerView.backgroundColor = .black
+        self.playerView.backgroundColor = .black
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,37 +64,39 @@ class KYPlayerViewController: UIViewController {
     }
     
     func interfaceOrientation(_ oriendtaion: UIDeviceOrientation) {
-        /**
-         *  Objective-C下对于全屏的处理，可惜在Swift下，不清楚怎么转换
-             if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
-             SEL selector = NSSelectorFromString(@"setOrientation:");
-             NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-             [invocation setSelector:selector];
-             [invocation setTarget:[UIDevice currentDevice]];
-             int val = orientation;
-             [invocation setArgument:&val atIndex:2];
-             [invocation invoke];
-             }
-         */
         
-        playerView.movieViewParentView = playerView.superview
-        playerView.movieViewFrame = playerView.frame
-        
-        let rectInWindow = playerView.convert(playerView.bounds, to: UIApplication.shared.keyWindow)
-        playerView.removeFromSuperview()
-        playerView.frame = rectInWindow
-        UIApplication.shared.keyWindow?.addSubview(playerView)
-    
-        UIView.animate(withDuration: 0.35, animations: {
-            self.playerView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
-            self.playerView.bounds = CGRect(x: 0, y: 0, width: (self.playerView.superview?.bounds)!.height, height: (self.playerView.superview?.bounds)!.width)
-            self.playerView.center = CGPoint(x: (self.playerView.superview?.bounds.midX)!, y: (self.playerView.superview?.bounds.midY)!)
+        if oriendtaion == .portrait {
+            self.playerView.removeFromSuperview()
+            self.view.addSubview(self.playerView)
+            self.playerView.snp.remakeConstraints({ (make) in
+                make.top.equalTo(self.view)
+                make.left.right.equalTo(self.view)
+                make.height.equalTo(playerView.snp.width).multipliedBy(9.0/16.0)
+            })
             
-        }) { (finished) in
+            UIView.beginAnimations(nil, context: nil)
+            UIView.setAnimationDuration(0.35)
+            self.playerView.transform = CGAffineTransform.identity
+            self.refreshStatusBarOrientation(.portrait)
+            self.playerView.isFullScreen = false
+            UIView.commitAnimations()
+            
+        } else {
+            self.playerView.removeFromSuperview()
+            UIApplication.shared.keyWindow?.addSubview(self.playerView)
+            self.playerView.snp.remakeConstraints({ (make) in
+                make.width.equalTo(self.view.height)
+                make.height.equalTo(self.view.width)
+                make.center.equalTo(UIApplication.shared.keyWindow!)
+            })
+            
+            UIView.beginAnimations(nil, context: nil)
+            UIView.setAnimationDuration(0.35)
+            self.playerView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
+            self.refreshStatusBarOrientation(.landscapeRight)
             self.playerView.isFullScreen = true
+            UIView.commitAnimations()
         }
-        
-        refreshStatusBarOrientation(.landscapeRight)
     }
     
     func refreshStatusBarOrientation(_ oriendtaion: UIInterfaceOrientation) {
@@ -100,6 +107,8 @@ class KYPlayerViewController: UIViewController {
         
     }
 }
+
+// MARK:
 
 extension KYPlayerViewController: PlayerViewDelegate {
     
@@ -121,6 +130,8 @@ extension KYPlayerViewController: PlayerViewDelegate {
     }
     
     func handleFullscreenButton(_ button: UIButton) {
+        button.isSelected = !button.isSelected
+        
         if playerView.isFullScreen {
             interfaceOrientation(.portrait)
         } else {
