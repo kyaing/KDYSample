@@ -90,6 +90,15 @@ class KYPlayerView: UIView {
     
     var bufferingState: BufferingState = .unknown
     
+    lazy var backButton: UIButton = {
+        let backBtn = UIButton()
+        backBtn.backgroundColor = .clear
+        backBtn.setImage(UIImage(named: "play_back_full"), for: .normal)
+        backBtn.addTarget(self, action: #selector(clickBackBtnAction), for: .touchUpInside)
+        
+        return backBtn
+    }()
+    
     lazy var playerMaskView: KYPlayerMaskView = {
         let maskView = KYPlayerMaskView()
         maskView.maskDelegate = self
@@ -98,7 +107,7 @@ class KYPlayerView: UIView {
         maskView.snp.makeConstraints({ (make) in
             make.edges.equalTo(self)
         })
-        
+    
         return maskView
     }()
     
@@ -113,7 +122,22 @@ class KYPlayerView: UIView {
         return slider
     }()
     
+    lazy var activityView: UIActivityIndicatorView = {
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activityView.hidesWhenStopped = true
+        
+        self.addSubview(activityView)
+        activityView.snp.makeConstraints({ (make) in
+            make.center.equalTo(self.snp.center)
+            make.size.equalTo(CGSize(width: 40, height: 40))
+        })
+        
+        return activityView
+    }()
+    
     var isFullScreen: Bool = false
+    
+    var isShowMaskView: Bool = true
     
     weak var delegate: PlayerViewDelegate?
     
@@ -127,6 +151,8 @@ class KYPlayerView: UIView {
         try! session.setCategory(AVAudioSessionCategoryPlayback)
         
         setupUrl()
+        setupViews()
+        setupTapGesture()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -138,6 +164,28 @@ class KYPlayerView: UIView {
         avPlayerLayer.frame = self.bounds
     }
     
+    func setupViews() {
+        self.addSubview(backButton)
+        
+        backButton.snp.makeConstraints { (make) in
+            make.left.equalTo(self).offset(5)
+            make.top.equalTo(self).offset(20)
+            make.size.equalTo(CGSize(width: 35, height: 35))
+        }
+    }
+    
+    func setupTapGesture() {
+        let singalTap = UITapGestureRecognizer(target: self, action: #selector(singalTapMaskViewAction(_:)))
+        singalTap.numberOfTapsRequired = 1
+        self.addGestureRecognizer(singalTap)
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapMaskViewAction(_:)))
+        doubleTap.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTap)
+        
+        singalTap.require(toFail: doubleTap)
+    }
+    
     func setupUrl() {
         let url = "http://bos.nj.bpc.baidu.com/tieba-smallvideo/11772_3c435014fb2dd9a5fd56a57cc369f6a0.mp4"
         playerItem = AVPlayerItem(url: URL(string: url)!)
@@ -147,6 +195,8 @@ class KYPlayerView: UIView {
         avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspect
         avPlayerLayer.contentsScale = UIScreen.main.scale
         self.layer.addSublayer(avPlayerLayer)
+        
+        activityView.startAnimating()
         
         displayLink = CADisplayLink(target: self, selector: #selector(updateTime))
         displayLink.add(to: RunLoop.main, forMode: .defaultRunLoopMode)
@@ -232,9 +282,8 @@ class KYPlayerView: UIView {
         let currentTime = CMTimeGetSeconds(playerItem.currentTime())
         let totalTime = TimeInterval(playerItem.duration.value) / TimeInterval(playerItem.duration.timescale)
         
-        playerMaskView.playSlider.value = Float(currentTime / totalTime)
-        
-        playerMaskView.timeLabel.text = formatPlayTime(seconds: currentTime)
+        playerMaskView.playSlider.value    = Float(currentTime / totalTime)
+        playerMaskView.timeLabel.text      = formatPlayTime(seconds: currentTime)
         playerMaskView.totalTimeLabel.text = formatPlayTime(seconds: totalTime)
     }
     
@@ -259,11 +308,15 @@ class KYPlayerView: UIView {
     }
     
     func startPlay() {
-        
+        avplayer.play()
+        playbackState = .playing
+        playerMaskView.pauseButton.isSelected = true
     }
     
     func pausePlay() {
-        
+        avplayer.pause()
+        playbackState = .paused
+        playerMaskView.pauseButton.isSelected = false
     }
     
     func stopPlay() {
@@ -282,7 +335,37 @@ class KYPlayerView: UIView {
         displayLink.add(to: RunLoop.main, forMode: .defaultRunLoopMode)
     }
     
+    func showMaskView(_ isShow: Bool) {
+        self.isShowMaskView = isShow
+        if isShow {  // 显示遮盖视图
+            UIView.animate(withDuration: 0.45) {
+                self.playerMaskView.alpha = 1.0
+            }
+            
+        } else {  // 隐藏遮盖视图
+            UIView.animate(withDuration: 0.45) {
+                self.playerMaskView.alpha = 0.0
+            }
+        }
+    }
+    
     // MARK: - Event Response
+    
+    func clickBackBtnAction() {
+        
+    }
+    
+    func singalTapMaskViewAction(_ gesture: UITapGestureRecognizer) {
+        showMaskView(!isShowMaskView)
+    }
+    
+    func doubleTapMaskViewAction(_ gesture: UITapGestureRecognizer) {
+        if playbackState == .paused {
+            startPlay()
+        } else if playbackState == .playing {
+            pausePlay()
+        }
+    }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard let playerItem = object as? AVPlayerItem else { return }
@@ -300,11 +383,19 @@ class KYPlayerView: UIView {
             if playerItem.status == .readyToPlay {
                 // 在这个状态下才能播放
                 bufferingState = .ready
-                
             } else {
-                print("加载异常")
                 bufferingState = .unknown
             }
+            playbackState = .paused
+            
+        } else if keyPath == PlayerEmptyBufferKey {
+            bufferingState = .delayed
+            if !activityView.isAnimating {
+                activityView.startAnimating()
+            }
+        
+        } else if keyPath == PlayerKeepUpKey {
+            activityView.stopAnimating()
             
         } else if keyPath == PlayerRateKey {
             
@@ -317,25 +408,19 @@ class KYPlayerView: UIView {
 extension KYPlayerView: PlayerMaskViewDelegate {
     
     func handlePlayPauseButton(_ button: UIButton) {
-        if self.bufferingState == .ready {
-            if button.isSelected {
-                avplayer.pause()
-            } else {
-                avplayer.play()
+        if bufferingState == .ready {
+            if playbackState == .paused {
+                startPlay()
                 
-                // 5秒后，隐藏遮罩视图
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-                    
-                })
+            } else if playbackState == .playing {
+                pausePlay()
             }
-            
-            button.isSelected = !button.isSelected
         }
     }
     
     func handleFullscreenButton(_ button: UIButton) {
         button.isSelected = !button.isSelected
-
+        
         if let delegate = delegate {
             delegate.handleFullscreenAction()
         }
@@ -356,9 +441,9 @@ extension KYPlayerView: PlayerMaskViewDelegate {
         var time = max(0, seconds)
         time = min(seconds, totalTime)
         
-        avplayer.pause()
+        pausePlay()
         avplayer.seek(to: CMTimeMakeWithSeconds(Float64(time), Int32(NSEC_PER_SEC))) { _ in
-            self.avplayer.play()
+            self.startPlay()
         }
         
         resetTimer()

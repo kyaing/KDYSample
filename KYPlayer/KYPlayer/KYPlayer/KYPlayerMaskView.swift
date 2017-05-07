@@ -29,7 +29,8 @@ class KYPlayerMaskView: UIView {
     
     lazy var topView: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
+        view.isHidden = true
+        view.backgroundColor = UIColor(white: 0.1, alpha: 0.5)
         
         return view
     }()
@@ -140,12 +141,12 @@ class KYPlayerMaskView: UIView {
     
     func setupTopViews() {
         self.addSubview(topView)
-        
+    
         topView.addSubview(backButton)
         
         topView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self)
-            make.top.equalTo(self).offset(20)
+            make.top.equalTo(self.snp.top).offset(20)
             make.height.equalTo(40)
         }
         
