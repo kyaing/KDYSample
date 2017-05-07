@@ -46,17 +46,6 @@ public enum PlaybackState: Int, CustomStringConvertible {
     }
 }
 
-public protocol PlayerViewDelegate: NSObjectProtocol {
-    
-    func handlePlayPauseButton(_ button: UIButton)
-    
-    func handleFullscreenButton(_ button: UIButton)
-
-    func playerMaskTaped(withSlider slider: UISlider)
-    
-    func playerMaskDraging(withSlider slider: UISlider)
-}
-
 /// 缓冲状态
 public enum BufferingState: Int, CustomStringConvertible {
     case ready = 0
@@ -70,6 +59,11 @@ public enum BufferingState: Int, CustomStringConvertible {
         case .unknown: return "Buffering Unknown"
         }
     }
+}
+
+public protocol PlayerViewDelegate: NSObjectProtocol {
+    
+    func handleFullscreenAction()
 }
 
 // MARK:
@@ -104,95 +98,19 @@ class KYPlayerView: UIView {
         }
     }
     
+    lazy var playerMaskView: KYPlayerMaskView = {
+        let maskView = KYPlayerMaskView()
+        maskView.maskDelegate = self
+        self.addSubview(maskView)
+        
+        maskView.snp.makeConstraints({ (make) in
+            make.edges.equalTo(self)
+        })
+        
+        return maskView
+    }()
+    
     var isFullScreen: Bool = false
-    
-    var movieViewParentView: UIView!
-    
-    var movieViewFrame: CGRect = .zero
-    
-    lazy var topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
-        
-        return view
-    }()
-    
-    lazy var bottomView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
-        
-        return view
-    }()
-    
-    var backButton: UIButton?
-    
-    var lockButton: UIButton?
-    
-    lazy var pauseButton: UIButton = {
-        let pauseBtn = UIButton()
-        pauseBtn.backgroundColor = .clear
-        pauseBtn.setImage(UIImage(named: "full_play_btn_hl"), for: .normal)
-        pauseBtn.setImage(UIImage(named: "full_pause_btn_hl"), for: .selected)
-        pauseBtn.setImage(UIImage(named: "full_pause_btn_hl"), for: .highlighted)
-        pauseBtn.addTarget(self, action: #selector(clickPlayPauseBtnAction(_:)), for: .touchUpInside)
-        
-        return pauseBtn
-    }()
-    
-    lazy var fullButton: UIButton = {
-        let fullBtn = UIButton()
-        fullBtn.backgroundColor = .clear
-        fullBtn.setImage(UIImage(named: "player_fullscreen"), for: .normal)
-        fullBtn.setImage(UIImage(named: "player_shrinkscreen"), for: .selected)
-        fullBtn.setImage(UIImage(named: "player_shrinkscreen"), for: .highlighted)
-        fullBtn.addTarget(self, action: #selector(clickFullScreenBtnAction(_:)), for: .touchUpInside)
-        
-        return fullBtn
-    }()
-    
-    lazy var timeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textAlignment = .right
-        label.textColor = .white
-        
-        return label
-    }()
-    
-    lazy var totalTimeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textAlignment = .left
-        label.textColor = .white
-        
-        return label
-    }()
-    
-    lazy var playSlider: UISlider = {
-        let slider = UISlider()
-        slider.setThumbImage(UIImage(named: "thumbImage"), for: .normal)
-        slider.addTarget(self, action: #selector(handleSliderPosition(_:)), for: .valueChanged)
-        slider.minimumTrackTintColor = .red
-        slider.maximumTrackTintColor = .clear
-        slider.maximumValue = 1.0
-        slider.minimumValue = 0.0
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSliderTaped(_:)))
-        slider.addGestureRecognizer(tapGesture)
-        
-        return slider
-    }()
-    
-    lazy var bufferSlider: UISlider = {
-        let slider = UISlider()
-        slider.isUserInteractionEnabled = false
-        slider.setThumbImage(UIImage(), for: .normal)
-        slider.minimumTrackTintColor = .white
-        slider.maximumValue = 1.0
-        slider.minimumValue = 0.0
-        
-        return slider
-    }()
     
     weak var delegate: PlayerViewDelegate?
     
@@ -206,7 +124,6 @@ class KYPlayerView: UIView {
         try! session.setCategory(AVAudioSessionCategoryPlayback)
         
         setupUrl()
-        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -308,75 +225,14 @@ class KYPlayerView: UIView {
         }
     }
     
-    func setupViews() {
-        setupTopViews()
-        setupBottomViews()
-    }
-    
-    func setupTopViews() {
-        self.addSubview(topView)
-    }
-    
-    func setupBottomViews() {
-        self.addSubview(bottomView)
-        
-        bottomView.addSubview(timeLabel)
-        bottomView.addSubview(totalTimeLabel)
-        bottomView.addSubview(pauseButton)
-        bottomView.addSubview(fullButton)
-        bottomView.addSubview(bufferSlider)
-        bottomView.addSubview(playSlider)
-        
-        bottomView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(self)
-            make.height.equalTo(40)
-        }
-        
-        pauseButton.snp.makeConstraints { (make) in
-            make.left.equalTo(bottomView).offset(5)
-            make.centerY.equalTo(bottomView)
-            make.size.equalTo(CGSize(width: 35, height: 35))
-        }
-        
-        fullButton.snp.makeConstraints { (make) in
-            make.right.equalTo(bottomView).offset(-5)
-            make.centerY.equalTo(bottomView)
-            make.size.equalTo(CGSize(width: 35, height: 35))
-        }
-        
-        timeLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(pauseButton.snp.right).offset(5)
-            make.centerY.equalTo(bottomView)
-            make.width.equalTo(35)
-        }
-        
-        totalTimeLabel.snp.makeConstraints { (make) in
-            make.right.equalTo(fullButton.snp.left).offset(-5)
-            make.centerY.equalTo(bottomView)
-            make.width.equalTo(35)
-        }
-        
-        bufferSlider.snp.makeConstraints { (make) in
-            make.centerY.equalTo(bottomView)
-            make.left.equalTo(timeLabel.snp.right).offset(8)
-            make.right.equalTo(totalTimeLabel.snp.left).offset(-8)
-        }
-        
-        playSlider.snp.makeConstraints { (make) in
-            make.edges.equalTo(bufferSlider)
-        }
-    }
-    
-    // MARK: - Event Response
-    
     func updateTime() {
         let currentTime = CMTimeGetSeconds(playerItem.currentTime())
         let totalTime = TimeInterval(playerItem.duration.value) / TimeInterval(playerItem.duration.timescale)
         
-        playSlider.value = Float(currentTime / totalTime)
+        playerMaskView.playSlider.value = Float(currentTime / totalTime)
         
-        timeLabel.text = formatPlayTime(seconds: currentTime)
-        totalTimeLabel.text = formatPlayTime(seconds: totalTime)
+        playerMaskView.timeLabel.text = formatPlayTime(seconds: currentTime)
+        playerMaskView.totalTimeLabel.text = formatPlayTime(seconds: totalTime)
     }
     
     func applicationWillResignActive() {
@@ -401,30 +257,6 @@ class KYPlayerView: UIView {
     
     // MARK: - Event Response
     
-    func clickPlayPauseBtnAction(_ button: UIButton) {
-        if let delegate = delegate {
-            delegate.handlePlayPauseButton(button)
-        }
-    }
-    
-    func clickFullScreenBtnAction(_ button: UIButton) {
-        if let delegate = delegate {
-            delegate.handleFullscreenButton(button)
-        }
-    }
-    
-    func handleSliderTaped(_ slider: UISlider) {
-        if let delegate = delegate {
-            delegate.playerMaskTaped(withSlider: slider)
-        }
-    }
-    
-    func handleSliderPosition(_ slider: UISlider) {
-        if let delegate = delegate {
-            delegate.playerMaskDraging(withSlider: slider)
-        }
-    }
-    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard let playerItem = object as? AVPlayerItem else { return }
         
@@ -434,7 +266,7 @@ class KYPlayerView: UIView {
             
             let totalTime = CMTimeGetSeconds(playerItem.duration)
             let percent = loadedTime / totalTime
-            bufferSlider.value = Float(percent)
+            playerMaskView.bufferSlider.value = Float(percent)
             
         } else if keyPath == PlayerStatusKey {
             // 只有当status为readyToPlay是调用 AVPlayer的play方法视频才能播放
@@ -453,6 +285,44 @@ class KYPlayerView: UIView {
         } else if keyPath == PlayerRateKey {
             
         }
+    }
+}
+
+// MARK:
+
+extension KYPlayerView: PlayerMaskViewDelegate {
+    
+    func handlePlayPauseButton(_ button: UIButton) {
+        if self.bufferingState == .ready {
+            if button.isSelected {
+                avplayer.pause()
+            } else {
+                avplayer.play()
+                
+                // 5秒后，隐藏遮罩视图
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                    
+                })
+            }
+            
+            button.isSelected = !button.isSelected
+        }
+    }
+    
+    func handleFullscreenButton(_ button: UIButton) {
+        button.isSelected = !button.isSelected
+
+        if let delegate = delegate {
+            delegate.handleFullscreenAction()
+        }
+    }
+    
+    func playerMaskTaped(withSlider slider: UISlider) {
+        
+    }
+    
+    func playerMaskDraging(withSlider slider: UISlider) {
+        
     }
 }
 
