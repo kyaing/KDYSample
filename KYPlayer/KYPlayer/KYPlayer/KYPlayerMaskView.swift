@@ -17,6 +17,8 @@ public protocol PlayerMaskViewDelegate: NSObjectProtocol {
     func playerMaskTaped(withSlider slider: UISlider)
     
     func playerMaskDraging(withSlider slider: UISlider)
+    
+    func playerMaskEnd(withSlider slider: UISlider)
 }
 
 // MARK:
@@ -93,11 +95,13 @@ class KYPlayerMaskView: UIView {
     lazy var playSlider: UISlider = {
         let slider = UISlider()
         slider.setThumbImage(UIImage(named: "thumbImage"), for: .normal)
-        slider.addTarget(self, action: #selector(handleSliderPosition(_:)), for: .valueChanged)
         slider.minimumTrackTintColor = .red
         slider.maximumTrackTintColor = .clear
         slider.maximumValue = 1.0
         slider.minimumValue = 0.0
+        
+        slider.addTarget(self, action: #selector(handleSliderChanged(_:)), for: .valueChanged)
+        slider.addTarget(self, action: #selector(handleSliderEnd(_:)), for: ([.touchUpInside, .touchCancel, .touchUpOutside]))
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSliderTaped(_:)))
         slider.addGestureRecognizer(tapGesture)
@@ -202,10 +206,10 @@ class KYPlayerMaskView: UIView {
         }
     }
     
-    // MARK: - Event Resoponse
+    // MARK: - Event Response
     
     func clickBackBtnAction() {
-        
+    
     }
     
     func clickPlayPauseBtnAction(_ button: UIButton) {
@@ -226,9 +230,15 @@ class KYPlayerMaskView: UIView {
         }
     }
     
-    func handleSliderPosition(_ slider: UISlider) {
+    func handleSliderChanged(_ slider: UISlider) {
         if let delegate = maskDelegate {
             delegate.playerMaskDraging(withSlider: slider)
+        }
+    }
+    
+    func handleSliderEnd(_ slider: UISlider) {
+        if let delegate = maskDelegate {
+            delegate.playerMaskEnd(withSlider: slider)
         }
     }
 }

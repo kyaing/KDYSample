@@ -15,7 +15,10 @@ class ViewController: UIViewController {
         
         self.title = "播放器"
         self.view.backgroundColor = .white
-        self.navigationController?.navigationBar.isTranslucent = false
+        
+        
     }
+    
+    
 }
 

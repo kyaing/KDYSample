@@ -86,17 +86,9 @@ class KYPlayerView: UIView {
     
     var displayLink: CADisplayLink!
     
-    var playbackState: PlaybackState = .stopped {
-        willSet {
-            
-        }
-    }
+    var playbackState: PlaybackState = .stopped
     
-    var bufferingState: BufferingState = .unknown {
-        willSet {
-            
-        }
-    }
+    var bufferingState: BufferingState = .unknown
     
     lazy var playerMaskView: KYPlayerMaskView = {
         let maskView = KYPlayerMaskView()
@@ -108,6 +100,17 @@ class KYPlayerView: UIView {
         })
         
         return maskView
+    }()
+    
+    lazy var rateSlider: UISlider = {
+        let slider = UISlider()
+        slider.isUserInteractionEnabled = false
+        slider.setThumbImage(UIImage(), for: .normal)
+        slider.minimumTrackTintColor = .red
+        slider.maximumValue = 1.0
+        slider.minimumValue = 0.0
+        
+        return slider
     }()
     
     var isFullScreen: Bool = false
@@ -255,6 +258,30 @@ class KYPlayerView: UIView {
         
     }
     
+    func startPlay() {
+        
+    }
+    
+    func pausePlay() {
+        
+    }
+    
+    func stopPlay() {
+        
+    }
+    
+    func seekToTime(_ seconds: CGFloat) {
+        
+    }
+    
+    func resetTimer() {
+        displayLink.invalidate()
+        displayLink = nil
+        
+        displayLink = CADisplayLink(target: self, selector: #selector(updateTime))
+        displayLink.add(to: RunLoop.main, forMode: .defaultRunLoopMode)
+    }
+    
     // MARK: - Event Response
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -270,11 +297,8 @@ class KYPlayerView: UIView {
             
         } else if keyPath == PlayerStatusKey {
             // 只有当status为readyToPlay是调用 AVPlayer的play方法视频才能播放
-            print(playerItem.status.rawValue)
-            
             if playerItem.status == .readyToPlay {
                 // 在这个状态下才能播放
-                // avplayer.play()
                 bufferingState = .ready
                 
             } else {
@@ -322,7 +346,22 @@ extension KYPlayerView: PlayerMaskViewDelegate {
     }
     
     func playerMaskDraging(withSlider slider: UISlider) {
+        displayLink.invalidate()
+    }
+
+    func playerMaskEnd(withSlider slider: UISlider) {
+        let totalTime = CGFloat(playerItem.duration.value) / CGFloat(playerItem.duration.timescale)
+        let seconds = totalTime * CGFloat(slider.value)
         
+        var time = max(0, seconds)
+        time = min(seconds, totalTime)
+        
+        avplayer.pause()
+        avplayer.seek(to: CMTimeMakeWithSeconds(Float64(time), Int32(NSEC_PER_SEC))) { _ in
+            self.avplayer.play()
+        }
+        
+        resetTimer()
     }
 }
 
