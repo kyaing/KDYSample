@@ -419,11 +419,10 @@ extension KYPlayerView: PlayerMaskViewDelegate {
     }
     
     func handleFullscreenButton(_ button: UIButton) {
-        button.isSelected = !button.isSelected
-        
         if let delegate = delegate {
             delegate.handleFullscreenAction()
         }
+        button.isSelected = !button.isSelected
     }
     
     func playerMaskTaped(withSlider slider: UISlider) {

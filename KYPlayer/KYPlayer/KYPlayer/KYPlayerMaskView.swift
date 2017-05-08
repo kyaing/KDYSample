@@ -23,6 +23,7 @@ public protocol PlayerMaskViewDelegate: NSObjectProtocol {
 
 // MARK:
 
+/// 遮罩控制视图
 class KYPlayerMaskView: UIView {
     
     // MARK: Properties
@@ -121,6 +122,11 @@ class KYPlayerMaskView: UIView {
         return slider
     }()
     
+    lazy var speedView: KYPlayerSpeedView = {
+        let speed = KYPlayerSpeedView()
+        return speed
+    }()
+    
     weak var maskDelegate: PlayerMaskViewDelegate?
     
     // MARK: - Life Cycle
@@ -135,13 +141,20 @@ class KYPlayerMaskView: UIView {
     }
     
     func setupViews() {
+        self.addSubview(speedView)
+        // 竖屏时的约束
+        speedView.snp.makeConstraints({ (make) in
+            make.top.equalTo(self).offset(50)
+            make.centerX.equalTo(self)
+            make.size.equalTo(CGSize(width: 150, height: 80))
+        })
+        
         setupTopViews()
         setupBottomViews()
     }
     
     func setupTopViews() {
         self.addSubview(topView)
-    
         topView.addSubview(backButton)
         
         topView.snp.makeConstraints { (make) in
