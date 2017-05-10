@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 // PlayerItem KVO Key
 private let PlayerStatusKey       = "status"
@@ -61,6 +62,18 @@ public enum BufferingState: Int, CustomStringConvertible {
     }
 }
 
+enum PanMoveDirection: Int, CustomStringConvertible {
+    case horizontal
+    case vertical
+    
+    public var description: String {
+        switch self {
+        case .horizontal:  return "Horizontal Direction"
+        case .vertical:    return "Vertical Direction"
+        }
+    }
+}
+
 public protocol PlayerViewDelegate: NSObjectProtocol {
     
     func handleFullscreenAction()
@@ -89,6 +102,8 @@ class KYPlayerView: UIView {
     var playbackState: PlaybackState = .stopped
     
     var bufferingState: BufferingState = .unknown
+    
+    var panDirection: PanMoveDirection = .horizontal
     
     lazy var backButton: UIButton = {
         let backBtn = UIButton()
@@ -135,9 +150,25 @@ class KYPlayerView: UIView {
         return activityView
     }()
     
+    lazy var volumeSlider: UISlider = {
+        var slider = UISlider()
+        
+        let volumeView = MPVolumeView()
+        for view in volumeView.subviews {
+            if view.classForCoder.description() == "MPVolumeSlider" {
+                slider = view as! UISlider
+                break
+            }
+        }
+        
+        return slider
+    }()
+    
     var isFullScreen: Bool = false
     
     var isShowMaskView: Bool = true
+    
+    var isVolumn: Bool = false
     
     weak var delegate: PlayerViewDelegate?
     
@@ -184,6 +215,11 @@ class KYPlayerView: UIView {
         self.addGestureRecognizer(doubleTap)
         
         singalTap.require(toFail: doubleTap)
+    }
+    
+    func setupPanGesture() {
+        let panGesutre = UIPanGestureRecognizer(target: self, action: #selector(panMaskViewAction(_:)))
+        self.addGestureRecognizer(panGesutre)
     }
     
     func setupUrl() {
@@ -349,6 +385,19 @@ class KYPlayerView: UIView {
         }
     }
     
+    func horizontalPanMoving(_ value: CGFloat) {
+        
+    }
+    
+    func verticalPanMoving(_ value: CGFloat) {
+        if isVolumn {
+            volumeSlider.value -= Float(value / 10000)
+            
+        } else {
+            UIScreen.main.brightness -= value / 10000
+        }
+    }
+    
     // MARK: - Event Response
     
     func clickBackBtnAction() {
@@ -364,6 +413,42 @@ class KYPlayerView: UIView {
             startPlay()
         } else if playbackState == .playing {
             pausePlay()
+        }
+    }
+    
+    func panMaskViewAction(_ gesture: UIPanGestureRecognizer) {
+        let locationPoint = gesture.location(in: self)
+        let veloctyPoint  = gesture.velocity(in: self)
+        
+        switch gesture.state {
+        case .began:
+            let xPos = fabs(veloctyPoint.x)
+            let yPos = fabs(veloctyPoint.y)
+            
+            if xPos > yPos {
+                panDirection = .horizontal
+                _ = avplayer.currentTime()
+                
+            } else {
+                panDirection = .vertical
+                if locationPoint.x < self.width / 2.0 {
+                    isVolumn = false
+                } else {
+                    isVolumn = true
+                }
+            }
+        
+        case .changed:
+            if panDirection == .horizontal {
+                horizontalPanMoving(veloctyPoint.x)
+            } else {
+                verticalPanMoving(veloctyPoint.y)
+            }
+            
+        case .ended:
+            break
+            
+        default: break
         }
     }
     
@@ -383,6 +468,10 @@ class KYPlayerView: UIView {
             if playerItem.status == .readyToPlay {
                 // 在这个状态下才能播放
                 bufferingState = .ready
+                
+                // 添加Pan手势
+                setupPanGesture()
+                
             } else {
                 bufferingState = .unknown
             }

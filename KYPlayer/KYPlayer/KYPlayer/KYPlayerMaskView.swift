@@ -146,7 +146,7 @@ class KYPlayerMaskView: UIView {
         speedView.snp.makeConstraints({ (make) in
             make.top.equalTo(self).offset(50)
             make.centerX.equalTo(self)
-            make.size.equalTo(CGSize(width: 150, height: 80))
+            make.size.equalTo(CGSize(width: 140, height: 80))
         })
         
         setupTopViews()
