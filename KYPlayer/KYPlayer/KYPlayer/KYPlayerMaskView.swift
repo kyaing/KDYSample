@@ -124,7 +124,22 @@ class KYPlayerMaskView: UIView {
     
     lazy var speedView: KYPlayerSpeedView = {
         let speed = KYPlayerSpeedView()
+        speed.isHidden = true
+        
         return speed
+    }()
+    
+    lazy var activityView: UIActivityIndicatorView = {
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activityView.hidesWhenStopped = true
+        
+        self.addSubview(activityView)
+        activityView.snp.makeConstraints({ (make) in
+            make.center.equalTo(self.snp.center)
+            make.size.equalTo(CGSize(width: 40, height: 40))
+        })
+        
+        return activityView
     }()
     
     weak var maskDelegate: PlayerMaskViewDelegate?
@@ -142,10 +157,8 @@ class KYPlayerMaskView: UIView {
     
     func setupViews() {
         self.addSubview(speedView)
-        // 竖屏时的约束
         speedView.snp.makeConstraints({ (make) in
-            make.top.equalTo(self).offset(50)
-            make.centerX.equalTo(self)
+            make.center.equalTo(self)
             make.size.equalTo(CGSize(width: 140, height: 80))
         })
         
@@ -253,6 +266,50 @@ class KYPlayerMaskView: UIView {
     func handleSliderEnd(_ slider: UISlider) {
         if let delegate = maskDelegate {
             delegate.playerMaskEnd(withSlider: slider)
+        }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func updateSpeedPlayerView() {
+        
+    }
+    
+    func formatPlayTime(seconds: TimeInterval) -> String {
+        if seconds.isNaN {
+            return "00:00"
+        }
+        
+        let min = Int(seconds / 60)
+        let sec = Int(seconds.truncatingRemainder(dividingBy: 60))  // Swift3.x之后的求余计算
+        
+        if min >= 100 {
+            return String(format: "%03d:%02d", min, sec)
+        }
+        
+        return String(format: "%02d:%02d", min, sec)
+    }
+    
+    // MARK: - Public Methods
+    
+    public func playerDragTime(_ dragTime: TimeInterval, totalTime: TimeInterval, isForward: Bool) {
+        speedView.isHidden = false
+        
+        speedView.speedSlider.value    = Float(dragTime / totalTime)
+        speedView.timeLabel.text       = formatPlayTime(seconds: dragTime)
+        speedView.totalTimeLabel.text  = formatPlayTime(seconds: totalTime)
+        speedView.speedImageView.image = isForward ? UIImage(named: "fast_forward") : UIImage(named: "fast_backward")
+        
+        timeLabel.text = formatPlayTime(seconds: dragTime)
+        playSlider.value = Float(dragTime / totalTime)
+    }
+    
+    public func playerActivity(_ isAcivity: Bool) {
+        if isAcivity {
+            activityView.startAnimating()
+        } else {
+            speedView.isHidden = true
+            activityView.stopAnimating()
         }
     }
 }

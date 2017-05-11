@@ -65,11 +65,13 @@ public enum BufferingState: Int, CustomStringConvertible {
 enum PanMoveDirection: Int, CustomStringConvertible {
     case horizontal
     case vertical
+    case unknown
     
     public var description: String {
         switch self {
         case .horizontal:  return "Horizontal Direction"
         case .vertical:    return "Vertical Direction"
+        case .unknown:     return "Unknown Direction"
         }
     }
 }
@@ -103,7 +105,9 @@ class KYPlayerView: UIView {
     
     var bufferingState: BufferingState = .unknown
     
-    var panDirection: PanMoveDirection = .horizontal
+    var panDirection: PanMoveDirection = .unknown
+    
+    var speedTime: TimeInterval = 0
     
     lazy var backButton: UIButton = {
         let backBtn = UIButton()
@@ -137,22 +141,10 @@ class KYPlayerView: UIView {
         return slider
     }()
     
-    lazy var activityView: UIActivityIndicatorView = {
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .white)
-        activityView.hidesWhenStopped = true
-        
-        self.addSubview(activityView)
-        activityView.snp.makeConstraints({ (make) in
-            make.center.equalTo(self.snp.center)
-            make.size.equalTo(CGSize(width: 40, height: 40))
-        })
-        
-        return activityView
-    }()
-    
     lazy var volumeSlider: UISlider = {
         var slider = UISlider()
         
+        // 获得系统的音量控制
         let volumeView = MPVolumeView()
         for view in volumeView.subviews {
             if view.classForCoder.description() == "MPVolumeSlider" {
@@ -164,11 +156,15 @@ class KYPlayerView: UIView {
         return slider
     }()
     
+    var lastSliderValue: CGFloat = 0
+    
     var isFullScreen: Bool = false
     
     var isShowMaskView: Bool = true
     
     var isVolumn: Bool = false
+    
+    var isDragPlayer: Bool = false
     
     weak var delegate: PlayerViewDelegate?
     
@@ -219,6 +215,7 @@ class KYPlayerView: UIView {
     
     func setupPanGesture() {
         let panGesutre = UIPanGestureRecognizer(target: self, action: #selector(panMaskViewAction(_:)))
+        panGesutre.delegate = self
         self.addGestureRecognizer(panGesutre)
     }
     
@@ -232,7 +229,7 @@ class KYPlayerView: UIView {
         avPlayerLayer.contentsScale = UIScreen.main.scale
         self.layer.addSublayer(avPlayerLayer)
         
-        activityView.startAnimating()
+        playerMaskView.activityView.startAnimating()
         
         displayLink = CADisplayLink(target: self, selector: #selector(updateTime))
         displayLink.add(to: RunLoop.main, forMode: .defaultRunLoopMode)
@@ -359,8 +356,20 @@ class KYPlayerView: UIView {
         
     }
     
-    func seekToTime(_ seconds: CGFloat) {
-        
+    func seekToTime(_ time: TimeInterval) {
+        if playerItem.status == .readyToPlay {
+            playerMaskView.playerActivity(true)
+            
+            pausePlay()
+            avplayer.seek(to: CMTimeMakeWithSeconds(Float64(time), Int32(NSEC_PER_SEC))) { [weak self]  _ in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.startPlay()
+                strongSelf.playerMaskView.playerActivity(false)
+            }
+            
+            resetTimer()
+        }
     }
     
     func resetTimer() {
@@ -373,29 +382,45 @@ class KYPlayerView: UIView {
     
     func showMaskView(_ isShow: Bool) {
         self.isShowMaskView = isShow
-        if isShow {  // 显示遮盖视图
+        if isShow {
             UIView.animate(withDuration: 0.45) {
-                self.playerMaskView.alpha = 1.0
+                self.playerMaskView.bottomView.alpha = 1.0
             }
             
-        } else {  // 隐藏遮盖视图
+        } else {
             UIView.animate(withDuration: 0.45) {
-                self.playerMaskView.alpha = 0.0
+                self.playerMaskView.bottomView.alpha = 0.0
             }
         }
     }
     
     func horizontalPanMoving(_ value: CGFloat) {
+        var forward: Bool = false
+        if value == 0 {
+            return
+        } else if value > 0 {
+            forward = true
+        } else {
+            forward = false
+        }
         
+        speedTime += TimeInterval(value / 200)
+        
+        let totoalTime: CMTime = playerItem.duration
+        let totoalTimeDuration = TimeInterval(totoalTime.value) / TimeInterval(totoalTime.timescale)
+        
+        if speedTime > totoalTimeDuration {
+            speedTime = totoalTimeDuration
+        } else if speedTime < 0 {
+            speedTime = 0
+        }
+    
+        isDragPlayer = true
+        playerMaskView.playerDragTime(speedTime, totalTime: totoalTimeDuration, isForward: forward)
     }
     
     func verticalPanMoving(_ value: CGFloat) {
-        if isVolumn {
-            volumeSlider.value -= Float(value / 10000)
-            
-        } else {
-            UIScreen.main.brightness -= value / 10000
-        }
+        isVolumn ? (volumeSlider.value -= Float(value / 10000)) : (UIScreen.main.brightness -= value / 10000)
     }
     
     // MARK: - Event Response
@@ -427,9 +452,11 @@ class KYPlayerView: UIView {
             
             if xPos > yPos {
                 panDirection = .horizontal
-                _ = avplayer.currentTime()
+                let time: CMTime = avplayer.currentTime()
+                speedTime = TimeInterval(time.value) / TimeInterval(time.timescale)
+                print("speedTime = \(speedTime)")
                 
-            } else {
+            } else if xPos < yPos {
                 panDirection = .vertical
                 if locationPoint.x < self.width / 2.0 {
                     isVolumn = false
@@ -446,7 +473,11 @@ class KYPlayerView: UIView {
             }
             
         case .ended:
-            break
+            if panDirection == .horizontal {
+                seekToTime(speedTime)
+            } else {
+                isVolumn = false
+            }
             
         default: break
         }
@@ -479,16 +510,29 @@ class KYPlayerView: UIView {
             
         } else if keyPath == PlayerEmptyBufferKey {
             bufferingState = .delayed
-            if !activityView.isAnimating {
-                activityView.startAnimating()
+            if !playerMaskView.activityView.isAnimating {
+                playerMaskView.activityView.startAnimating()
             }
         
         } else if keyPath == PlayerKeepUpKey {
-            activityView.stopAnimating()
+            playerMaskView.activityView.stopAnimating()
             
         } else if keyPath == PlayerRateKey {
             
         }
+    }
+}
+
+// MARK:
+
+extension KYPlayerView: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (touch.view?.isKind(of: UISlider.classForCoder()))! {
+            return false
+        }
+        
+        return true
     }
 }
 
@@ -520,21 +564,39 @@ extension KYPlayerView: PlayerMaskViewDelegate {
     
     func playerMaskDraging(withSlider slider: UISlider) {
         displayLink.invalidate()
+        displayLink = nil
+        
+        isDragPlayer = true
+        
+        let totalTime = CGFloat(playerItem.duration.value) / CGFloat(playerItem.duration.timescale)
+        let seconds = totalTime * CGFloat(slider.value)
+    
+        let value = CGFloat(slider.value) - lastSliderValue
+        var forward: Bool
+        if (value > 0) {
+            forward = true
+        } else if value < 0 {
+            forward = false
+        } else {
+            return
+        }
+        lastSliderValue = CGFloat(slider.value)
+        
+        playerMaskView.playerDragTime(TimeInterval(seconds), totalTime: TimeInterval(totalTime), isForward: forward)
     }
 
     func playerMaskEnd(withSlider slider: UISlider) {
-        let totalTime = CGFloat(playerItem.duration.value) / CGFloat(playerItem.duration.timescale)
-        let seconds = totalTime * CGFloat(slider.value)
-        
-        var time = max(0, seconds)
-        time = min(seconds, totalTime)
-        
-        pausePlay()
-        avplayer.seek(to: CMTimeMakeWithSeconds(Float64(time), Int32(NSEC_PER_SEC))) { _ in
-            self.startPlay()
+        if playerItem.status == .readyToPlay {
+            isDragPlayer = false
+            
+            let totalTime = CGFloat(playerItem.duration.value) / CGFloat(playerItem.duration.timescale)
+            let seconds = totalTime * CGFloat(slider.value)
+            
+            var time = max(0, seconds)
+            time = min(seconds, totalTime)
+            
+            seekToTime(TimeInterval(time))
         }
-        
-        resetTimer()
     }
 }
 

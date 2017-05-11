@@ -58,7 +58,7 @@ class KYPlayerSpeedView: UIView {
         slider.maximumTrackTintColor = .clear
         slider.maximumValue = 1.0
         slider.minimumValue = 0.0
-        slider.value = 0.5
+        slider.value = 0
         
         return slider
     }()
