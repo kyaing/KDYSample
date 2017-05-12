@@ -58,7 +58,6 @@ class KYPlayerSpeedView: UIView {
         slider.maximumTrackTintColor = .clear
         slider.maximumValue = 1.0
         slider.minimumValue = 0.0
-        slider.value = 0
         
         return slider
     }()
@@ -67,7 +66,6 @@ class KYPlayerSpeedView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
         
         setupViews()
     }
@@ -86,7 +84,7 @@ class KYPlayerSpeedView: UIView {
         speedImageView.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(5)
             make.centerX.equalTo(self)
-            make.size.equalTo(CGSize(width: 40, height: 40))
+            make.size.equalTo(CGSize(width: 30, height: 30))
         }
         
         label.snp.makeConstraints { (make) in

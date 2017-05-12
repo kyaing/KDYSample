@@ -99,7 +99,11 @@ class KYPlayerView: UIView {
     
     var avPlayerLayer: AVPlayerLayer!
     
-    var displayLink: CADisplayLink!
+    lazy var displayLink: CADisplayLink = {
+        let displayLink = CADisplayLink(target: self, selector: #selector(updateTime))
+        
+        return displayLink
+    }()
     
     var playbackState: PlaybackState = .stopped
     
@@ -204,6 +208,7 @@ class KYPlayerView: UIView {
     func setupTapGesture() {
         let singalTap = UITapGestureRecognizer(target: self, action: #selector(singalTapMaskViewAction(_:)))
         singalTap.numberOfTapsRequired = 1
+        singalTap.delegate = self
         self.addGestureRecognizer(singalTap)
         
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapMaskViewAction(_:)))
@@ -229,10 +234,8 @@ class KYPlayerView: UIView {
         avPlayerLayer.contentsScale = UIScreen.main.scale
         self.layer.addSublayer(avPlayerLayer)
         
-        playerMaskView.activityView.startAnimating()
-        
-        displayLink = CADisplayLink(target: self, selector: #selector(updateTime))
         displayLink.add(to: RunLoop.main, forMode: .defaultRunLoopMode)
+        playerMaskView.activityView.startAnimating()
         
         addAllObservers()
     }
@@ -374,9 +377,6 @@ class KYPlayerView: UIView {
     
     func resetTimer() {
         displayLink.invalidate()
-        displayLink = nil
-        
-        displayLink = CADisplayLink(target: self, selector: #selector(updateTime))
         displayLink.add(to: RunLoop.main, forMode: .defaultRunLoopMode)
     }
     
@@ -454,7 +454,6 @@ class KYPlayerView: UIView {
                 panDirection = .horizontal
                 let time: CMTime = avplayer.currentTime()
                 speedTime = TimeInterval(time.value) / TimeInterval(time.timescale)
-                print("speedTime = \(speedTime)")
                 
             } else if xPos < yPos {
                 panDirection = .vertical
@@ -563,26 +562,27 @@ extension KYPlayerView: PlayerMaskViewDelegate {
     }
     
     func playerMaskDraging(withSlider slider: UISlider) {
-        displayLink.invalidate()
-        displayLink = nil
-        
-        isDragPlayer = true
-        
-        let totalTime = CGFloat(playerItem.duration.value) / CGFloat(playerItem.duration.timescale)
-        let seconds = totalTime * CGFloat(slider.value)
-    
-        let value = CGFloat(slider.value) - lastSliderValue
-        var forward: Bool
-        if (value > 0) {
-            forward = true
-        } else if value < 0 {
-            forward = false
-        } else {
-            return
+        if playerItem.status == .readyToPlay {
+            resetTimer()
+            
+            isDragPlayer = true
+            
+            let totalTime = CGFloat(playerItem.duration.value) / CGFloat(playerItem.duration.timescale)
+            let seconds = totalTime * CGFloat(slider.value)
+            
+            let value = CGFloat(slider.value) - lastSliderValue
+            var forward: Bool
+            if (value > 0) {
+                forward = true
+            } else if value < 0 {
+                forward = false
+            } else {
+                return
+            }
+            lastSliderValue = CGFloat(slider.value)
+            
+            playerMaskView.playerDragTime(TimeInterval(seconds), totalTime: TimeInterval(totalTime), isForward: forward)
         }
-        lastSliderValue = CGFloat(slider.value)
-        
-        playerMaskView.playerDragTime(TimeInterval(seconds), totalTime: TimeInterval(totalTime), isForward: forward)
     }
 
     func playerMaskEnd(withSlider slider: UISlider) {
@@ -596,6 +596,9 @@ extension KYPlayerView: PlayerMaskViewDelegate {
             time = min(seconds, totalTime)
             
             seekToTime(TimeInterval(time))
+            
+        } else {
+            slider.value = 0
         }
     }
 }

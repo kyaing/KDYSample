@@ -124,7 +124,10 @@ class KYPlayerMaskView: UIView {
     
     lazy var speedView: KYPlayerSpeedView = {
         let speed = KYPlayerSpeedView()
+        speed.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
         speed.isHidden = true
+        speed.layer.cornerRadius  = 5
+        speed.layer.masksToBounds = true
         
         return speed
     }()
@@ -156,14 +159,17 @@ class KYPlayerMaskView: UIView {
     }
     
     func setupViews() {
+        setupSpeedView()
+        setupTopViews()
+        setupBottomViews()
+    }
+    
+    func setupSpeedView() {
         self.addSubview(speedView)
         speedView.snp.makeConstraints({ (make) in
             make.center.equalTo(self)
-            make.size.equalTo(CGSize(width: 140, height: 80))
+            make.size.equalTo(CGSize(width: 130, height: 70))
         })
-        
-        setupTopViews()
-        setupBottomViews()
     }
     
     func setupTopViews() {
@@ -226,6 +232,7 @@ class KYPlayerMaskView: UIView {
             make.centerY.equalTo(bottomView)
             make.left.equalTo(timeLabel.snp.right).offset(8)
             make.right.equalTo(totalTimeLabel.snp.left).offset(-8)
+            make.height.equalTo(10)   // 设置高度，为了增加滑杆的灵敏度！
         }
         
         playSlider.snp.makeConstraints { (make) in
@@ -293,8 +300,9 @@ class KYPlayerMaskView: UIView {
     // MARK: - Public Methods
     
     public func playerDragTime(_ dragTime: TimeInterval, totalTime: TimeInterval, isForward: Bool) {
-        speedView.isHidden = false
+        activityView.stopAnimating()
         
+        speedView.isHidden = false
         speedView.speedSlider.value    = Float(dragTime / totalTime)
         speedView.timeLabel.text       = formatPlayTime(seconds: dragTime)
         speedView.totalTimeLabel.text  = formatPlayTime(seconds: totalTime)
@@ -307,8 +315,8 @@ class KYPlayerMaskView: UIView {
     public func playerActivity(_ isAcivity: Bool) {
         if isAcivity {
             activityView.startAnimating()
-        } else {
             speedView.isHidden = true
+        } else {
             activityView.stopAnimating()
         }
     }
