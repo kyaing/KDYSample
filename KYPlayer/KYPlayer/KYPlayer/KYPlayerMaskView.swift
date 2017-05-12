@@ -299,17 +299,23 @@ class KYPlayerMaskView: UIView {
     
     // MARK: - Public Methods
     
-    public func playerDragTime(_ dragTime: TimeInterval, totalTime: TimeInterval, isForward: Bool) {
+    public func playerDragTime(_ dragTime: TimeInterval, totalTime: TimeInterval, isForward: Bool, isFullScreen: Bool) {
         activityView.stopAnimating()
         
+        timeLabel.text = formatPlayTime(seconds: dragTime)
+        playSlider.value = Float(dragTime / totalTime)
+        
         speedView.isHidden = false
-        speedView.speedSlider.value    = Float(dragTime / totalTime)
         speedView.timeLabel.text       = formatPlayTime(seconds: dragTime)
         speedView.totalTimeLabel.text  = formatPlayTime(seconds: totalTime)
         speedView.speedImageView.image = isForward ? UIImage(named: "fast_forward") : UIImage(named: "fast_backward")
         
-        timeLabel.text = formatPlayTime(seconds: dragTime)
-        playSlider.value = Float(dragTime / totalTime)
+        // 全屏下，改变SpeedView的样式
+        if isFullScreen {
+            
+        } else {
+            speedView.speedSlider.value = Float(dragTime / totalTime)
+        }
     }
     
     public func playerActivity(_ isAcivity: Bool) {

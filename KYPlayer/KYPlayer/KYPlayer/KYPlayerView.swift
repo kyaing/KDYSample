@@ -416,7 +416,7 @@ class KYPlayerView: UIView {
         }
     
         isDragPlayer = true
-        playerMaskView.playerDragTime(speedTime, totalTime: totoalTimeDuration, isForward: forward)
+        playerMaskView.playerDragTime(speedTime, totalTime: totoalTimeDuration, isForward: forward, isFullScreen: isFullScreen)
     }
     
     func verticalPanMoving(_ value: CGFloat) {
@@ -554,7 +554,9 @@ extension KYPlayerView: PlayerMaskViewDelegate {
         if let delegate = delegate {
             delegate.handleFullscreenAction()
         }
+        
         button.isSelected = !button.isSelected
+        isFullScreen = button.isSelected
     }
     
     func playerMaskTaped(withSlider slider: UISlider) {
@@ -581,7 +583,7 @@ extension KYPlayerView: PlayerMaskViewDelegate {
             }
             lastSliderValue = CGFloat(slider.value)
             
-            playerMaskView.playerDragTime(TimeInterval(seconds), totalTime: TimeInterval(totalTime), isForward: forward)
+            playerMaskView.playerDragTime(TimeInterval(seconds), totalTime: TimeInterval(totalTime), isForward: forward, isFullScreen: isFullScreen)
         }
     }
 
