@@ -62,9 +62,10 @@ class KYPlayerSpeedView: UIView {
         return slider
     }()
     
-    lazy var snapshotImage: UIView = {
-        let imageView = UIView()
-        imageView.backgroundColor = .red
+    lazy var snapshotImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.isHidden = true
         
         return imageView
     }()
@@ -75,7 +76,7 @@ class KYPlayerSpeedView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        isFullScreen ? setupFullViews() : setupViews()
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -88,6 +89,7 @@ class KYPlayerSpeedView: UIView {
         self.addSubview(timeLabel)
         self.addSubview(totalTimeLabel)
         self.addSubview(speedSlider)
+        self.addSubview(snapshotImage)
         
         speedImageView.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(5)
@@ -114,38 +116,9 @@ class KYPlayerSpeedView: UIView {
             make.centerX.equalTo(self)
             make.left.right.bottom.equalTo(self).inset(UIEdgeInsetsMake(0, 10, 10, 10))
         }
-    }
-    
-    func setupFullViews() {
-        self.addSubview(speedImageView)
-        self.addSubview(label)
-        self.addSubview(timeLabel)
-        self.addSubview(totalTimeLabel)
-        self.addSubview(snapshotImage)
-        
-        speedImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(5)
-            make.centerX.equalTo(self)
-            make.size.equalTo(CGSize(width: 40, height: 40))
-        }
-        
-        label.snp.makeConstraints { (make) in
-            make.top.equalTo(speedImageView.snp.bottom).offset(5)
-            make.centerX.equalTo(self)
-        }
-        
-        timeLabel.snp.makeConstraints { (make) in
-            make.right.equalTo(label.snp.left).offset(-2)
-            make.centerY.equalTo(label)
-        }
-        
-        totalTimeLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(label.snp.right).offset(2)
-            make.centerY.equalTo(label)
-        }
         
         snapshotImage.snp.makeConstraints { (make) in
-            make.top.equalTo(label.snp.bottom)
+            make.top.equalTo(label.snp.bottom).offset(5)
             make.left.right.bottom.equalTo(self).inset(UIEdgeInsets.zero)
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 public protocol PlayerMaskViewDelegate: NSObjectProtocol {
     
@@ -310,18 +311,39 @@ class KYPlayerMaskView: UIView {
         speedView.totalTimeLabel.text  = formatPlayTime(seconds: totalTime)
         speedView.speedImageView.image = isForward ? UIImage(named: "fast_forward") : UIImage(named: "fast_backward")
         
-        // 全屏下，改变SpeedView的样式
-        if isFullScreen {
-            
-        } else {
-            speedView.speedSlider.value = Float(dragTime / totalTime)
-        }
+        // 全屏下，改变SpeedView值的变化
+        //        if isFullScreen {
+        //            let url = "http://bos.nj.bpc.baidu.com/tieba-smallvideo/11772_3c435014fb2dd9a5fd56a57cc369f6a0.mp4"
+        //            let imageGenerator = AVAssetImageGenerator(asset: AVAsset(url: URL(string: url)!))
+        //            imageGenerator.cancelAllCGImageGeneration()
+        //            imageGenerator.appliesPreferredTrackTransform = true
+        //            imageGenerator.maximumSize = CGSize(width: 50, height: 30)
+        //            
+        //            let myTime = CMTimeMake(Int64(dragTime), 1)
+        //            imageGenerator.generateCGImagesAsynchronously(forTimes: NSArray(object: NSValue(time: myTime)) as! [NSValue], completionHandler: { (time, image, time2, result, error) in
+        //                
+        //                if result != .succeeded {
+        //                    
+        //                } else {
+        //                    let thumbImage = UIImage(cgImage: image!)
+        //                    DispatchQueue.main.async(execute: {
+        //                        self.speedView.snapshotImage.image = thumbImage
+        //                    })
+        //                }
+        //            })
+        //            
+        //        } else {
+        //            speedView.speedSlider.value = Float(dragTime / totalTime)
+        //        }
+        
+        speedView.speedSlider.value = Float(dragTime / totalTime)
     }
     
     public func playerActivity(_ isAcivity: Bool) {
         if isAcivity {
             activityView.startAnimating()
             speedView.isHidden = true
+            
         } else {
             activityView.stopAnimating()
         }
