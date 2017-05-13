@@ -404,7 +404,7 @@ class KYPlayerView: UIView {
             forward = false
         }
         
-        speedTime += TimeInterval(value / 300)
+        speedTime += TimeInterval(value / 200)
         
         let totoalTime: CMTime = playerItem.duration
         let totoalTimeDuration = TimeInterval(totoalTime.value) / TimeInterval(totoalTime.timescale)
