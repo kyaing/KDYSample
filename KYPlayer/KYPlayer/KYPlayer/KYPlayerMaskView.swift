@@ -336,7 +336,7 @@ class KYPlayerMaskView: UIView {
         //            speedView.speedSlider.value = Float(dragTime / totalTime)
         //        }
         
-        speedView.speedSlider.value = Float(dragTime / totalTime)
+        speedView.progressView.progress = Float(dragTime / totalTime)
     }
     
     public func playerActivity(_ isAcivity: Bool) {

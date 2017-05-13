@@ -51,23 +51,19 @@ class KYPlayerSpeedView: UIView {
         return imageView
     }()
     
-    lazy var speedSlider: UISlider = {
-        let slider = UISlider()
-        slider.setThumbImage(UIImage(), for: .normal)
-        slider.minimumTrackTintColor = .red
-        slider.maximumTrackTintColor = .clear
-        slider.maximumValue = 1.0
-        slider.minimumValue = 0.0
-        
-        return slider
-    }()
-    
     lazy var snapshotImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.isHidden = true
         
         return imageView
+    }()
+    
+    lazy var progressView: UIProgressView = {
+        let progress = UIProgressView()
+        progress.progressTintColor = .red
+        
+        return progress
     }()
     
     var isFullScreen: Bool = false
@@ -88,7 +84,7 @@ class KYPlayerSpeedView: UIView {
         self.addSubview(label)
         self.addSubview(timeLabel)
         self.addSubview(totalTimeLabel)
-        self.addSubview(speedSlider)
+        self.addSubview(progressView)
         self.addSubview(snapshotImage)
         
         speedImageView.snp.makeConstraints { (make) in
@@ -112,7 +108,7 @@ class KYPlayerSpeedView: UIView {
             make.centerY.equalTo(label)
         }
         
-        speedSlider.snp.makeConstraints { (make) in
+        progressView.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
             make.left.right.bottom.equalTo(self).inset(UIEdgeInsetsMake(0, 10, 10, 10))
         }

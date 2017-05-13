@@ -423,26 +423,6 @@ class KYPlayerView: UIView {
         isVolumn ? (volumeSlider.value -= Float(value / 20000)) : (UIScreen.main.brightness -= value / 20000)
     }
     
-    func remarkSpeedViewOnFull() {
-        playerMaskView.speedView.snapshotImage.isHidden = false
-        playerMaskView.speedView.speedSlider.isHidden   = true
-        
-        playerMaskView.speedView.snp.remakeConstraints({ (make) in
-            make.center.equalTo(self)
-            make.size.equalTo(CGSize(width: 160, height: 145))
-        })
-    }
-    
-    func remakeSpeedViewOnNormal() {
-        playerMaskView.speedView.speedSlider.isHidden   = false
-        playerMaskView.speedView.snapshotImage.isHidden = true
-        
-        playerMaskView.speedView.snp.remakeConstraints({ (make) in
-            make.center.equalTo(self)
-            make.size.equalTo(CGSize(width: 130, height: 70))
-        })
-    }
-    
     // MARK: - Event Response
     
     func clickBackBtnAction() {
@@ -579,8 +559,6 @@ extension KYPlayerView: PlayerMaskViewDelegate {
         isFullScreen = button.isSelected
         
         // 改变全屏下SpeedView的布局
-        // isFullScreen ? remarkSpeedViewOnFull() : remakeSpeedViewOnNormal()
-        
         if isFullScreen {
             playerMaskView.speedView.snp.remakeConstraints({ (make) in
                 make.top.equalTo(self).offset(120)
