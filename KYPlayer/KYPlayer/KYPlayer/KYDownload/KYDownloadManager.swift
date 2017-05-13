@@ -1,5 +1,5 @@
 //
-//  KDPlayerDownload.swift
+//  KYDownloadManager.swift
 //  KYPlayer
 //
 //  Created by kaideyi on 2017/5/13.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// 视频下载管理
-class KDPlayerDownload: NSObject {
-
+class KYDownloadManager: NSObject {
+    
 }
 
