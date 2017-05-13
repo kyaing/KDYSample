@@ -318,7 +318,7 @@ class KYPlayerView: UIView {
         let currentTime = CMTimeGetSeconds(playerItem.currentTime())
         let totalTime = TimeInterval(playerItem.duration.value) / TimeInterval(playerItem.duration.timescale)
         
-        playerMaskView.playSlider.value    = Float(currentTime / totalTime)
+        playerMaskView.playerSlider.value  = Float(currentTime / totalTime)
         playerMaskView.timeLabel.text      = formatPlayTime(seconds: currentTime)
         playerMaskView.totalTimeLabel.text = formatPlayTime(seconds: totalTime)
     }
@@ -522,12 +522,14 @@ class KYPlayerView: UIView {
     }
 }
 
-// MARK:
+// MARK: - UIGestureRecognizerDelegate
 
 extension KYPlayerView: UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if (touch.view?.isKind(of: UISlider.classForCoder()))! {
+        
+        // 屏蔽bottomView的手势，防止滑杆滑动时与手势冲突
+        if (touch.view?.isDescendant(of: playerMaskView.bottomView))! {
             return false
         }
         
@@ -535,7 +537,7 @@ extension KYPlayerView: UIGestureRecognizerDelegate {
     }
 }
 
-// MARK:
+// MARK: - PlayerMaskViewDelegate
 
 extension KYPlayerView: PlayerMaskViewDelegate {
     

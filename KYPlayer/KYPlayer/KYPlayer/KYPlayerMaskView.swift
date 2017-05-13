@@ -95,7 +95,7 @@ class KYPlayerMaskView: UIView {
         return label
     }()
     
-    lazy var playSlider: UISlider = {
+    lazy var playerSlider: UISlider = {
         let slider = UISlider()
         slider.setThumbImage(UIImage(named: "thumbImage"), for: .normal)
         slider.minimumTrackTintColor = .red
@@ -198,7 +198,7 @@ class KYPlayerMaskView: UIView {
         bottomView.addSubview(pauseButton)
         bottomView.addSubview(fullButton)
         bottomView.addSubview(bufferSlider)
-        bottomView.addSubview(playSlider)
+        bottomView.addSubview(playerSlider)
         
         bottomView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalTo(self)
@@ -233,10 +233,10 @@ class KYPlayerMaskView: UIView {
             make.centerY.equalTo(bottomView)
             make.left.equalTo(timeLabel.snp.right).offset(8)
             make.right.equalTo(totalTimeLabel.snp.left).offset(-8)
-            make.height.equalTo(10)   // 设置高度，为了增加滑杆的灵敏度！
+            make.height.equalTo(20)   // 设置高度，为了增加滑杆的灵敏度！
         }
         
-        playSlider.snp.makeConstraints { (make) in
+        playerSlider.snp.makeConstraints { (make) in
             make.edges.equalTo(bufferSlider)
         }
     }
@@ -304,7 +304,7 @@ class KYPlayerMaskView: UIView {
         activityView.stopAnimating()
         
         timeLabel.text = formatPlayTime(seconds: dragTime)
-        playSlider.value = Float(dragTime / totalTime)
+        playerSlider.value = Float(dragTime / totalTime)
         
         speedView.isHidden = false
         speedView.timeLabel.text       = formatPlayTime(seconds: dragTime)
