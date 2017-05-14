@@ -86,7 +86,7 @@
 		183EC0D51EC6ED34006BDAE1 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EC0C21EC6ED34006BDAE1 /* Validation.swift */; };
 		183EC0E11EC6F029006BDAE1 /* KYDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EC0DE1EC6F029006BDAE1 /* KYDownloadManager.swift */; };
 		183EC0E21EC6F029006BDAE1 /* KYDownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EC0DF1EC6F029006BDAE1 /* KYDownloadModel.swift */; };
-		183EC0E31EC6F029006BDAE1 /* KYDownloadTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EC0E01EC6F029006BDAE1 /* KYDownloadTools.swift */; };
+		183EC0E31EC6F029006BDAE1 /* KYDownloadTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EC0E01EC6F029006BDAE1 /* KYDownloadTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,7 +192,7 @@
 		183EC0C21EC6ED34006BDAE1 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		183EC0DE1EC6F029006BDAE1 /* KYDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYDownloadManager.swift; sourceTree = "<group>"; };
 		183EC0DF1EC6F029006BDAE1 /* KYDownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYDownloadModel.swift; sourceTree = "<group>"; };
-		183EC0E01EC6F029006BDAE1 /* KYDownloadTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYDownloadTools.swift; sourceTree = "<group>"; };
+		183EC0E01EC6F029006BDAE1 /* KYDownloadTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYDownloadTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,7 +393,7 @@
 		183EC0DD1EC6F029006BDAE1 /* KYDownload */ = {
 			isa = PBXGroup;
 			children = (
-				183EC0E01EC6F029006BDAE1 /* KYDownloadTools.swift */,
+				183EC0E01EC6F029006BDAE1 /* KYDownloadTool.swift */,
 				183EC0DF1EC6F029006BDAE1 /* KYDownloadModel.swift */,
 				183EC0DE1EC6F029006BDAE1 /* KYDownloadManager.swift */,
 			);
@@ -579,7 +579,7 @@
 				041795361EB1C159004017D9 /* ConstraintLayoutGuide.swift in Sources */,
 				041795451EB1C159004017D9 /* ConstraintView+Extensions.swift in Sources */,
 				041795371EB1C159004017D9 /* ConstraintLayoutGuideDSL.swift in Sources */,
-				183EC0E31EC6F029006BDAE1 /* KYDownloadTools.swift in Sources */,
+				183EC0E31EC6F029006BDAE1 /* KYDownloadTool.swift in Sources */,
 				183EC0C91EC6ED34006BDAE1 /* NetworkReachabilityManager.swift in Sources */,
 				183EC0CA1EC6ED34006BDAE1 /* Notifications.swift in Sources */,
 				041795461EB1C159004017D9 /* ConstraintView.swift in Sources */,
