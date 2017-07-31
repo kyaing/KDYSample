@@ -56,6 +56,7 @@
 		047EFCEF1E9CDA6600A6E642 /* KYPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFCEE1E9CDA6600A6E642 /* KYPlayerTests.swift */; };
 		047EFCFA1E9CDA6600A6E642 /* KYPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047EFCF91E9CDA6600A6E642 /* KYPlayerUITests.swift */; };
 		047EFD081E9CDAA000A6E642 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047EFD071E9CDAA000A6E642 /* Launch Screen.storyboard */; };
+		048E955E1ECAA80F005CA41B /* KYNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E955D1ECAA80F005CA41B /* KYNetWork.swift */; };
 		04A8EC081EB8604600E840BD /* full_pause_btn_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A8EC031EB8604600E840BD /* full_pause_btn_hl@2x.png */; };
 		04A8EC091EB8604600E840BD /* full_play_btn_hl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A8EC041EB8604600E840BD /* full_play_btn_hl@2x.png */; };
 		04A8EC0B1EB8604600E840BD /* thumbImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A8EC061EB8604600E840BD /* thumbImage@2x.png */; };
@@ -162,6 +163,7 @@
 		047EFCF91E9CDA6600A6E642 /* KYPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYPlayerUITests.swift; sourceTree = "<group>"; };
 		047EFCFB1E9CDA6600A6E642 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		047EFD071E9CDAA000A6E642 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		048E955D1ECAA80F005CA41B /* KYNetWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYNetWork.swift; sourceTree = "<group>"; };
 		04A8EC031EB8604600E840BD /* full_pause_btn_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_pause_btn_hl@2x.png"; sourceTree = "<group>"; };
 		04A8EC041EB8604600E840BD /* full_play_btn_hl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_play_btn_hl@2x.png"; sourceTree = "<group>"; };
 		04A8EC061EB8604600E840BD /* thumbImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbImage@2x.png"; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 		183EC0DD1EC6F029006BDAE1 /* KYDownload */ = {
 			isa = PBXGroup;
 			children = (
+				048E955D1ECAA80F005CA41B /* KYNetWork.swift */,
 				183EC0E01EC6F029006BDAE1 /* KYDownloadTool.swift */,
 				183EC0DF1EC6F029006BDAE1 /* KYDownloadModel.swift */,
 				183EC0DE1EC6F029006BDAE1 /* KYDownloadManager.swift */,
@@ -563,6 +566,7 @@
 				04EE3A6F1EC010420087BDF1 /* KYPlayerSpeedView.swift in Sources */,
 				183EC0D01EC6ED34006BDAE1 /* ServerTrustPolicy.swift in Sources */,
 				041795491EB1C159004017D9 /* LayoutConstraint.swift in Sources */,
+				048E955E1ECAA80F005CA41B /* KYNetWork.swift in Sources */,
 				183EC0C81EC6ED34006BDAE1 /* MultipartFormData.swift in Sources */,
 				183EC0CE1EC6ED34006BDAE1 /* ResponseSerialization.swift in Sources */,
 				041795321EB1C159004017D9 /* ConstraintDSL.swift in Sources */,

@@ -1,0 +1,6 @@
+framework module Pods_KYChatUITests {
+  umbrella header "Pods-KYChatUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

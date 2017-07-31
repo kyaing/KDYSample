@@ -1,0 +1,732 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		219CE63505B3EA6205A80E5B /* Pods_KYChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2077CB963F7A5747C809E /* Pods_KYChat.framework */; };
+		7AAEF41B1F2F185900414014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAEF41A1F2F185900414014 /* AppDelegate.swift */; };
+		7AAEF41D1F2F185900414014 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAEF41C1F2F185900414014 /* ViewController.swift */; };
+		7AAEF4201F2F185900414014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAEF41E1F2F185900414014 /* Main.storyboard */; };
+		7AAEF4221F2F185900414014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAEF4211F2F185900414014 /* Assets.xcassets */; };
+		7AAEF4251F2F185900414014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAEF4231F2F185900414014 /* LaunchScreen.storyboard */; };
+		7AAEF4301F2F185900414014 /* KYChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAEF42F1F2F185900414014 /* KYChatTests.swift */; };
+		7AAEF43B1F2F185900414014 /* KYChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAEF43A1F2F185900414014 /* KYChatUITests.swift */; };
+		B773963080D29D38E0909A98 /* Pods_KYChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D960CEA403D7474EE8F8A2E7 /* Pods_KYChatTests.framework */; };
+		C9FDEE8511A6FC374877A0FE /* Pods_KYChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB92BAE4701E579886FD9EBD /* Pods_KYChatUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7AAEF42C1F2F185900414014 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AAEF40F1F2F185900414014 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AAEF4161F2F185900414014;
+			remoteInfo = KYChat;
+		};
+		7AAEF4371F2F185900414014 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AAEF40F1F2F185900414014 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AAEF4161F2F185900414014;
+			remoteInfo = KYChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2E0162E825E688BE6B80C819 /* Pods-KYChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYChat/Pods-KYChat.debug.xcconfig"; sourceTree = "<group>"; };
+		32710C5B1AC5965FB0A86BE5 /* Pods-KYChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYChatUITests/Pods-KYChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D15F568B3B14A6BC7A6C19D /* Pods-KYChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYChatTests/Pods-KYChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		5699B611C99FB28F0B082AA5 /* Pods-KYChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYChatTests/Pods-KYChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		78083A1986BADEDB890486AB /* Pods-KYChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYChatUITests/Pods-KYChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7AAEF4171F2F185900414014 /* KYChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AAEF41A1F2F185900414014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7AAEF41C1F2F185900414014 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7AAEF41F1F2F185900414014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7AAEF4211F2F185900414014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7AAEF4241F2F185900414014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7AAEF4261F2F185900414014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AAEF42B1F2F185900414014 /* KYChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AAEF42F1F2F185900414014 /* KYChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChatTests.swift; sourceTree = "<group>"; };
+		7AAEF4311F2F185900414014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AAEF4361F2F185900414014 /* KYChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AAEF43A1F2F185900414014 /* KYChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChatUITests.swift; sourceTree = "<group>"; };
+		7AAEF43C1F2F185900414014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E0FFCAF852C65D567EBF06E /* Pods-KYChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYChat/Pods-KYChat.release.xcconfig"; sourceTree = "<group>"; };
+		AB92BAE4701E579886FD9EBD /* Pods_KYChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAB2077CB963F7A5747C809E /* Pods_KYChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D960CEA403D7474EE8F8A2E7 /* Pods_KYChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7AAEF4141F2F185900414014 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219CE63505B3EA6205A80E5B /* Pods_KYChat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAEF4281F2F185900414014 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B773963080D29D38E0909A98 /* Pods_KYChatTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAEF4331F2F185900414014 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9FDEE8511A6FC374877A0FE /* Pods_KYChatUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46DFFB0E5B2BDF2C09F3AE24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2077CB963F7A5747C809E /* Pods_KYChat.framework */,
+				D960CEA403D7474EE8F8A2E7 /* Pods_KYChatTests.framework */,
+				AB92BAE4701E579886FD9EBD /* Pods_KYChatUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7AAEF40E1F2F185900414014 = {
+			isa = PBXGroup;
+			children = (
+				7AAEF4191F2F185900414014 /* KYChat */,
+				7AAEF42E1F2F185900414014 /* KYChatTests */,
+				7AAEF4391F2F185900414014 /* KYChatUITests */,
+				7AAEF4181F2F185900414014 /* Products */,
+				BC175305B3D59CDFCA9A2963 /* Pods */,
+				46DFFB0E5B2BDF2C09F3AE24 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7AAEF4181F2F185900414014 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AAEF4171F2F185900414014 /* KYChat.app */,
+				7AAEF42B1F2F185900414014 /* KYChatTests.xctest */,
+				7AAEF4361F2F185900414014 /* KYChatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AAEF4191F2F185900414014 /* KYChat */ = {
+			isa = PBXGroup;
+			children = (
+				7AAEF41A1F2F185900414014 /* AppDelegate.swift */,
+				7AAEF41C1F2F185900414014 /* ViewController.swift */,
+				7AAEF41E1F2F185900414014 /* Main.storyboard */,
+				7AAEF4211F2F185900414014 /* Assets.xcassets */,
+				7AAEF4231F2F185900414014 /* LaunchScreen.storyboard */,
+				7AAEF4261F2F185900414014 /* Info.plist */,
+			);
+			path = KYChat;
+			sourceTree = "<group>";
+		};
+		7AAEF42E1F2F185900414014 /* KYChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AAEF42F1F2F185900414014 /* KYChatTests.swift */,
+				7AAEF4311F2F185900414014 /* Info.plist */,
+			);
+			path = KYChatTests;
+			sourceTree = "<group>";
+		};
+		7AAEF4391F2F185900414014 /* KYChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7AAEF43A1F2F185900414014 /* KYChatUITests.swift */,
+				7AAEF43C1F2F185900414014 /* Info.plist */,
+			);
+			path = KYChatUITests;
+			sourceTree = "<group>";
+		};
+		BC175305B3D59CDFCA9A2963 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E0162E825E688BE6B80C819 /* Pods-KYChat.debug.xcconfig */,
+				7E0FFCAF852C65D567EBF06E /* Pods-KYChat.release.xcconfig */,
+				5699B611C99FB28F0B082AA5 /* Pods-KYChatTests.debug.xcconfig */,
+				3D15F568B3B14A6BC7A6C19D /* Pods-KYChatTests.release.xcconfig */,
+				32710C5B1AC5965FB0A86BE5 /* Pods-KYChatUITests.debug.xcconfig */,
+				78083A1986BADEDB890486AB /* Pods-KYChatUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7AAEF4161F2F185900414014 /* KYChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AAEF43F1F2F185900414014 /* Build configuration list for PBXNativeTarget "KYChat" */;
+			buildPhases = (
+				389F2C02A2857681777BC9AA /* [CP] Check Pods Manifest.lock */,
+				7AAEF4131F2F185900414014 /* Sources */,
+				7AAEF4141F2F185900414014 /* Frameworks */,
+				7AAEF4151F2F185900414014 /* Resources */,
+				B2E37BB62BEF0D19E4AB3BBC /* [CP] Embed Pods Frameworks */,
+				E282C4B9241E6FBA190EED25 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KYChat;
+			productName = KYChat;
+			productReference = 7AAEF4171F2F185900414014 /* KYChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7AAEF42A1F2F185900414014 /* KYChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AAEF4421F2F185900414014 /* Build configuration list for PBXNativeTarget "KYChatTests" */;
+			buildPhases = (
+				EB9641668F1419D193314B28 /* [CP] Check Pods Manifest.lock */,
+				7AAEF4271F2F185900414014 /* Sources */,
+				7AAEF4281F2F185900414014 /* Frameworks */,
+				7AAEF4291F2F185900414014 /* Resources */,
+				A1CF4030AAF48B8B315A901D /* [CP] Embed Pods Frameworks */,
+				8EE162A959D5B11714CBB2E1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7AAEF42D1F2F185900414014 /* PBXTargetDependency */,
+			);
+			name = KYChatTests;
+			productName = KYChatTests;
+			productReference = 7AAEF42B1F2F185900414014 /* KYChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7AAEF4351F2F185900414014 /* KYChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AAEF4451F2F185900414014 /* Build configuration list for PBXNativeTarget "KYChatUITests" */;
+			buildPhases = (
+				762FEDA24A8E24B1BFA69A5C /* [CP] Check Pods Manifest.lock */,
+				7AAEF4321F2F185900414014 /* Sources */,
+				7AAEF4331F2F185900414014 /* Frameworks */,
+				7AAEF4341F2F185900414014 /* Resources */,
+				C19F1BCBC5C649A9F20E08C3 /* [CP] Embed Pods Frameworks */,
+				65C30ACF6638473A8869FDE4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7AAEF4381F2F185900414014 /* PBXTargetDependency */,
+			);
+			name = KYChatUITests;
+			productName = KYChatUITests;
+			productReference = 7AAEF4361F2F185900414014 /* KYChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7AAEF40F1F2F185900414014 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = mac;
+				TargetAttributes = {
+					7AAEF4161F2F185900414014 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3YR7CL6SMV;
+						ProvisioningStyle = Automatic;
+					};
+					7AAEF42A1F2F185900414014 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3YR7CL6SMV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7AAEF4161F2F185900414014;
+					};
+					7AAEF4351F2F185900414014 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3YR7CL6SMV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7AAEF4161F2F185900414014;
+					};
+				};
+			};
+			buildConfigurationList = 7AAEF4121F2F185900414014 /* Build configuration list for PBXProject "KYChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7AAEF40E1F2F185900414014;
+			productRefGroup = 7AAEF4181F2F185900414014 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7AAEF4161F2F185900414014 /* KYChat */,
+				7AAEF42A1F2F185900414014 /* KYChatTests */,
+				7AAEF4351F2F185900414014 /* KYChatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AAEF4151F2F185900414014 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AAEF4251F2F185900414014 /* LaunchScreen.storyboard in Resources */,
+				7AAEF4221F2F185900414014 /* Assets.xcassets in Resources */,
+				7AAEF4201F2F185900414014 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAEF4291F2F185900414014 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAEF4341F2F185900414014 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		389F2C02A2857681777BC9AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		65C30ACF6638473A8869FDE4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYChatUITests/Pods-KYChatUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		762FEDA24A8E24B1BFA69A5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8EE162A959D5B11714CBB2E1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYChatTests/Pods-KYChatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1CF4030AAF48B8B315A901D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYChatTests/Pods-KYChatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2E37BB62BEF0D19E4AB3BBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYChat/Pods-KYChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C19F1BCBC5C649A9F20E08C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYChatUITests/Pods-KYChatUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E282C4B9241E6FBA190EED25 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYChat/Pods-KYChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB9641668F1419D193314B28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7AAEF4131F2F185900414014 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AAEF41D1F2F185900414014 /* ViewController.swift in Sources */,
+				7AAEF41B1F2F185900414014 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAEF4271F2F185900414014 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AAEF4301F2F185900414014 /* KYChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AAEF4321F2F185900414014 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AAEF43B1F2F185900414014 /* KYChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7AAEF42D1F2F185900414014 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AAEF4161F2F185900414014 /* KYChat */;
+			targetProxy = 7AAEF42C1F2F185900414014 /* PBXContainerItemProxy */;
+		};
+		7AAEF4381F2F185900414014 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AAEF4161F2F185900414014 /* KYChat */;
+			targetProxy = 7AAEF4371F2F185900414014 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7AAEF41E1F2F185900414014 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7AAEF41F1F2F185900414014 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7AAEF4231F2F185900414014 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7AAEF4241F2F185900414014 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7AAEF43D1F2F185900414014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7AAEF43E1F2F185900414014 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7AAEF4401F2F185900414014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E0162E825E688BE6B80C819 /* Pods-KYChat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7AAEF4411F2F185900414014 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E0FFCAF852C65D567EBF06E /* Pods-KYChat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7AAEF4431F2F185900414014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5699B611C99FB28F0B082AA5 /* Pods-KYChatTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KYChat.app/KYChat";
+			};
+			name = Debug;
+		};
+		7AAEF4441F2F185900414014 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D15F568B3B14A6BC7A6C19D /* Pods-KYChatTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KYChat.app/KYChat";
+			};
+			name = Release;
+		};
+		7AAEF4461F2F185900414014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32710C5B1AC5965FB0A86BE5 /* Pods-KYChatUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = KYChat;
+			};
+			name = Debug;
+		};
+		7AAEF4471F2F185900414014 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78083A1986BADEDB890486AB /* Pods-KYChatUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = KYChat;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7AAEF4121F2F185900414014 /* Build configuration list for PBXProject "KYChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AAEF43D1F2F185900414014 /* Debug */,
+				7AAEF43E1F2F185900414014 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AAEF43F1F2F185900414014 /* Build configuration list for PBXNativeTarget "KYChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AAEF4401F2F185900414014 /* Debug */,
+				7AAEF4411F2F185900414014 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7AAEF4421F2F185900414014 /* Build configuration list for PBXNativeTarget "KYChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AAEF4431F2F185900414014 /* Debug */,
+				7AAEF4441F2F185900414014 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7AAEF4451F2F185900414014 /* Build configuration list for PBXNativeTarget "KYChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AAEF4461F2F185900414014 /* Debug */,
+				7AAEF4471F2F185900414014 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7AAEF40F1F2F185900414014 /* Project object */;
+}

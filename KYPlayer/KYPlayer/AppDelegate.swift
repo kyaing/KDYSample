@@ -49,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         group.notify(queue: DispatchQueue.main) { 
             print("主线程");
         }
+        
+        print(ViewController())
     }
 }
 
