@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'KYWebo' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+
+    # OC
+    pod 'FMDB', '~> 2.6.2'
+    pod 'YTKNetwork', '~> 2.0.3'
+    pod 'YYKit',  '~> 1.0.9'
+
+    pod 'JPFPSStatus',  '~> 0.1'
+    pod 'LxDBAnything', '~> 1.1.0'
+
+    pod 'KVOController'
+    pod 'FBMemoryProfiler'
+
+    # Swift
+    pod 'SnapKit', '~> 3.0.2'
+
+end
+

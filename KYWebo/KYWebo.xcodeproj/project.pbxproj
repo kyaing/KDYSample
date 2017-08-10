@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1830341CF3D11EABC6D58283 /* Pods_KYWebo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C981C2E3AD6A780E6A9C513 /* Pods_KYWebo.framework */; };
+		7A97D3181F3C36F300AC7C82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3171F3C36F300AC7C82 /* AppDelegate.swift */; };
+		7A97D31A1F3C36F300AC7C82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3191F3C36F300AC7C82 /* ViewController.swift */; };
+		7A97D31D1F3C36F300AC7C82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A97D31B1F3C36F300AC7C82 /* Main.storyboard */; };
+		7A97D31F1F3C36F300AC7C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */; };
+		7A97D3221F3C36F400AC7C82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A97D3201F3C36F400AC7C82 /* LaunchScreen.storyboard */; };
+		7A97D32D1F3C36F400AC7C82 /* KYWeboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */; };
+		7A97D3381F3C36F500AC7C82 /* KYWeboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A97D3291F3C36F400AC7C82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A97D30C1F3C36F300AC7C82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A97D3131F3C36F300AC7C82;
+			remoteInfo = KYWebo;
+		};
+		7A97D3341F3C36F400AC7C82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A97D30C1F3C36F300AC7C82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A97D3131F3C36F300AC7C82;
+			remoteInfo = KYWebo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A792ADFC162EEBFBDF5F1B5 /* Pods-KYWebo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYWebo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo.debug.xcconfig"; sourceTree = "<group>"; };
+		29522516073723E62B0E7135 /* Pods_KYWeboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWeboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68B25D9B80A70B47B0298DC3 /* Pods-KYWebo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYWebo.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo.release.xcconfig"; sourceTree = "<group>"; };
+		6C71D25FF3D70797DF5429E6 /* Pods_KYWeboTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWeboTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C981C2E3AD6A780E6A9C513 /* Pods_KYWebo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWebo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A97D3141F3C36F300AC7C82 /* KYWebo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYWebo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A97D3171F3C36F300AC7C82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A97D3191F3C36F300AC7C82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A97D31C1F3C36F300AC7C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A97D3211F3C36F400AC7C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A97D3231F3C36F400AC7C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A97D3281F3C36F400AC7C82 /* KYWeboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYWeboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYWeboTests.swift; sourceTree = "<group>"; };
+		7A97D32E1F3C36F400AC7C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A97D3331F3C36F400AC7C82 /* KYWeboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYWeboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYWeboUITests.swift; sourceTree = "<group>"; };
+		7A97D3391F3C36F500AC7C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A97D3111F3C36F300AC7C82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1830341CF3D11EABC6D58283 /* Pods_KYWebo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A97D3251F3C36F400AC7C82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A97D3301F3C36F400AC7C82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0BA6B3A397EF49EDE8104F02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C981C2E3AD6A780E6A9C513 /* Pods_KYWebo.framework */,
+				6C71D25FF3D70797DF5429E6 /* Pods_KYWeboTests.framework */,
+				29522516073723E62B0E7135 /* Pods_KYWeboUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A97D30B1F3C36F300AC7C82 = {
+			isa = PBXGroup;
+			children = (
+				7A97D3161F3C36F300AC7C82 /* KYWebo */,
+				7A97D32B1F3C36F400AC7C82 /* KYWeboTests */,
+				7A97D3361F3C36F400AC7C82 /* KYWeboUITests */,
+				7A97D3151F3C36F300AC7C82 /* Products */,
+				DDDD13371D016378FD0F5894 /* Pods */,
+				0BA6B3A397EF49EDE8104F02 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7A97D3151F3C36F300AC7C82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A97D3141F3C36F300AC7C82 /* KYWebo.app */,
+				7A97D3281F3C36F400AC7C82 /* KYWeboTests.xctest */,
+				7A97D3331F3C36F400AC7C82 /* KYWeboUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A97D3161F3C36F300AC7C82 /* KYWebo */ = {
+			isa = PBXGroup;
+			children = (
+				7A97D3171F3C36F300AC7C82 /* AppDelegate.swift */,
+				7A97D3191F3C36F300AC7C82 /* ViewController.swift */,
+				7A97D31B1F3C36F300AC7C82 /* Main.storyboard */,
+				7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */,
+				7A97D3201F3C36F400AC7C82 /* LaunchScreen.storyboard */,
+				7A97D3231F3C36F400AC7C82 /* Info.plist */,
+			);
+			path = KYWebo;
+			sourceTree = "<group>";
+		};
+		7A97D32B1F3C36F400AC7C82 /* KYWeboTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */,
+				7A97D32E1F3C36F400AC7C82 /* Info.plist */,
+			);
+			path = KYWeboTests;
+			sourceTree = "<group>";
+		};
+		7A97D3361F3C36F400AC7C82 /* KYWeboUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */,
+				7A97D3391F3C36F500AC7C82 /* Info.plist */,
+			);
+			path = KYWeboUITests;
+			sourceTree = "<group>";
+		};
+		DDDD13371D016378FD0F5894 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A792ADFC162EEBFBDF5F1B5 /* Pods-KYWebo.debug.xcconfig */,
+				68B25D9B80A70B47B0298DC3 /* Pods-KYWebo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A97D3131F3C36F300AC7C82 /* KYWebo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A97D33C1F3C36F500AC7C82 /* Build configuration list for PBXNativeTarget "KYWebo" */;
+			buildPhases = (
+				BB6F41B7BE0B57A2BD98C92A /* [CP] Check Pods Manifest.lock */,
+				7A97D3101F3C36F300AC7C82 /* Sources */,
+				7A97D3111F3C36F300AC7C82 /* Frameworks */,
+				7A97D3121F3C36F300AC7C82 /* Resources */,
+				7FA6C3E82482403D5D891F85 /* [CP] Embed Pods Frameworks */,
+				B062B7F07671D2A2072CA7D1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KYWebo;
+			productName = KYWebo;
+			productReference = 7A97D3141F3C36F300AC7C82 /* KYWebo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7A97D3271F3C36F400AC7C82 /* KYWeboTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A97D33F1F3C36F500AC7C82 /* Build configuration list for PBXNativeTarget "KYWeboTests" */;
+			buildPhases = (
+				7A97D3241F3C36F400AC7C82 /* Sources */,
+				7A97D3251F3C36F400AC7C82 /* Frameworks */,
+				7A97D3261F3C36F400AC7C82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A97D32A1F3C36F400AC7C82 /* PBXTargetDependency */,
+			);
+			name = KYWeboTests;
+			productName = KYWeboTests;
+			productReference = 7A97D3281F3C36F400AC7C82 /* KYWeboTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7A97D3321F3C36F400AC7C82 /* KYWeboUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A97D3421F3C36F500AC7C82 /* Build configuration list for PBXNativeTarget "KYWeboUITests" */;
+			buildPhases = (
+				7A97D32F1F3C36F400AC7C82 /* Sources */,
+				7A97D3301F3C36F400AC7C82 /* Frameworks */,
+				7A97D3311F3C36F400AC7C82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A97D3351F3C36F400AC7C82 /* PBXTargetDependency */,
+			);
+			name = KYWeboUITests;
+			productName = KYWeboUITests;
+			productReference = 7A97D3331F3C36F400AC7C82 /* KYWeboUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A97D30C1F3C36F300AC7C82 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = mac;
+				TargetAttributes = {
+					7A97D3131F3C36F300AC7C82 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3YR7CL6SMV;
+						ProvisioningStyle = Automatic;
+					};
+					7A97D3271F3C36F400AC7C82 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3YR7CL6SMV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7A97D3131F3C36F300AC7C82;
+					};
+					7A97D3321F3C36F400AC7C82 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3YR7CL6SMV;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7A97D3131F3C36F300AC7C82;
+					};
+				};
+			};
+			buildConfigurationList = 7A97D30F1F3C36F300AC7C82 /* Build configuration list for PBXProject "KYWebo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A97D30B1F3C36F300AC7C82;
+			productRefGroup = 7A97D3151F3C36F300AC7C82 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A97D3131F3C36F300AC7C82 /* KYWebo */,
+				7A97D3271F3C36F400AC7C82 /* KYWeboTests */,
+				7A97D3321F3C36F400AC7C82 /* KYWeboUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A97D3121F3C36F300AC7C82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A97D3221F3C36F400AC7C82 /* LaunchScreen.storyboard in Resources */,
+				7A97D31F1F3C36F300AC7C82 /* Assets.xcassets in Resources */,
+				7A97D31D1F3C36F300AC7C82 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A97D3261F3C36F400AC7C82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A97D3311F3C36F400AC7C82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FA6C3E82482403D5D891F85 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B062B7F07671D2A2072CA7D1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB6F41B7BE0B57A2BD98C92A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A97D3101F3C36F300AC7C82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A97D31A1F3C36F300AC7C82 /* ViewController.swift in Sources */,
+				7A97D3181F3C36F300AC7C82 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A97D3241F3C36F400AC7C82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A97D32D1F3C36F400AC7C82 /* KYWeboTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A97D32F1F3C36F400AC7C82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A97D3381F3C36F500AC7C82 /* KYWeboUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7A97D32A1F3C36F400AC7C82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A97D3131F3C36F300AC7C82 /* KYWebo */;
+			targetProxy = 7A97D3291F3C36F400AC7C82 /* PBXContainerItemProxy */;
+		};
+		7A97D3351F3C36F400AC7C82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A97D3131F3C36F300AC7C82 /* KYWebo */;
+			targetProxy = 7A97D3341F3C36F400AC7C82 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7A97D31B1F3C36F300AC7C82 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A97D31C1F3C36F300AC7C82 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7A97D3201F3C36F400AC7C82 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A97D3211F3C36F400AC7C82 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A97D33A1F3C36F500AC7C82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7A97D33B1F3C36F500AC7C82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A97D33D1F3C36F500AC7C82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A792ADFC162EEBFBDF5F1B5 /* Pods-KYWebo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYWebo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYWebo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7A97D33E1F3C36F500AC7C82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68B25D9B80A70B47B0298DC3 /* Pods-KYWebo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYWebo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYWebo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7A97D3401F3C36F500AC7C82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYWeboTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYWeboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KYWebo.app/KYWebo";
+			};
+			name = Debug;
+		};
+		7A97D3411F3C36F500AC7C82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYWeboTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYWeboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KYWebo.app/KYWebo";
+			};
+			name = Release;
+		};
+		7A97D3431F3C36F500AC7C82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYWeboUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYWeboUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = KYWebo;
+			};
+			name = Debug;
+		};
+		7A97D3441F3C36F500AC7C82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3YR7CL6SMV;
+				INFOPLIST_FILE = KYWeboUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYWeboUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = KYWebo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A97D30F1F3C36F300AC7C82 /* Build configuration list for PBXProject "KYWebo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A97D33A1F3C36F500AC7C82 /* Debug */,
+				7A97D33B1F3C36F500AC7C82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A97D33C1F3C36F500AC7C82 /* Build configuration list for PBXNativeTarget "KYWebo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A97D33D1F3C36F500AC7C82 /* Debug */,
+				7A97D33E1F3C36F500AC7C82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7A97D33F1F3C36F500AC7C82 /* Build configuration list for PBXNativeTarget "KYWeboTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A97D3401F3C36F500AC7C82 /* Debug */,
+				7A97D3411F3C36F500AC7C82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7A97D3421F3C36F500AC7C82 /* Build configuration list for PBXNativeTarget "KYWeboUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A97D3431F3C36F500AC7C82 /* Debug */,
+				7A97D3441F3C36F500AC7C82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A97D30C1F3C36F300AC7C82 /* Project object */;
+}
