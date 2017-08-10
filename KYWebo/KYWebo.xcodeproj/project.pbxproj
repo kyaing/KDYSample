@@ -8,11 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		1830341CF3D11EABC6D58283 /* Pods_KYWebo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C981C2E3AD6A780E6A9C513 /* Pods_KYWebo.framework */; };
-		7A97D3181F3C36F300AC7C82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3171F3C36F300AC7C82 /* AppDelegate.swift */; };
-		7A97D31A1F3C36F300AC7C82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3191F3C36F300AC7C82 /* ViewController.swift */; };
-		7A97D31D1F3C36F300AC7C82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A97D31B1F3C36F300AC7C82 /* Main.storyboard */; };
+		7A5752411F3C3F8A009EAD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */; };
+		7A5752451F3C3FFD009EAD73 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752431F3C3FFD009EAD73 /* Info.plist */; };
+		7A5752481F3C408A009EAD73 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752471F3C408A009EAD73 /* Launch Screen.storyboard */; };
+		7A5752541F3C4B57009EAD73 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5752501F3C4B57009EAD73 /* libWeiboSDK.a */; };
+		7A5752551F3C4B57009EAD73 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752521F3C4B57009EAD73 /* WeiboSDK.bundle */; };
+		7A5752581F3C4E37009EAD73 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5752571F3C4E37009EAD73 /* Photos.framework */; };
+		7A57525B1F3C4EB2009EAD73 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A57525A1F3C4EB2009EAD73 /* CoreText.framework */; };
+		7A57525D1F3C4ECF009EAD73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A57525C1F3C4ECF009EAD73 /* QuartzCore.framework */; };
+		7A57525F1F3C4ED9009EAD73 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A57525E1F3C4ED9009EAD73 /* ImageIO.framework */; };
+		7A5752611F3C4EE2009EAD73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5752601F3C4EE2009EAD73 /* SystemConfiguration.framework */; };
+		7A5752631F3C4EEB009EAD73 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5752621F3C4EEB009EAD73 /* Security.framework */; };
+		7A5752651F3C4EF3009EAD73 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5752641F3C4EF3009EAD73 /* CoreTelephony.framework */; };
+		7A5752671F3C4EFC009EAD73 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5752661F3C4EFC009EAD73 /* UIKit.framework */; };
+		7A5752691F3C4F10009EAD73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5752681F3C4F10009EAD73 /* Foundation.framework */; };
+		7A57526B1F3C4F1E009EAD73 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A57526A1F3C4F1E009EAD73 /* libz.tbd */; };
+		7A57526D1F3C4F2C009EAD73 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A57526C1F3C4F2C009EAD73 /* libsqlite3.tbd */; };
+		7A5752731F3C510F009EAD73 /* KYHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5752721F3C510F009EAD73 /* KYHomeController.swift */; };
 		7A97D31F1F3C36F300AC7C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */; };
-		7A97D3221F3C36F400AC7C82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A97D3201F3C36F400AC7C82 /* LaunchScreen.storyboard */; };
 		7A97D32D1F3C36F400AC7C82 /* KYWeboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */; };
 		7A97D3381F3C36F500AC7C82 /* KYWeboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */; };
 /* End PBXBuildFile section */
@@ -40,13 +53,29 @@
 		68B25D9B80A70B47B0298DC3 /* Pods-KYWebo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYWebo.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo.release.xcconfig"; sourceTree = "<group>"; };
 		6C71D25FF3D70797DF5429E6 /* Pods_KYWeboTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWeboTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C981C2E3AD6A780E6A9C513 /* Pods_KYWebo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWebo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A5752431F3C3FFD009EAD73 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A5752461F3C4039009EAD73 /* KYWebo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KYWebo-Bridging-Header.h"; sourceTree = "<group>"; };
+		7A5752471F3C408A009EAD73 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7A5752501F3C4B57009EAD73 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		7A5752511F3C4B57009EAD73 /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
+		7A5752521F3C4B57009EAD73 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		7A5752531F3C4B57009EAD73 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		7A5752571F3C4E37009EAD73 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		7A5752591F3C4E51009EAD73 /* KYWebo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = KYWebo.entitlements; sourceTree = "<group>"; };
+		7A57525A1F3C4EB2009EAD73 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		7A57525C1F3C4ECF009EAD73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7A57525E1F3C4ED9009EAD73 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		7A5752601F3C4EE2009EAD73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7A5752621F3C4EEB009EAD73 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7A5752641F3C4EF3009EAD73 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		7A5752661F3C4EFC009EAD73 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7A5752681F3C4F10009EAD73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7A57526A1F3C4F1E009EAD73 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7A57526C1F3C4F2C009EAD73 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		7A5752721F3C510F009EAD73 /* KYHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYHomeController.swift; sourceTree = "<group>"; };
 		7A97D3141F3C36F300AC7C82 /* KYWebo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYWebo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A97D3171F3C36F300AC7C82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A97D3191F3C36F300AC7C82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7A97D31C1F3C36F300AC7C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7A97D3211F3C36F400AC7C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7A97D3231F3C36F400AC7C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A97D3281F3C36F400AC7C82 /* KYWeboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYWeboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYWeboTests.swift; sourceTree = "<group>"; };
 		7A97D32E1F3C36F400AC7C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +89,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A57526D1F3C4F2C009EAD73 /* libsqlite3.tbd in Frameworks */,
+				7A57526B1F3C4F1E009EAD73 /* libz.tbd in Frameworks */,
+				7A5752691F3C4F10009EAD73 /* Foundation.framework in Frameworks */,
+				7A5752671F3C4EFC009EAD73 /* UIKit.framework in Frameworks */,
+				7A5752651F3C4EF3009EAD73 /* CoreTelephony.framework in Frameworks */,
+				7A5752631F3C4EEB009EAD73 /* Security.framework in Frameworks */,
+				7A5752611F3C4EE2009EAD73 /* SystemConfiguration.framework in Frameworks */,
+				7A57525F1F3C4ED9009EAD73 /* ImageIO.framework in Frameworks */,
+				7A57525D1F3C4ECF009EAD73 /* QuartzCore.framework in Frameworks */,
+				7A57525B1F3C4EB2009EAD73 /* CoreText.framework in Frameworks */,
+				7A5752581F3C4E37009EAD73 /* Photos.framework in Frameworks */,
 				1830341CF3D11EABC6D58283 /* Pods_KYWebo.framework in Frameworks */,
+				7A5752541F3C4B57009EAD73 /* libWeiboSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,11 +125,115 @@
 		0BA6B3A397EF49EDE8104F02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A57526C1F3C4F2C009EAD73 /* libsqlite3.tbd */,
+				7A57526A1F3C4F1E009EAD73 /* libz.tbd */,
+				7A5752681F3C4F10009EAD73 /* Foundation.framework */,
+				7A5752661F3C4EFC009EAD73 /* UIKit.framework */,
+				7A5752641F3C4EF3009EAD73 /* CoreTelephony.framework */,
+				7A5752621F3C4EEB009EAD73 /* Security.framework */,
+				7A5752601F3C4EE2009EAD73 /* SystemConfiguration.framework */,
+				7A57525E1F3C4ED9009EAD73 /* ImageIO.framework */,
+				7A57525C1F3C4ECF009EAD73 /* QuartzCore.framework */,
+				7A57525A1F3C4EB2009EAD73 /* CoreText.framework */,
+				7A5752571F3C4E37009EAD73 /* Photos.framework */,
 				6C981C2E3AD6A780E6A9C513 /* Pods_KYWebo.framework */,
 				6C71D25FF3D70797DF5429E6 /* Pods_KYWeboTests.framework */,
 				29522516073723E62B0E7135 /* Pods_KYWeboUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A57523B1F3C3E61009EAD73 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7A57523C1F3C3E61009EAD73 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		7A57523E1F3C3F1C009EAD73 /* Bizs */ = {
+			isa = PBXGroup;
+			children = (
+				7A5752701F3C510F009EAD73 /* Home */,
+			);
+			path = Bizs;
+			sourceTree = "<group>";
+		};
+		7A5752421F3C3FC4009EAD73 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A5752591F3C4E51009EAD73 /* KYWebo.entitlements */,
+				7A5752461F3C4039009EAD73 /* KYWebo-Bridging-Header.h */,
+				7A5752471F3C408A009EAD73 /* Launch Screen.storyboard */,
+				7A5752431F3C3FFD009EAD73 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7A57524E1F3C4B57009EAD73 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				7A57524F1F3C4B57009EAD73 /* libWeiboSDK */,
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		7A57524F1F3C4B57009EAD73 /* libWeiboSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7A5752501F3C4B57009EAD73 /* libWeiboSDK.a */,
+				7A5752511F3C4B57009EAD73 /* WBHttpRequest.h */,
+				7A5752521F3C4B57009EAD73 /* WeiboSDK.bundle */,
+				7A5752531F3C4B57009EAD73 /* WeiboSDK.h */,
+			);
+			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		7A5752701F3C510F009EAD73 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7A5752711F3C510F009EAD73 /* Controller */,
+				7A5752741F3C5135009EAD73 /* Model */,
+				7A5752751F3C5135009EAD73 /* View */,
+				7A5752761F3C5135009EAD73 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		7A5752711F3C510F009EAD73 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7A5752721F3C510F009EAD73 /* KYHomeController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7A5752741F3C5135009EAD73 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7A5752751F3C5135009EAD73 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A5752761F3C5135009EAD73 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7A97D30B1F3C36F300AC7C82 = {
@@ -116,12 +261,12 @@
 		7A97D3161F3C36F300AC7C82 /* KYWebo */ = {
 			isa = PBXGroup;
 			children = (
-				7A97D3171F3C36F300AC7C82 /* AppDelegate.swift */,
-				7A97D3191F3C36F300AC7C82 /* ViewController.swift */,
-				7A97D31B1F3C36F300AC7C82 /* Main.storyboard */,
+				7A57523B1F3C3E61009EAD73 /* Main */,
+				7A57523E1F3C3F1C009EAD73 /* Bizs */,
+				7A57524E1F3C4B57009EAD73 /* Vender */,
+				7A57523C1F3C3E61009EAD73 /* Utils */,
+				7A5752421F3C3FC4009EAD73 /* Supporting Files */,
 				7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */,
-				7A97D3201F3C36F400AC7C82 /* LaunchScreen.storyboard */,
-				7A97D3231F3C36F400AC7C82 /* Info.plist */,
 			);
 			path = KYWebo;
 			sourceTree = "<group>";
@@ -225,7 +370,13 @@
 					7A97D3131F3C36F300AC7C82 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 3YR7CL6SMV;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					7A97D3271F3C36F400AC7C82 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -266,9 +417,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A97D3221F3C36F400AC7C82 /* LaunchScreen.storyboard in Resources */,
+				7A5752481F3C408A009EAD73 /* Launch Screen.storyboard in Resources */,
+				7A5752451F3C3FFD009EAD73 /* Info.plist in Resources */,
 				7A97D31F1F3C36F300AC7C82 /* Assets.xcassets in Resources */,
-				7A97D31D1F3C36F300AC7C82 /* Main.storyboard in Resources */,
+				7A5752551F3C4B57009EAD73 /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,8 +493,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A97D31A1F3C36F300AC7C82 /* ViewController.swift in Sources */,
-				7A97D3181F3C36F300AC7C82 /* AppDelegate.swift in Sources */,
+				7A5752411F3C3F8A009EAD73 /* AppDelegate.swift in Sources */,
+				7A5752731F3C510F009EAD73 /* KYHomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,25 +528,6 @@
 			targetProxy = 7A97D3341F3C36F400AC7C82 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		7A97D31B1F3C36F300AC7C82 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A97D31C1F3C36F300AC7C82 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7A97D3201F3C36F400AC7C82 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A97D3211F3C36F400AC7C82 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7A97D33A1F3C36F500AC7C82 /* Debug */ = {
@@ -495,12 +628,21 @@
 			baseConfigurationReference = 0A792ADFC162EEBFBDF5F1B5 /* Pods-KYWebo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "KYWebo/Supporting Files/KYWebo.entitlements";
 				DEVELOPMENT_TEAM = 3YR7CL6SMV;
-				INFOPLIST_FILE = KYWebo/Info.plist;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/KYWebo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KYWebo/Vender/libWeiboSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYWebo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KYWebo/Supporting Files/KYWebo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -510,12 +652,20 @@
 			baseConfigurationReference = 68B25D9B80A70B47B0298DC3 /* Pods-KYWebo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "KYWebo/Supporting Files/KYWebo.entitlements";
 				DEVELOPMENT_TEAM = 3YR7CL6SMV;
-				INFOPLIST_FILE = KYWebo/Info.plist;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/KYWebo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KYWebo/Vender/libWeiboSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYWebo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KYWebo/Supporting Files/KYWebo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -597,6 +747,7 @@
 				7A97D33E1F3C36F500AC7C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A97D33F1F3C36F500AC7C82 /* Build configuration list for PBXNativeTarget "KYWeboTests" */ = {
 			isa = XCConfigurationList;
@@ -605,6 +756,7 @@
 				7A97D3411F3C36F500AC7C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A97D3421F3C36F500AC7C82 /* Build configuration list for PBXNativeTarget "KYWeboUITests" */ = {
 			isa = XCConfigurationList;
@@ -613,6 +765,7 @@
 				7A97D3441F3C36F500AC7C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
