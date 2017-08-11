@@ -17,11 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var wbToken: String = ""
-
-    var wbCurrentUserID: String = ""
-    
-    var wbRefreshToken: String = ""
+    var wbToken: String          = ""
+    var wbCurrentUserID: String  = ""
+    var wbRefreshToken: String   = ""
+    var wbExpirationDate: Date = Date()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -56,27 +55,42 @@ extension AppDelegate: WeiboSDKDelegate {
     func didReceiveWeiboResponse(_ response: WBBaseResponse!) {
         if response.isKind(of: WBSendMessageToWeiboRequest.classForCoder()) {
             
-            if let sendResponse = response as? WBSendMessageToWeiboResponse {
-                let accessToken = sendResponse.authResponse.accessToken
-                let userID = sendResponse.authResponse.userID
-                
-                if let token = accessToken, let ID = userID {
-                    wbToken = token
-                    wbCurrentUserID = ID
-                    
-                    print("token = \(wbToken)\n userId = \(wbCurrentUserID)\n")
-                }
-            }
+            guard let sendResponse = response as? WBSendMessageToWeiboResponse else { return }
+            guard let accessToken = sendResponse.authResponse.accessToken else { return }
+            guard let userID = sendResponse.authResponse.userID else { return }
+            
+            wbToken = accessToken
+            wbCurrentUserID = userID
+            print("token = \(wbToken)")
+            print("userId = \(wbCurrentUserID)")
             
         } else if response.isKind(of: WBAuthorizeResponse.classForCoder()) {
             
-            if let authorizeResponse = response as? WBAuthorizeResponse {
-                wbToken = authorizeResponse.accessToken
-                wbCurrentUserID = authorizeResponse.userID
-                wbRefreshToken = authorizeResponse.refreshToken
-                
-                print("token = \(wbToken)\n userId = \(wbCurrentUserID)\n refreshToken = \(wbRefreshToken)")
-            }
+            guard let authorizeResponse = response as? WBAuthorizeResponse else { return  }
+            guard let userID = authorizeResponse.userID else { return  }
+            guard let accessToken = authorizeResponse.accessToken else { return }
+            guard let expirationDate = authorizeResponse.expirationDate else { return }
+            
+            wbToken = accessToken
+            wbCurrentUserID = userID
+            wbRefreshToken = authorizeResponse.refreshToken
+            wbExpirationDate = expirationDate
+            
+            print("token = \(wbToken)")
+            print("userId = \(wbCurrentUserID)")
+            print("refreshToken = \(wbRefreshToken)")
+            print("expirationDate = \(expirationDate)")
+            
+            // 保存认证信息
+            let authData = [
+                "AccessTokenKey"    : wbToken,
+                "UserIDKey"         : wbCurrentUserID,
+                "RefreshTokenKey"   : wbRefreshToken,
+                "ExpirationDateKey" : wbExpirationDate
+                ] as [String : Any]
+            
+            UserDefaults.standard.set(authData, forKey: "WeboAuthData")
+            UserDefaults.standard.synchronize()
         }
     }
 }

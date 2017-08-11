@@ -17,10 +17,12 @@ class KYHomeController: UIViewController {
         self.title = "Webo"
         self.view.backgroundColor = .white
         
-        authorLogin()
+        if WeiboSDK.isCanSSOInWeiboApp() && !isAuthorizeExpired() {
+            ssoAuthorLogin()  // SSO认证登录
+        }
     }
     
-    func authorLogin() {
+    func ssoAuthorLogin() {
         let request = WBAuthorizeRequest.request() as! WBAuthorizeRequest
         request.scope = "all"
         request.redirectURI = kWeiBoRedirectUrl
@@ -32,6 +34,17 @@ class KYHomeController: UIViewController {
         ]
         
         WeiboSDK.send(request)
+    }
+    
+    func isAuthorizeExpired() -> Bool {
+        guard let authData = UserDefaults.standard.object(forKey: "WeboAuthData") as? [String: Any] else {
+            return false
+        }
+        
+        let expirationDate = authData["ExpirationDateKey"] as! Date
+        
+        let now = Date()
+        return (now.compare(expirationDate) == .orderedAscending)
     }
 }
 

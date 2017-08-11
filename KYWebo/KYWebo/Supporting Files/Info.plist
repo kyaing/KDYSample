@@ -22,7 +22,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.weibo</string>
+			<string>webo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wb4151174645</string>
@@ -31,6 +31,17 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>sinaweibohdsso</string>
+		<string>sinaweibosso</string>
+		<string>weibosdk2.5</string>
+		<string>weibosdk</string>
+		<string>sinaweibo</string>
+		<string>sinaweibohd</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -43,15 +54,6 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-	</array>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>weibosdk2.5</string>
-		<string>weibosdk</string>
-		<string>sinaweibo</string>
-		<string>sinaweibohd</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
