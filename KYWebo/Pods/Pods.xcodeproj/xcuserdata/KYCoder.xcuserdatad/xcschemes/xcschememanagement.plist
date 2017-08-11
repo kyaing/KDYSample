@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FBAllocationTracker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,17 +19,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FMDB.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JPFPSStatus.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>KVOController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,11 +44,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>YTKNetwork.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>YYKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,22 +52,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04927A4C4465FDC2B1AC84A50ED9AD92</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>131981766F2F9BAF0702F862C451AE39</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1FA2ED87B8725EDF8C3659DE4A48164C</key>
+		<key>3BFE844E1050107202E6BFFAE46D17B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>251BAD17812F7EBF6532EACF66F941C3</key>
+		<key>41FA54D12162DAD51D02FC58A2CD5034</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>48ACB02C42418A93ED9FA4FD4FCDF0AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>92E53DB87027657FD80D2DF70232D935</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,21 +88,6 @@
 			<true/>
 		</dict>
 		<key>C34C11083B98E06F16A638EE1DE47AD6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C89BCEE08AE05F1743D957769FF2C7A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DBADDD713A689E6A9B0652A5B64B48AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

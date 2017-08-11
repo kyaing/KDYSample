@@ -6,9 +6,8 @@ target 'KYWebo' do
     use_frameworks!
 
     # OC
-    pod 'FMDB', '~> 2.6.2'
-    pod 'YTKNetwork', '~> 2.0.3'
     pod 'YYKit',  '~> 1.0.9'
+    pod 'MBProgressHUD', '~> 1.0.0'
 
     pod 'JPFPSStatus',  '~> 0.1'
     pod 'LxDBAnything', '~> 1.1.0'

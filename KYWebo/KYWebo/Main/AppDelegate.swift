@@ -8,9 +8,10 @@
 
 import UIKit
 
-let kWeiBoAppKey      = "4151174645"
-let kWeiBoAppSecret   = "bc1ba90f99316f7437af12c6767270fd"
-let kWeiBoRedirectUrl = "https://api.weibo.com/oauth2/default.html"
+let kWeBoAppKey      = "4151174645"
+let kWeBoAppSecret   = "bc1ba90f99316f7437af12c6767270fd"
+let kWeBoRedirectUrl = "https://api.weibo.com/oauth2/default.html"
+let kWeBoBaseUrl     = "https://api.weibo.com/2/"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,11 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var wbCurrentUserID: String  = ""
     var wbRefreshToken: String   = ""
     var wbExpirationDate: Date = Date()
+    
+    // MARK: -
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         WeiboSDK.enableDebugMode(true)
-        WeiboSDK.registerApp(kWeiBoAppKey)
+        WeiboSDK.registerApp(kWeBoAppKey)
         
         let homeController = KYHomeController()
         let navigation = UINavigationController(rootViewController: homeController)
@@ -33,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigation
         self.window?.makeKeyAndVisible()
+        
+        if WeiboSDK.isCanSSOInWeiboApp() && !isAuthorizeExpired() {
+            ssoAuthorLogin()  // SSO 认证登录
+        }
         
         return true
     }
@@ -43,6 +50,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return WeiboSDK.handleOpen(url, delegate: self)
+    }
+    
+    // MARK: -
+    
+    func ssoAuthorLogin() {
+        let request = WBAuthorizeRequest.request() as! WBAuthorizeRequest
+        request.scope = "all"
+        request.redirectURI = kWeBoRedirectUrl
+        
+        WeiboSDK.send(request)
+    }
+    
+    func isAuthorizeExpired() -> Bool {
+        guard let authData = UserDefaults.standard.object(forKey: "WeboAuthData") as? [String: Any]
+            else {
+            return false
+        }
+        
+        let expirationDate = authData["ExpirationDateKey"] as! Date
+        
+        let now = Date()
+        return (now.compare(expirationDate) == .orderedAscending)
     }
 }
 

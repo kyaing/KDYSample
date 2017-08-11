@@ -7,44 +7,53 @@
 //
 
 import UIKit
+import YYKit
 
 /// Webo首页
 class KYHomeController: UIViewController {
-
+    
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Webo"
         self.view.backgroundColor = .white
         
-        if WeiboSDK.isCanSSOInWeiboApp() && !isAuthorizeExpired() {
-            ssoAuthorLogin()  // SSO认证登录
-        }
+        requestDats()
     }
     
-    func ssoAuthorLogin() {
-        let request = WBAuthorizeRequest.request() as! WBAuthorizeRequest
-        request.scope = "all"
-        request.redirectURI = kWeiBoRedirectUrl
-        request.userInfo = [
-            "SSO_From": "KYHomeController",
-            "Other_Info_1": NSNumber(value: 123),
-            "Other_Info_2": ["obj1", "obj2"],
-            "Other_Info_3": ["key1": "obj1", "key2": "obj2"]
-        ]
-        
-        WeiboSDK.send(request)
-    }
-    
-    func isAuthorizeExpired() -> Bool {
+    func requestDats() {
         guard let authData = UserDefaults.standard.object(forKey: "WeboAuthData") as? [String: Any] else {
-            return false
+            return
         }
         
-        let expirationDate = authData["ExpirationDateKey"] as! Date
+        var params: [String: String] = [:]
+        params["access_token"] = authData["AccessTokenKey"] as? String
+        params["count"] = "5"
         
-        let now = Date()
-        return (now.compare(expirationDate) == .orderedAscending)
+        _ = WBHttpRequest(url: "https://api.weibo.com/2/statuses/home_timeline.json",
+                          httpMethod: "GET",
+                          params: params,
+                          delegate: self,
+                          withTag: "homeTag")
+    }
+}
+
+extension KYHomeController: WBHttpRequestDelegate {
+    
+    func request(_ request: WBHttpRequest!, didFinishLoadingWithDataResult data: Data!) {
+        if let json = String(data: data, encoding: .utf8) {
+            print("json = \(String(describing: json))")
+        }
+        
+        if let jsonDic: [String: Any] = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+            print("jsonDic = \(jsonDic)")
+        }
+    }
+    
+    func request(_ request: WBHttpRequest!, didFailWithError error: Error!) {
+        
     }
 }
 
