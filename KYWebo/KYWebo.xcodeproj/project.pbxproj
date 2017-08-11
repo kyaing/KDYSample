@@ -11,6 +11,9 @@
 		7A2EDB111F3D806300872F10 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB101F3D806300872F10 /* HomeViewModel.swift */; };
 		7A2EDB131F3D807100872F10 /* HomeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB121F3D807100872F10 /* HomeItemViewModel.swift */; };
 		7A2EDB151F3D8EC500872F10 /* WeboRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB141F3D8EC500872F10 /* WeboRequest.swift */; };
+		7A2EDB171F3DADC000872F10 /* WbUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB161F3DADC000872F10 /* WbUser.swift */; };
+		7A2EDB191F3DAE4F00872F10 /* WbStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */; };
+		7A2EDB1B1F3DB87D00872F10 /* WbTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */; };
 		7A5752411F3C3F8A009EAD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */; };
 		7A5752451F3C3FFD009EAD73 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752431F3C3FFD009EAD73 /* Info.plist */; };
 		7A5752481F3C408A009EAD73 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752471F3C408A009EAD73 /* Launch Screen.storyboard */; };
@@ -60,6 +63,9 @@
 		7A2EDB101F3D806300872F10 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7A2EDB121F3D807100872F10 /* HomeItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeItemViewModel.swift; sourceTree = "<group>"; };
 		7A2EDB141F3D8EC500872F10 /* WeboRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeboRequest.swift; sourceTree = "<group>"; };
+		7A2EDB161F3DADC000872F10 /* WbUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbUser.swift; sourceTree = "<group>"; };
+		7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbStatus.swift; sourceTree = "<group>"; };
+		7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbTimeline.swift; sourceTree = "<group>"; };
 		7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A5752431F3C3FFD009EAD73 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A5752461F3C4039009EAD73 /* KYWebo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KYWebo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -226,6 +232,9 @@
 		7A5752741F3C5135009EAD73 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7A2EDB161F3DADC000872F10 /* WbUser.swift */,
+				7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */,
+				7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -516,8 +525,11 @@
 				7A5752411F3C3F8A009EAD73 /* AppDelegate.swift in Sources */,
 				7A5752731F3C510F009EAD73 /* KYHomeController.swift in Sources */,
 				7A2EDB151F3D8EC500872F10 /* WeboRequest.swift in Sources */,
+				7A2EDB1B1F3DB87D00872F10 /* WbTimeline.swift in Sources */,
 				7A2EDB131F3D807100872F10 /* HomeItemViewModel.swift in Sources */,
 				7A2EDB111F3D806300872F10 /* HomeViewModel.swift in Sources */,
+				7A2EDB171F3DADC000872F10 /* WbUser.swift in Sources */,
+				7A2EDB191F3DAE4F00872F10 /* WbStatus.swift in Sources */,
 				7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

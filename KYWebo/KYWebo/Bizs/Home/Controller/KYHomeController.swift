@@ -45,10 +45,12 @@ extension KYHomeController: WBHttpRequestDelegate {
     func request(_ request: WBHttpRequest!, didFinishLoadingWithDataResult data: Data!) {
         if let json = String(data: data, encoding: .utf8) {
             print("json = \(String(describing: json))")
-        }
-        
-        if let jsonDic: [String: Any] = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-            print("jsonDic = \(jsonDic)")
+            
+            if let item: WbTimeline = WbTimeline.model(withJSON: json) {
+                for statues in item.statuses {
+                    print("id = \(statues.statusID)")
+                }
+            }
         }
     }
     
