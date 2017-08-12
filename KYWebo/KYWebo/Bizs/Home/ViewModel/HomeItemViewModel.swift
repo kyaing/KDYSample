@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 首页每个Cell的viewModel
 class HomeItemViewModel: NSObject {
 
 }

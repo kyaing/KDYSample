@@ -7,55 +7,85 @@
 //
 
 import UIKit
-import YYKit
+import SnapKit
 
 /// Webo首页
 class KYHomeController: UIViewController {
+    
+    // MARK: - Properites
+    
+    lazy var wbTableView: UITableView = {
+        let tb = UITableView()
+        tb.tableFooterView = UIView()
+        tb.dataSource = self
+        tb.delegate = self
+        
+        return tb
+    }()
+    
+    lazy var viewModel: HomeViewModel = {
+        let viewmodel = HomeViewModel()
+        return viewmodel
+    }()
+    
+    var dataSource: NSMutableArray = []
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "Webo"
         self.view.backgroundColor = .white
         
-        requestDats()
+        setupViews()
+        setupTimelines()
     }
     
-    func requestDats() {
-        guard let authData = UserDefaults.standard.object(forKey: "WeboAuthData") as? [String: Any] else {
-            return
+    func setupViews() {
+        view.addSubview(wbTableView)
+        wbTableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
         }
-        
-        var params: [String: String] = [:]
-        params["access_token"] = authData["AccessTokenKey"] as? String
-        params["count"] = "5"
-        
-        _ = WBHttpRequest(url: "https://api.weibo.com/2/statuses/home_timeline.json",
-                          httpMethod: "GET",
-                          params: params,
-                          delegate: self,
-                          withTag: "homeTag")
     }
-}
-
-extension KYHomeController: WBHttpRequestDelegate {
     
-    func request(_ request: WBHttpRequest!, didFinishLoadingWithDataResult data: Data!) {
-        if let json = String(data: data, encoding: .utf8) {
-            print("json = \(String(describing: json))")
+    func setupTimelines() {
+        viewModel.timelineSuccess = { item in
+            print("status counts = \(item.statuses.count)")
             
-            if let item: WbTimeline = WbTimeline.model(withJSON: json) {
-                for statues in item.statuses {
-                    print("id = \(statues.statusID)")
-                }
+            DispatchQueue.main.async {
+                self.dataSource.addObjects(from: item.statuses)
+                self.wbTableView.reloadData()
             }
         }
-    }
-    
-    func request(_ request: WBHttpRequest!, didFailWithError error: Error!) {
         
+        viewModel.timelineFailed = { error in
+            print("error = \(error)")
+        }
     }
 }
 
+// MARK: -
+
+extension KYHomeController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
+
+// MARK: -
+
+extension KYHomeController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
