@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1830341CF3D11EABC6D58283 /* Pods_KYWebo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C981C2E3AD6A780E6A9C513 /* Pods_KYWebo.framework */; };
+		18D0B63C1F3EFB9900E99F91 /* HomeTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B63B1F3EFB9900E99F91 /* HomeTimelineCell.swift */; };
+		18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B63D1F40355E00E99F91 /* KYHomeDetailController.swift */; };
+		18D0B6401F40391A00E99F91 /* WbStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B63F1F40391A00E99F91 /* WbStatusView.swift */; };
+		18D0B6421F40395400E99F91 /* WbProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B6411F40395400E99F91 /* WbProfileView.swift */; };
+		18D0B6441F403A1200E99F91 /* WbTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B6431F403A1200E99F91 /* WbTagsView.swift */; };
 		7A2EDB111F3D806300872F10 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB101F3D806300872F10 /* HomeViewModel.swift */; };
 		7A2EDB131F3D807100872F10 /* HomeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB121F3D807100872F10 /* HomeItemViewModel.swift */; };
 		7A2EDB151F3D8EC500872F10 /* WeboRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB141F3D8EC500872F10 /* WeboRequest.swift */; };
@@ -56,6 +61,11 @@
 
 /* Begin PBXFileReference section */
 		0A792ADFC162EEBFBDF5F1B5 /* Pods-KYWebo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYWebo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo.debug.xcconfig"; sourceTree = "<group>"; };
+		18D0B63B1F3EFB9900E99F91 /* HomeTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimelineCell.swift; sourceTree = "<group>"; };
+		18D0B63D1F40355E00E99F91 /* KYHomeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYHomeDetailController.swift; sourceTree = "<group>"; };
+		18D0B63F1F40391A00E99F91 /* WbStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbStatusView.swift; sourceTree = "<group>"; };
+		18D0B6411F40395400E99F91 /* WbProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbProfileView.swift; sourceTree = "<group>"; };
+		18D0B6431F403A1200E99F91 /* WbTagsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbTagsView.swift; sourceTree = "<group>"; };
 		29522516073723E62B0E7135 /* Pods_KYWeboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWeboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B25D9B80A70B47B0298DC3 /* Pods-KYWebo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYWebo.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo.release.xcconfig"; sourceTree = "<group>"; };
 		6C71D25FF3D70797DF5429E6 /* Pods_KYWeboTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWeboTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +167,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		18D0B63A1F3EFB4F00E99F91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18D0B63F1F40391A00E99F91 /* WbStatusView.swift */,
+				18D0B6411F40395400E99F91 /* WbProfileView.swift */,
+				18D0B6431F403A1200E99F91 /* WbTagsView.swift */,
+				18D0B63B1F3EFB9900E99F91 /* HomeTimelineCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7A57523B1F3C3E61009EAD73 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +236,7 @@
 			children = (
 				7A5752711F3C510F009EAD73 /* Controller */,
 				7A5752741F3C5135009EAD73 /* Model */,
-				7A5752751F3C5135009EAD73 /* View */,
+				18D0B63A1F3EFB4F00E99F91 /* View */,
 				7A5752761F3C5135009EAD73 /* ViewModel */,
 			);
 			path = Home;
@@ -225,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				7A5752721F3C510F009EAD73 /* KYHomeController.swift */,
+				18D0B63D1F40355E00E99F91 /* KYHomeDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -237,13 +259,6 @@
 				7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7A5752751F3C5135009EAD73 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		7A5752761F3C5135009EAD73 /* ViewModel */ = {
@@ -523,14 +538,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A5752411F3C3F8A009EAD73 /* AppDelegate.swift in Sources */,
+				18D0B63C1F3EFB9900E99F91 /* HomeTimelineCell.swift in Sources */,
 				7A5752731F3C510F009EAD73 /* KYHomeController.swift in Sources */,
 				7A2EDB151F3D8EC500872F10 /* WeboRequest.swift in Sources */,
 				7A2EDB1B1F3DB87D00872F10 /* WbTimeline.swift in Sources */,
+				18D0B6401F40391A00E99F91 /* WbStatusView.swift in Sources */,
 				7A2EDB131F3D807100872F10 /* HomeItemViewModel.swift in Sources */,
 				7A2EDB111F3D806300872F10 /* HomeViewModel.swift in Sources */,
 				7A2EDB171F3DADC000872F10 /* WbUser.swift in Sources */,
 				7A2EDB191F3DAE4F00872F10 /* WbStatus.swift in Sources */,
+				18D0B6421F40395400E99F91 /* WbProfileView.swift in Sources */,
 				7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */,
+				18D0B6441F403A1200E99F91 /* WbTagsView.swift in Sources */,
+				18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

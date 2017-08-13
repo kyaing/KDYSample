@@ -8,8 +8,27 @@
 
 import UIKit
 
-/// 首页每个Cell的viewModel
+/// 每个Cell的viewModel
 class HomeItemViewModel: NSObject {
 
+    // MARK: - Properites
+    
+    var wbstatus: WbStatus?
+    
+    var totalHeight: CGFloat = 120  // 总高度
+    
+    // MARK: - Life Cycle
+    
+    init(withStatus status: WbStatus) {
+        super.init()
+        wbstatus = status
+        layoutCell()
+    }
+    
+    // MARK: - 
+    
+    func layoutCell() {
+        
+    }
 }
 

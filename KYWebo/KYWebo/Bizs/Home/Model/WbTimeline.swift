@@ -12,15 +12,26 @@ import YYKit
 class WbTimeline: NSObject {
     
     var interval: Int = 0
+    var uveBlank: Int = 0
+    var hasUnread: Int = 0
+    var totalNumber: Int = 0
+    
     var maxID: String = ""
     var sinceID: String = ""
+    var previousCursor: String = ""
+    var nextCursor: String = ""
+    
     var statuses: Array<WbStatus> = []
 
     public static func modelCustomPropertyMapper() -> [String : Any]? {
         return [
-            "statusID": "id",
-            "statusIdstr": "idstr",
-            "createdAt": "created_at"
+            "uveBlank"       : "uve_blank",
+            "hasUnread"      : "has_unread",
+            "totalNumber"    : "total_number",
+            "maxID"          : "max_id",
+            "sinceID"        : "since_id",
+            "previousCursor" : "previous_cursor",
+            "nextCursor"     : "next_cursor"
         ]
     }
     

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MBProgressHUD
 
-typealias TimelineSuccess = (WbTimeline) -> Void
+typealias TimelineSuccess = ([HomeItemViewModel]) -> Void
 typealias TimelineFailed  = (Error) -> Void
 
 class HomeViewModel: NSObject {
@@ -47,11 +48,15 @@ extension HomeViewModel: WBHttpRequestDelegate {
             
             if let item: WbTimeline = WbTimeline.model(withJSON: json) {
                 if let successBlock = timelineSuccess {
-                    successBlock(item)
-                }
-                
-                for statues in item.statuses {
-                    print("status id = \(statues.statusID)")
+                    
+                    var dataSource: [HomeItemViewModel] = []
+                    DispatchQueue.global().async(execute: { 
+                        for statues in item.statuses {
+                            let itemViewmodel = HomeItemViewModel(withStatus: statues)
+                            dataSource.append(itemViewmodel)
+                        }
+                        successBlock(dataSource)
+                    })
                 }
             }
         }

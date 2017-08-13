@@ -44,8 +44,8 @@ class WbUser: NSObject {
     
     public static func modelCustomPropertyMapper() -> [String : Any]? {
         return [
-            "userID": "id",
-            "userIDStr": "idString"
+            "userID"    : "id",
+            "userIDStr" : "idString"
         ]
     }
 }

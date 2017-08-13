@@ -14,6 +14,8 @@ class KYHomeController: UIViewController {
     
     // MARK: - Properites
     
+    let timelineIdentifier = "timelineCell"
+    
     lazy var wbTableView: UITableView = {
         let tb = UITableView()
         tb.tableFooterView = UIView()
@@ -43,17 +45,17 @@ class KYHomeController: UIViewController {
     
     func setupViews() {
         view.addSubview(wbTableView)
+        wbTableView.register(HomeTimelineCell.classForCoder(), forCellReuseIdentifier: timelineIdentifier)
+        
         wbTableView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
     }
     
     func setupTimelines() {
-        viewModel.timelineSuccess = { item in
-            print("status counts = \(item.statuses.count)")
-            
+        viewModel.timelineSuccess = { array in
             DispatchQueue.main.async {
-                self.dataSource.addObjects(from: item.statuses)
+                self.dataSource = array as! NSMutableArray
                 self.wbTableView.reloadData()
             }
         }
@@ -73,7 +75,13 @@ extension KYHomeController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: timelineIdentifier, for: indexPath) as! HomeTimelineCell
+        
+        if let viewModel = dataSource[indexPath.row] as? HomeItemViewModel {
+            cell.setupCell(withViewmodel: viewModel)
+        }
+        
+        return cell
     }
 }
 
@@ -82,10 +90,15 @@ extension KYHomeController: UITableViewDataSource {
 extension KYHomeController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        if let _itemViewmodel = dataSource[indexPath.row] as? HomeItemViewModel {
+            return _itemViewmodel.totalHeight
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.navigationController?.pushViewController(KYHomeDetailController(), animated: true)
     }
 }
