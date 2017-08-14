@@ -6,6 +6,11 @@
 //  Copyright © 2017年 mac. All rights reserved.
 //
 
+/**
+ *  主页Webo的思路及某些类，都是仿照YYKit的Demo写的，可直接参考：
+ *  https://github.com/ibireme/YYKit 
+ */
+
 import UIKit
 import SnapKit
 
@@ -90,8 +95,8 @@ extension KYHomeController: UITableViewDataSource {
 extension KYHomeController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let _itemViewmodel = dataSource[indexPath.row] as? HomeItemViewModel {
-            return _itemViewmodel.totalHeight
+        if let itemViewmodel = dataSource[indexPath.row] as? HomeItemViewModel {
+            return itemViewmodel.totalHeight
         }
         
         return 0
@@ -99,6 +104,6 @@ extension KYHomeController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.navigationController?.pushViewController(KYHomeDetailController(), animated: true)
+        // self.navigationController?.pushViewController(KYHomeDetailController(), animated: true)
     }
 }

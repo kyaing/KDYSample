@@ -12,6 +12,8 @@ class HomeTimelineCell: UITableViewCell {
     
     lazy var statusView: WbStatusView = {
         let stauts = WbStatusView()
+        stauts.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 1)
+        
         return stauts
     }()
     
@@ -24,7 +26,7 @@ class HomeTimelineCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Public Methods
+    // MARK: - Layout
     
     func setupCell(withViewmodel viewModel: HomeItemViewModel) {
         self.height = viewModel.totalHeight

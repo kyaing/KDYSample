@@ -23,7 +23,7 @@ class WbStatusView: UIView {
     
     var retweetTextLabel: YYLabel?  // 转发文本
     
-    var tagsView: WbTagsView!  // 标签视图
+    var toolbarView: WbToolbarView!  // 工具栏视图
     
     // MARK: - Life Cycle
     
@@ -38,17 +38,52 @@ class WbStatusView: UIView {
     
     func setupViews() {
         contentBgView = UIView()
-        contentBgView.width = UIScreen.main.bounds.width
-        contentBgView.height = 1
+        contentBgView.size = CGSize(width: YYScreenSize().width, height: 1)
         self.addSubview(contentBgView)
         
+        profileView = WbProfileView()
+        profileView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kCellProfileHeight)
+        contentBgView.addSubview(profileView)
         
+        textLabel = YYLabel()
+        textLabel.left = kCellPadding
+        textLabel.width = kCellContentWidth
+        textLabel.textVerticalAlignment = .top
+        textLabel.displaysAsynchronously = true
+        textLabel.ignoreCommonProperties = true
+        textLabel.fadeOnAsynchronouslyDisplay = false
+        textLabel.fadeOnHighlight = false
+        textLabel.highlightTapAction = { (containerView, text, range, rect) in
+            // 点击事件处理，代理到控制器中
+            // ...
+        }
+        
+        toolbarView = WbToolbarView()
+        toolbarView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kCellToolbarHeight)
+        contentBgView.addSubview(toolbarView)
     }
     
-    // MARK: - 
+    // MARK: - Layout
     
     func setupStatus(withViewmodel viewModel: HomeItemViewModel) {
+        self.height = viewModel.totalHeight
+        contentBgView.height = viewModel.totalHeight
         
+        // 对Cell里的元素布局
+        var top: CGFloat = 0  // y的坐标
+        
+        profileView.nameLabel.textLayout = viewModel.nameTextLayout
+        profileView.sourceLabel.textLayout = viewModel.sourceTextLayout
+        profileView.top = top
+        top += viewModel.profileHeight
+        
+        textLabel.textLayout = viewModel.textLayout
+        textLabel.height = viewModel.textHeight
+        textLabel.top = top
+        top += viewModel.textHeight
+        
+        toolbarView.bottom = contentBgView.height
+        toolbarView.top = top
     }
 }
 

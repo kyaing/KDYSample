@@ -12,13 +12,14 @@
 		18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B63D1F40355E00E99F91 /* KYHomeDetailController.swift */; };
 		18D0B6401F40391A00E99F91 /* WbStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B63F1F40391A00E99F91 /* WbStatusView.swift */; };
 		18D0B6421F40395400E99F91 /* WbProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B6411F40395400E99F91 /* WbProfileView.swift */; };
-		18D0B6441F403A1200E99F91 /* WbTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B6431F403A1200E99F91 /* WbTagsView.swift */; };
+		18D0B6441F403A1200E99F91 /* WbToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B6431F403A1200E99F91 /* WbToolbarView.swift */; };
 		7A2EDB111F3D806300872F10 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB101F3D806300872F10 /* HomeViewModel.swift */; };
 		7A2EDB131F3D807100872F10 /* HomeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB121F3D807100872F10 /* HomeItemViewModel.swift */; };
 		7A2EDB151F3D8EC500872F10 /* WeboRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB141F3D8EC500872F10 /* WeboRequest.swift */; };
 		7A2EDB171F3DADC000872F10 /* WbUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB161F3DADC000872F10 /* WbUser.swift */; };
 		7A2EDB191F3DAE4F00872F10 /* WbStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */; };
 		7A2EDB1B1F3DB87D00872F10 /* WbTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */; };
+		7A2EDB201F41724F00872F10 /* WbTextLinePositionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB1F1F41724F00872F10 /* WbTextLinePositionModifier.swift */; };
 		7A5752411F3C3F8A009EAD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */; };
 		7A5752451F3C3FFD009EAD73 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752431F3C3FFD009EAD73 /* Info.plist */; };
 		7A5752481F3C408A009EAD73 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752471F3C408A009EAD73 /* Launch Screen.storyboard */; };
@@ -65,7 +66,7 @@
 		18D0B63D1F40355E00E99F91 /* KYHomeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYHomeDetailController.swift; sourceTree = "<group>"; };
 		18D0B63F1F40391A00E99F91 /* WbStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbStatusView.swift; sourceTree = "<group>"; };
 		18D0B6411F40395400E99F91 /* WbProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbProfileView.swift; sourceTree = "<group>"; };
-		18D0B6431F403A1200E99F91 /* WbTagsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbTagsView.swift; sourceTree = "<group>"; };
+		18D0B6431F403A1200E99F91 /* WbToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbToolbarView.swift; sourceTree = "<group>"; };
 		29522516073723E62B0E7135 /* Pods_KYWeboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWeboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B25D9B80A70B47B0298DC3 /* Pods-KYWebo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYWebo.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo.release.xcconfig"; sourceTree = "<group>"; };
 		6C71D25FF3D70797DF5429E6 /* Pods_KYWeboTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWeboTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +77,7 @@
 		7A2EDB161F3DADC000872F10 /* WbUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbUser.swift; sourceTree = "<group>"; };
 		7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbStatus.swift; sourceTree = "<group>"; };
 		7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbTimeline.swift; sourceTree = "<group>"; };
+		7A2EDB1F1F41724F00872F10 /* WbTextLinePositionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbTextLinePositionModifier.swift; sourceTree = "<group>"; };
 		7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A5752431F3C3FFD009EAD73 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A5752461F3C4039009EAD73 /* KYWebo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KYWebo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -170,9 +172,10 @@
 		18D0B63A1F3EFB4F00E99F91 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				18D0B63F1F40391A00E99F91 /* WbStatusView.swift */,
 				18D0B6411F40395400E99F91 /* WbProfileView.swift */,
-				18D0B6431F403A1200E99F91 /* WbTagsView.swift */,
+				18D0B6431F403A1200E99F91 /* WbToolbarView.swift */,
+				18D0B63F1F40391A00E99F91 /* WbStatusView.swift */,
+				7A2EDB1F1F41724F00872F10 /* WbTextLinePositionModifier.swift */,
 				18D0B63B1F3EFB9900E99F91 /* HomeTimelineCell.swift */,
 			);
 			path = View;
@@ -549,8 +552,9 @@
 				7A2EDB191F3DAE4F00872F10 /* WbStatus.swift in Sources */,
 				18D0B6421F40395400E99F91 /* WbProfileView.swift in Sources */,
 				7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */,
-				18D0B6441F403A1200E99F91 /* WbTagsView.swift in Sources */,
+				18D0B6441F403A1200E99F91 /* WbToolbarView.swift in Sources */,
 				18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */,
+				7A2EDB201F41724F00872F10 /* WbTextLinePositionModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

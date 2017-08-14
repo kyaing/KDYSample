@@ -3,4 +3,5 @@
 //
 
 #import "WeiboSDK.h"
+#import <YYKit/YYKit.h>
 
