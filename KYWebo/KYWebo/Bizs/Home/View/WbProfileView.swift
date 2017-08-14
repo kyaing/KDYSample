@@ -50,18 +50,32 @@ class WbProfileView: UIView {
     }
     
     func setupViews() {
-        avatarIamge.frame = CGRect(x: kCellPadding, y: kCellPadding, width: kCellAvatorWidth, height: kCellAvatorWidth)
         self.addSubview(avatarIamge)
         
-        nameLabel.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         self.addSubview(nameLabel)
         
-        sourceLabel.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         sourceLabel.highlightTapAction = { (containerView, text, range, rect) in
             // 点击事件处理，代理到控制器中
             // ...
         }
         self.addSubview(sourceLabel)
+        
+        avatarIamge.snp.makeConstraints { (make) in
+            make.top.left.equalTo(self).inset(UIEdgeInsetsMake(kCellPadding, kCellPadding, 0, 0))
+            make.size.equalTo(CGSize(width: kCellAvatorWidth, height: kCellAvatorWidth))
+        }
+        
+        nameLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(avatarIamge.snp.top)
+            make.left.equalTo(avatarIamge.snp.right).offset(kCellPadding)
+            make.size.equalTo(CGSize(width: kCellNameWidth, height: 22))
+        }
+        
+        sourceLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(nameLabel.snp.bottom)
+            make.left.equalTo(avatarIamge.snp.right).offset(kCellPadding)
+            make.size.equalTo(CGSize(width: kCellNameWidth, height: 18))
+        }
     }
 }
 

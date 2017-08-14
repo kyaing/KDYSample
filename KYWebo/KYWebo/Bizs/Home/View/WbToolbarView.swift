@@ -9,7 +9,7 @@
 import UIKit
 import YYKit
 
-/// 标签视图
+/// 工具栏视图
 class WbToolbarView: UIView {
     
     override init(frame: CGRect) {
@@ -22,7 +22,7 @@ class WbToolbarView: UIView {
     }
     
     func setupViews() {
-        
+        self.backgroundColor = UIColor(hexString: "#999999")
     }
 }
 

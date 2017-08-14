@@ -7,8 +7,8 @@
 //
 
 /**
- *  主页Webo的思路及某些类，都是仿照YYKit的Demo写的，可直接参考：
- *  https://github.com/ibireme/YYKit 
+ *  主页Webo的思路及某些类，都是仿照YYKit的Demo写的，
+ *  可直接参考：https://github.com/ibireme/YYKit
  */
 
 import UIKit
@@ -23,7 +23,9 @@ class KYHomeController: UIViewController {
     
     lazy var wbTableView: UITableView = {
         let tb = UITableView()
+        tb.backgroundColor = UIColor(hexString: "#f2f2f2")
         tb.tableFooterView = UIView()
+        tb.separatorStyle = .none
         tb.dataSource = self
         tb.delegate = self
         

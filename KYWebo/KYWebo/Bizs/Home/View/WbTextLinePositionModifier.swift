@@ -18,7 +18,7 @@ class WbTextLinePositionModifier: NSObject {
     
     override init() {
         super.init()
-        lineHeightMultiple = 1.34  // for PingFang SC
+        lineHeightMultiple = 1.34       // for PingFang SC
     }
     
     func lineHeight(forLineCount lineCount: UInt) -> CGFloat {

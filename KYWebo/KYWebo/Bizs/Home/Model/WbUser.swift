@@ -44,8 +44,24 @@ class WbUser: NSObject {
     
     public static func modelCustomPropertyMapper() -> [String : Any]? {
         return [
-            "userID"    : "id",
-            "userIDStr" : "idString"
+            "userID"            : "id",
+            "userIDStr"         : "idString",
+            "genderString"      : "gender",
+            "desc"              : "description",
+            "screenName"        : "screen_name",
+            "followersCount"    : "followers_count",
+            "friendsCount"      : "friends_count",
+            "biFollowersCount"  : "bi_followers_count",
+            "favouritesCount"   : "favourites_count",
+            "statusesCount"     : "statuses_count",
+            "topicsCount"       : "topics_count",
+            "blockedCount"      : "blocked_count",
+            "profileImageURL"   : "profile_image_url",
+            "avatarLarge"       : "avatar_large",
+            "avatarHD"          : "avatar_hd",
+            "coverImagePhone"   : "cover_image_phone",
+            "profileURL"        : "profile_url",
+            "createdAt"         : "created_at"
         ]
     }
 }

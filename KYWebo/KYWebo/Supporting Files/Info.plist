@@ -47,7 +47,7 @@
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<false/>
+		<true/>
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>

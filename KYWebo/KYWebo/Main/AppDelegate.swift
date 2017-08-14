@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JPFPSStatus
 
 let kWeBoAppKey      = "4151174645"
 let kWeBoAppSecret   = "bc1ba90f99316f7437af12c6767270fd"
@@ -27,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // 注册Weibo的SDK
         WeiboSDK.enableDebugMode(true)
         WeiboSDK.registerApp(kWeBoAppKey)
         
@@ -40,6 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if WeiboSDK.isCanSSOInWeiboApp() && !isAuthorizeExpired() {
             ssoAuthorLogin()  // SSO 认证登录
         }
+        
+        // 开启FPS
+        JPFPSStatus.sharedInstance().open()
         
         return true
     }

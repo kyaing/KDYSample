@@ -38,6 +38,7 @@ class WbStatusView: UIView {
     
     func setupViews() {
         contentBgView = UIView()
+        contentBgView.backgroundColor = .white
         contentBgView.size = CGSize(width: YYScreenSize().width, height: 1)
         self.addSubview(contentBgView)
         
@@ -46,7 +47,7 @@ class WbStatusView: UIView {
         contentBgView.addSubview(profileView)
         
         textLabel = YYLabel()
-        textLabel.left = kCellPadding
+        textLabel.left  = kCellContentLeft
         textLabel.width = kCellContentWidth
         textLabel.textVerticalAlignment = .top
         textLabel.displaysAsynchronously = true
@@ -57,9 +58,11 @@ class WbStatusView: UIView {
             // 点击事件处理，代理到控制器中
             // ...
         }
+        contentBgView.addSubview(textLabel)
         
         toolbarView = WbToolbarView()
-        toolbarView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kCellToolbarHeight)
+        toolbarView.left = kCellContentLeft
+        toolbarView.size = CGSize(width: kCellContentWidth, height: kCellToolbarHeight)
         contentBgView.addSubview(toolbarView)
     }
     
@@ -67,23 +70,29 @@ class WbStatusView: UIView {
     
     func setupStatus(withViewmodel viewModel: HomeItemViewModel) {
         self.height = viewModel.totalHeight
-        contentBgView.height = viewModel.totalHeight
         
-        // 对Cell里的元素布局
+        contentBgView.top    = viewModel.topMargin
+        contentBgView.height = viewModel.totalHeight - viewModel.topMargin - viewModel.bottomMargin
+        
+        // 依次对Cell里的元素布局
         var top: CGFloat = 0  // y的坐标
         
+        // 个人资料
+        let avatarUrl = URL(string: viewModel.wbstatus.user.avatarLarge)
+        profileView.avatarIamge.setImageWith(avatarUrl, placeholder: nil)
         profileView.nameLabel.textLayout = viewModel.nameTextLayout
         profileView.sourceLabel.textLayout = viewModel.sourceTextLayout
         profileView.top = top
         top += viewModel.profileHeight
         
+        // 正文文本
         textLabel.textLayout = viewModel.textLayout
         textLabel.height = viewModel.textHeight
         textLabel.top = top
         top += viewModel.textHeight
         
+        // 工具栏
         toolbarView.bottom = contentBgView.height
-        toolbarView.top = top
     }
 }
 

@@ -13,11 +13,16 @@ let kCellProfileHeight: CGFloat   = 56   // 个人资料视图高度
 let kCellAvatorWidth: CGFloat     = 40   // 头像宽度
 let kCellPadding: CGFloat         = 12   // cell内边距
 let kCellPaddingText: CGFloat     = 10   // cell 文本与其他元素间留白
-let kCellToolbarHeight: CGFloat   = 35   // 底部工具栏高度
+let kCellToolbarHeight: CGFloat   = 30   // 底部工具栏高度
 let kScreenWidth: CGFloat         = YYScreenSize().width   // 屏幕宽
 let kScreenHeight: CGFloat        = YYScreenSize().height  // 屏幕高
-let kCellContentWidth: CGFloat    = kScreenWidth - 2 * kCellPadding  // 内容宽度
-let kCellNameWidth: CGFloat       = kScreenWidth - 110     // 名字宽度
+
+let kCellContentLeft: CGFloat     = kCellPadding * 2 + kCellAvatorWidth  // 文本距左距离
+let kCellContentWidth: CGFloat    = kScreenWidth - kCellPadding - kCellContentLeft  // 内容宽度
+let kCellNameWidth: CGFloat       = kScreenWidth - 80  // 名字宽度
+let kCellToolBarTop: CGFloat      = 8   // 工具栏与它之上间间距
+let kCellTopMargin: CGFloat       = 8
+let kCellBottomMargin: CGFloat    = 2
 
 let kCellNameFontSize: CGFloat    = 16  // 名字字体大小
 let kCellSourceFontSize: CGFloat  = 12  // 来源字体大小
@@ -29,6 +34,9 @@ class HomeItemViewModel: NSObject {
     // MARK: - Properites
     
     var wbstatus: WbStatus!
+    
+    var topMargin: CGFloat = 0           // 顶部留白
+    var bottomMargin: CGFloat = 0        // 底部留白
     
     var profileHeight: CGFloat = 0       // 个人资料高度
     var nameTextLayout: YYTextLayout!    // 名字布局
@@ -57,9 +65,15 @@ class HomeItemViewModel: NSObject {
         layoutBodyText()
         layoutToolbaar()
         
+        topMargin = kCellTopMargin
+        bottomMargin = kCellBottomMargin
+        
+        totalHeight += topMargin
         totalHeight += profileHeight
         totalHeight += textHeight
+        totalHeight += kCellToolBarTop
         totalHeight += toolbarHeight
+        totalHeight += bottomMargin
     }
     
     func layoutProfile() {
