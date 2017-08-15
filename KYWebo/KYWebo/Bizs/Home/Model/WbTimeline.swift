@@ -18,8 +18,6 @@ class WbTimeline: NSObject {
     
     var maxID: String = ""
     var sinceID: String = ""
-    var previousCursor: String = ""
-    var nextCursor: String = ""
     
     var statuses: Array<WbStatus> = []
 
@@ -29,9 +27,7 @@ class WbTimeline: NSObject {
             "hasUnread"      : "has_unread",
             "totalNumber"    : "total_number",
             "maxID"          : "max_id",
-            "sinceID"        : "since_id",
-            "previousCursor" : "previous_cursor",
-            "nextCursor"     : "next_cursor"
+            "sinceID"        : "since_id"
         ]
     }
     

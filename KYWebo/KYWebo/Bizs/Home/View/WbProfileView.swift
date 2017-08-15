@@ -67,13 +67,13 @@ class WbProfileView: UIView {
         
         nameLabel.snp.makeConstraints { (make) in
             make.top.equalTo(avatarIamge.snp.top)
-            make.left.equalTo(avatarIamge.snp.right).offset(kCellPadding)
+            make.left.equalTo(avatarIamge.snp.right).offset(kCellInsetPadding)
             make.size.equalTo(CGSize(width: kCellNameWidth, height: 22))
         }
         
         sourceLabel.snp.makeConstraints { (make) in
             make.top.equalTo(nameLabel.snp.bottom)
-            make.left.equalTo(avatarIamge.snp.right).offset(kCellPadding)
+            make.left.equalTo(avatarIamge.snp.right).offset(kCellInsetPadding)
             make.size.equalTo(CGSize(width: kCellNameWidth, height: 18))
         }
     }
