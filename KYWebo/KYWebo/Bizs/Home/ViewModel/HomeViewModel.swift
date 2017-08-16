@@ -30,7 +30,7 @@ class HomeViewModel: NSObject {
         
         var params: [String: String] = [:]
         params["access_token"] = authData["AccessTokenKey"] as? String
-        params["count"] = "10"
+        params["count"] = "30"
         
         _ = WBHttpRequest(url: "https://api.weibo.com/2/statuses/home_timeline.json",
                           httpMethod: "GET",

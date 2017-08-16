@@ -20,6 +20,10 @@
 		7A2EDB191F3DAE4F00872F10 /* WbStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */; };
 		7A2EDB1B1F3DB87D00872F10 /* WbTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */; };
 		7A2EDB201F41724F00872F10 /* WbTextLinePositionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB1F1F41724F00872F10 /* WbTextLinePositionModifier.swift */; };
+		7A2EDB241F43EA1500872F10 /* WbEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB231F43EA1500872F10 /* WbEmotion.swift */; };
+		7A2EDB271F43F74100872F10 /* EmoticonWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A2EDB261F43F74100872F10 /* EmoticonWeibo.bundle */; };
+		7A2EDB2B1F4445C900872F10 /* WbStatuesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB2A1F4445C900872F10 /* WbStatuesHelper.swift */; };
+		7A2EDB2E1F44518400872F10 /* WBStatusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB2D1F44518400872F10 /* WBStatusHelper.m */; };
 		7A5752411F3C3F8A009EAD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */; };
 		7A5752451F3C3FFD009EAD73 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752431F3C3FFD009EAD73 /* Info.plist */; };
 		7A5752481F3C408A009EAD73 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752471F3C408A009EAD73 /* Launch Screen.storyboard */; };
@@ -78,6 +82,11 @@
 		7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbStatus.swift; sourceTree = "<group>"; };
 		7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbTimeline.swift; sourceTree = "<group>"; };
 		7A2EDB1F1F41724F00872F10 /* WbTextLinePositionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbTextLinePositionModifier.swift; sourceTree = "<group>"; };
+		7A2EDB231F43EA1500872F10 /* WbEmotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbEmotion.swift; sourceTree = "<group>"; };
+		7A2EDB261F43F74100872F10 /* EmoticonWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonWeibo.bundle; sourceTree = "<group>"; };
+		7A2EDB2A1F4445C900872F10 /* WbStatuesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbStatuesHelper.swift; sourceTree = "<group>"; };
+		7A2EDB2C1F44518400872F10 /* WBStatusHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusHelper.h; sourceTree = "<group>"; };
+		7A2EDB2D1F44518400872F10 /* WBStatusHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusHelper.m; sourceTree = "<group>"; };
 		7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A5752431F3C3FFD009EAD73 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A5752461F3C4039009EAD73 /* KYWebo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KYWebo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -181,6 +190,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7A2EDB251F43F74100872F10 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7A2EDB261F43F74100872F10 /* EmoticonWeibo.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7A57523B1F3C3E61009EAD73 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +276,7 @@
 			children = (
 				7A2EDB161F3DADC000872F10 /* WbUser.swift */,
 				7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */,
+				7A2EDB231F43EA1500872F10 /* WbEmotion.swift */,
 				7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */,
 			);
 			path = Model;
@@ -267,8 +285,11 @@
 		7A5752761F3C5135009EAD73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7A2EDB2C1F44518400872F10 /* WBStatusHelper.h */,
+				7A2EDB2D1F44518400872F10 /* WBStatusHelper.m */,
 				7A2EDB101F3D806300872F10 /* HomeViewModel.swift */,
 				7A2EDB121F3D807100872F10 /* HomeItemViewModel.swift */,
+				7A2EDB2A1F4445C900872F10 /* WbStatuesHelper.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -312,6 +333,7 @@
 				7A57523E1F3C3F1C009EAD73 /* Bizs */,
 				7A57524E1F3C4B57009EAD73 /* Vender */,
 				7A57523C1F3C3E61009EAD73 /* Utils */,
+				7A2EDB251F43F74100872F10 /* Resources */,
 				7A5752421F3C3FC4009EAD73 /* Supporting Files */,
 				7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */,
 			);
@@ -466,6 +488,7 @@
 			files = (
 				7A5752481F3C408A009EAD73 /* Launch Screen.storyboard in Resources */,
 				7A5752451F3C3FFD009EAD73 /* Info.plist in Resources */,
+				7A2EDB271F43F74100872F10 /* EmoticonWeibo.bundle in Resources */,
 				7A97D31F1F3C36F300AC7C82 /* Assets.xcassets in Resources */,
 				7A5752551F3C4B57009EAD73 /* WeiboSDK.bundle in Resources */,
 			);
@@ -543,8 +566,10 @@
 				7A5752411F3C3F8A009EAD73 /* AppDelegate.swift in Sources */,
 				18D0B63C1F3EFB9900E99F91 /* HomeTimelineCell.swift in Sources */,
 				7A5752731F3C510F009EAD73 /* KYHomeController.swift in Sources */,
+				7A2EDB2B1F4445C900872F10 /* WbStatuesHelper.swift in Sources */,
 				7A2EDB151F3D8EC500872F10 /* WeboRequest.swift in Sources */,
 				7A2EDB1B1F3DB87D00872F10 /* WbTimeline.swift in Sources */,
+				7A2EDB2E1F44518400872F10 /* WBStatusHelper.m in Sources */,
 				18D0B6401F40391A00E99F91 /* WbStatusView.swift in Sources */,
 				7A2EDB131F3D807100872F10 /* HomeItemViewModel.swift in Sources */,
 				7A2EDB111F3D806300872F10 /* HomeViewModel.swift in Sources */,
@@ -554,6 +579,7 @@
 				7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */,
 				18D0B6441F403A1200E99F91 /* WbToolbarView.swift in Sources */,
 				18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */,
+				7A2EDB241F43EA1500872F10 /* WbEmotion.swift in Sources */,
 				7A2EDB201F41724F00872F10 /* WbTextLinePositionModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

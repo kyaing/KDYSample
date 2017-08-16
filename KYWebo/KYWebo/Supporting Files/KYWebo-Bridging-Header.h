@@ -4,4 +4,5 @@
 
 #import "WeiboSDK.h"
 #import <YYKit/YYKit.h>
+#import "WBStatusHelper.h"
 

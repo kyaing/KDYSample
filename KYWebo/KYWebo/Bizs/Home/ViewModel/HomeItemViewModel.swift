@@ -29,6 +29,11 @@ let kCellNameFontSize: CGFloat    = 16  // 名字字体大小
 let kCellSourceFontSize: CGFloat  = 12  // 来源字体大小
 let kCellTextFontSize: CGFloat    = 17  // 文本字体大小
 
+let kWbLinkHrefName: String  =  "href"
+let kWbLinkUrlName: String   =  "url"
+let kWbLinkTopicName: String =  "topic"
+let kWbLinkAtName: String    =  "at"
+
 /// 每个Cell的viewModel
 class HomeItemViewModel: NSObject {
     
@@ -154,7 +159,7 @@ class HomeItemViewModel: NSObject {
     
     // MARK: - Private Methods
     
-    // 解析富文本中的: #话题#；@人名；图片；链接等
+    // 解析富文本中的: #话题#；@好友；表情；链接等
     func parseText(withModel model: WbStatus, isRetweet: Bool, fontSize: CGFloat, textColor: UIColor) -> NSMutableAttributedString {
         let bodyText = model.text
         
@@ -162,24 +167,24 @@ class HomeItemViewModel: NSObject {
         attritext.font = UIFont.systemFont(ofSize: fontSize)
         attritext.color = textColor
         
-        // 提取超链接
-        parseTextLink(fromText: attritext)
+        parseTextLink(fromText: attritext)      // 解析链接
+        parseTextTopic(fromText: attritext)     // 解析话题
+        parseTextEmotion(fromText: attritext)   // 解析表情
+        parseTextAt(fromText: attritext)        // 解析@
         
         return attritext
     }
     
     func parseTextLink(fromText attritext: NSMutableAttributedString) {
         let regularStr = "((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)"
-        
-        let regex = try! NSRegularExpression(pattern: regularStr, options: .caseInsensitive)
-        let matchesArray: [NSTextCheckingResult] = regex.matches(in: attritext.string, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, attritext.string.characters.count))
+        let matchesArray = setupRegexArray(regularStr: regularStr, attritext: attritext)
         
         let newString = attritext.string as NSString
         var urlArray: [String] = []
         
         for match in matchesArray {
             let substring = newString.substring(with: match.range)
-            print("substring = \(substring)")
+            print("url substring = \(substring)")
             urlArray.append(substring)
         }
         
@@ -196,9 +201,15 @@ class HomeItemViewModel: NSObject {
             }
             
             if attritext.attribute(YYTextHighlightAttributeName, at: UInt(range.location)) == nil {
-                let replace   = NSMutableAttributedString(string: "网页链接")
-                replace.font  = UIFont.systemFont(ofSize: kCellNameFontSize)
+                let replace   = NSMutableAttributedString(string: "网页链接")  // 暂且使用 "网页链接"
+                replace.font  = UIFont.systemFont(ofSize: kCellTextFontSize)
                 replace.color = UIColor(hexString: "#527ead")
+                
+                // 高亮状态
+                let highlight = YYTextHighlight()
+                highlight.setBackgroundBorder(setupHightlight())
+                highlight.userInfo = [kWbLinkUrlName: url]  // 存储数据
+                replace.setTextHighlight(highlight, range: NSRange(location: 0, length: replace.length))
                 
                 if range.location + range.length > attritext.length {
                     break
@@ -208,48 +219,168 @@ class HomeItemViewModel: NSObject {
                 searchRange.location = searchRange.location + ((replace.length > 0) ? replace.length : 1)
                 if (searchRange.location + 1 >= attritext.length) { break }
                 searchRange.length = attritext.length - searchRange.location
-                
-            } else{
-                searchRange.location = searchRange.location + ((searchRange.length > 0) ? searchRange.length : 1)
-                if (searchRange.location + 1 >= attritext.length) { break }
-                searchRange.length = attritext.length - searchRange.location
             }
         }
     }
     
     func parseTextTopic(fromText attritext: NSMutableAttributedString) {
+        let regularStr = "#[^@#]+?#"
+        let matchesArray = setupRegexArray(regularStr: regularStr, attritext: attritext)
         
+        let newString = attritext.string as NSString
+        for match in matchesArray {
+            if match.range.location == NSNotFound && match.range.length <= 1 { continue }
+            
+            if attritext.attribute(YYTextHighlightAttributeName, at: UInt(match.range.location)) == nil {
+                attritext.setFont(UIFont.systemFont(ofSize: kCellTextFontSize), range: match.range)
+                attritext.setColor(UIColor(hexString: "#527ead"), range: match.range)
+                
+                // 高亮状态
+                let highlight = YYTextHighlight()
+                highlight.setBackgroundBorder(setupHightlight())
+                
+                let substring = newString.substring(with: NSRange(location: match.range.location + 1, length: match.range.length - 2)) as NSString
+                print("topic substring = \(substring)")
+                
+                highlight.userInfo = [kWbLinkAtName: newString]  // 存储数据
+                attritext.setTextHighlight(highlight, range: match.range)
+            }
+        }
     }
     
     func parseTextEmotion(fromText attritext: NSMutableAttributedString) {
+        let regularStr = "\\[[^ \\[\\]]+?\\]"
+        let matchesArray = setupRegexArray(regularStr: regularStr, attritext: attritext)
+        let newString = attritext.string as NSString
         
+        var emoClipLength: Int = 0
+        for match in matchesArray {
+            if match.range.location == NSNotFound && match.range.length <= 1 { continue }
+            
+            var range = match.range
+            range.location -= emoClipLength  // 注意 location的变化
+            
+            let substring = newString.substring(with: match.range)
+            print("emotion substring = \(substring)")
+            
+            if attritext.attribute(YYTextHighlightAttributeName, at: UInt(range.location)) != nil { continue }
+            if attritext.attribute(YYTextAttachmentAttributeName, at: UInt(range.location)) != nil { continue }
+            
+            if let imagePath = getEmoticonDic()?.object(forKey: substring) as? String {
+                if let image = WBStatusHelper.image(withPath: imagePath) {
+                    let emotionText = NSAttributedString.attachmentString(withEmojiImage: image, fontSize: kCellTextFontSize)
+                    attritext.replaceCharacters(in: range, with: emotionText!)
+                    emoClipLength += range.length - 1
+                }
+            }
+        }
     }
     
     func parseTextAt(fromText attritext: NSMutableAttributedString) {
+        let regularStr = "@[0-9a-zA-Z\\u4e00-\\u9fa5]+"
+        let matchesArray = setupRegexArray(regularStr: regularStr, attritext: attritext)
         
+        let newString = attritext.string as NSString
+        for match in matchesArray {
+            if match.range.location == NSNotFound && match.range.length <= 1 { continue }
+            
+            if attritext.attribute(YYTextHighlightAttributeName, at: UInt(match.range.location)) == nil {
+                attritext.setFont(UIFont.systemFont(ofSize: kCellTextFontSize), range: match.range)
+                attritext.setColor(UIColor(hexString: "#527ead"), range: match.range)
+                
+                // 高亮状态
+                let highlight = YYTextHighlight()
+                highlight.setBackgroundBorder(setupHightlight())
+                
+                let substring = newString.substring(with: NSRange(location: match.range.location + 1, length: match.range.length - 1)) as NSString
+                print("at substring = \(substring)")
+                
+                highlight.userInfo = [kWbLinkAtName: substring]  // 存储数据
+                attritext.setTextHighlight(highlight, range: match.range)
+            }
+        }
     }
-}
-
-extension String {
-    func nsRange(from range: Range<String.Index>) -> NSRange {
-        let from = range.lowerBound.samePosition(in: utf16)
-        let to = range.upperBound.samePosition(in: utf16)
+    
+    func setupHightlight() -> YYTextBorder {
+        let highlightBorder = YYTextBorder()
+        highlightBorder.insets = UIEdgeInsetsMake(-2, -1, -2, -1)
+        highlightBorder.cornerRadius = 3.0
+        highlightBorder.fillColor = UIColor(hexString: "#bfdffe")
         
-        return NSRange(location: utf16.distance(from: utf16.startIndex, to: from),
-                       length: utf16.distance(from: from, to: to))
+        return highlightBorder
     }
-}
+    
+    func setupRegexArray(regularStr str: String,
+                         attritext: NSMutableAttributedString) -> [NSTextCheckingResult] {
 
-extension String {
-    func range(from nsRange: NSRange) -> Range<String.Index>? {
-        guard
-            let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
-            let to16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location + nsRange.length, limitedBy: utf16.endIndex),
-            let from = from16.samePosition(in: self),
-            let to = to16.samePosition(in: self)
-            else { return nil }
+        let regex = try! NSRegularExpression(pattern: str, options: .caseInsensitive)
+        let matchesArray = regex.matches(in: attritext.string,
+                                         options: NSRegularExpression.MatchingOptions(rawValue: 0),
+                                         range: attritext.rangeOfAll()) as [NSTextCheckingResult]
         
-        return from ..< to
+        return matchesArray
+    }
+    
+    func getEmoticonDic() -> NSDictionary? {
+        guard let bundlePath = Bundle.main.path(forResource: "EmoticonWeibo.bundle", ofType: nil) else {
+            return nil
+        }
+        let dic = getEmoticonDic(fromPath: bundlePath)
+        
+        return dic
+    }
+    
+    func getEmoticonDic(fromPath path: String) -> NSMutableDictionary? {
+        let emotionDic = NSMutableDictionary()
+        
+        let _path = path as NSString
+        let jsonPath = _path.appendingPathComponent("info.json")
+        
+        var json: NSData?
+        var group: WbEmoticonGroup?
+        
+        json = try? NSData(contentsOfFile: jsonPath)
+        if (json != nil) {
+            group = WbEmoticonGroup.model(withJSON: json!)
+        }
+        
+        if group == nil {
+            let plistPath = _path.appendingPathComponent("info.plist")
+            if let plist = NSDictionary(contentsOfFile: plistPath) {
+                group = WbEmoticonGroup.model(withJSON: plist)
+            }
+        }
+        
+        if group != nil {
+            for emotion in (group?.emoticons)! {
+                if emotion.png.characters.count == 0 { continue }
+                let pngPath = _path.appendingPathComponent(emotion.png)
+                
+                if emotion.chs.characters.count > 0 {
+                    emotionDic[emotion.chs] = pngPath
+                }
+                if emotion.cht.characters.count > 0 {
+                    emotionDic[emotion.cht] = pngPath
+                }
+            }
+        }
+
+        let folders: [String]? = try? FileManager.default.contentsOfDirectory(atPath: path)
+        
+        if let _folders = folders {
+            for folder in _folders {
+                if folder.characters.count == 0 { continue }
+                
+                // 递归处理表情
+                if let subDic = getEmoticonDic(fromPath: _path.appendingPathComponent(folder)) {
+                    if subDic.count > 0 {
+                        emotionDic.addEntries(from: subDic as! [AnyHashable : Any])
+                    }
+                }
+            }
+        }
+        
+        return emotionDic
     }
 }
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import YYKit
 
 class WbStatus: NSObject {
     
@@ -36,7 +35,6 @@ class WbStatus: NSObject {
     var source: String = ""             // 来源
     var sourceType: Int = 0
     var sourceAllowClick: Int = 0       // 是否可以点击
-    
     
     public static func modelCustomPropertyMapper() -> [String : Any]? {
         return [

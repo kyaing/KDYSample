@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import YYKit
 
 /// 用户类型模型
 class WbUser: NSObject {
