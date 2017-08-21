@@ -19,9 +19,13 @@ class WbStatusView: UIView {
     
     var textLabel: YYLabel!          // 正文文本
     
+    var picsView: UIView!
+    
     var retweetBgView: UIView!       // 转发视图
     
     var retweetTextLabel: YYLabel!   // 转发文本
+    
+    var retweetPicsView: UIView!
     
     var toolbarView: WbToolbarView!  // 工具栏视图
     
@@ -63,6 +67,11 @@ class WbStatusView: UIView {
         }
         contentBgView.addSubview(textLabel)
         
+        picsView = UIView()
+        picsView.backgroundColor = .gray
+        picsView.left = kCellReteetLeft
+        contentBgView.addSubview(picsView)
+        
         // 转发视图
         retweetBgView = UIView()
         retweetBgView.left  = kCellContentLeft
@@ -84,6 +93,11 @@ class WbStatusView: UIView {
             // ...
         }
         contentBgView.addSubview(retweetTextLabel)
+        
+        retweetPicsView = UIView()
+        retweetPicsView.backgroundColor = .gray
+        retweetPicsView.left = kCellReteetLeft
+        contentBgView.addSubview(retweetPicsView)
         
         // 工具栏
         toolbarView = WbToolbarView()
@@ -116,7 +130,6 @@ class WbStatusView: UIView {
         textLabel.height = viewModel.textHeight
         textLabel.top = top
         top += viewModel.textHeight
-        top += kCellPaddingText
         
         // 隐藏转发视图元素
         retweetBgView.isHidden = true
@@ -128,20 +141,22 @@ class WbStatusView: UIView {
             retweetBgView.height = viewModel.retweetHeight
             retweetBgView.top = top
             
-            guard let textlayout = viewModel.retweetTextLayout else { return }
-            
-            retweetTextLabel.isHidden = false
-            retweetTextLabel.textLayout = textlayout
-            retweetTextLabel.height = viewModel.retweetTextHeight
-            retweetTextLabel.top = top
+            if let textlayout = viewModel.retweetTextLayout {
+                retweetTextLabel.isHidden = false
+                retweetTextLabel.textLayout = textlayout
+                retweetTextLabel.height = viewModel.retweetTextHeight
+                retweetTextLabel.top = top
+            }
             
             // 有转发的图片或视频
             if viewModel.retweetPicHeight > 0 {
-                
+                retweetPicsView.height = viewModel.retweetPicHeight
+                retweetPicsView.top = retweetTextLabel.bottom
             }
             
         } else if viewModel.picHeight > 0  {
-            
+            picsView.height = viewModel.picHeight
+            picsView.top = textLabel.bottom
         }
         
         // 工具栏

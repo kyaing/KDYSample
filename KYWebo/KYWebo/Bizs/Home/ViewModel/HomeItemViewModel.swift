@@ -45,8 +45,8 @@ class HomeItemViewModel: NSObject {
     
     var wbstatus: WbStatus?
     
-    var topMargin: CGFloat = 0           // 顶部留白
-    var bottomMargin: CGFloat = 0        // 底部留白
+    let topMargin = kCellTopMargin       // 顶部留白
+    let bottomMargin = kCellBottomMargin // 底部留白
     
     var profileHeight: CGFloat = 0       // 个人资料高度
     var nameTextLayout: YYTextLayout!    // 名字布局
@@ -79,18 +79,21 @@ class HomeItemViewModel: NSObject {
     func layoutCell() {
         layoutProfile()
         layoutText()
-        layoutPics()
         layoutRetweet()
+        if retweetHeight == 0 {
+            layoutPics()
+        }
         layoutToolbar()
-        
-        topMargin = kCellTopMargin
-        bottomMargin = kCellBottomMargin
         
         totalHeight += topMargin
         totalHeight += profileHeight
         totalHeight += textHeight
-        totalHeight += picHeight
-        totalHeight += retweetHeight
+        
+        if retweetHeight > 0 {
+            totalHeight += retweetHeight
+        } else if picHeight > 0 {
+            totalHeight += picHeight
+        }
         totalHeight += kCellToolBarTop
         totalHeight += toolbarHeight
         totalHeight += bottomMargin
@@ -158,7 +161,7 @@ class HomeItemViewModel: NSObject {
     }
     
     func layoutPics() {
-        
+        parsePicUrls(withModel: wbstatus, isRetweet: false)
     }
     
     func layoutRetweet() {
@@ -171,7 +174,6 @@ class HomeItemViewModel: NSObject {
         }
         
         if retweetPicHeight > 0 {
-            retweetHeight += kCellPadding
             retweetHeight += retweetPicHeight
         }
     }
@@ -196,14 +198,42 @@ class HomeItemViewModel: NSObject {
     }
     
     func layoutRetweetPics() {
-        
+        parsePicUrls(withModel: wbstatus?.retweetedStatus, isRetweet: true)
     }
     
     func layoutToolbar() {
-        totalHeight = kCellToolbarHeight
+        toolbarHeight = kCellToolbarHeight
     }
     
     // MARK: - Private Methods
+    
+    func parsePicUrls(withModel model: WbStatus?, isRetweet: Bool) {
+        guard let picUrls = wbstatus?.picUrls else { return }
+        
+        let height: CGFloat = (kCellContentWidth - 2 * kCellPaddingText) / 3.0
+        var _picHeight: CGFloat = 0
+        
+        // 九宫格图片
+        switch picUrls.count {
+        case 1:
+            _picHeight = height
+            break
+        case 2, 3:
+            _picHeight = height + kCellPaddingText
+            break
+        case 4, 5, 6:
+            _picHeight = height * 2 + kCellPaddingText
+            break
+        default:
+            _picHeight = height * 3 + kCellPaddingText * 2
+        }
+        
+        if isRetweet {
+            retweetPicHeight = _picHeight
+        } else {
+            picHeight = _picHeight
+        }
+    }
     
     // 解析富文本中的: #话题#；@好友；表情；链接等
     func parseText(withModel model: WbStatus?, isRetweet: Bool, fontSize: CGFloat, textColor: UIColor) -> NSMutableAttributedString? {

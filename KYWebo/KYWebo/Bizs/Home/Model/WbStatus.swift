@@ -21,6 +21,7 @@ class WbStatus: NSObject {
     var thumbnailPic: String = ""       // 缩略图
     var bmiddlePic: String = ""         // 中图
     var originalPic: String = ""        // 原图
+    var picUrls: Array<WbPicture> = []  // 图片
     
     var retweetedStatus: WbStatus?      // 转发的微博
     
@@ -51,8 +52,13 @@ class WbStatus: NSObject {
             "thumbnailPic"          : "thumbnail_pic",
             "bmiddlePic"            : "bmiddle_pic",
             "originalPic"           : "original_pic",
+            "picUrls"               : "pic_urls",
             "retweetedStatus"       : "retweeted_status"
         ]
+    }
+    
+    public static func modelContainerPropertyGenericClass() -> [String : Any]? {
+        return ["picUrls": WbPicture.classForCoder()]
     }
 }
 

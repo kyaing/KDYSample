@@ -45,6 +45,7 @@
 		7A97D31F1F3C36F300AC7C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */; };
 		7A97D32D1F3C36F400AC7C82 /* KYWeboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */; };
 		7A97D3381F3C36F500AC7C82 /* KYWeboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */; };
+		7ACB6F411F4AAE8700418223 /* WbPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB6F401F4AAE8700418223 /* WbPicture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		7A97D3331F3C36F400AC7C82 /* KYWeboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYWeboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYWeboUITests.swift; sourceTree = "<group>"; };
 		7A97D3391F3C36F500AC7C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ACB6F401F4AAE8700418223 /* WbPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbPicture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 			children = (
 				7A2EDB161F3DADC000872F10 /* WbUser.swift */,
 				7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */,
+				7ACB6F401F4AAE8700418223 /* WbPicture.swift */,
 				7A2EDB231F43EA1500872F10 /* WbEmotion.swift */,
 				7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */,
 			);
@@ -579,6 +582,7 @@
 				7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */,
 				18D0B6441F403A1200E99F91 /* WbToolbarView.swift in Sources */,
 				18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */,
+				7ACB6F411F4AAE8700418223 /* WbPicture.swift in Sources */,
 				7A2EDB241F43EA1500872F10 /* WbEmotion.swift in Sources */,
 				7A2EDB201F41724F00872F10 /* WbTextLinePositionModifier.swift in Sources */,
 			);
