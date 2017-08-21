@@ -33,7 +33,7 @@ class HomeTimelineCell: UITableViewCell {
     func setupCell(withViewmodel viewModel: HomeItemViewModel) {
         self.height = viewModel.totalHeight
         self.contentView.height = viewModel.totalHeight
-        
+    
         statusView.setupStatus(withViewmodel: viewModel)
     }
 }

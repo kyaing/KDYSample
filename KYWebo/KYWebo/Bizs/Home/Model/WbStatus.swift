@@ -50,7 +50,8 @@ class WbStatus: NSObject {
             "attitudesCount"        : "attitudes_count",
             "thumbnailPic"          : "thumbnail_pic",
             "bmiddlePic"            : "bmiddle_pic",
-            "originalPic"           : "original_pic"
+            "originalPic"           : "original_pic",
+            "retweetedStatus"       : "retweeted_status"
         ]
     }
 }

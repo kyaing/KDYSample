@@ -16,5 +16,4 @@
 /// 从path创建图片 (有缓存)
 + (UIImage *)imageWithPath:(NSString *)path;
 
-
 @end

@@ -29,6 +29,10 @@ let kCellNameFontSize: CGFloat    = 16  // 名字字体大小
 let kCellSourceFontSize: CGFloat  = 12  // 来源字体大小
 let kCellTextFontSize: CGFloat    = 17  // 文本字体大小
 
+let kCellReteetTextSize: CGFloat  = 16  // 转发文本字体大小
+let kCellReteetLeft: CGFloat      = kCellContentLeft + kCellPaddingText  // 转发文本距左距离
+let kCellReteetWidth: CGFloat     = kCellContentWidth - kCellPadding  // 转发内容宽度
+
 let kWbLinkHrefName: String  =  "href"
 let kWbLinkUrlName: String   =  "url"
 let kWbLinkTopicName: String =  "topic"
@@ -39,7 +43,7 @@ class HomeItemViewModel: NSObject {
     
     // MARK: - Properites
     
-    var wbstatus: WbStatus!
+    var wbstatus: WbStatus?
     
     var topMargin: CGFloat = 0           // 顶部留白
     var bottomMargin: CGFloat = 0        // 底部留白
@@ -50,6 +54,12 @@ class HomeItemViewModel: NSObject {
     
     var textHeight: CGFloat = 0          // 文本高度
     var textLayout: YYTextLayout!        // 文本布局
+    var picHeight: CGFloat = 0           // 图片的高度
+    
+    var retweetTextHeight: CGFloat = 0   // 转发文本高度
+    var retweetTextLayout: YYTextLayout? // 转发文本布局
+    var retweetHeight: CGFloat = 0       // 转发内容的高度
+    var retweetPicHeight: CGFloat = 0    // 转发图片的高度
     
     var toolbarHeight: CGFloat = 0       // 工具栏高度
     var toolbarLayout: YYTextLayout!     // 工具栏布局
@@ -68,8 +78,8 @@ class HomeItemViewModel: NSObject {
     
     func layoutCell() {
         layoutProfile()
-        layoutBodyText()
-        layoutPictures()
+        layoutText()
+        layoutPics()
         layoutRetweet()
         layoutToolbar()
         
@@ -79,6 +89,8 @@ class HomeItemViewModel: NSObject {
         totalHeight += topMargin
         totalHeight += profileHeight
         totalHeight += textHeight
+        totalHeight += picHeight
+        totalHeight += retweetHeight
         totalHeight += kCellToolBarTop
         totalHeight += toolbarHeight
         totalHeight += bottomMargin
@@ -92,7 +104,7 @@ class HomeItemViewModel: NSObject {
     }
     
     func layoutProfileName() {
-        let user = wbstatus.user
+        guard let user = wbstatus?.user else { return }
         
         var nameString: String = ""
         if user.remark.characters.count > 0 {
@@ -115,7 +127,7 @@ class HomeItemViewModel: NSObject {
     }
     
     func layoutProfileSource() {
-        let createTime = wbstatus.createdAt
+        guard let createTime = wbstatus?.createdAt else { return }
         
         // 来源的富文本
         let sourceAttriText = NSMutableAttributedString(string: createTime)
@@ -127,11 +139,11 @@ class HomeItemViewModel: NSObject {
         sourceTextLayout = YYTextLayout(container: sourceContainer, text: sourceAttriText)
     }
     
-    func layoutBodyText() {
-        let bodyAttriText = parseText(withModel: wbstatus,
-                                      isRetweet: false,
-                                      fontSize: kCellTextFontSize,
-                                      textColor: UIColor(hexString: "#333333")!)
+    func layoutText() {
+        guard let bodyAttriText = parseText(withModel: wbstatus,
+                                            isRetweet: false,
+                                             fontSize: kCellTextFontSize,
+                                            textColor: UIColor(hexString: "#333333")!) else { return }
         
         let modifier = WbTextLinePositionModifier()
         modifier.font = UIFont(name: "Heiti SC", size: kCellTextFontSize)
@@ -140,16 +152,50 @@ class HomeItemViewModel: NSObject {
         
         let textContainer: YYTextContainer = YYTextContainer(size: CGSize(width: kCellContentWidth, height: CGFloat(HUGE)))
         textContainer.linePositionModifier = modifier
-        textLayout = YYTextLayout(container: textContainer, text: bodyAttriText)
         
+        textLayout = YYTextLayout(container: textContainer, text: bodyAttriText)
         textHeight = modifier.lineHeight(forLineCount: textLayout.rowCount)
     }
     
-    func layoutPictures() {
+    func layoutPics() {
         
     }
     
     func layoutRetweet() {
+        layoutRetweetText()
+        layoutRetweetPics()
+        
+        retweetHeight += retweetTextHeight
+        if retweetHeight > 0 {
+            retweetHeight += kCellPaddingText
+        }
+        
+        if retweetPicHeight > 0 {
+            retweetHeight += kCellPadding
+            retweetHeight += retweetPicHeight
+        }
+    }
+    
+    func layoutRetweetText() {
+        guard let bodyAttriText = parseText(withModel: wbstatus?.retweetedStatus,
+                                            isRetweet: true,
+                                             fontSize: kCellReteetTextSize,
+                                            textColor: UIColor(hexString: "#5d5d5d")!) else { return }
+        
+        let modifier = WbTextLinePositionModifier()
+        modifier.font = UIFont(name: "Heiti SC", size: kCellReteetTextSize)
+        modifier.paddingTop = kCellPaddingText
+        modifier.paddingBottom = kCellPaddingText
+        
+        let textContainer: YYTextContainer = YYTextContainer(size: CGSize(width: kCellReteetWidth, height: CGFloat(HUGE)))
+        textContainer.linePositionModifier = modifier
+        
+        retweetTextLayout = YYTextLayout(container: textContainer, text: bodyAttriText)
+        if retweetTextLayout == nil { return }
+        retweetTextHeight = modifier.lineHeight(forLineCount: (retweetTextLayout!.rowCount))
+    }
+    
+    func layoutRetweetPics() {
         
     }
     
@@ -160,8 +206,16 @@ class HomeItemViewModel: NSObject {
     // MARK: - Private Methods
     
     // 解析富文本中的: #话题#；@好友；表情；链接等
-    func parseText(withModel model: WbStatus, isRetweet: Bool, fontSize: CGFloat, textColor: UIColor) -> NSMutableAttributedString {
-        let bodyText = model.text
+    func parseText(withModel model: WbStatus?, isRetweet: Bool, fontSize: CGFloat, textColor: UIColor) -> NSMutableAttributedString? {
+        
+        guard var bodyText = model?.text else { return nil }
+        
+        if isRetweet {
+            if let name = model?.user.name {
+                let nameStr = String(format: "@%@:", name)
+                bodyText.insert(contentsOf: nameStr.characters, at: bodyText.startIndex)  // String->Characters
+            }
+        }
         
         let attritext = NSMutableAttributedString(string: bodyText)
         attritext.font = UIFont.systemFont(ofSize: fontSize)
@@ -170,7 +224,7 @@ class HomeItemViewModel: NSObject {
         parseTextLink(fromText: attritext)      // 解析链接
         parseTextTopic(fromText: attritext)     // 解析话题
         parseTextEmotion(fromText: attritext)   // 解析表情
-        parseTextAt(fromText: attritext)        // 解析@
+        parseTextAt(fromText: attritext)        // 解析@用户名
         
         return attritext
     }
