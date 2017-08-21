@@ -68,8 +68,9 @@ class WbStatusView: UIView {
         contentBgView.addSubview(textLabel)
         
         picsView = UIView()
-        picsView.backgroundColor = .gray
-        picsView.left = kCellReteetLeft
+        picsView.backgroundColor = .white
+        picsView.left = kCellContentLeft
+        picsView.width = kCellContentWidth
         contentBgView.addSubview(picsView)
         
         // 转发视图
@@ -97,6 +98,7 @@ class WbStatusView: UIView {
         retweetPicsView = UIView()
         retweetPicsView.backgroundColor = .gray
         retweetPicsView.left = kCellReteetLeft
+        retweetPicsView.width = kCellReteetWidth
         contentBgView.addSubview(retweetPicsView)
         
         // 工具栏
@@ -131,9 +133,11 @@ class WbStatusView: UIView {
         textLabel.top = top
         top += viewModel.textHeight
         
-        // 隐藏转发视图元素
+        // 先隐藏元素
         retweetBgView.isHidden = true
         retweetTextLabel.isHidden = true
+        retweetPicsView.isHidden = true
+        picsView.isHidden = true
         
         // 转发视图，展示的优先级：转发->图片
         if viewModel.retweetHeight > 0 {
@@ -149,18 +153,91 @@ class WbStatusView: UIView {
             }
             
             // 有转发的图片或视频
-            if viewModel.retweetPicHeight > 0 {
-                retweetPicsView.height = viewModel.retweetPicHeight
+            if viewModel.retweetPicsHeight > 0 {
+                retweetPicsView.isHidden = false
+                retweetPicsView.height = viewModel.retweetPicsHeight
                 retweetPicsView.top = retweetTextLabel.bottom
+                
+                setPicsImage(withViewModel: viewModel, isRetweet: true)
             }
             
-        } else if viewModel.picHeight > 0  {
-            picsView.height = viewModel.picHeight
+        } else if viewModel.picsHeight > 0  {
+            picsView.isHidden = false
+            picsView.height = viewModel.picsHeight
             picsView.top = textLabel.bottom
+            
+            setPicsImage(withViewModel: viewModel, isRetweet: false)
         }
         
         // 工具栏
         toolbarView.bottom = contentBgView.height
+    }
+    
+    func setPicsImage(withViewModel viewModel: HomeItemViewModel, isRetweet: Bool) {
+        guard let model = viewModel.wbstatus else { return }
+        
+        var picArray: [WbPicture] = []
+        var height: CGFloat = 0
+        
+        if isRetweet {
+            guard let array = model.retweetedStatus?.picUrls else { return }
+            picArray = array
+            height = viewModel.retweetPicSize.height
+            
+            var i = 0
+            for pic in picArray {  // 创建九宫格
+                let imageView = UIImageView()
+                imageView.contentMode = .scaleAspectFill
+                imageView.layer.masksToBounds = true
+                imageView.setImageWith(URL(string: pic.thumbnail), placeholder: nil)
+                
+                if isRetweet {
+                    retweetPicsView.addSubview(imageView)
+                } else {
+                    picsView.addSubview(imageView)
+                }
+                
+                let row = i / 3  // 3 为列数
+                let col = i % 3
+                let margin: CGFloat = 5
+                
+                let xPos = CGFloat(col) * CGFloat(height + margin)
+                let yPos = CGFloat(row) * CGFloat(height + margin)
+                imageView.frame = CGRect(x: xPos, y: yPos, width: height, height: height)
+                
+                i += 1
+            }
+
+            
+        } else {
+            picArray = model.picUrls
+            height = viewModel.picSize.height
+            
+            var i = 0
+            for pic in picArray {  // 创建九宫格
+                let imageView = UIImageView()
+                imageView.contentMode = .scaleAspectFill
+                imageView.layer.masksToBounds = true
+                imageView.setImageWith(URL(string: pic.thumbnail), placeholder: nil)
+                
+                if isRetweet {
+                    retweetPicsView.addSubview(imageView)
+                } else {
+                    picsView.addSubview(imageView)
+                }
+                
+                let row = i / 3  // 3 为列数
+                let col = i % 3
+                let margin: CGFloat = 5
+                
+                let xPos = CGFloat(col) * CGFloat(height + margin)
+                let yPos = CGFloat(row) * CGFloat(height + margin)
+                imageView.frame = CGRect(x: xPos, y: yPos, width: height, height: height)
+                
+                i += 1
+            }
+
+        }
     }
 }
 

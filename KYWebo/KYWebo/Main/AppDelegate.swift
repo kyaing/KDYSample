@@ -11,6 +11,7 @@ import JPFPSStatus
 
 let kWeBoAppKey      = "4151174645"
 let kWeBoAppSecret   = "bc1ba90f99316f7437af12c6767270fd"
+
 let kWeBoRedirectUrl = "https://api.weibo.com/oauth2/default.html"
 let kWeBoBaseUrl     = "https://api.weibo.com/2/"
 

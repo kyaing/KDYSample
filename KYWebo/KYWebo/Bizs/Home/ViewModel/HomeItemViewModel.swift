@@ -54,12 +54,16 @@ class HomeItemViewModel: NSObject {
     
     var textHeight: CGFloat = 0          // 文本高度
     var textLayout: YYTextLayout!        // 文本布局
-    var picHeight: CGFloat = 0           // 图片的高度
+    
+    var picsHeight: CGFloat = 0          // 图片的高度
+    var picSize: CGSize = .zero          // 单张图片的尺寸
     
     var retweetTextHeight: CGFloat = 0   // 转发文本高度
     var retweetTextLayout: YYTextLayout? // 转发文本布局
     var retweetHeight: CGFloat = 0       // 转发内容的高度
-    var retweetPicHeight: CGFloat = 0    // 转发图片的高度
+    
+    var retweetPicsHeight: CGFloat = 0   // 转发图片的高度
+    var retweetPicSize: CGSize = .zero   // 单张转发图片的尺寸
     
     var toolbarHeight: CGFloat = 0       // 工具栏高度
     var toolbarLayout: YYTextLayout!     // 工具栏布局
@@ -91,8 +95,8 @@ class HomeItemViewModel: NSObject {
         
         if retweetHeight > 0 {
             totalHeight += retweetHeight
-        } else if picHeight > 0 {
-            totalHeight += picHeight
+        } else if picsHeight > 0 {
+            totalHeight += picsHeight
         }
         totalHeight += kCellToolBarTop
         totalHeight += toolbarHeight
@@ -173,8 +177,8 @@ class HomeItemViewModel: NSObject {
             retweetHeight += kCellPaddingText
         }
         
-        if retweetPicHeight > 0 {
-            retweetHeight += retweetPicHeight
+        if retweetPicsHeight > 0 {
+            retweetHeight += retweetPicsHeight
         }
     }
     
@@ -208,9 +212,15 @@ class HomeItemViewModel: NSObject {
     // MARK: - Private Methods
     
     func parsePicUrls(withModel model: WbStatus?, isRetweet: Bool) {
+        if model == nil { return }
         guard let picUrls = wbstatus?.picUrls else { return }
+        if picUrls.count == 0 {
+            return
+        }
         
         let height: CGFloat = (kCellContentWidth - 2 * kCellPaddingText) / 3.0
+        let _picSize: CGSize = CGSize(width: height, height: height)
+        
         var _picHeight: CGFloat = 0
         
         // 九宫格图片
@@ -218,20 +228,25 @@ class HomeItemViewModel: NSObject {
         case 1:
             _picHeight = height
             break
+            
         case 2, 3:
             _picHeight = height + kCellPaddingText
             break
+            
         case 4, 5, 6:
             _picHeight = height * 2 + kCellPaddingText
             break
+            
         default:
             _picHeight = height * 3 + kCellPaddingText * 2
         }
         
         if isRetweet {
-            retweetPicHeight = _picHeight
+            retweetPicsHeight = _picHeight
+            retweetPicSize = _picSize
         } else {
-            picHeight = _picHeight
+            picsHeight = _picHeight
+            picSize = _picSize
         }
     }
     
