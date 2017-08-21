@@ -173,7 +173,7 @@ class HomeItemViewModel: NSObject {
         layoutRetweetPics()
         
         retweetHeight += retweetTextHeight
-        if retweetHeight > 0 {
+        if retweetHeight > 0 {  // 要确定有转发内容
             retweetHeight += kCellPaddingText
         }
         
@@ -202,7 +202,9 @@ class HomeItemViewModel: NSObject {
     }
     
     func layoutRetweetPics() {
-        parsePicUrls(withModel: wbstatus?.retweetedStatus, isRetweet: true)
+        if let wbstatus = wbstatus?.retweetedStatus {
+            parsePicUrls(withModel: wbstatus, isRetweet: true)
+        }
     }
     
     func layoutToolbar() {
@@ -213,12 +215,13 @@ class HomeItemViewModel: NSObject {
     
     func parsePicUrls(withModel model: WbStatus?, isRetweet: Bool) {
         if model == nil { return }
-        guard let picUrls = wbstatus?.picUrls else { return }
+        guard let picUrls = model?.picUrls else { return }
+        
         if picUrls.count == 0 {
             return
         }
         
-        let height: CGFloat = (kCellContentWidth - 2 * kCellPaddingText) / 3.0
+        let height: CGFloat = (kCellContentWidth * 0.9 - 2 * kCellPaddingText) / 3.0
         let _picSize: CGSize = CGSize(width: height, height: height)
         
         var _picHeight: CGFloat = 0
@@ -226,11 +229,11 @@ class HomeItemViewModel: NSObject {
         // 九宫格图片
         switch picUrls.count {
         case 1:
-            _picHeight = height
+            _picHeight = height   // 要进一步优化
             break
             
         case 2, 3:
-            _picHeight = height + kCellPaddingText
+            _picHeight = height
             break
             
         case 4, 5, 6:
@@ -239,6 +242,7 @@ class HomeItemViewModel: NSObject {
             
         default:
             _picHeight = height * 3 + kCellPaddingText * 2
+            break
         }
         
         if isRetweet {

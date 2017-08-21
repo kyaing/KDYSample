@@ -68,7 +68,7 @@ class WbStatusView: UIView {
         contentBgView.addSubview(textLabel)
         
         picsView = UIView()
-        picsView.backgroundColor = .white
+        picsView.backgroundColor = .red
         picsView.left = kCellContentLeft
         picsView.width = kCellContentWidth
         contentBgView.addSubview(picsView)
@@ -96,7 +96,7 @@ class WbStatusView: UIView {
         contentBgView.addSubview(retweetTextLabel)
         
         retweetPicsView = UIView()
-        retweetPicsView.backgroundColor = .gray
+        retweetPicsView.backgroundColor = .blue
         retweetPicsView.left = kCellReteetLeft
         retweetPicsView.width = kCellReteetWidth
         contentBgView.addSubview(retweetPicsView)
@@ -184,18 +184,15 @@ class WbStatusView: UIView {
             picArray = array
             height = viewModel.retweetPicSize.height
             
+            retweetPicsView.removeAllSubviews()  // 移除子视图
+            
             var i = 0
             for pic in picArray {  // 创建九宫格
                 let imageView = UIImageView()
                 imageView.contentMode = .scaleAspectFill
                 imageView.layer.masksToBounds = true
                 imageView.setImageWith(URL(string: pic.thumbnail), placeholder: nil)
-                
-                if isRetweet {
-                    retweetPicsView.addSubview(imageView)
-                } else {
-                    picsView.addSubview(imageView)
-                }
+                retweetPicsView.addSubview(imageView)
                 
                 let row = i / 3  // 3 为列数
                 let col = i % 3
@@ -207,24 +204,20 @@ class WbStatusView: UIView {
                 
                 i += 1
             }
-
             
         } else {
             picArray = model.picUrls
             height = viewModel.picSize.height
             
+            picsView.removeAllSubviews()  // 移除子视图
+            
             var i = 0
             for pic in picArray {  // 创建九宫格
                 let imageView = UIImageView()
                 imageView.contentMode = .scaleAspectFill
                 imageView.layer.masksToBounds = true
                 imageView.setImageWith(URL(string: pic.thumbnail), placeholder: nil)
-                
-                if isRetweet {
-                    retweetPicsView.addSubview(imageView)
-                } else {
-                    picsView.addSubview(imageView)
-                }
+                picsView.addSubview(imageView)
                 
                 let row = i / 3  // 3 为列数
                 let col = i % 3
@@ -236,7 +229,6 @@ class WbStatusView: UIView {
                 
                 i += 1
             }
-
         }
     }
 }

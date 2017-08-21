@@ -21,7 +21,7 @@ class WbStatus: NSObject {
     var thumbnailPic: String = ""       // 缩略图
     var bmiddlePic: String = ""         // 中图
     var originalPic: String = ""        // 原图
-    var picUrls: Array<WbPicture> = []  // 图片
+    var picUrls: [WbPicture] = []       // 图片
     
     var retweetedStatus: WbStatus?      // 转发的微博
     
