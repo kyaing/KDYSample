@@ -12,6 +12,8 @@ import YYKit
 /// 个人资料视图
 class WbProfileView: UIView {
     
+    // MARK: -
+    
     lazy var avatarIamge: UIImageView = {
         let avatar = UIImageView()
         avatar.contentMode = .scaleAspectFill
@@ -39,6 +41,8 @@ class WbProfileView: UIView {
         
         return source
     }()
+    
+    // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -9,36 +9,7 @@
 import UIKit
 import YYKit
 
-let kCellProfileHeight: CGFloat   = 56   // 个人资料视图高度
-let kCellAvatorWidth: CGFloat     = 40   // 头像宽度
-let kCellPadding: CGFloat         = 10   // cell内边距
-let kCellInsetPadding: CGFloat    = 8
-let kCellPaddingText: CGFloat     = 5    // cell 文本与其他元素间留白
-let kCellToolbarHeight: CGFloat   = 35   // 底部工具栏高度
-let kScreenWidth: CGFloat         = YYScreenSize().width   // 屏幕宽
-let kScreenHeight: CGFloat        = YYScreenSize().height  // 屏幕高
-
-let kCellContentLeft: CGFloat     = kCellInsetPadding * 2 + kCellAvatorWidth  // 文本距左距离
-let kCellContentWidth: CGFloat    = kScreenWidth - kCellPadding - kCellContentLeft  // 内容宽度
-let kCellNameWidth: CGFloat       = kScreenWidth - 80  // 名字宽度
-let kCellToolBarTop: CGFloat      = 8   // 工具栏与它之上间间距
-let kCellTopMargin: CGFloat       = 8
-let kCellBottomMargin: CGFloat    = 2
-
-let kCellNameFontSize: CGFloat    = 16  // 名字字体大小
-let kCellSourceFontSize: CGFloat  = 12  // 来源字体大小
-let kCellTextFontSize: CGFloat    = 16  // 文本字体大小
-
-let kCellReteetTextSize: CGFloat  = 15  // 转发文本字体大小
-let kCellReteetLeft: CGFloat      = kCellContentLeft + kCellPaddingText  // 转发文本距左距离
-let kCellReteetWidth: CGFloat     = kCellContentWidth - kCellPadding  // 转发内容宽度
-
-let kWbLinkHrefName: String  =  "href"
-let kWbLinkUrlName: String   =  "url"
-let kWbLinkTopicName: String =  "topic"
-let kWbLinkAtName: String    =  "at"
-
-/// 每个Cell的viewModel
+/// 每个Cell的viewModel (布局类)
 class HomeItemViewModel: NSObject {
     
     // MARK: - Properites
@@ -213,6 +184,8 @@ class HomeItemViewModel: NSObject {
     
     func layoutToolbar() {
         toolbarHeight = kCellToolbarHeight
+        
+        
     }
     
     // MARK: - Private Methods
@@ -225,7 +198,9 @@ class HomeItemViewModel: NSObject {
             return
         }
         
-        let height: CGFloat = (kCellContentWidth * 0.9 - 2 * kCellPaddingText) / 3.0
+        let width = isRetweet ? kCellReteetWidth : kCellContentWidth
+        let height: CGFloat = (width - 2 * kCellPaddingPic) / 3.0
+        
         var _picSize: CGSize = CGSize(width: height, height: height)
         var _picHeight: CGFloat = 0
         
@@ -240,7 +215,7 @@ class HomeItemViewModel: NSObject {
                 _picHeight = _picSize.height
                 
                 if _picSize.width > kCellReteetWidth {  // 超过显示区域
-                    let maxWidth = height * 2 + kCellPaddingText
+                    let maxWidth = height * 2 + kCellPaddingPic
                     if _picSize.width < _picSize.height {
                         _picSize.width = _picSize.width / _picSize.height * maxWidth
                         _picSize.height = maxWidth
@@ -256,7 +231,7 @@ class HomeItemViewModel: NSObject {
                     _picHeight = _picSize.height
                     
                 } else {
-                    let maxWidth = height * 2 + kCellPaddingText
+                    let maxWidth = height * 2 + kCellPaddingPic
                     _picHeight = maxWidth
                 }
             }

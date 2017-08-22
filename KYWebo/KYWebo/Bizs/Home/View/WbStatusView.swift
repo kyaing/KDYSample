@@ -43,6 +43,7 @@ class WbStatusView: UIView {
     func setupViews() {
         // 内容视图
         contentBgView = UIView()
+        contentBgView.isExclusiveTouch = true
         contentBgView.backgroundColor = .white
         contentBgView.size = CGSize(width: kScreenWidth, height: 1)
         self.addSubview(contentBgView)
@@ -75,6 +76,7 @@ class WbStatusView: UIView {
         
         // 转发视图
         retweetBgView = UIView()
+        retweetBgView.isExclusiveTouch = true
         retweetBgView.left  = kCellContentLeft
         retweetBgView.width = kCellContentWidth
         retweetBgView.backgroundColor = UIColor(hexString: "#f7f7f7")
@@ -102,10 +104,9 @@ class WbStatusView: UIView {
         contentBgView.addSubview(retweetPicsView)
         
         // 工具栏
-        toolbarView = WbToolbarView()
-        toolbarView.isExclusiveTouch = true
+        toolbarView = WbToolbarView(frame:
+            CGRect(x: 0, y: 0, width: kCellContentWidth, height: kCellToolbarHeight))
         toolbarView.left = kCellContentLeft
-        toolbarView.size = CGSize(width: kCellContentWidth, height: kCellToolbarHeight)
         contentBgView.addSubview(toolbarView)
     }
     
@@ -134,7 +135,6 @@ class WbStatusView: UIView {
         textLabel.top = top
         top += viewModel.textHeight
         
-        // 先隐藏元素
         retweetBgView.isHidden = true
         retweetTextLabel.isHidden = true
         retweetPicsView.isHidden = true
@@ -172,23 +172,46 @@ class WbStatusView: UIView {
         
         // 工具栏
         toolbarView.bottom = contentBgView.height
+        
+        if viewModel.wbstatus?.repostsCount != 0 {
+            toolbarView.repostButton.setTitle(String.init(format: "转发 %d", (viewModel.wbstatus?.repostsCount)!), for: .normal)
+        } else {
+            toolbarView.repostButton.setTitle("转发", for: .normal)
+        }
+        
+        if viewModel.wbstatus?.commentsCount != 0 {
+            toolbarView.commentButton.setTitle(String.init(format: "评论 %d", (viewModel.wbstatus?.commentsCount)!), for: .normal)
+        } else {
+            toolbarView.commentButton.setTitle("评论", for: .normal)
+        }
+        
+        if viewModel.wbstatus?.attitudesCount != 0 {
+            toolbarView.likeButton.setTitle(String.init(format: "点赞 %d", (viewModel.wbstatus?.attitudesCount)!), for: .normal)
+        } else {
+            toolbarView.likeButton.setTitle("点赞", for: .normal)
+        }
     }
     
     func setPicsImage(withViewModel viewModel: HomeItemViewModel, isRetweet: Bool) {
         guard let model = viewModel.wbstatus else { return }
         
         var picArray: [WbPicture] = []
+        var width: CGFloat = 0
         var height: CGFloat = 0
         
         if isRetweet {
             guard let array = model.retweetedStatus?.picUrls else { return }
             picArray = array
+            width = viewModel.retweetPicSize.width
             height = viewModel.retweetPicSize.height
+                
             retweetPicsView.removeAllSubviews()
             
         } else {
             picArray = model.picUrls
+            width = viewModel.picSize.width
             height = viewModel.picSize.height
+            
             picsView.removeAllSubviews()
         }
         
@@ -201,7 +224,7 @@ class WbStatusView: UIView {
             imageView.layer.borderWidth = 0.5
             imageView.layer.borderColor = UIColor(hexString: "#f0f0f0")?.cgColor
             imageView.touchBlock = { (view, state, touches, evnet) in
-                // 点击了图片
+                // 点击了图片的事件
             }
             
             pic.bmiddle = pic.thumbnail.replacingOccurrences(of: "thumbnail", with: "bmiddle")
@@ -221,11 +244,16 @@ class WbStatusView: UIView {
             
             let row = i / 3  // 3 为列数
             let col = i % 3
-            let margin: CGFloat = 5
+            let margin: CGFloat = kCellPaddingPic
             
             let xPos = CGFloat(col) * CGFloat(height + margin)
             let yPos = CGFloat(row) * CGFloat(height + margin)
-            imageView.frame = CGRect(x: xPos, y: yPos, width: height, height: height)
+            
+            if picArray.count == 1 {
+                imageView.frame = CGRect(x: xPos, y: yPos, width: width, height: height)
+            } else {
+                imageView.frame = CGRect(x: xPos, y: yPos, width: height, height: height)
+            }
             
             i += 1
         }

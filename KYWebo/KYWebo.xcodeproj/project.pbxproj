@@ -41,6 +41,7 @@
 		7A57526D1F3C4F2C009EAD73 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A57526C1F3C4F2C009EAD73 /* libsqlite3.tbd */; };
 		7A5752731F3C510F009EAD73 /* KYHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5752721F3C510F009EAD73 /* KYHomeController.swift */; };
 		7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57527A1F3D5F00009EAD73 /* HomeApiRequest.swift */; };
+		7A7D26521F4C279D0073D2A8 /* WbConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D26511F4C279D0073D2A8 /* WbConfig.swift */; };
 		7A97D31F1F3C36F300AC7C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */; };
 		7A97D32D1F3C36F400AC7C82 /* KYWeboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */; };
 		7A97D3381F3C36F500AC7C82 /* KYWeboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */; };
@@ -110,6 +111,7 @@
 		7A57526C1F3C4F2C009EAD73 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7A5752721F3C510F009EAD73 /* KYHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYHomeController.swift; sourceTree = "<group>"; };
 		7A57527A1F3D5F00009EAD73 /* HomeApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeApiRequest.swift; sourceTree = "<group>"; };
+		7A7D26511F4C279D0073D2A8 /* WbConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbConfig.swift; sourceTree = "<group>"; };
 		7A97D3141F3C36F300AC7C82 /* KYWebo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYWebo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A97D3281F3C36F400AC7C82 /* KYWeboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYWeboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +371,7 @@
 		7ACB6F491F4BDCAB00418223 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				7A7D26511F4C279D0073D2A8 /* WbConfig.swift */,
 				7ACB6F4A1F4BDCAB00418223 /* UIImage+ImageSize.h */,
 				7ACB6F4B1F4BDCAB00418223 /* UIImage+ImageSize.m */,
 				7ACB6F4C1F4BDCAB00418223 /* WBStatusHelper.h */,
@@ -604,6 +607,7 @@
 				18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */,
 				7ACB6F411F4AAE8700418223 /* WbPicture.swift in Sources */,
 				7A2EDB241F43EA1500872F10 /* WbEmotion.swift in Sources */,
+				7A7D26521F4C279D0073D2A8 /* WbConfig.swift in Sources */,
 				7A2EDB201F41724F00872F10 /* WbTextLinePositionModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
