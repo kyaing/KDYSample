@@ -68,7 +68,7 @@ class WbStatusView: UIView {
         contentBgView.addSubview(textLabel)
         
         picsView = UIView()
-        picsView.backgroundColor = .white
+        picsView.backgroundColor = .clear
         picsView.left = kCellContentLeft
         picsView.width = kCellContentWidth
         contentBgView.addSubview(picsView)
@@ -96,13 +96,14 @@ class WbStatusView: UIView {
         contentBgView.addSubview(retweetTextLabel)
         
         retweetPicsView = UIView()
-        retweetPicsView.backgroundColor = .white
+        retweetPicsView.backgroundColor = .clear
         retweetPicsView.left = kCellReteetLeft
         retweetPicsView.width = kCellReteetWidth
         contentBgView.addSubview(retweetPicsView)
         
         // 工具栏
         toolbarView = WbToolbarView()
+        toolbarView.isExclusiveTouch = true
         toolbarView.left = kCellContentLeft
         toolbarView.size = CGSize(width: kCellContentWidth, height: kCellToolbarHeight)
         contentBgView.addSubview(toolbarView)
@@ -143,20 +144,20 @@ class WbStatusView: UIView {
         if viewModel.retweetHeight > 0 {
             retweetBgView.isHidden = false
             retweetBgView.height = viewModel.retweetHeight
-            retweetBgView.top = top
+            retweetBgView.top = top + kCellPaddingText
             
             if let textlayout = viewModel.retweetTextLayout {
                 retweetTextLabel.isHidden = false
                 retweetTextLabel.textLayout = textlayout
                 retweetTextLabel.height = viewModel.retweetTextHeight
-                retweetTextLabel.top = top
+                retweetTextLabel.top = top + kCellPaddingText
             }
             
             // 有转发的图片或视频
             if viewModel.retweetPicsHeight > 0 {
                 retweetPicsView.isHidden = false
                 retweetPicsView.height = viewModel.retweetPicsHeight
-                retweetPicsView.top = retweetTextLabel.bottom
+                retweetPicsView.top = retweetTextLabel.bottom + kCellPaddingText
                 
                 setPicsImage(withViewModel: viewModel, isRetweet: true)
             }
@@ -164,7 +165,7 @@ class WbStatusView: UIView {
         } else if viewModel.picsHeight > 0  {
             picsView.isHidden = false
             picsView.height = viewModel.picsHeight
-            picsView.top = textLabel.bottom
+            picsView.top = textLabel.bottom + kCellPaddingText
             
             setPicsImage(withViewModel: viewModel, isRetweet: false)
         }
@@ -197,6 +198,8 @@ class WbStatusView: UIView {
             imageView.clipsToBounds = true
             imageView.backgroundColor = UIColor(hexString: "#f0f0f0")
             imageView.isExclusiveTouch = true
+            imageView.layer.borderWidth = 0.5
+            imageView.layer.borderColor = UIColor(hexString: "#f0f0f0")?.cgColor
             imageView.touchBlock = { (view, state, touches, evnet) in
                 // 点击了图片
             }
@@ -204,6 +207,8 @@ class WbStatusView: UIView {
             pic.bmiddle = pic.thumbnail.replacingOccurrences(of: "thumbnail", with: "bmiddle")
             imageView.layer.setImageWith(URL(string: pic.bmiddle), placeholder: nil, options: .avoidSetImage,
                 completion: { (image, url, from, stage, error) in
+                    // 需要处理图片(横图、竖图、小图，长图等)
+                    
                     imageView.contentMode = .scaleAspectFill;
                     imageView.image = image
                 })

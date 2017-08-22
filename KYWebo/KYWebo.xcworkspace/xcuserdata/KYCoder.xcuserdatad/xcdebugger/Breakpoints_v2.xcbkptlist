@@ -99,5 +99,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KYWebo/Bizs/Home/ViewModel/HomeItemViewModel.swift"
+            timestampString = "525073851.921624"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "parsePicUrls(withModel:isRetweet:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KYWebo.HomeItemViewModel.parsePicUrls (withModel : Swift.Optional&lt;KYWebo.WbStatus&gt;, isRetweet : Swift.Bool) -&gt; ()"
+                  moduleName = "KYWebo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Documents/SourceTree/KDYSample/KYWebo/KYWebo/Bizs/Home/ViewModel/HomeItemViewModel.swift"
+                  timestampString = "525073024.897445"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KYWebo.HomeItemViewModel.parsePicUrls (withModel : Swift.Optional&lt;KYWebo.WbStatus&gt;, isRetweet : Swift.Bool) -&gt; ()"
+                  moduleName = "KYWebo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Documents/SourceTree/KDYSample/KYWebo/KYWebo/Bizs/Home/ViewModel/HomeItemViewModel.swift"
+                  timestampString = "525073024.900537"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "808">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

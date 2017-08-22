@@ -14,6 +14,8 @@ class WbPicture: NSObject {
     var bmiddle: String = ""    // 中图
     var large: String = ""      // 大图
     
+    var size: CGSize = .zero    // 图片的尺寸(中图的)，怎么计算得到？
+    
     public static func modelCustomPropertyMapper() -> [String : Any]? {
         return [
             "thumbnail" : "thumbnail_pic"

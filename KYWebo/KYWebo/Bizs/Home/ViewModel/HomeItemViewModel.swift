@@ -27,9 +27,9 @@ let kCellBottomMargin: CGFloat    = 2
 
 let kCellNameFontSize: CGFloat    = 16  // 名字字体大小
 let kCellSourceFontSize: CGFloat  = 12  // 来源字体大小
-let kCellTextFontSize: CGFloat    = 17  // 文本字体大小
+let kCellTextFontSize: CGFloat    = 16  // 文本字体大小
 
-let kCellReteetTextSize: CGFloat  = 16  // 转发文本字体大小
+let kCellReteetTextSize: CGFloat  = 15  // 转发文本字体大小
 let kCellReteetLeft: CGFloat      = kCellContentLeft + kCellPaddingText  // 转发文本距左距离
 let kCellReteetWidth: CGFloat     = kCellContentWidth - kCellPadding  // 转发内容宽度
 
@@ -93,9 +93,12 @@ class HomeItemViewModel: NSObject {
         totalHeight += profileHeight
         totalHeight += textHeight
         
+        // 计算高度
         if retweetHeight > 0 {
+            totalHeight += kCellPaddingText
             totalHeight += retweetHeight
         } else if picsHeight > 0 {
+            totalHeight += kCellPaddingText
             totalHeight += picsHeight
         }
         totalHeight += kCellToolBarTop
@@ -178,6 +181,7 @@ class HomeItemViewModel: NSObject {
         }
         
         if retweetPicsHeight > 0 {
+            retweetHeight += kCellPaddingText
             retweetHeight += retweetPicsHeight
         }
     }
@@ -221,15 +225,41 @@ class HomeItemViewModel: NSObject {
             return
         }
         
-        let height: CGFloat = (kCellContentWidth - 2 * kCellPaddingText) / 3.0
-        let _picSize: CGSize = CGSize(width: height, height: height)
-        
+        let height: CGFloat = (kCellContentWidth * 0.9 - 2 * kCellPaddingText) / 3.0
+        var _picSize: CGSize = CGSize(width: height, height: height)
         var _picHeight: CGFloat = 0
         
         // 九宫格图片
         switch picUrls.count {
         case 1:
-            _picHeight = height   // 要进一步优化
+            if let thumbnail = model?.picUrls.first?.thumbnail {
+                let bmiddle = thumbnail.replacingOccurrences(of: "thumbnail", with: "bmiddle")
+                
+                // 单独处理一张图片的尺寸
+                _picSize   = UIImage.getSizeWithURL(bmiddle)
+                _picHeight = _picSize.height
+                
+                if _picSize.width > kCellReteetWidth {  // 超过显示区域
+                    let maxWidth = height * 2 + kCellPaddingText
+                    if _picSize.width < _picSize.height {
+                        _picSize.width = _picSize.width / _picSize.height * maxWidth
+                        _picSize.height = maxWidth
+                        
+                    } else if _picSize.width < _picSize.height {
+                        _picSize.width = maxWidth
+                        _picSize.height = _picSize.height / _picSize.width * maxWidth
+                    } else {
+                        _picSize.width = maxWidth
+                        _picSize.height = maxWidth
+                    }
+                    
+                    _picHeight = _picSize.height
+                    
+                } else {
+                    let maxWidth = height * 2 + kCellPaddingText
+                    _picHeight = maxWidth
+                }
+            }
             break
             
         case 2, 3:
@@ -247,10 +277,10 @@ class HomeItemViewModel: NSObject {
         
         if isRetweet {
             retweetPicsHeight = _picHeight
-            retweetPicSize = _picSize
+            retweetPicSize    = _picSize
         } else {
             picsHeight = _picHeight
-            picSize = _picSize
+            picSize    = _picSize
         }
     }
     

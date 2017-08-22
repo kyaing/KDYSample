@@ -23,7 +23,6 @@
 		7A2EDB241F43EA1500872F10 /* WbEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB231F43EA1500872F10 /* WbEmotion.swift */; };
 		7A2EDB271F43F74100872F10 /* EmoticonWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A2EDB261F43F74100872F10 /* EmoticonWeibo.bundle */; };
 		7A2EDB2B1F4445C900872F10 /* WbStatuesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB2A1F4445C900872F10 /* WbStatuesHelper.swift */; };
-		7A2EDB2E1F44518400872F10 /* WBStatusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB2D1F44518400872F10 /* WBStatusHelper.m */; };
 		7A5752411F3C3F8A009EAD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */; };
 		7A5752451F3C3FFD009EAD73 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752431F3C3FFD009EAD73 /* Info.plist */; };
 		7A5752481F3C408A009EAD73 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5752471F3C408A009EAD73 /* Launch Screen.storyboard */; };
@@ -46,7 +45,9 @@
 		7A97D32D1F3C36F400AC7C82 /* KYWeboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */; };
 		7A97D3381F3C36F500AC7C82 /* KYWeboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */; };
 		7ACB6F411F4AAE8700418223 /* WbPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB6F401F4AAE8700418223 /* WbPicture.swift */; };
-		7ACB6F451F4BD0DE00418223 /* YYControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB6F441F4BD0DE00418223 /* YYControl.m */; };
+		7ACB6F501F4BDCAB00418223 /* UIImage+ImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB6F4B1F4BDCAB00418223 /* UIImage+ImageSize.m */; };
+		7ACB6F511F4BDCAB00418223 /* WBStatusHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB6F4D1F4BDCAB00418223 /* WBStatusHelper.m */; };
+		7ACB6F521F4BDCAB00418223 /* YYControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB6F4F1F4BDCAB00418223 /* YYControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +88,6 @@
 		7A2EDB231F43EA1500872F10 /* WbEmotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbEmotion.swift; sourceTree = "<group>"; };
 		7A2EDB261F43F74100872F10 /* EmoticonWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EmoticonWeibo.bundle; sourceTree = "<group>"; };
 		7A2EDB2A1F4445C900872F10 /* WbStatuesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbStatuesHelper.swift; sourceTree = "<group>"; };
-		7A2EDB2C1F44518400872F10 /* WBStatusHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusHelper.h; sourceTree = "<group>"; };
-		7A2EDB2D1F44518400872F10 /* WBStatusHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusHelper.m; sourceTree = "<group>"; };
 		7A5752401F3C3F8A009EAD73 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A5752431F3C3FFD009EAD73 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A5752461F3C4039009EAD73 /* KYWebo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KYWebo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -120,8 +119,12 @@
 		7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYWeboUITests.swift; sourceTree = "<group>"; };
 		7A97D3391F3C36F500AC7C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ACB6F401F4AAE8700418223 /* WbPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbPicture.swift; sourceTree = "<group>"; };
-		7ACB6F431F4BD0DE00418223 /* YYControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYControl.h; sourceTree = "<group>"; };
-		7ACB6F441F4BD0DE00418223 /* YYControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYControl.m; sourceTree = "<group>"; };
+		7ACB6F4A1F4BDCAB00418223 /* UIImage+ImageSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageSize.h"; sourceTree = "<group>"; };
+		7ACB6F4B1F4BDCAB00418223 /* UIImage+ImageSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageSize.m"; sourceTree = "<group>"; };
+		7ACB6F4C1F4BDCAB00418223 /* WBStatusHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusHelper.h; sourceTree = "<group>"; };
+		7ACB6F4D1F4BDCAB00418223 /* WBStatusHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusHelper.m; sourceTree = "<group>"; };
+		7ACB6F4E1F4BDCAB00418223 /* YYControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYControl.h; sourceTree = "<group>"; };
+		7ACB6F4F1F4BDCAB00418223 /* YYControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +266,7 @@
 				7A5752741F3C5135009EAD73 /* Model */,
 				18D0B63A1F3EFB4F00E99F91 /* View */,
 				7A5752761F3C5135009EAD73 /* ViewModel */,
+				7ACB6F491F4BDCAB00418223 /* Helper */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -291,10 +295,6 @@
 		7A5752761F3C5135009EAD73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7ACB6F431F4BD0DE00418223 /* YYControl.h */,
-				7ACB6F441F4BD0DE00418223 /* YYControl.m */,
-				7A2EDB2C1F44518400872F10 /* WBStatusHelper.h */,
-				7A2EDB2D1F44518400872F10 /* WBStatusHelper.m */,
 				7A2EDB101F3D806300872F10 /* HomeViewModel.swift */,
 				7A2EDB121F3D807100872F10 /* HomeItemViewModel.swift */,
 				7A2EDB2A1F4445C900872F10 /* WbStatuesHelper.swift */,
@@ -364,6 +364,19 @@
 				7A97D3391F3C36F500AC7C82 /* Info.plist */,
 			);
 			path = KYWeboUITests;
+			sourceTree = "<group>";
+		};
+		7ACB6F491F4BDCAB00418223 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7ACB6F4A1F4BDCAB00418223 /* UIImage+ImageSize.h */,
+				7ACB6F4B1F4BDCAB00418223 /* UIImage+ImageSize.m */,
+				7ACB6F4C1F4BDCAB00418223 /* WBStatusHelper.h */,
+				7ACB6F4D1F4BDCAB00418223 /* WBStatusHelper.m */,
+				7ACB6F4E1F4BDCAB00418223 /* YYControl.h */,
+				7ACB6F4F1F4BDCAB00418223 /* YYControl.m */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		DDDD13371D016378FD0F5894 /* Pods */ = {
@@ -577,14 +590,15 @@
 				7A2EDB2B1F4445C900872F10 /* WbStatuesHelper.swift in Sources */,
 				7A2EDB151F3D8EC500872F10 /* WeboRequest.swift in Sources */,
 				7A2EDB1B1F3DB87D00872F10 /* WbTimeline.swift in Sources */,
-				7A2EDB2E1F44518400872F10 /* WBStatusHelper.m in Sources */,
 				18D0B6401F40391A00E99F91 /* WbStatusView.swift in Sources */,
 				7A2EDB131F3D807100872F10 /* HomeItemViewModel.swift in Sources */,
-				7ACB6F451F4BD0DE00418223 /* YYControl.m in Sources */,
 				7A2EDB111F3D806300872F10 /* HomeViewModel.swift in Sources */,
 				7A2EDB171F3DADC000872F10 /* WbUser.swift in Sources */,
 				7A2EDB191F3DAE4F00872F10 /* WbStatus.swift in Sources */,
+				7ACB6F501F4BDCAB00418223 /* UIImage+ImageSize.m in Sources */,
 				18D0B6421F40395400E99F91 /* WbProfileView.swift in Sources */,
+				7ACB6F511F4BDCAB00418223 /* WBStatusHelper.m in Sources */,
+				7ACB6F521F4BDCAB00418223 /* YYControl.m in Sources */,
 				7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */,
 				18D0B6441F403A1200E99F91 /* WbToolbarView.swift in Sources */,
 				18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */,

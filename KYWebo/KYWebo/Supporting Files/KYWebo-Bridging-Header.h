@@ -6,4 +6,5 @@
 #import <YYKit/YYKit.h>
 #import "WBStatusHelper.h"
 #import "YYControl.h"
+#import "UIImage+ImageSize.h"
 
