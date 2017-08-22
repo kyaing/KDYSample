@@ -46,6 +46,7 @@
 		7A97D32D1F3C36F400AC7C82 /* KYWeboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */; };
 		7A97D3381F3C36F500AC7C82 /* KYWeboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */; };
 		7ACB6F411F4AAE8700418223 /* WbPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB6F401F4AAE8700418223 /* WbPicture.swift */; };
+		7ACB6F451F4BD0DE00418223 /* YYControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB6F441F4BD0DE00418223 /* YYControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		7A97D3371F3C36F500AC7C82 /* KYWeboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYWeboUITests.swift; sourceTree = "<group>"; };
 		7A97D3391F3C36F500AC7C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ACB6F401F4AAE8700418223 /* WbPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbPicture.swift; sourceTree = "<group>"; };
+		7ACB6F431F4BD0DE00418223 /* YYControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYControl.h; sourceTree = "<group>"; };
+		7ACB6F441F4BD0DE00418223 /* YYControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +291,8 @@
 		7A5752761F3C5135009EAD73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7ACB6F431F4BD0DE00418223 /* YYControl.h */,
+				7ACB6F441F4BD0DE00418223 /* YYControl.m */,
 				7A2EDB2C1F44518400872F10 /* WBStatusHelper.h */,
 				7A2EDB2D1F44518400872F10 /* WBStatusHelper.m */,
 				7A2EDB101F3D806300872F10 /* HomeViewModel.swift */,
@@ -575,6 +580,7 @@
 				7A2EDB2E1F44518400872F10 /* WBStatusHelper.m in Sources */,
 				18D0B6401F40391A00E99F91 /* WbStatusView.swift in Sources */,
 				7A2EDB131F3D807100872F10 /* HomeItemViewModel.swift in Sources */,
+				7ACB6F451F4BD0DE00418223 /* YYControl.m in Sources */,
 				7A2EDB111F3D806300872F10 /* HomeViewModel.swift in Sources */,
 				7A2EDB171F3DADC000872F10 /* WbUser.swift in Sources */,
 				7A2EDB191F3DAE4F00872F10 /* WbStatus.swift in Sources */,

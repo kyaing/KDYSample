@@ -221,7 +221,7 @@ class HomeItemViewModel: NSObject {
             return
         }
         
-        let height: CGFloat = (kCellContentWidth * 0.9 - 2 * kCellPaddingText) / 3.0
+        let height: CGFloat = (kCellContentWidth - 2 * kCellPaddingText) / 3.0
         let _picSize: CGSize = CGSize(width: height, height: height)
         
         var _picHeight: CGFloat = 0

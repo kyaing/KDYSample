@@ -19,13 +19,13 @@ class WbStatusView: UIView {
     
     var textLabel: YYLabel!          // 正文文本
     
-    var picsView: UIView!
+    var picsView: UIView!            // 图片视图
     
     var retweetBgView: UIView!       // 转发视图
     
     var retweetTextLabel: YYLabel!   // 转发文本
     
-    var retweetPicsView: UIView!
+    var retweetPicsView: UIView!     // 转发图片视图
     
     var toolbarView: WbToolbarView!  // 工具栏视图
     
@@ -68,7 +68,7 @@ class WbStatusView: UIView {
         contentBgView.addSubview(textLabel)
         
         picsView = UIView()
-        picsView.backgroundColor = .red
+        picsView.backgroundColor = .white
         picsView.left = kCellContentLeft
         picsView.width = kCellContentWidth
         contentBgView.addSubview(picsView)
@@ -96,7 +96,7 @@ class WbStatusView: UIView {
         contentBgView.addSubview(retweetTextLabel)
         
         retweetPicsView = UIView()
-        retweetPicsView.backgroundColor = .blue
+        retweetPicsView.backgroundColor = .white
         retweetPicsView.left = kCellReteetLeft
         retweetPicsView.width = kCellReteetWidth
         contentBgView.addSubview(retweetPicsView)
@@ -183,52 +183,46 @@ class WbStatusView: UIView {
             guard let array = model.retweetedStatus?.picUrls else { return }
             picArray = array
             height = viewModel.retweetPicSize.height
-            
-            retweetPicsView.removeAllSubviews()  // 移除子视图
-            
-            var i = 0
-            for pic in picArray {  // 创建九宫格
-                let imageView = UIImageView()
-                imageView.contentMode = .scaleAspectFill
-                imageView.layer.masksToBounds = true
-                imageView.setImageWith(URL(string: pic.thumbnail), placeholder: nil)
-                retweetPicsView.addSubview(imageView)
-                
-                let row = i / 3  // 3 为列数
-                let col = i % 3
-                let margin: CGFloat = 5
-                
-                let xPos = CGFloat(col) * CGFloat(height + margin)
-                let yPos = CGFloat(row) * CGFloat(height + margin)
-                imageView.frame = CGRect(x: xPos, y: yPos, width: height, height: height)
-                
-                i += 1
-            }
+            retweetPicsView.removeAllSubviews()
             
         } else {
             picArray = model.picUrls
             height = viewModel.picSize.height
-            
-            picsView.removeAllSubviews()  // 移除子视图
-            
-            var i = 0
-            for pic in picArray {  // 创建九宫格
-                let imageView = UIImageView()
-                imageView.contentMode = .scaleAspectFill
-                imageView.layer.masksToBounds = true
-                imageView.setImageWith(URL(string: pic.thumbnail), placeholder: nil)
-                picsView.addSubview(imageView)
-                
-                let row = i / 3  // 3 为列数
-                let col = i % 3
-                let margin: CGFloat = 5
-                
-                let xPos = CGFloat(col) * CGFloat(height + margin)
-                let yPos = CGFloat(row) * CGFloat(height + margin)
-                imageView.frame = CGRect(x: xPos, y: yPos, width: height, height: height)
-                
-                i += 1
+            picsView.removeAllSubviews()
+        }
+        
+        var i = 0
+        for pic in picArray {  // 创建九宫格
+            let imageView = YYControl()
+            imageView.clipsToBounds = true
+            imageView.backgroundColor = UIColor(hexString: "#f0f0f0")
+            imageView.isExclusiveTouch = true
+            imageView.touchBlock = { (view, state, touches, evnet) in
+                // 点击了图片
             }
+            
+            pic.bmiddle = pic.thumbnail.replacingOccurrences(of: "thumbnail", with: "bmiddle")
+            imageView.layer.setImageWith(URL(string: pic.bmiddle), placeholder: nil, options: .avoidSetImage,
+                completion: { (image, url, from, stage, error) in
+                    imageView.contentMode = .scaleAspectFill;
+                    imageView.image = image
+                })
+            
+            if isRetweet {
+                retweetPicsView.addSubview(imageView)
+            } else {
+                picsView.addSubview(imageView)
+            }
+            
+            let row = i / 3  // 3 为列数
+            let col = i % 3
+            let margin: CGFloat = 5
+            
+            let xPos = CGFloat(col) * CGFloat(height + margin)
+            let yPos = CGFloat(row) * CGFloat(height + margin)
+            imageView.frame = CGRect(x: xPos, y: yPos, width: height, height: height)
+            
+            i += 1
         }
     }
 }

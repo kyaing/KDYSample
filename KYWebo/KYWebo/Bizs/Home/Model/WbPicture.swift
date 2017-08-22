@@ -9,7 +9,10 @@
 import UIKit
 
 class WbPicture: NSObject {
-    var thumbnail: String = ""
+    
+    var thumbnail: String = ""  // 缩略图
+    var bmiddle: String = ""    // 中图
+    var large: String = ""      // 大图
     
     public static func modelCustomPropertyMapper() -> [String : Any]? {
         return [
