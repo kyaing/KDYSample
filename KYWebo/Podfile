@@ -7,7 +7,6 @@ target 'KYWebo' do
 
     # OC
     pod 'YYKit',  '~> 1.0.9'
-    pod 'MBProgressHUD', '~> 1.0.0'
 
     pod 'JPFPSStatus',  '~> 0.1'
     pod 'LxDBAnything', '~> 1.1.0'

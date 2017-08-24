@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1830341CF3D11EABC6D58283 /* Pods_KYWebo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C981C2E3AD6A780E6A9C513 /* Pods_KYWebo.framework */; };
 		18D0B63C1F3EFB9900E99F91 /* HomeTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B63B1F3EFB9900E99F91 /* HomeTimelineCell.swift */; };
-		18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B63D1F40355E00E99F91 /* KYHomeDetailController.swift */; };
 		18D0B6401F40391A00E99F91 /* WbStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B63F1F40391A00E99F91 /* WbStatusView.swift */; };
 		18D0B6421F40395400E99F91 /* WbProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B6411F40395400E99F91 /* WbProfileView.swift */; };
 		18D0B6441F403A1200E99F91 /* WbToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B6431F403A1200E99F91 /* WbToolbarView.swift */; };
@@ -71,7 +70,6 @@
 /* Begin PBXFileReference section */
 		0A792ADFC162EEBFBDF5F1B5 /* Pods-KYWebo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYWebo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo.debug.xcconfig"; sourceTree = "<group>"; };
 		18D0B63B1F3EFB9900E99F91 /* HomeTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTimelineCell.swift; sourceTree = "<group>"; };
-		18D0B63D1F40355E00E99F91 /* KYHomeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYHomeDetailController.swift; sourceTree = "<group>"; };
 		18D0B63F1F40391A00E99F91 /* WbStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbStatusView.swift; sourceTree = "<group>"; };
 		18D0B6411F40395400E99F91 /* WbProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbProfileView.swift; sourceTree = "<group>"; };
 		18D0B6431F403A1200E99F91 /* WbToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbToolbarView.swift; sourceTree = "<group>"; };
@@ -277,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				7A5752721F3C510F009EAD73 /* KYHomeController.swift */,
-				18D0B63D1F40355E00E99F91 /* KYHomeDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -541,9 +538,24 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FBAllocationTracker/FBAllocationTracker.framework",
+				"${BUILT_PRODUCTS_DIR}/FBMemoryProfiler/FBMemoryProfiler.framework",
+				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
+				"${BUILT_PRODUCTS_DIR}/JPFPSStatus/JPFPSStatus.framework",
+				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBAllocationTracker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBMemoryProfiler.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPFPSStatus.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -571,13 +583,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KYWebo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -604,7 +619,6 @@
 				7ACB6F521F4BDCAB00418223 /* YYControl.m in Sources */,
 				7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */,
 				18D0B6441F403A1200E99F91 /* WbToolbarView.swift in Sources */,
-				18D0B63E1F40355E00E99F91 /* KYHomeDetailController.swift in Sources */,
 				7ACB6F411F4AAE8700418223 /* WbPicture.swift in Sources */,
 				7A2EDB241F43EA1500872F10 /* WbEmotion.swift in Sources */,
 				7A7D26521F4C279D0073D2A8 /* WbConfig.swift in Sources */,

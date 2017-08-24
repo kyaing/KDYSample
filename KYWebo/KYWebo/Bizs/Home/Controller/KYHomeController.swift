@@ -7,8 +7,7 @@
 //
 
 /**
- *  主页Webo的思路及某些类，都是仿照YYKit的Demo写的，
- *  可直接参考：https://github.com/ibireme/YYKit
+ *  实现思路可直接参考：https://github.com/ibireme/YYKit
  */
 
 import UIKit
@@ -106,6 +105,5 @@ extension KYHomeController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // self.navigationController?.pushViewController(KYHomeDetailController(), animated: true)
     }
 }
