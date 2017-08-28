@@ -103,7 +103,8 @@ extension KYHomeController: UITableViewDelegate {
         return 0
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+    // Webo的需求不适合用此方法 (正文区与转发区都有点击事件)
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        tableView.deselectRow(at: indexPath, animated: true)
+    //    }
 }

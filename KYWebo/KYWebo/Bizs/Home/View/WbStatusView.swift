@@ -29,6 +29,8 @@ class WbStatusView: UIView {
     
     var toolbarView: WbToolbarView!  // 工具栏视图
     
+    var isTouchRetweetView: Bool = false
+    
     // MARK: - Life Cycle
     
     override init(frame: CGRect) {
@@ -256,6 +258,39 @@ class WbStatusView: UIView {
             }
             
             i += 1
+        }
+    }
+    
+    // MARK: - Touchs
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch: UITouch = touches.first!
+        let point: CGPoint = touch.location(in: retweetBgView)
+        let insideRetweet = retweetBgView.bounds.contains(point)
+        
+        if insideRetweet && !retweetBgView.isHidden {
+            isTouchRetweetView = true
+            retweetBgView.perform(#selector(setter: UIView.backgroundColor), with: UIColor(hexString: "#f0f0f0"), afterDelay: 0.15)
+            
+        } else {
+            isTouchRetweetView = false
+            contentBgView.perform(#selector(setter: UIView.backgroundColor), with: UIColor(hexString: "#f0f0f0"), afterDelay: 0.15)
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 取消上次的延迟
+        NSObject.cancelPreviousPerformRequests(withTarget: retweetBgView, selector: #selector(setter: UIView.backgroundColor), object: UIColor(hexString: "#f0f0f0"))
+        NSObject.cancelPreviousPerformRequests(withTarget: contentBgView, selector: #selector(setter: UIView.backgroundColor), object: UIColor(hexString: "#f0f0f0"))
+        
+        // 设置背景颜色
+        retweetBgView.backgroundColor = .white
+        contentBgView.backgroundColor = UIColor(hexString: "#f7f7f7")
+        
+        if isTouchRetweetView {
+            
+        } else {
+            
         }
     }
 }

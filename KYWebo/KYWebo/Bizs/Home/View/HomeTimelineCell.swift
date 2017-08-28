@@ -27,7 +27,7 @@ class HomeTimelineCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - Layout
     
     func setupCell(withViewmodel viewModel: HomeItemViewModel) {
