@@ -7,6 +7,7 @@
 //
 
 #import "MJRefreshBackStateFooter.h"
+#import "UIColor+YYAdd.h"
 
 @interface MJRefreshBackStateFooter()
 {
@@ -41,8 +42,8 @@
     if (title == nil) return;
     self.stateTitles[@(state)] = title;
     self.stateLabel.text = self.stateTitles[@(self.state)];
-    self.stateLabel.textColor = ColorHex(@"#cccccc");
-    self.stateLabel.font = SYS_FONT(14);
+    self.stateLabel.textColor = [UIColor colorWithHexString:@"#cccccc"];
+    self.stateLabel.font = [UIFont systemFontOfSize:14];
 }
 
 - (NSString *)titleForState:(MJRefreshState)state {

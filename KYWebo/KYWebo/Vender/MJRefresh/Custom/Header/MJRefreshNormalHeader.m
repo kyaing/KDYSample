@@ -8,7 +8,6 @@
 
 #import "MJRefreshNormalHeader.h"
 #import "UIImage+GIF.h"
-#import "UIColor+Hex.h"
 
 #define RefreshBundleName @"MJRefresh.bundle"
 #define kRefreshName(file) [RefreshBundleName stringByAppendingPathComponent:file]

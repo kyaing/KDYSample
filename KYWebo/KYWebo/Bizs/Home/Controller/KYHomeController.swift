@@ -20,7 +20,7 @@ class KYHomeController: UIViewController {
     
     let timelineIdentifier = "timelineCell"
     
-    lazy var wbTableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tb = UITableView()
         tb.backgroundColor = UIColor(hexString: "#f2f2f2")
         tb.tableFooterView = UIView()
@@ -46,23 +46,35 @@ class KYHomeController: UIViewController {
         self.view.backgroundColor = .white
         
         setupViews()
-        setupTimelines()
+        setupRefresh()
     }
     
     func setupViews() {
-        view.addSubview(wbTableView)
-        wbTableView.register(HomeTimelineCell.classForCoder(), forCellReuseIdentifier: timelineIdentifier)
+        view.addSubview(tableView)
+        tableView.register(HomeTimelineCell.classForCoder(), forCellReuseIdentifier: timelineIdentifier)
         
-        wbTableView.snp.makeConstraints { (make) in
+        tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
     }
     
-    func setupTimelines() {
+    func setupRefresh() {
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.tableViewHeaderDidRefresh()
+        })
+        tableView.mj_header.beginRefreshing()
+    }
+    
+    // MARK: - 
+    
+    func tableViewHeaderDidRefresh() {
+        // 请求并同时回调结果
+        viewModel.requestTimeline()
         viewModel.timelineSuccess = { array in
             DispatchQueue.main.async {
+                self.tableView.mj_header.endRefreshing()
                 self.dataSource = array as! NSMutableArray
-                self.wbTableView.reloadData()
+                self.tableView.reloadData()
             }
         }
         

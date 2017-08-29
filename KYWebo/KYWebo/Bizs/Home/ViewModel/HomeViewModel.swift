@@ -16,20 +16,21 @@ class HomeViewModel: NSObject {
     var timelineSuccess: TimelineSuccess?
     var timelineFailed: TimelineFailed?
     
+    var isPullDown: Bool = true  // 是否下拉刷新
+    
     override init() {
         super.init()
-        requestTimelineDats()
     }
 
     // 请求主页数据
-    func requestTimelineDats() {
+    func requestTimeline() {
         guard let authData = UserDefaults.standard.object(forKey: "WeboAuthData") as? [String: Any] else {
             return
         }
         
         var params: [String: String] = [:]
         params["access_token"] = authData["AccessTokenKey"] as? String
-        params["count"] = "20"
+        params["count"] = "10"
         
         _ = WBHttpRequest(url: "https://api.weibo.com/2/statuses/home_timeline.json",
                           httpMethod: "GET",
@@ -49,12 +50,15 @@ extension HomeViewModel: WBHttpRequestDelegate {
                 if let successBlock = timelineSuccess {
                     
                     var dataSource: [HomeItemViewModel] = []
-                    DispatchQueue.global().async(execute: { 
+                    DispatchQueue.global().async(execute: {
                         for statues in item.statuses {
                             let itemViewmodel = HomeItemViewModel(withStatus: statues)
                             dataSource.append(itemViewmodel)
                         }
-                        successBlock(dataSource)
+                        
+                        if self.isPullDown {
+                            successBlock(dataSource)
+                        }
                     })
                 }
             }
