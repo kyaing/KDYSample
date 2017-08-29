@@ -218,7 +218,7 @@ class WbStatusView: UIView {
         }
         
         var i = 0
-        for pic in picArray {  // 创建九宫格
+        for pic in picArray {  // 创建九宫格（暂为对gif、长图的处理）
             let imageView = YYControl()
             imageView.clipsToBounds = true
             imageView.backgroundColor = UIColor(hexString: "#f0f0f0")
@@ -279,19 +279,27 @@ class WbStatusView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 取消上次的延迟
-        NSObject.cancelPreviousPerformRequests(withTarget: retweetBgView, selector: #selector(setter: UIView.backgroundColor), object: UIColor(hexString: "#f0f0f0"))
-        NSObject.cancelPreviousPerformRequests(withTarget: contentBgView, selector: #selector(setter: UIView.backgroundColor), object: UIColor(hexString: "#f0f0f0"))
-        
-        // 设置背景颜色
-        retweetBgView.backgroundColor = .white
-        contentBgView.backgroundColor = UIColor(hexString: "#f7f7f7")
+        setupBgviewColor()
         
         if isTouchRetweetView {
             
         } else {
             
         }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        setupBgviewColor()
+    }
+    
+    func setupBgviewColor() {
+        // 取消上次的延迟
+        NSObject.cancelPreviousPerformRequests(withTarget: retweetBgView, selector: #selector(setter: UIView.backgroundColor), object: UIColor(hexString: "#f0f0f0"))
+        NSObject.cancelPreviousPerformRequests(withTarget: contentBgView, selector: #selector(setter: UIView.backgroundColor), object: UIColor(hexString: "#f0f0f0"))
+        
+        // 设置背景颜色
+        contentBgView.backgroundColor = .white
+        retweetBgView.backgroundColor = UIColor(hexString: "#f7f7f7")
     }
 }
 

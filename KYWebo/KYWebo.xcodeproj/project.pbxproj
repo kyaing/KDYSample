@@ -14,7 +14,6 @@
 		18D0B6441F403A1200E99F91 /* WbToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B6431F403A1200E99F91 /* WbToolbarView.swift */; };
 		7A2EDB111F3D806300872F10 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB101F3D806300872F10 /* HomeViewModel.swift */; };
 		7A2EDB131F3D807100872F10 /* HomeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB121F3D807100872F10 /* HomeItemViewModel.swift */; };
-		7A2EDB151F3D8EC500872F10 /* WeboRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB141F3D8EC500872F10 /* WeboRequest.swift */; };
 		7A2EDB171F3DADC000872F10 /* WbUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB161F3DADC000872F10 /* WbUser.swift */; };
 		7A2EDB191F3DAE4F00872F10 /* WbStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */; };
 		7A2EDB1B1F3DB87D00872F10 /* WbTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */; };
@@ -76,7 +75,6 @@
 		7A57526B1F3C4F1E009EAD73 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A57526A1F3C4F1E009EAD73 /* libz.tbd */; };
 		7A57526D1F3C4F2C009EAD73 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A57526C1F3C4F2C009EAD73 /* libsqlite3.tbd */; };
 		7A5752731F3C510F009EAD73 /* KYHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5752721F3C510F009EAD73 /* KYHomeController.swift */; };
-		7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57527A1F3D5F00009EAD73 /* HomeApiRequest.swift */; };
 		7A7D26521F4C279D0073D2A8 /* WbConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7D26511F4C279D0073D2A8 /* WbConfig.swift */; };
 		7A97D31F1F3C36F300AC7C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */; };
 		7A97D32D1F3C36F400AC7C82 /* KYWeboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A97D32C1F3C36F400AC7C82 /* KYWeboTests.swift */; };
@@ -116,7 +114,6 @@
 		6C981C2E3AD6A780E6A9C513 /* Pods_KYWebo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYWebo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2EDB101F3D806300872F10 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7A2EDB121F3D807100872F10 /* HomeItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeItemViewModel.swift; sourceTree = "<group>"; };
-		7A2EDB141F3D8EC500872F10 /* WeboRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeboRequest.swift; sourceTree = "<group>"; };
 		7A2EDB161F3DADC000872F10 /* WbUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbUser.swift; sourceTree = "<group>"; };
 		7A2EDB181F3DAE4F00872F10 /* WbStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbStatus.swift; sourceTree = "<group>"; };
 		7A2EDB1A1F3DB87D00872F10 /* WbTimeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbTimeline.swift; sourceTree = "<group>"; };
@@ -220,7 +217,6 @@
 		7A57526A1F3C4F1E009EAD73 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		7A57526C1F3C4F2C009EAD73 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7A5752721F3C510F009EAD73 /* KYHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYHomeController.swift; sourceTree = "<group>"; };
-		7A57527A1F3D5F00009EAD73 /* HomeApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeApiRequest.swift; sourceTree = "<group>"; };
 		7A7D26511F4C279D0073D2A8 /* WbConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WbConfig.swift; sourceTree = "<group>"; };
 		7A97D3141F3C36F300AC7C82 /* KYWebo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYWebo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -463,13 +459,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		7A57523C1F3C3E61009EAD73 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		7A57523E1F3C3F1C009EAD73 /* Bizs */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,15 +541,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		7A5752771F3D5D32009EAD73 /* Apis */ = {
-			isa = PBXGroup;
-			children = (
-				7A2EDB141F3D8EC500872F10 /* WeboRequest.swift */,
-				7A57527A1F3D5F00009EAD73 /* HomeApiRequest.swift */,
-			);
-			path = Apis;
-			sourceTree = "<group>";
-		};
 		7A97D30B1F3C36F300AC7C82 = {
 			isa = PBXGroup;
 			children = (
@@ -587,10 +567,8 @@
 			isa = PBXGroup;
 			children = (
 				7A57523B1F3C3E61009EAD73 /* Main */,
-				7A5752771F3D5D32009EAD73 /* Apis */,
 				7A57523E1F3C3F1C009EAD73 /* Bizs */,
 				7A57524E1F3C4B57009EAD73 /* Vender */,
-				7A57523C1F3C3E61009EAD73 /* Utils */,
 				7A2EDB251F43F74100872F10 /* Resources */,
 				7A5752421F3C3FC4009EAD73 /* Supporting Files */,
 				7A97D31E1F3C36F300AC7C82 /* Assets.xcassets */,
@@ -791,21 +769,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KYWebo/Pods-KYWebo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBAllocationTracker/FBAllocationTracker.framework",
-				"${BUILT_PRODUCTS_DIR}/FBMemoryProfiler/FBMemoryProfiler.framework",
-				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/JPFPSStatus/JPFPSStatus.framework",
-				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBAllocationTracker.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBMemoryProfiler.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JPFPSStatus.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 			);
@@ -864,7 +834,6 @@
 				7A5752731F3C510F009EAD73 /* KYHomeController.swift in Sources */,
 				7A33E51E1F5507BF00CA512F /* NSData+ImageContentType.m in Sources */,
 				7A2EDB2B1F4445C900872F10 /* WbStatuesHelper.swift in Sources */,
-				7A2EDB151F3D8EC500872F10 /* WeboRequest.swift in Sources */,
 				7A33E4ED1F55064700CA512F /* MJRefreshBackNormalFooter.m in Sources */,
 				7A2EDB1B1F3DB87D00872F10 /* WbTimeline.swift in Sources */,
 				18D0B6401F40391A00E99F91 /* WbStatusView.swift in Sources */,
@@ -885,7 +854,6 @@
 				18D0B6421F40395400E99F91 /* WbProfileView.swift in Sources */,
 				7ACB6F511F4BDCAB00418223 /* WBStatusHelper.m in Sources */,
 				7ACB6F521F4BDCAB00418223 /* YYControl.m in Sources */,
-				7A57527B1F3D5F00009EAD73 /* HomeApiRequest.swift in Sources */,
 				7A33E4F61F55064700CA512F /* UIView+MJExtension.m in Sources */,
 				7A33E4F31F55064700CA512F /* MJRefreshConst.m in Sources */,
 				18D0B6441F403A1200E99F91 /* WbToolbarView.swift in Sources */,

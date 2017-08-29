@@ -9,10 +9,6 @@ target 'KYWebo' do
     pod 'YYKit',  '~> 1.0.9'
 
     pod 'JPFPSStatus',  '~> 0.1'
-    pod 'LxDBAnything', '~> 1.1.0'
-
-    pod 'KVOController'
-    pod 'FBMemoryProfiler'
 
     # Swift
     pod 'SnapKit', '~> 3.0.2'

@@ -26,11 +26,11 @@ let kCellToolBarTop: CGFloat      = 8   // 工具栏与它之上间间距
 let kCellTopMargin: CGFloat       = 8
 let kCellBottomMargin: CGFloat    = 2
 
-let kCellNameFontSize: CGFloat    = 16  // 名字字体大小
+let kCellNameFontSize: CGFloat    = 15  // 名字字体大小
 let kCellSourceFontSize: CGFloat  = 12  // 来源字体大小
-let kCellTextFontSize: CGFloat    = 17  // 文本字体大小
+let kCellTextFontSize: CGFloat    = 16  // 文本字体大小
 
-let kCellReteetTextSize: CGFloat  = 16  // 转发文本字体大小
+let kCellReteetTextSize: CGFloat  = 15  // 转发文本字体大小
 let kCellReteetLeft: CGFloat      = kCellPadding + kCellPaddingText  // 转发文本距左距离
 let kCellReteetWidth: CGFloat     = kCellContentWidth - kCellPaddingText * 2  // 转发内容宽度
 

@@ -4,27 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>FBAllocationTracker.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBMemoryProfiler.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FBRetainCycleDetector.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JPFPSStatus.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>KVOController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,17 +27,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>131981766F2F9BAF0702F862C451AE39</key>
+		<key>18A972F45266E3029000A587C506EAEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E5E7F03928CE91E3483BC8E86DD905E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>72C00978A5155ED4FE8ECBB36E36DC2E</key>
+		<key>2A81CA5979E998177F06A3EA46A5A9D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,22 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B37B4DFB076D254F62C50A56A96130CB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B4950F590AFA89A98F74BF5F2E8EB619</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C34C11083B98E06F16A638EE1DE47AD6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F1BB2FCBCF83B5DDB315512A21BC40B8</key>
+		<key>C32126BE8131E6459F5168312BA24FB1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

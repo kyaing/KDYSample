@@ -135,7 +135,7 @@ class HomeItemViewModel: NSObject {
         textContainer.linePositionModifier = modifier
         
         textLayout = YYTextLayout(container: textContainer, text: bodyAttriText)
-        textHeight = modifier.lineHeight(forLineCount: textLayout.rowCount)
+        textHeight = modifier.lineHeights(forLineCount: textLayout.rowCount)
     }
     
     func layoutPics() {
@@ -173,7 +173,7 @@ class HomeItemViewModel: NSObject {
         
         retweetTextLayout = YYTextLayout(container: textContainer, text: bodyAttriText)
         if retweetTextLayout == nil { return }
-        retweetTextHeight = modifier.lineHeight(forLineCount: (retweetTextLayout!.rowCount))
+        retweetTextHeight = modifier.lineHeights(forLineCount: (retweetTextLayout!.rowCount))
     }
     
     func layoutRetweetPics() {
@@ -184,8 +184,6 @@ class HomeItemViewModel: NSObject {
     
     func layoutToolbar() {
         toolbarHeight = kCellToolbarHeight
-        
-        
     }
     
     // MARK: - Private Methods
@@ -202,6 +200,7 @@ class HomeItemViewModel: NSObject {
         let height: CGFloat = (width - 2 * kCellPaddingPic) / 3.0
         
         var _picSize: CGSize = CGSize(width: height, height: height)
+        var _picWidth: CGFloat = 0
         var _picHeight: CGFloat = 0
         
         // 九宫格图片
@@ -212,28 +211,24 @@ class HomeItemViewModel: NSObject {
                 
                 // 单独处理一张图片的尺寸
                 _picSize   = UIImage.getSizeWithURL(bmiddle)
+                _picWidth  = _picSize.width
                 _picHeight = _picSize.height
                 
-                if _picSize.width > kCellReteetWidth {  // 超过显示区域
-                    let maxWidth = height * 2 + kCellPaddingPic
-                    if _picSize.width < _picSize.height {
-                        _picSize.width = _picSize.width / _picSize.height * maxWidth
-                        _picSize.height = maxWidth
-                        
-                    } else if _picSize.width < _picSize.height {
-                        _picSize.width = maxWidth
-                        _picSize.height = _picSize.height / _picSize.width * maxWidth
-                    } else {
-                        _picSize.width = maxWidth
-                        _picSize.height = maxWidth
-                    }
+                let maxWidth = height * 2 + kCellPaddingPic
+                if _picWidth < _picHeight {
+                    _picSize.width  = _picSize.width / _picSize.height * maxWidth
+                    _picSize.height = maxWidth
                     
-                    _picHeight = _picSize.height
+                } else if _picWidth > _picHeight {
+                    _picSize.width  = maxWidth
+                    _picSize.height = _picSize.height / _picSize.width * maxWidth
                     
                 } else {
-                    let maxWidth = height * 2 + kCellPaddingPic
-                    _picHeight = maxWidth
+                    _picSize.width  = maxWidth
+                    _picSize.height = maxWidth
                 }
+                
+                _picHeight = _picSize.height
             }
             break
             
@@ -296,6 +291,7 @@ class HomeItemViewModel: NSObject {
             urlArray.append(substring)
         }
         
+        // 短链接如：http://t.cn/RCsHrPX，短链接 -> 长链接；可以请求接口转换
         for url in urlArray {
             let newString = attritext.string as NSString
             var searchRange = NSRange(location: 0, length: newString.length)
