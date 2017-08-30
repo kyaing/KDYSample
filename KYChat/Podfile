@@ -18,17 +18,6 @@ target 'KYChat' do
   pod 'Then', '2.1.0'
   pod 'APIKit', '3.1.1'
   pod 'BSImagePicker', '2.5.1'
-  # pod 'SwiftGen'
-  
-  pod 'RxSwift', '3.0.0-beta.1'
-  pod 'RxCocoa', '3.0.0-beta.1'
-  pod 'RxDataSources', '1.0.0.beta.1'
-  
-  pod 'Reusable', '3.0.1'
-  pod 'RealmSwift', '2.1.1'
-  pod 'Moya/RxSwift', git: 'https://github.com/Moya/Moya.git', tag: '8.0.0-beta.1'
-  pod 'Validator', git: 'https://github.com/adamwaite/Validator.git', tag: 'v2.0.0'
-  pod 'EZSwiftExtensions', '1.7'
 
   # Objective-C
   pod 'MBProgressHUD', '1.0.0'
