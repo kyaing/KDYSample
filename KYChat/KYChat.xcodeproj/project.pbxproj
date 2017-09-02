@@ -623,10 +623,10 @@
 			isa = PBXGroup;
 			children = (
 				7AD4FA241F56A03B002EFA6B /* Base */,
+				7AD4FA291F56A03B002EFA6B /* Login */,
+				7AD4FA281F56A03B002EFA6B /* Conversation */,
 				7AD4FA261F56A03B002EFA6B /* Chat */,
 				7AD4FA271F56A03B002EFA6B /* Contacts */,
-				7AD4FA281F56A03B002EFA6B /* Conversation */,
-				7AD4FA291F56A03B002EFA6B /* Login */,
 				7AD4FA2A1F56A03B002EFA6B /* Me */,
 			);
 			path = BizsClass;
