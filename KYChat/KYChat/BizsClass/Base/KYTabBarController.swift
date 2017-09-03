@@ -10,18 +10,18 @@ import UIKit
 
 class KYTabBarController: UITabBarController {
 
-    let conversationVC = KYConversationController()
-    let contactVC      = KYContactsController()
-    let meVC           = KYMeViewController()
+    // MARK:
     
-    // MARK: -
+    let conversationVC = KYConversationController()
+    let contactVC = KYContactsController()
+    let meVC = KYMeViewController()
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllers()
     }
-    
-    // MARK: -
     
     fileprivate func setupViewControllers() {
         let titleArray = ["Chat", "通讯录", "我"]
@@ -61,7 +61,14 @@ class KYTabBarController: UITabBarController {
         self.viewControllers = navigationControllers as [KYNavigationController]
     }
     
-    // MARK: - 
+    // MARK: - Public Methods
     
+    func setupUnReadMessages() {
+        
+    }
+    
+    func setupUntreatedApplys() {
+        
+    }
 }
 
