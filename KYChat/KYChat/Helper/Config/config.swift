@@ -17,7 +17,7 @@ let emApnsDevCerName       = "kdychat_devleop"
 let emApnsProCerName       = ""
 
 // 内部的通知
-let unReadMessageCountNoti = "unReadMessageCountNoti"
-let unTreatApplyCountNoti  = "unTreatApplyCountNoti"
+let kUnReadMessagesNoti    = "unReadMessageCountNoti"
+let kUTreatApplysNoti      = "unTreatApplyCountNoti"
 let kLoginStateChangedNoti = "loginStateChangedNoti"
 

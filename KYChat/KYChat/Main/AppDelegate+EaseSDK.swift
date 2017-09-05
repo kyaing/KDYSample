@@ -41,6 +41,10 @@ extension AppDelegate {
                     mainTabbarVC = KYTabBarController()
                 }
                 
+                KYChatHelper.share.asyncPushOptions()
+                KYChatHelper.share.asyncConversationFromDB()
+                KYChatHelper.share.mainTabbarVC = mainTabbarVC
+                
                 self.window?.rootViewController = self.mainTabbarVC
                 
             } else {

@@ -20,11 +20,25 @@ class KYTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupViewControllers()
+        
+        setupUnReadMessages()
+        setupUntreatedApplys()
+
+        setupNotifications()
+        
+        KYChatHelper.share.contactVC = contactVC
+        KYChatHelper.share.conversationVC = conversationVC
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(kUnReadMessagesNoti), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(kUTreatApplysNoti), object: nil)
     }
     
     fileprivate func setupViewControllers() {
-        let titleArray = ["Chat", "通讯录", "我"]
+        let titleArray = ["会话", "通讯录", "我"]
         
         let imagesNormal = [
             KYAsset.TabChatNormal.image,
@@ -59,6 +73,12 @@ class KYTabBarController: UITabBarController {
         }
         
         self.viewControllers = navigationControllers as [KYNavigationController]
+    }
+    
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setupUnReadMessages), name: NSNotification.Name(kUnReadMessagesNoti), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setupUnReadMessages), name: NSNotification.Name(kUTreatApplysNoti), object: nil)
     }
     
     // MARK: - Public Methods

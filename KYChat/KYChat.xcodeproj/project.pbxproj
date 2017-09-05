@@ -7,15 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1832310F1F5A9C5900B06600 /* KYLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832310E1F5A9C5900B06600 /* KYLoginController.swift */; };
 		219CE63505B3EA6205A80E5B /* Pods_KYChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2077CB963F7A5747C809E /* Pods_KYChat.framework */; };
-		7A3F74AD1F56A7260015F14C /* KYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3F74AC1F56A7260015F14C /* KYViewController.swift */; };
-		7A3F74AF1F56A7450015F14C /* KYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3F74AE1F56A7450015F14C /* KYTabBarController.swift */; };
-		7A3F74B11F56A7A10015F14C /* KYContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3F74B01F56A7A10015F14C /* KYContactsController.swift */; };
-		7A3F74B31F56A7CA0015F14C /* KYMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3F74B21F56A7CA0015F14C /* KYMeViewController.swift */; };
 		7A3F74B51F56ABC90015F14C /* EaseSDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3F74B41F56ABC90015F14C /* EaseSDKHelper.swift */; };
 		7A3F74B71F56ABD50015F14C /* KYChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3F74B61F56ABD50015F14C /* KYChatHelper.swift */; };
-		7A3F74B91F56AF0F0015F14C /* KYChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3F74B81F56AF0F0015F14C /* KYChatController.swift */; };
 		7AAEF4221F2F185900414014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAEF4211F2F185900414014 /* Assets.xcassets */; };
 		7AAEF4301F2F185900414014 /* KYChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAEF42F1F2F185900414014 /* KYChatTests.swift */; };
 		7AAEF43B1F2F185900414014 /* KYChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAEF43A1F2F185900414014 /* KYChatUITests.swift */; };
@@ -68,9 +62,19 @@
 		7AD4FA201F569E6E002EFA6B /* UITableView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4FA151F569E6E002EFA6B /* UITableView+ChatAdditions.swift */; };
 		7AD4FA211F569E6E002EFA6B /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4FA161F569E6E002EFA6B /* UIView+Frame.swift */; };
 		7AD4FA221F569E6E002EFA6B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4FA171F569E6E002EFA6B /* UIViewController+Extension.swift */; };
-		7AD4FA2B1F56A03B002EFA6B /* KYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4FA251F56A03B002EFA6B /* KYNavigationController.swift */; };
 		7AD4FA2D1F56A1D8002EFA6B /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4FA2C1F56A1D8002EFA6B /* config.swift */; };
-		7AD4FA321F56A260002EFA6B /* KYConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4FA311F56A260002EFA6B /* KYConversationController.swift */; };
+		7AF14FC91F5E88730053FED1 /* KYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FB51F5E88720053FED1 /* KYNavigationController.swift */; };
+		7AF14FCA1F5E88730053FED1 /* KYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FB61F5E88720053FED1 /* KYTabBarController.swift */; };
+		7AF14FCB1F5E88730053FED1 /* KYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FB71F5E88720053FED1 /* KYViewController.swift */; };
+		7AF14FCC1F5E88730053FED1 /* KYChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FBA1F5E88720053FED1 /* KYChatController.swift */; };
+		7AF14FCD1F5E88730053FED1 /* KYContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FBD1F5E88720053FED1 /* KYContactsController.swift */; };
+		7AF14FCE1F5E88730053FED1 /* KYConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FC01F5E88720053FED1 /* KYConversationController.swift */; };
+		7AF14FCF1F5E88730053FED1 /* KYLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FC51F5E88720053FED1 /* KYLoginController.swift */; };
+		7AF14FD01F5E88730053FED1 /* KYMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FC81F5E88730053FED1 /* KYMeViewController.swift */; };
+		7AF14FD41F5E8ACD0053FED1 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FD21F5E8ACD0053FED1 /* ConversationCell.swift */; };
+		7AF14FD51F5E8ACD0053FED1 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF14FD31F5E8ACD0053FED1 /* ConversationCell.xib */; };
+		7AF14FD81F5E8BEE0053FED1 /* ConversationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FD71F5E8BEE0053FED1 /* ConversationModel.swift */; };
+		7AF14FDA1F5E8D220053FED1 /* KYConversationController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FD91F5E8D220053FED1 /* KYConversationController+Delegate.swift */; };
 		B773963080D29D38E0909A98 /* Pods_KYChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D960CEA403D7474EE8F8A2E7 /* Pods_KYChatTests.framework */; };
 		C9FDEE8511A6FC374877A0FE /* Pods_KYChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB92BAE4701E579886FD9EBD /* Pods_KYChatUITests.framework */; };
 /* End PBXBuildFile section */
@@ -93,19 +97,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1832310E1F5A9C5900B06600 /* KYLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYLoginController.swift; sourceTree = "<group>"; };
 		2E0162E825E688BE6B80C819 /* Pods-KYChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYChat/Pods-KYChat.debug.xcconfig"; sourceTree = "<group>"; };
 		32710C5B1AC5965FB0A86BE5 /* Pods-KYChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYChatUITests/Pods-KYChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3D15F568B3B14A6BC7A6C19D /* Pods-KYChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYChatTests/Pods-KYChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		5699B611C99FB28F0B082AA5 /* Pods-KYChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KYChatTests/Pods-KYChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		78083A1986BADEDB890486AB /* Pods-KYChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYChatUITests/Pods-KYChatUITests.release.xcconfig"; sourceTree = "<group>"; };
-		7A3F74AC1F56A7260015F14C /* KYViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYViewController.swift; sourceTree = "<group>"; };
-		7A3F74AE1F56A7450015F14C /* KYTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYTabBarController.swift; sourceTree = "<group>"; };
-		7A3F74B01F56A7A10015F14C /* KYContactsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYContactsController.swift; sourceTree = "<group>"; };
-		7A3F74B21F56A7CA0015F14C /* KYMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYMeViewController.swift; sourceTree = "<group>"; };
 		7A3F74B41F56ABC90015F14C /* EaseSDKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseSDKHelper.swift; sourceTree = "<group>"; };
 		7A3F74B61F56ABD50015F14C /* KYChatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYChatHelper.swift; sourceTree = "<group>"; };
-		7A3F74B81F56AF0F0015F14C /* KYChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYChatController.swift; sourceTree = "<group>"; };
 		7AAEF4171F2F185900414014 /* KYChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AAEF4211F2F185900414014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AAEF4261F2F185900414014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -223,9 +221,19 @@
 		7AD4FA151F569E6E002EFA6B /* UITableView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ChatAdditions.swift"; sourceTree = "<group>"; };
 		7AD4FA161F569E6E002EFA6B /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		7AD4FA171F569E6E002EFA6B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		7AD4FA251F56A03B002EFA6B /* KYNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYNavigationController.swift; sourceTree = "<group>"; };
 		7AD4FA2C1F56A1D8002EFA6B /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
-		7AD4FA311F56A260002EFA6B /* KYConversationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYConversationController.swift; sourceTree = "<group>"; };
+		7AF14FB51F5E88720053FED1 /* KYNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYNavigationController.swift; sourceTree = "<group>"; };
+		7AF14FB61F5E88720053FED1 /* KYTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYTabBarController.swift; sourceTree = "<group>"; };
+		7AF14FB71F5E88720053FED1 /* KYViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYViewController.swift; sourceTree = "<group>"; };
+		7AF14FBA1F5E88720053FED1 /* KYChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYChatController.swift; sourceTree = "<group>"; };
+		7AF14FBD1F5E88720053FED1 /* KYContactsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYContactsController.swift; sourceTree = "<group>"; };
+		7AF14FC01F5E88720053FED1 /* KYConversationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYConversationController.swift; sourceTree = "<group>"; };
+		7AF14FC51F5E88720053FED1 /* KYLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYLoginController.swift; sourceTree = "<group>"; };
+		7AF14FC81F5E88730053FED1 /* KYMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYMeViewController.swift; sourceTree = "<group>"; };
+		7AF14FD21F5E8ACD0053FED1 /* ConversationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		7AF14FD31F5E8ACD0053FED1 /* ConversationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
+		7AF14FD71F5E8BEE0053FED1 /* ConversationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationModel.swift; sourceTree = "<group>"; };
+		7AF14FD91F5E8D220053FED1 /* KYConversationController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYConversationController+Delegate.swift"; sourceTree = "<group>"; };
 		7E0FFCAF852C65D567EBF06E /* Pods-KYChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYChat/Pods-KYChat.release.xcconfig"; sourceTree = "<group>"; };
 		AB92BAE4701E579886FD9EBD /* Pods_KYChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB2077CB963F7A5747C809E /* Pods_KYChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,22 +282,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1832310C1F5A9C2F00B06600 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				1832310D1F5A9C2F00B06600 /* Controller */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		1832310D1F5A9C2F00B06600 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				1832310E1F5A9C5900B06600 /* KYLoginController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		46DFFB0E5B2BDF2C09F3AE24 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,7 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				7AD4F9E81F568745002EFA6B /* Main */,
-				7AD4FA231F56A03B002EFA6B /* BizsClass */,
+				7AF14FB31F5E88720053FED1 /* BizsClass */,
 				7AD4F9EB1F568ACD002EFA6B /* Helper */,
 				7AD4F8E71F566913002EFA6B /* Vendor */,
 				7AD4F9E11F568547002EFA6B /* Base.lproj */,
@@ -637,91 +629,143 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		7AD4FA231F56A03B002EFA6B /* BizsClass */ = {
+		7AF14FB31F5E88720053FED1 /* BizsClass */ = {
 			isa = PBXGroup;
 			children = (
-				7AD4FA241F56A03B002EFA6B /* Base */,
-				1832310C1F5A9C2F00B06600 /* Login */,
-				7AD4FA281F56A03B002EFA6B /* Conversation */,
-				7AD4FA261F56A03B002EFA6B /* Chat */,
-				7AD4FA271F56A03B002EFA6B /* Contacts */,
-				7AD4FA2A1F56A03B002EFA6B /* Me */,
+				7AF14FB41F5E88720053FED1 /* Base */,
+				7AF14FB81F5E88720053FED1 /* Chat */,
+				7AF14FBB1F5E88720053FED1 /* Contacts */,
+				7AF14FBE1F5E88720053FED1 /* Conversation */,
+				7AF14FC31F5E88720053FED1 /* Login */,
+				7AF14FC61F5E88720053FED1 /* Me */,
 			);
 			path = BizsClass;
 			sourceTree = "<group>";
 		};
-		7AD4FA241F56A03B002EFA6B /* Base */ = {
+		7AF14FB41F5E88720053FED1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				7A3F74AC1F56A7260015F14C /* KYViewController.swift */,
-				7AD4FA251F56A03B002EFA6B /* KYNavigationController.swift */,
-				7A3F74AE1F56A7450015F14C /* KYTabBarController.swift */,
+				7AF14FB51F5E88720053FED1 /* KYNavigationController.swift */,
+				7AF14FB61F5E88720053FED1 /* KYTabBarController.swift */,
+				7AF14FB71F5E88720053FED1 /* KYViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
 		};
-		7AD4FA261F56A03B002EFA6B /* Chat */ = {
+		7AF14FB81F5E88720053FED1 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				7AD4FA341F56A2A9002EFA6B /* Controller */,
+				7AF14FB91F5E88720053FED1 /* Controller */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		7AD4FA271F56A03B002EFA6B /* Contacts */ = {
+		7AF14FB91F5E88720053FED1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7AD4FA331F56A29D002EFA6B /* Controller */,
+				7AF14FBA1F5E88720053FED1 /* KYChatController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7AF14FBB1F5E88720053FED1 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FBC1F5E88720053FED1 /* Controller */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
 		};
-		7AD4FA281F56A03B002EFA6B /* Conversation */ = {
+		7AF14FBC1F5E88720053FED1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7AD4FA301F56A260002EFA6B /* Controller */,
+				7AF14FBD1F5E88720053FED1 /* KYContactsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7AF14FBE1F5E88720053FED1 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FBF1F5E88720053FED1 /* Controller */,
+				7AF14FD61F5E8BDA0053FED1 /* Model */,
+				7AF14FC11F5E88720053FED1 /* View */,
+				7AF14FC21F5E88720053FED1 /* ViewModel */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
 		};
-		7AD4FA2A1F56A03B002EFA6B /* Me */ = {
+		7AF14FBF1F5E88720053FED1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7AD4FA361F56A2BA002EFA6B /* Controller */,
+				7AF14FC01F5E88720053FED1 /* KYConversationController.swift */,
+				7AF14FD91F5E8D220053FED1 /* KYConversationController+Delegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7AF14FC11F5E88720053FED1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FD11F5E8A8F0053FED1 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7AF14FC21F5E88720053FED1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7AF14FC31F5E88720053FED1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FC41F5E88720053FED1 /* Controller */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7AF14FC41F5E88720053FED1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FC51F5E88720053FED1 /* KYLoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7AF14FC61F5E88720053FED1 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FC71F5E88720053FED1 /* Controller */,
 			);
 			path = Me;
 			sourceTree = "<group>";
 		};
-		7AD4FA301F56A260002EFA6B /* Controller */ = {
+		7AF14FC71F5E88720053FED1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7AD4FA311F56A260002EFA6B /* KYConversationController.swift */,
+				7AF14FC81F5E88730053FED1 /* KYMeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		7AD4FA331F56A29D002EFA6B /* Controller */ = {
+		7AF14FD11F5E8A8F0053FED1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				7A3F74B01F56A7A10015F14C /* KYContactsController.swift */,
+				7AF14FD21F5E8ACD0053FED1 /* ConversationCell.swift */,
+				7AF14FD31F5E8ACD0053FED1 /* ConversationCell.xib */,
 			);
-			path = Controller;
+			path = Cell;
 			sourceTree = "<group>";
 		};
-		7AD4FA341F56A2A9002EFA6B /* Controller */ = {
+		7AF14FD61F5E8BDA0053FED1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7A3F74B81F56AF0F0015F14C /* KYChatController.swift */,
+				7AF14FD71F5E8BEE0053FED1 /* ConversationModel.swift */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		7AD4FA361F56A2BA002EFA6B /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7A3F74B21F56A7CA0015F14C /* KYMeViewController.swift */,
-			);
-			path = Controller;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BC175305B3D59CDFCA9A2963 /* Pods */ = {
@@ -860,6 +904,7 @@
 				7AAEF4221F2F185900414014 /* Assets.xcassets in Resources */,
 				7AD4F9E71F56857F002EFA6B /* Launch Screen.storyboard in Resources */,
 				7AD4F95A1F566913002EFA6B /* MJRefresh.bundle in Resources */,
+				7AF14FD51F5E8ACD0053FED1 /* ConversationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,7 +940,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		65C30ACF6638473A8869FDE4 /* [CP] Copy Pods Resources */ = {
@@ -928,7 +973,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8EE162A959D5B11714CBB2E1 /* [CP] Copy Pods Resources */ = {
@@ -1056,7 +1101,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1071,44 +1116,47 @@
 				7AD4FA1E1F569E6E002EFA6B /* UIScreen+Frame.swift in Sources */,
 				7AD4FA201F569E6E002EFA6B /* UITableView+ChatAdditions.swift in Sources */,
 				7AD4F9531F566913002EFA6B /* MJRefreshAutoStateFooter.m in Sources */,
+				7AF14FCE1F5E88730053FED1 /* KYConversationController.swift in Sources */,
+				7AF14FD01F5E88730053FED1 /* KYMeViewController.swift in Sources */,
 				7AD4FA181F569E6E002EFA6B /* NSDate+Extension.swift in Sources */,
 				7A3F74B51F56ABC90015F14C /* EaseSDKHelper.swift in Sources */,
+				7AF14FC91F5E88730053FED1 /* KYNavigationController.swift in Sources */,
 				7AD4F9561F566913002EFA6B /* MJRefreshBackStateFooter.m in Sources */,
 				7AD4F95F1F566913002EFA6B /* UIViewController+Proposer.swift in Sources */,
+				7AF14FD41F5E8ACD0053FED1 /* ConversationCell.swift in Sources */,
+				7AF14FCB1F5E88730053FED1 /* KYViewController.swift in Sources */,
 				7AD4F9591F566913002EFA6B /* MJRefreshStateHeader.m in Sources */,
 				7AD4F95E1F566913002EFA6B /* UIView+MJExtension.m in Sources */,
+				7AF14FD81F5E8BEE0053FED1 /* ConversationModel.swift in Sources */,
 				7AD4F9571F566913002EFA6B /* MJRefreshGifHeader.m in Sources */,
 				7AD4FA221F569E6E002EFA6B /* UIViewController+Extension.swift in Sources */,
-				7AD4FA321F56A260002EFA6B /* KYConversationController.swift in Sources */,
 				7AD4F95C1F566913002EFA6B /* UIScrollView+MJExtension.m in Sources */,
-				7A3F74B91F56AF0F0015F14C /* KYChatController.swift in Sources */,
 				7AD4FA1A1F569E6E002EFA6B /* NSString+Validate.swift in Sources */,
 				7AD4F9EA1F568745002EFA6B /* AppDelegate.swift in Sources */,
-				7A3F74AD1F56A7260015F14C /* KYViewController.swift in Sources */,
 				7AD4F9551F566913002EFA6B /* MJRefreshBackNormalFooter.m in Sources */,
-				7AD4FA2B1F56A03B002EFA6B /* KYNavigationController.swift in Sources */,
 				7AD4F94E1F566913002EFA6B /* MJRefreshComponent.m in Sources */,
 				7AD4FA1D1F569E6E002EFA6B /* UIImage+Extension.swift in Sources */,
 				7A3F74B71F56ABD50015F14C /* KYChatHelper.swift in Sources */,
 				7AD4FA2D1F56A1D8002EFA6B /* config.swift in Sources */,
 				7AD4F9521F566913002EFA6B /* MJRefreshAutoNormalFooter.m in Sources */,
+				7AF14FCC1F5E88730053FED1 /* KYChatController.swift in Sources */,
 				7AD4F9511F566913002EFA6B /* MJRefreshAutoGifFooter.m in Sources */,
 				7AD4F94D1F566913002EFA6B /* MJRefreshBackFooter.m in Sources */,
 				7AD4F94F1F566913002EFA6B /* MJRefreshFooter.m in Sources */,
 				7AD4F95D1F566913002EFA6B /* UIScrollView+MJRefresh.m in Sources */,
 				7AD4FA1F1F569E6E002EFA6B /* UIScrollView+ChatAdditions.swift in Sources */,
 				7AD4F95B1F566913002EFA6B /* MJRefreshConst.m in Sources */,
-				7A3F74AF1F56A7450015F14C /* KYTabBarController.swift in Sources */,
+				7AF14FCA1F5E88730053FED1 /* KYTabBarController.swift in Sources */,
 				7AD4FA191F569E6E002EFA6B /* NSNotificationCenter+Block.swift in Sources */,
 				7AD4F9541F566913002EFA6B /* MJRefreshBackGifFooter.m in Sources */,
 				7AD4FA1B1F569E6E002EFA6B /* UIColor+Extension.swift in Sources */,
-				7A3F74B31F56A7CA0015F14C /* KYMeViewController.swift in Sources */,
 				7AD4FA211F569E6E002EFA6B /* UIView+Frame.swift in Sources */,
-				7A3F74B11F56A7A10015F14C /* KYContactsController.swift in Sources */,
+				7AF14FCD1F5E88730053FED1 /* KYContactsController.swift in Sources */,
 				7AD4F9501F566913002EFA6B /* MJRefreshHeader.m in Sources */,
+				7AF14FCF1F5E88730053FED1 /* KYLoginController.swift in Sources */,
+				7AF14FDA1F5E8D220053FED1 /* KYConversationController+Delegate.swift in Sources */,
 				7AD4F9581F566913002EFA6B /* MJRefreshNormalHeader.m in Sources */,
 				7AD4FA1C1F569E6E002EFA6B /* UIImage+Asset.swift in Sources */,
-				1832310F1F5A9C5900B06600 /* KYLoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

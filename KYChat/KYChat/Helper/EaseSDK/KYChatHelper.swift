@@ -38,14 +38,14 @@ class KYChatHelper: NSObject {
     
     // MARK: -
     
-    func asyncGetPushOptions() {
+    func asyncPushOptions() {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async { 
             var error: EMError?
             EMClient.shared().getPushOptionsFromServerWithError(&error)
         }
     }
     
-    func asyncGetConversationFromDB() {
+    func asyncConversationFromDB() {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async { 
             if let conversations = EMClient.shared().chatManager.getAllConversations() {
                 (conversations as NSArray).enumerateObjects({ (emConversation, idx, stop) in
@@ -66,8 +66,8 @@ class KYChatHelper: NSObject {
                 tabbarVC.setupUntreatedApplys()
             }
             
-            if let conversationVC = self.conversationVC {
-                
+            if let converVC = self.conversationVC {
+                converVC.getChatConversations()
             }
         }
     }

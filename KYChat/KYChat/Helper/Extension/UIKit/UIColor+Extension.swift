@@ -23,6 +23,10 @@ extension UIColor {
         case Separator           = "#C8C8C8"
         case NetworkFailed       = "#FFC8C8"
         
+        case TextThree           = "#333333"
+        case TextSix             = "#666666"
+        case TextNine            = "#999999"
+        
         case RecordBgNormal      = "#F3F4F8"
         case RecordBgSelect      = "#C6C7CB"
         
