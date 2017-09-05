@@ -39,6 +39,14 @@ class ConversationCell: UITableViewCell, NibReusable {
         }
     }
     
+    var model: ConversationModel! {
+        willSet {
+            nameLabel.text = newValue.name
+            contentLabel.text = newValue.lastContent
+            timeLabel.text = newValue.lastTime
+        }
+    }
+    
     // MARK: -
 
     override func awakeFromNib() {

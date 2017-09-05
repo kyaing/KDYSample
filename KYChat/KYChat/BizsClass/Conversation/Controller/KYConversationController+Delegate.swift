@@ -13,11 +13,13 @@ import Foundation
 extension KYConversationController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ConversationCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.model = dataSource[indexPath.row] as! ConversationModel
+        
         return cell
     }
 }
