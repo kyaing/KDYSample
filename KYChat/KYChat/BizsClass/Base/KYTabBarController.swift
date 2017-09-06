@@ -12,9 +12,15 @@ class KYTabBarController: UITabBarController {
 
     // MARK:
     
+    // 默认播放声音的间隔
+    let kDefaultPlaySoundInterval = 3.0
+    var lastPlaySoundDate: Date = Date()
+    
     let conversationVC = KYConversationController()
     let contactVC = KYContactsController()
     let meVC = KYMeViewController()
+    
+    var connectionState: EMConnectionState = EMConnectionConnected
     
     // MARK: - Life Cycle
     
@@ -37,7 +43,7 @@ class KYTabBarController: UITabBarController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(kUTreatApplysNoti), object: nil)
     }
     
-    fileprivate func setupViewControllers() {
+    func setupViewControllers() {
         let titleArray = ["会话", "通讯录", "我"]
         
         let imagesNormal = [
@@ -84,10 +90,49 @@ class KYTabBarController: UITabBarController {
     // MARK: - Public Methods
     
     func setupUnReadMessages() {
+        if let conversations = EMClient.shared().chatManager.getAllConversations() as? [EMConversation] {
+            if conversations.count == 0 { return }
+            
+            var unReadCounts: Int32 = 0
+            for conversation in conversations {
+                unReadCounts += conversation.unreadMessagesCount
+            }
+            
+            if unReadCounts > 0 {
+                conversationVC.tabBarItem.badgeValue = String("\(unReadCounts)")
+            } else {
+                conversationVC.tabBarItem.badgeValue = nil
+            }
+    
+            UIApplication.shared.applicationIconBadgeNumber = Int(unReadCounts)
+        }
+    }
+
+    func setupUntreatedApplys() {
         
     }
     
-    func setupUntreatedApplys() {
+    func setupNetworkState(_ state: EMConnectionState) {
+        connectionState = state
+        conversationVC.networkIsConnected()
+    }
+    
+    // 播放声音或振动(有新消息时)
+    func playSoundAndVibration() {
+        let timeInterval: TimeInterval = Date().timeIntervalSince(self.lastPlaySoundDate)
+        if timeInterval < kDefaultPlaySoundInterval {
+            // 如果距离上次响铃和震动时间太短, 则跳过响铃
+            print("skip ringing & vibration \(Date()), \(self.lastPlaySoundDate)")
+            return;
+        }
+        
+        self.lastPlaySoundDate = Date()
+        
+        EMCDDeviceManager.sharedInstance().playNewMessageSound()
+        EMCDDeviceManager.sharedInstance().playVibration()
+    }
+    
+    func showNotification(withMessage message: EMMessage) {
         
     }
 }

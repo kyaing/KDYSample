@@ -46,6 +46,7 @@ class ConversationModel: NSObject {
             self.avatarImage = UIImage(named: "group_avatar")
         }
         
+        self.unReadCount = String(format: "%d", conversation.unreadMessagesCount)
         self.lastTime = getlastMessageTime(conversation)
         self.lastContent = getlastMessageContent(conversation)
     }

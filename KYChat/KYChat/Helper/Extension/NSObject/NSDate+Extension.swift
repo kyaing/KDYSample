@@ -2,8 +2,8 @@
 //  NSDate+Extension.swift
 //
 //
-//  Created by Hilen on 2/22/16.
-//  Copyright © 2016 Hilen. All rights reserved.
+//  Created by mac on 2/22/16.
+//  Copyright © 2016 mac. All rights reserved.
 //
 
 import UIKit
@@ -43,7 +43,7 @@ extension Date {
     }
     
     static func messageAgoSinceDate(_ date: Date) -> String {
-        return self.timeAgoSinceDate(date, numericDates: false)
+        return timeAgoSinceDate(date, numericDates: false)
     }
     
     static func timeAgoSinceDate(_ date: Date, numericDates: Bool) -> String {
@@ -52,6 +52,7 @@ extension Date {
         let now = Date()
         let earliest = (now as NSDate).earlierDate(date)
         let latest = (earliest == now) ? date : now
+        
         let components: DateComponents = (calendar as NSCalendar).components([
             NSCalendar.Unit.minute,
             NSCalendar.Unit.hour,
@@ -63,7 +64,7 @@ extension Date {
             ], from: earliest, to: latest, options: NSCalendar.Options())
         
         if (components.year! >= 2) {
-            return "\(components.year)年前"
+            return "\(String(describing: components.year))年前"
         } else if (components.year! >= 1) {
             if (numericDates){
                 return "1年前"
@@ -71,7 +72,7 @@ extension Date {
                 return "去年"
             }
         } else if (components.month! >= 2) {
-            return "\(components.month)月前"
+            return "\(String(describing: components.month))月前"
         } else if (components.month! >= 1) {
             if (numericDates){
                 return "1个月前"
@@ -79,7 +80,7 @@ extension Date {
                 return "上个月"
             }
         } else if (components.weekOfYear! >= 2) {
-            return "\(components.weekOfYear)周前"
+            return "\(String(describing: components.weekOfYear))周前"
         } else if (components.weekOfYear! >= 1) {
             if (numericDates){
                 return "1周前"
@@ -87,7 +88,7 @@ extension Date {
                 return "上一周"
             }
         } else if (components.day! >= 2) {
-            return "\(components.day)天前"
+            return "\(String(describing: components.day))天前"
         } else if (components.day! >= 1) {
             if (numericDates){
                 return "1天前"
@@ -100,20 +101,6 @@ extension Date {
             
             return timeString
         }
-        
-        //    } else if (components.hour >= 2) {
-        //        return "\(components.hour)小时前"
-        //    } else if (components.hour >= 1) {
-        //        return "1小时前"
-        //    } else if (components.minute >= 2) {
-        //        return "\(components.minute)分钟前"
-        //    } else if (components.minute >= 1){
-        //        return "1分钟前"
-        //    } else if (components.second >= 3) {
-        //        return "\(components.second)秒前"
-        //    } else {
-        //        return "刚刚"
-        //    }
     }
     
     static func formattedTimeFromTimeInterval(_ milliSeconds: Int64) -> String {

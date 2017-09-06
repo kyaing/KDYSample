@@ -21,6 +21,13 @@ class ConversationCell: UITableViewCell, NibReusable {
         }
     }
     
+    @IBOutlet weak var unReadLabel: UILabel! {
+        didSet {
+            unReadLabel.layer.cornerRadius = 9.0
+            unReadLabel.layer.masksToBounds = true
+        }
+    }
+    
     @IBOutlet weak var nameLabel: YYLabel! {
         didSet {
             nameLabel.textColor = KYColor.TextThree.color
@@ -41,6 +48,7 @@ class ConversationCell: UITableViewCell, NibReusable {
     
     var model: ConversationModel! {
         willSet {
+            unReadLabel.text = newValue.unReadCount
             nameLabel.text = newValue.name
             contentLabel.text = newValue.lastContent
             timeLabel.text = newValue.lastTime
@@ -55,6 +63,12 @@ class ConversationCell: UITableViewCell, NibReusable {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        unReadLabel.backgroundColor = .red
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        unReadLabel.backgroundColor = .red
     }
 }
 

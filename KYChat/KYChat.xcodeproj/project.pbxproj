@@ -75,6 +75,20 @@
 		7AF14FD51F5E8ACD0053FED1 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF14FD31F5E8ACD0053FED1 /* ConversationCell.xib */; };
 		7AF14FD81F5E8BEE0053FED1 /* ConversationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FD71F5E8BEE0053FED1 /* ConversationModel.swift */; };
 		7AF14FDA1F5E8D220053FED1 /* KYConversationController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FD91F5E8D220053FED1 /* KYConversationController+Delegate.swift */; };
+		7AF14FDC1F5FA3C50053FED1 /* KYChatHelper+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FDB1F5FA3C50053FED1 /* KYChatHelper+Delegate.swift */; };
+		7AF150041F5FCEEB0053FED1 /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FE61F5FCEEB0053FED1 /* EMAudioPlayerUtil.m */; };
+		7AF150051F5FCEEB0053FED1 /* EMAudioRecorderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FE81F5FCEEB0053FED1 /* EMAudioRecorderUtil.m */; };
+		7AF150061F5FCEEB0053FED1 /* EMCDDeviceManager+Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FEA1F5FCEEB0053FED1 /* EMCDDeviceManager+Media.m */; };
+		7AF150071F5FCEEB0053FED1 /* EMCDDeviceManager+Microphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FEC1F5FCEEB0053FED1 /* EMCDDeviceManager+Microphone.m */; };
+		7AF150081F5FCEEB0053FED1 /* EMCDDeviceManager+ProximitySensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FEE1F5FCEEB0053FED1 /* EMCDDeviceManager+ProximitySensor.m */; };
+		7AF150091F5FCEEB0053FED1 /* EMCDDeviceManager+Remind.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FF01F5FCEEB0053FED1 /* EMCDDeviceManager+Remind.m */; };
+		7AF1500A1F5FCEEB0053FED1 /* EMCDDeviceManagerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FF31F5FCEEB0053FED1 /* EMCDDeviceManagerBase.m */; };
+		7AF1500B1F5FCEEB0053FED1 /* amrFileCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FF71F5FCEEB0053FED1 /* amrFileCodec.mm */; };
+		7AF1500C1F5FCEEB0053FED1 /* wav.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FF91F5FCEEB0053FED1 /* wav.mm */; };
+		7AF1500D1F5FCEEB0053FED1 /* EMVoiceConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FFB1F5FCEEB0053FED1 /* EMVoiceConverter.mm */; };
+		7AF1500E1F5FCEEB0053FED1 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF14FFF1F5FCEEB0053FED1 /* libopencore-amrnb.a */; };
+		7AF1500F1F5FCEEB0053FED1 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF150031F5FCEEB0053FED1 /* libopencore-amrwb.a */; };
+		7AF150161F5FD4120053FED1 /* EaseUIResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7AF150151F5FD4120053FED1 /* EaseUIResource.bundle */; };
 		B773963080D29D38E0909A98 /* Pods_KYChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D960CEA403D7474EE8F8A2E7 /* Pods_KYChatTests.framework */; };
 		C9FDEE8511A6FC374877A0FE /* Pods_KYChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB92BAE4701E579886FD9EBD /* Pods_KYChatUITests.framework */; };
 /* End PBXBuildFile section */
@@ -234,6 +248,40 @@
 		7AF14FD31F5E8ACD0053FED1 /* ConversationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
 		7AF14FD71F5E8BEE0053FED1 /* ConversationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationModel.swift; sourceTree = "<group>"; };
 		7AF14FD91F5E8D220053FED1 /* KYConversationController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYConversationController+Delegate.swift"; sourceTree = "<group>"; };
+		7AF14FDB1F5FA3C50053FED1 /* KYChatHelper+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KYChatHelper+Delegate.swift"; sourceTree = "<group>"; };
+		7AF14FE11F5FCEEB0053FED1 /* EMCDDeviceManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerDelegate.h; sourceTree = "<group>"; };
+		7AF14FE21F5FCEEB0053FED1 /* EMCDDeviceManagerProximitySensorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerProximitySensorDelegate.h; sourceTree = "<group>"; };
+		7AF14FE41F5FCEEB0053FED1 /* DemoErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoErrorCode.h; sourceTree = "<group>"; };
+		7AF14FE51F5FCEEB0053FED1 /* EMAudioPlayerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAudioPlayerUtil.h; sourceTree = "<group>"; };
+		7AF14FE61F5FCEEB0053FED1 /* EMAudioPlayerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAudioPlayerUtil.m; sourceTree = "<group>"; };
+		7AF14FE71F5FCEEB0053FED1 /* EMAudioRecorderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAudioRecorderUtil.h; sourceTree = "<group>"; };
+		7AF14FE81F5FCEEB0053FED1 /* EMAudioRecorderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAudioRecorderUtil.m; sourceTree = "<group>"; };
+		7AF14FE91F5FCEEB0053FED1 /* EMCDDeviceManager+Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+Media.h"; sourceTree = "<group>"; };
+		7AF14FEA1F5FCEEB0053FED1 /* EMCDDeviceManager+Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+Media.m"; sourceTree = "<group>"; };
+		7AF14FEB1F5FCEEB0053FED1 /* EMCDDeviceManager+Microphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+Microphone.h"; sourceTree = "<group>"; };
+		7AF14FEC1F5FCEEB0053FED1 /* EMCDDeviceManager+Microphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+Microphone.m"; sourceTree = "<group>"; };
+		7AF14FED1F5FCEEB0053FED1 /* EMCDDeviceManager+ProximitySensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+ProximitySensor.h"; sourceTree = "<group>"; };
+		7AF14FEE1F5FCEEB0053FED1 /* EMCDDeviceManager+ProximitySensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+ProximitySensor.m"; sourceTree = "<group>"; };
+		7AF14FEF1F5FCEEB0053FED1 /* EMCDDeviceManager+Remind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+Remind.h"; sourceTree = "<group>"; };
+		7AF14FF01F5FCEEB0053FED1 /* EMCDDeviceManager+Remind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+Remind.m"; sourceTree = "<group>"; };
+		7AF14FF11F5FCEEB0053FED1 /* EMCDDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManager.h; sourceTree = "<group>"; };
+		7AF14FF21F5FCEEB0053FED1 /* EMCDDeviceManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerBase.h; sourceTree = "<group>"; };
+		7AF14FF31F5FCEEB0053FED1 /* EMCDDeviceManagerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCDDeviceManagerBase.m; sourceTree = "<group>"; };
+		7AF14FF61F5FCEEB0053FED1 /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
+		7AF14FF71F5FCEEB0053FED1 /* amrFileCodec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = amrFileCodec.mm; sourceTree = "<group>"; };
+		7AF14FF81F5FCEEB0053FED1 /* wav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wav.h; sourceTree = "<group>"; };
+		7AF14FF91F5FCEEB0053FED1 /* wav.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wav.mm; sourceTree = "<group>"; };
+		7AF14FFA1F5FCEEB0053FED1 /* EMVoiceConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMVoiceConverter.h; sourceTree = "<group>"; };
+		7AF14FFB1F5FCEEB0053FED1 /* EMVoiceConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EMVoiceConverter.mm; sourceTree = "<group>"; };
+		7AF14FFD1F5FCEEB0053FED1 /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		7AF14FFE1F5FCEEB0053FED1 /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		7AF14FFF1F5FCEEB0053FED1 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		7AF150011F5FCEEB0053FED1 /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		7AF150021F5FCEEB0053FED1 /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		7AF150031F5FCEEB0053FED1 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		7AF150101F5FCFC00053FED1 /* EaseLocalDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EaseLocalDefine.h; sourceTree = "<group>"; };
+		7AF150151F5FD4120053FED1 /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
+		7AF150171F5FE4E30053FED1 /* KYChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = KYChat.entitlements; path = ../KYChat.entitlements; sourceTree = "<group>"; };
 		7E0FFCAF852C65D567EBF06E /* Pods-KYChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KYChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-KYChat/Pods-KYChat.release.xcconfig"; sourceTree = "<group>"; };
 		AB92BAE4701E579886FD9EBD /* Pods_KYChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB2077CB963F7A5747C809E /* Pods_KYChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KYChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AD4F9FE1F568BD0002EFA6B /* libsqlite3.0.tbd in Frameworks */,
+				7AF1500E1F5FCEEB0053FED1 /* libopencore-amrnb.a in Frameworks */,
 				7AD4F9FD1F568BB5002EFA6B /* libstdc++.6.0.9.tbd in Frameworks */,
 				7AD4F9FC1F568B9C002EFA6B /* libiconv.tbd in Frameworks */,
 				7AD4F9FB1F568B8E002EFA6B /* libc++.tbd in Frameworks */,
@@ -253,6 +302,7 @@
 				7AD4F9F91F568B4D002EFA6B /* CoreTelephony.framework in Frameworks */,
 				7AD4F9F81F568B38002EFA6B /* CoreMedia.framework in Frameworks */,
 				7AD4F9F71F568B2D002EFA6B /* CoreLocation.framework in Frameworks */,
+				7AF1500F1F5FCEEB0053FED1 /* libopencore-amrwb.a in Frameworks */,
 				7AD4F9F61F568B1D002EFA6B /* SystemConfiguration.framework in Frameworks */,
 				7AD4F9F51F568B16002EFA6B /* MobileCoreServices.framework in Frameworks */,
 				7AD4F9F41F568B0A002EFA6B /* CoreImage.framework in Frameworks */,
@@ -335,6 +385,7 @@
 				7AF14FB31F5E88720053FED1 /* BizsClass */,
 				7AD4F9EB1F568ACD002EFA6B /* Helper */,
 				7AD4F8E71F566913002EFA6B /* Vendor */,
+				7AF150141F5FD4120053FED1 /* Resources */,
 				7AD4F9E11F568547002EFA6B /* Base.lproj */,
 				7AAEF4211F2F185900414014 /* Assets.xcassets */,
 			);
@@ -538,6 +589,7 @@
 				7AAEF4261F2F185900414014 /* Info.plist */,
 				7AD4F9E21F568547002EFA6B /* Main.storyboard */,
 				7AD4F9E51F56857F002EFA6B /* Launch Screen.storyboard */,
+				7AF150171F5FE4E30053FED1 /* KYChat.entitlements */,
 				7AD4FA031F568E01002EFA6B /* KYChat-Bridging-Header.h */,
 			);
 			path = Base.lproj;
@@ -555,20 +607,14 @@
 		7AD4F9EB1F568ACD002EFA6B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				7AD4F9EC1F568ACD002EFA6B /* Chat */,
+				7AF14FDD1F5FCEEB0053FED1 /* Chat */,
 				7AD4F9ED1F568ACD002EFA6B /* Config */,
-				7AD4F9EE1F568ACD002EFA6B /* DB */,
+				7AF14FDE1F5FCEEB0053FED1 /* DB */,
+				7AF14FDF1F5FCEEB0053FED1 /* DeviceHelper */,
 				7AD4F9EF1F568ACD002EFA6B /* EaseSDK */,
 				7AD4FA0A1F569E6E002EFA6B /* Extension */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		7AD4F9EC1F568ACD002EFA6B /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Chat;
 			sourceTree = "<group>";
 		};
 		7AD4F9ED1F568ACD002EFA6B /* Config */ = {
@@ -579,17 +625,11 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		7AD4F9EE1F568ACD002EFA6B /* DB */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DB;
-			sourceTree = "<group>";
-		};
 		7AD4F9EF1F568ACD002EFA6B /* EaseSDK */ = {
 			isa = PBXGroup;
 			children = (
 				7A3F74B61F56ABD50015F14C /* KYChatHelper.swift */,
+				7AF14FDB1F5FA3C50053FED1 /* KYChatHelper+Delegate.swift */,
 				7A3F74B41F56ABC90015F14C /* EaseSDKHelper.swift */,
 			);
 			path = EaseSDK;
@@ -768,6 +808,114 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7AF14FDD1F5FCEEB0053FED1 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		7AF14FDE1F5FCEEB0053FED1 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		7AF14FDF1F5FCEEB0053FED1 /* DeviceHelper */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FE01F5FCEEB0053FED1 /* delegates */,
+				7AF14FE31F5FCEEB0053FED1 /* internal */,
+				7AF14FF41F5FCEEB0053FED1 /* VoiceConvert */,
+			);
+			path = DeviceHelper;
+			sourceTree = "<group>";
+		};
+		7AF14FE01F5FCEEB0053FED1 /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FE11F5FCEEB0053FED1 /* EMCDDeviceManagerDelegate.h */,
+				7AF14FE21F5FCEEB0053FED1 /* EMCDDeviceManagerProximitySensorDelegate.h */,
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		7AF14FE31F5FCEEB0053FED1 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				7AF150101F5FCFC00053FED1 /* EaseLocalDefine.h */,
+				7AF14FE41F5FCEEB0053FED1 /* DemoErrorCode.h */,
+				7AF14FE51F5FCEEB0053FED1 /* EMAudioPlayerUtil.h */,
+				7AF14FE61F5FCEEB0053FED1 /* EMAudioPlayerUtil.m */,
+				7AF14FE71F5FCEEB0053FED1 /* EMAudioRecorderUtil.h */,
+				7AF14FE81F5FCEEB0053FED1 /* EMAudioRecorderUtil.m */,
+				7AF14FE91F5FCEEB0053FED1 /* EMCDDeviceManager+Media.h */,
+				7AF14FEA1F5FCEEB0053FED1 /* EMCDDeviceManager+Media.m */,
+				7AF14FEB1F5FCEEB0053FED1 /* EMCDDeviceManager+Microphone.h */,
+				7AF14FEC1F5FCEEB0053FED1 /* EMCDDeviceManager+Microphone.m */,
+				7AF14FED1F5FCEEB0053FED1 /* EMCDDeviceManager+ProximitySensor.h */,
+				7AF14FEE1F5FCEEB0053FED1 /* EMCDDeviceManager+ProximitySensor.m */,
+				7AF14FEF1F5FCEEB0053FED1 /* EMCDDeviceManager+Remind.h */,
+				7AF14FF01F5FCEEB0053FED1 /* EMCDDeviceManager+Remind.m */,
+				7AF14FF11F5FCEEB0053FED1 /* EMCDDeviceManager.h */,
+				7AF14FF21F5FCEEB0053FED1 /* EMCDDeviceManagerBase.h */,
+				7AF14FF31F5FCEEB0053FED1 /* EMCDDeviceManagerBase.m */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		7AF14FF41F5FCEEB0053FED1 /* VoiceConvert */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FFA1F5FCEEB0053FED1 /* EMVoiceConverter.h */,
+				7AF14FFB1F5FCEEB0053FED1 /* EMVoiceConverter.mm */,
+				7AF14FF51F5FCEEB0053FED1 /* amrwapper */,
+				7AF14FFC1F5FCEEB0053FED1 /* opencore-amrnb */,
+				7AF150001F5FCEEB0053FED1 /* opencore-amrwb */,
+			);
+			path = VoiceConvert;
+			sourceTree = "<group>";
+		};
+		7AF14FF51F5FCEEB0053FED1 /* amrwapper */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FF61F5FCEEB0053FED1 /* amrFileCodec.h */,
+				7AF14FF71F5FCEEB0053FED1 /* amrFileCodec.mm */,
+				7AF14FF81F5FCEEB0053FED1 /* wav.h */,
+				7AF14FF91F5FCEEB0053FED1 /* wav.mm */,
+			);
+			path = amrwapper;
+			sourceTree = "<group>";
+		};
+		7AF14FFC1F5FCEEB0053FED1 /* opencore-amrnb */ = {
+			isa = PBXGroup;
+			children = (
+				7AF14FFD1F5FCEEB0053FED1 /* interf_dec.h */,
+				7AF14FFE1F5FCEEB0053FED1 /* interf_enc.h */,
+				7AF14FFF1F5FCEEB0053FED1 /* libopencore-amrnb.a */,
+			);
+			path = "opencore-amrnb";
+			sourceTree = "<group>";
+		};
+		7AF150001F5FCEEB0053FED1 /* opencore-amrwb */ = {
+			isa = PBXGroup;
+			children = (
+				7AF150011F5FCEEB0053FED1 /* dec_if.h */,
+				7AF150021F5FCEEB0053FED1 /* if_rom.h */,
+				7AF150031F5FCEEB0053FED1 /* libopencore-amrwb.a */,
+			);
+			path = "opencore-amrwb";
+			sourceTree = "<group>";
+		};
+		7AF150141F5FD4120053FED1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7AF150151F5FD4120053FED1 /* EaseUIResource.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BC175305B3D59CDFCA9A2963 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -860,6 +1008,14 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 3YR7CL6SMV;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					7AAEF42A1F2F185900414014 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -901,6 +1057,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AD4F9E41F568547002EFA6B /* Main.storyboard in Resources */,
+				7AF150161F5FD4120053FED1 /* EaseUIResource.bundle in Resources */,
 				7AAEF4221F2F185900414014 /* Assets.xcassets in Resources */,
 				7AD4F9E71F56857F002EFA6B /* Launch Screen.storyboard in Resources */,
 				7AD4F95A1F566913002EFA6B /* MJRefresh.bundle in Resources */,
@@ -1120,21 +1277,29 @@
 				7AF14FD01F5E88730053FED1 /* KYMeViewController.swift in Sources */,
 				7AD4FA181F569E6E002EFA6B /* NSDate+Extension.swift in Sources */,
 				7A3F74B51F56ABC90015F14C /* EaseSDKHelper.swift in Sources */,
+				7AF1500A1F5FCEEB0053FED1 /* EMCDDeviceManagerBase.m in Sources */,
 				7AF14FC91F5E88730053FED1 /* KYNavigationController.swift in Sources */,
 				7AD4F9561F566913002EFA6B /* MJRefreshBackStateFooter.m in Sources */,
 				7AD4F95F1F566913002EFA6B /* UIViewController+Proposer.swift in Sources */,
+				7AF1500D1F5FCEEB0053FED1 /* EMVoiceConverter.mm in Sources */,
 				7AF14FD41F5E8ACD0053FED1 /* ConversationCell.swift in Sources */,
+				7AF150041F5FCEEB0053FED1 /* EMAudioPlayerUtil.m in Sources */,
 				7AF14FCB1F5E88730053FED1 /* KYViewController.swift in Sources */,
 				7AD4F9591F566913002EFA6B /* MJRefreshStateHeader.m in Sources */,
+				7AF150051F5FCEEB0053FED1 /* EMAudioRecorderUtil.m in Sources */,
 				7AD4F95E1F566913002EFA6B /* UIView+MJExtension.m in Sources */,
 				7AF14FD81F5E8BEE0053FED1 /* ConversationModel.swift in Sources */,
 				7AD4F9571F566913002EFA6B /* MJRefreshGifHeader.m in Sources */,
 				7AD4FA221F569E6E002EFA6B /* UIViewController+Extension.swift in Sources */,
+				7AF150091F5FCEEB0053FED1 /* EMCDDeviceManager+Remind.m in Sources */,
 				7AD4F95C1F566913002EFA6B /* UIScrollView+MJExtension.m in Sources */,
 				7AD4FA1A1F569E6E002EFA6B /* NSString+Validate.swift in Sources */,
 				7AD4F9EA1F568745002EFA6B /* AppDelegate.swift in Sources */,
+				7AF150071F5FCEEB0053FED1 /* EMCDDeviceManager+Microphone.m in Sources */,
 				7AD4F9551F566913002EFA6B /* MJRefreshBackNormalFooter.m in Sources */,
+				7AF150061F5FCEEB0053FED1 /* EMCDDeviceManager+Media.m in Sources */,
 				7AD4F94E1F566913002EFA6B /* MJRefreshComponent.m in Sources */,
+				7AF150081F5FCEEB0053FED1 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				7AD4FA1D1F569E6E002EFA6B /* UIImage+Extension.swift in Sources */,
 				7A3F74B71F56ABD50015F14C /* KYChatHelper.swift in Sources */,
 				7AD4FA2D1F56A1D8002EFA6B /* config.swift in Sources */,
@@ -1153,10 +1318,13 @@
 				7AD4FA211F569E6E002EFA6B /* UIView+Frame.swift in Sources */,
 				7AF14FCD1F5E88730053FED1 /* KYContactsController.swift in Sources */,
 				7AD4F9501F566913002EFA6B /* MJRefreshHeader.m in Sources */,
+				7AF14FDC1F5FA3C50053FED1 /* KYChatHelper+Delegate.swift in Sources */,
 				7AF14FCF1F5E88730053FED1 /* KYLoginController.swift in Sources */,
 				7AF14FDA1F5E8D220053FED1 /* KYConversationController+Delegate.swift in Sources */,
+				7AF1500C1F5FCEEB0053FED1 /* wav.mm in Sources */,
 				7AD4F9581F566913002EFA6B /* MJRefreshNormalHeader.m in Sources */,
 				7AD4FA1C1F569E6E002EFA6B /* UIImage+Asset.swift in Sources */,
+				7AF1500B1F5FCEEB0053FED1 /* amrFileCodec.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1317,6 +1485,7 @@
 			baseConfigurationReference = 2E0162E825E688BE6B80C819 /* Pods-KYChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KYChat/KYChat.entitlements;
 				DEVELOPMENT_TEAM = 3YR7CL6SMV;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KYChat/Info.plist;
@@ -1325,6 +1494,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KYChat/Vendor/HyphenateFullSDK/lib",
+					"$(PROJECT_DIR)/KYChat/Helper/DeviceHelper/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/KYChat/Helper/DeviceHelper/VoiceConvert/opencore-amrwb",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1338,6 +1509,7 @@
 			baseConfigurationReference = 7E0FFCAF852C65D567EBF06E /* Pods-KYChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KYChat/KYChat.entitlements;
 				DEVELOPMENT_TEAM = 3YR7CL6SMV;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = KYChat/Info.plist;
@@ -1346,6 +1518,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KYChat/Vendor/HyphenateFullSDK/lib",
+					"$(PROJECT_DIR)/KYChat/Helper/DeviceHelper/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/KYChat/Helper/DeviceHelper/VoiceConvert/opencore-amrwb",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.KYChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";

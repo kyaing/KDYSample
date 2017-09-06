@@ -22,6 +22,10 @@ extension KYConversationController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -31,5 +35,11 @@ extension KYConversationController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+// MARK: - EMChatManagerDelegate
+
+extension KYConversationController: EMChatManagerDelegate {
+    
 }
 

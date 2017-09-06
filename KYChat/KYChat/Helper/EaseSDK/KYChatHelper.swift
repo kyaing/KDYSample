@@ -10,11 +10,11 @@ import UIKit
 
 class KYChatHelper: NSObject {
     
-    // MARK: -
-    
     var mainTabbarVC: KYTabBarController?
     var conversationVC: KYConversationController?
     var contactVC: KYContactsController?
+    
+    // MARK: - Life Cycle
     
     static let share = KYChatHelper()
     private override init() {
@@ -36,7 +36,7 @@ class KYChatHelper: NSObject {
         EMClient.shared().groupManager.removeDelegate(self)
     }
     
-    // MARK: -
+    // MARK: - Public Methods
     
     func asyncPushOptions() {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async { 
@@ -67,26 +67,9 @@ class KYChatHelper: NSObject {
             }
             
             if let converVC = self.conversationVC {
-                converVC.getChatConversations()
+                converVC.refreshConversations()
             }
         }
     }
 }
-
-extension KYChatHelper: EMClientDelegate {
-    
-}
-
-extension KYChatHelper: EMChatManagerDelegate {
-    
-}
-
-extension KYChatHelper: EMContactManagerDelegate {
-    
-}
-
-extension KYChatHelper: EMGroupManagerDelegate {
-    
-}
-
 

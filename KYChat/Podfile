@@ -17,7 +17,7 @@ target 'KYChat' do
   pod 'Then', '2.1.0'
   pod 'APIKit', '3.1.1'
   pod 'BSImagePicker', '2.5.1'
-  pod 'Reusable', '3.0.1'
+  pod 'Reusable'
 
   # Objective-C
   pod 'MBProgressHUD', '1.0.0'

@@ -16,7 +16,7 @@ let emClientSecret         = "YXA6s_ZXqJD7UKFkvubKfv1_9BXDIKI"
 let emApnsDevCerName       = "kdychat_devleop"
 let emApnsProCerName       = ""
 
-// 内部的通知
+// 内部通知
 let kUnReadMessagesNoti    = "unReadMessageCountNoti"
 let kUTreatApplysNoti      = "unTreatApplyCountNoti"
 let kLoginStateChangedNoti = "loginStateChangedNoti"

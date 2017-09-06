@@ -11,6 +11,7 @@
 
 #import "EMSDK.h"
 #import "MJRefresh.h"
+#import "EMCDDeviceManager.h"
 #import <YYText/YYText.h>
 #import <FMDB/FMDB.h>
 

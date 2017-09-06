@@ -45,6 +45,19 @@ class KYConversationController: UIViewController {
         setupSubViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        networkIsConnected()
+        registerChatDelegate()
+    }
+    
+    deinit {
+        removeChatDelegate()
+    }
+    
+    // MARK: - Public Methods
+    
     func setupSubViews() {
         let rightBarItem = UIBarButtonItem(image: KYAsset.AddFriends.image, style: .plain,
                                            target: nil, action: nil)
@@ -56,9 +69,7 @@ class KYConversationController: UIViewController {
         }
     }
     
-    // MARK: -
-    
-    func getChatConversations() {
+    func refreshConversations() {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             
             if let conversations = EMClient.shared().chatManager.getAllConversations() {
@@ -92,6 +103,7 @@ class KYConversationController: UIViewController {
                 }) as! [EMConversation]
                 
                 // 处理数据源
+                self.dataSource.removeAllObjects()
                 for conversation in sortedConversations {
                     let model = ConversationModel(conversation: conversation)
                     self.dataSource.add(model)
@@ -101,6 +113,26 @@ class KYConversationController: UIViewController {
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    func registerChatDelegate() {
+        EMClient.shared().chatManager.add(self, delegateQueue: nil)
+    }
+    
+    func removeChatDelegate() {
+        EMClient.shared().chatManager.remove(self)
+    }
+    
+    func networkIsConnected() {
+        
+    }
+    
+    func networkStateChangede(_ state: EMConnectionState) {
+        if state == EMConnectionDisconnected {
+            
+        } else if state == EMConnectionConnected {
+            
         }
     }
 }

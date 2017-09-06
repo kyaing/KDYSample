@@ -37,6 +37,10 @@
 	<string>是否允许此App使用你的麦克风?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许此App访问你的媒体资料库?</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
