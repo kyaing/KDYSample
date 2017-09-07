@@ -31,7 +31,7 @@
                             <constraint firstAttribute="height" constant="18" id="Vez-xl-0cD"/>
                             <constraint firstAttribute="width" constant="18" id="W3w-HW-927"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -78,6 +78,7 @@
                 <outlet property="nameLabel" destination="697-NF-s4f" id="Tbj-hU-JuH"/>
                 <outlet property="timeLabel" destination="xRF-m3-7Ol" id="ZT9-0b-SIe"/>
                 <outlet property="unReadLabel" destination="1Ep-Y3-0KV" id="9Hp-6s-gq3"/>
+                <outlet property="unReadLabelWidthConstraint" destination="W3w-HW-927" id="D4P-72-OSS"/>
             </connections>
             <point key="canvasLocation" x="-727.5" y="-1232.5"/>
         </tableViewCell>

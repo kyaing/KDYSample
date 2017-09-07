@@ -53,6 +53,7 @@ extension KYChatHelper: EMChatManagerDelegate {
                     
                 case .background:
                     if let tabbarVC = self.mainTabbarVC {
+                        tabbarVC.playSoundAndVibration()
                         tabbarVC.showNotification(withMessage: message)
                     }
                 }

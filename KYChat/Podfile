@@ -19,7 +19,7 @@ target 'KYChat' do
   pod 'BSImagePicker', '2.5.1'
   pod 'Reusable'
 
-  # Objective-C
+  # OC
   pod 'MBProgressHUD', '1.0.0'
   pod 'KVOController', '1.2.0'
   pod 'YYText', '1.0.7'

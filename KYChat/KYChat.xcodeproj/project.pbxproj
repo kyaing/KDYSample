@@ -66,10 +66,10 @@
 		7AF14FC91F5E88730053FED1 /* KYNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FB51F5E88720053FED1 /* KYNavigationController.swift */; };
 		7AF14FCA1F5E88730053FED1 /* KYTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FB61F5E88720053FED1 /* KYTabBarController.swift */; };
 		7AF14FCB1F5E88730053FED1 /* KYViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FB71F5E88720053FED1 /* KYViewController.swift */; };
-		7AF14FCC1F5E88730053FED1 /* KYChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FBA1F5E88720053FED1 /* KYChatController.swift */; };
+		7AF14FCC1F5E88730053FED1 /* KYChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FBA1F5E88720053FED1 /* KYChatViewController.swift */; };
 		7AF14FCD1F5E88730053FED1 /* KYContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FBD1F5E88720053FED1 /* KYContactsController.swift */; };
 		7AF14FCE1F5E88730053FED1 /* KYConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FC01F5E88720053FED1 /* KYConversationController.swift */; };
-		7AF14FCF1F5E88730053FED1 /* KYLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FC51F5E88720053FED1 /* KYLoginController.swift */; };
+		7AF14FCF1F5E88730053FED1 /* KYLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FC51F5E88720053FED1 /* KYLoginViewController.swift */; };
 		7AF14FD01F5E88730053FED1 /* KYMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FC81F5E88730053FED1 /* KYMeViewController.swift */; };
 		7AF14FD41F5E8ACD0053FED1 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14FD21F5E8ACD0053FED1 /* ConversationCell.swift */; };
 		7AF14FD51F5E8ACD0053FED1 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF14FD31F5E8ACD0053FED1 /* ConversationCell.xib */; };
@@ -239,10 +239,10 @@
 		7AF14FB51F5E88720053FED1 /* KYNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYNavigationController.swift; sourceTree = "<group>"; };
 		7AF14FB61F5E88720053FED1 /* KYTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYTabBarController.swift; sourceTree = "<group>"; };
 		7AF14FB71F5E88720053FED1 /* KYViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYViewController.swift; sourceTree = "<group>"; };
-		7AF14FBA1F5E88720053FED1 /* KYChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYChatController.swift; sourceTree = "<group>"; };
+		7AF14FBA1F5E88720053FED1 /* KYChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYChatViewController.swift; sourceTree = "<group>"; };
 		7AF14FBD1F5E88720053FED1 /* KYContactsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYContactsController.swift; sourceTree = "<group>"; };
 		7AF14FC01F5E88720053FED1 /* KYConversationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYConversationController.swift; sourceTree = "<group>"; };
-		7AF14FC51F5E88720053FED1 /* KYLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYLoginController.swift; sourceTree = "<group>"; };
+		7AF14FC51F5E88720053FED1 /* KYLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYLoginViewController.swift; sourceTree = "<group>"; };
 		7AF14FC81F5E88730053FED1 /* KYMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYMeViewController.swift; sourceTree = "<group>"; };
 		7AF14FD21F5E8ACD0053FED1 /* ConversationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
 		7AF14FD31F5E8ACD0053FED1 /* ConversationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
@@ -703,7 +703,7 @@
 		7AF14FB91F5E88720053FED1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7AF14FBA1F5E88720053FED1 /* KYChatController.swift */,
+				7AF14FBA1F5E88720053FED1 /* KYChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -770,7 +770,7 @@
 		7AF14FC41F5E88720053FED1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7AF14FC51F5E88720053FED1 /* KYLoginController.swift */,
+				7AF14FC51F5E88720053FED1 /* KYLoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1304,7 +1304,7 @@
 				7A3F74B71F56ABD50015F14C /* KYChatHelper.swift in Sources */,
 				7AD4FA2D1F56A1D8002EFA6B /* config.swift in Sources */,
 				7AD4F9521F566913002EFA6B /* MJRefreshAutoNormalFooter.m in Sources */,
-				7AF14FCC1F5E88730053FED1 /* KYChatController.swift in Sources */,
+				7AF14FCC1F5E88730053FED1 /* KYChatViewController.swift in Sources */,
 				7AD4F9511F566913002EFA6B /* MJRefreshAutoGifFooter.m in Sources */,
 				7AD4F94D1F566913002EFA6B /* MJRefreshBackFooter.m in Sources */,
 				7AD4F94F1F566913002EFA6B /* MJRefreshFooter.m in Sources */,
@@ -1319,7 +1319,7 @@
 				7AF14FCD1F5E88730053FED1 /* KYContactsController.swift in Sources */,
 				7AD4F9501F566913002EFA6B /* MJRefreshHeader.m in Sources */,
 				7AF14FDC1F5FA3C50053FED1 /* KYChatHelper+Delegate.swift in Sources */,
-				7AF14FCF1F5E88730053FED1 /* KYLoginController.swift in Sources */,
+				7AF14FCF1F5E88730053FED1 /* KYLoginViewController.swift in Sources */,
 				7AF14FDA1F5E8D220053FED1 /* KYConversationController+Delegate.swift in Sources */,
 				7AF1500C1F5FCEEB0053FED1 /* wav.mm in Sources */,
 				7AD4F9581F566913002EFA6B /* MJRefreshNormalHeader.m in Sources */,

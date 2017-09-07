@@ -52,12 +52,36 @@ extension AppDelegate {
                     _ = tabbarController.navigationController?.popToRootViewController(animated: false)
                 }
                 
-                let loginVC = KYLoginController()
+                let loginVC = KYLoginViewController()
                 let navigation = KYNavigationController(rootViewController: loginVC)
                 
                 self.window?.rootViewController = navigation
             }
         }
+    }
+    
+    // MARK: -
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // 进入前台，重连SDK
+        EMClient.shared().applicationWillEnterForeground(application)
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // 进入后台，断开SDK
+        EMClient.shared().applicationDidEnterBackground(application)
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // 注册远程通知成功，交给SDK并绑定
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            EMClient.shared().bindDeviceToken(deviceToken)
+        }
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        // 注册远程通知失败，若有失败看看环境配置或证书是否有误
+        print("APN error: %@", error.localizedDescription)
     }
 }
 

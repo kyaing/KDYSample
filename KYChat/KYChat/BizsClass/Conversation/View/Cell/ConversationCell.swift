@@ -46,12 +46,25 @@ class ConversationCell: UITableViewCell, NibReusable {
         }
     }
     
+    @IBOutlet weak var unReadLabelWidthConstraint: NSLayoutConstraint!
+    
     var model: ConversationModel! {
         willSet {
-            unReadLabel.text = newValue.unReadCount
             nameLabel.text = newValue.name
             contentLabel.text = newValue.lastContent
             timeLabel.text = newValue.lastTime
+            
+            // 处理消息数
+            let counts = Int(newValue.unReadCount)!
+            if counts <= 0 { return }
+            unReadLabel.text = newValue.unReadCount
+            
+            if counts >= 10 {
+                unReadLabelWidthConstraint.constant = 22
+                if counts > 99 {
+                    unReadLabel.text = "99+"
+                }
+            }
         }
     }
     

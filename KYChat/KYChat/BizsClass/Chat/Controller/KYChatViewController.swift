@@ -1,5 +1,5 @@
 //
-//  KYChatController.swift
+//  KYChatViewController.swift
 //  KYChat
 //
 //  Created by KYCoder on 2017/8/30.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KYChatController: KYViewController {
+class KYChatViewController: KYViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

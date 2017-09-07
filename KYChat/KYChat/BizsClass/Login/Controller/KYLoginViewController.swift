@@ -1,5 +1,5 @@
 //
-//  KYLoginController.swift
+//  KYLoginViewController.swift
 //  KYChat
 //
 //  Created by kaideyi on 2017/9/2.
@@ -9,13 +9,13 @@
 import UIKit
 import MBProgressHUD
 
-class KYLoginController: KYViewController {
+class KYLoginViewController: KYViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 模拟登录延时
-        self.perform(#selector(KYLoginController.loginEaseSDK), with: self, afterDelay: 2.0)
+        self.perform(#selector(loginEaseSDK), with: self, afterDelay: 2.0)
     }
     
     func loginEaseSDK() {

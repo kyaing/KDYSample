@@ -44,7 +44,7 @@ class KYTabBarController: UITabBarController {
     }
     
     func setupViewControllers() {
-        let titleArray = ["会话", "通讯录", "我"]
+        let titleArray = ["Chats", "通讯录", "我"]
         
         let imagesNormal = [
             KYAsset.TabChatNormal.image,
@@ -119,10 +119,10 @@ class KYTabBarController: UITabBarController {
     
     // 播放声音或振动(有新消息时)
     func playSoundAndVibration() {
-        let timeInterval: TimeInterval = Date().timeIntervalSince(self.lastPlaySoundDate)
+        let timeInterval: TimeInterval = Date().timeIntervalSince(lastPlaySoundDate)
         if timeInterval < kDefaultPlaySoundInterval {
             // 如果距离上次响铃和震动时间太短, 则跳过响铃
-            print("skip ringing & vibration \(Date()), \(self.lastPlaySoundDate)")
+            print("skip ringing & vibration \(Date()), \(lastPlaySoundDate)")
             return;
         }
         
@@ -132,8 +132,38 @@ class KYTabBarController: UITabBarController {
         EMCDDeviceManager.sharedInstance().playVibration()
     }
     
+    // 显示推送消息
     func showNotification(withMessage message: EMMessage) {
+        let pushOptions: EMPushOptions = EMClient.shared().pushOptions
+        pushOptions.displayStyle = EMPushDisplayStyleMessageSummary
         
+        // 发送本地推送
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = Date()
+        
+        let title = EMClient.shared().currentUsername
+        if pushOptions.displayStyle == EMPushDisplayStyleMessageSummary {  // 显示推送具体内容
+            let messageBody = message.body
+            
+            var pushMessageStr: String = ""
+            switch messageBody!.type {
+            case EMMessageBodyTypeText:     pushMessageStr = (messageBody as! EMTextMessageBody).text
+            case EMMessageBodyTypeImage:    pushMessageStr = "[图片]"
+            case EMMessageBodyTypeVideo:    pushMessageStr = "[视频]"
+            case EMMessageBodyTypeLocation: pushMessageStr = "[位置]"
+            case EMMessageBodyTypeVoice:    pushMessageStr = "[语音]"
+            default:                        pushMessageStr = ""
+            }
+    
+            localNotification.alertBody = String(format: "%@: %@", title!, pushMessageStr)
+            
+            
+        } else {   // 不显示推送内容
+            localNotification.alertBody = "您有一条新消息"
+        }
+        
+        UIApplication.shared.scheduleLocalNotification(localNotification)
+        UIApplication.shared.applicationIconBadgeNumber += 1
     }
 }
 
