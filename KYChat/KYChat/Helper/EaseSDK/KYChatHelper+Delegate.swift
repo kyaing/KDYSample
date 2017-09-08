@@ -46,16 +46,15 @@ extension KYChatHelper: EMChatManagerDelegate {
                 let applicationState = UIApplication.shared.applicationState
         
                 switch applicationState {
-                case .active, .inactive:
+                case .inactive:
                     if let tabbarVC = self.mainTabbarVC {
                         tabbarVC.playSoundAndVibration()
                     }
-                    
                 case .background:
                     if let tabbarVC = self.mainTabbarVC {
-                        tabbarVC.playSoundAndVibration()
-                        tabbarVC.showNotification(withMessage: message)
+                        tabbarVC.showPushNotification(withMessage: message)
                     }
+                case .active: break
                 }
 #endif
             }

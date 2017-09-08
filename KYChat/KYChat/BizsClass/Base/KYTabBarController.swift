@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class KYTabBarController: UITabBarController {
 
@@ -14,6 +15,9 @@ class KYTabBarController: UITabBarController {
     
     // 默认播放声音的间隔
     let kDefaultPlaySoundInterval = 3.0
+    let kMessageType = "MessageType"
+    let kConversationChatter = "ConversationChatter"
+    
     var lastPlaySoundDate: Date = Date()
     
     let conversationVC = KYConversationController()
@@ -128,25 +132,21 @@ class KYTabBarController: UITabBarController {
         
         self.lastPlaySoundDate = Date()
         
-        EMCDDeviceManager.sharedInstance().playNewMessageSound()
         EMCDDeviceManager.sharedInstance().playVibration()
+        EMCDDeviceManager.sharedInstance().playNewMessageSound()
     }
     
     // 显示推送消息
-    func showNotification(withMessage message: EMMessage) {
+    func showPushNotification(withMessage message: EMMessage) {
         let pushOptions: EMPushOptions = EMClient.shared().pushOptions
-        pushOptions.displayStyle = EMPushDisplayStyleMessageSummary
+        var alertBody: String = ""
         
-        // 发送本地推送
-        let localNotification = UILocalNotification()
-        localNotification.fireDate = Date()
-        
-        let title = EMClient.shared().currentUsername
-        if pushOptions.displayStyle == EMPushDisplayStyleMessageSummary {  // 显示推送具体内容
-            let messageBody = message.body
+        let title = message.from
+        if pushOptions.displayStyle == EMPushDisplayStyleMessageSummary {  // 显示具体内容
+            guard let messageBody = message.body else { return }
             
             var pushMessageStr: String = ""
-            switch messageBody!.type {
+            switch messageBody.type {
             case EMMessageBodyTypeText:     pushMessageStr = (messageBody as! EMTextMessageBody).text
             case EMMessageBodyTypeImage:    pushMessageStr = "[图片]"
             case EMMessageBodyTypeVideo:    pushMessageStr = "[视频]"
@@ -155,15 +155,47 @@ class KYTabBarController: UITabBarController {
             default:                        pushMessageStr = ""
             }
     
-            localNotification.alertBody = String(format: "%@: %@", title!, pushMessageStr)
+            alertBody = String(format: "%@: %@", title!, pushMessageStr)
             
-            
-        } else {   // 不显示推送内容
-            localNotification.alertBody = "您有一条新消息"
+        } else {
+            alertBody = "您有一条新消息"
         }
         
-        UIApplication.shared.scheduleLocalNotification(localNotification)
-        UIApplication.shared.applicationIconBadgeNumber += 1
+        var isPlaySound = false
+        let timeInterval: TimeInterval = Date().timeIntervalSince(lastPlaySoundDate)
+        if timeInterval > kDefaultPlaySoundInterval {
+            isPlaySound = true
+        }
+        
+        var userInfo = [String: AnyObject]()
+        userInfo[kMessageType] = NSNumber(value: message.chatType.rawValue)
+        userInfo[kConversationChatter] = message.conversationId as AnyObject
+        
+        // 发送本地通知
+        if #available(iOS 10, *) {
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.01, repeats: false)
+            let content = UNMutableNotificationContent()
+            
+            content.body = alertBody
+            content.userInfo = userInfo
+            if isPlaySound {
+                content.sound = UNNotificationSound.default()
+            }
+            
+            let request = UNNotificationRequest(identifier: message.messageId, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            
+        } else {
+            let notification = UILocalNotification()
+            notification.fireDate = Date()
+            notification.alertBody = alertBody
+            notification.userInfo = userInfo
+            if isPlaySound {
+                notification.soundName = UILocalNotificationDefaultSoundName
+            }
+    
+            UIApplication.shared.scheduleLocalNotification(notification)
+        }
     }
 }
 

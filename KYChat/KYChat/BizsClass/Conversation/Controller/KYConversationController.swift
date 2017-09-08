@@ -70,48 +70,45 @@ class KYConversationController: UIViewController {
     }
     
     func refreshConversations() {
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+        if let conversations = EMClient.shared().chatManager.getAllConversations() {
+            let conversations = conversations as NSArray
+            if conversations.count == 0 { return }
             
-            if let conversations = EMClient.shared().chatManager.getAllConversations() {
-                let conversations = conversations as NSArray
-                if conversations.count == 0 { return }
-                
-                conversations.enumerateObjects({ (emConversation, idx, stop) in
-                    let conversation = (emConversation as! EMConversation)
-                    if conversation.latestMessage == nil {
-                        // 当消息为空则删除
-                        EMClient.shared().chatManager.deleteConversation(conversation.conversationId,
-                                                                         isDeleteMessages: true, completion: nil)
-                    }
-                })
-                
-                // 降序排列会话
-                let sortedConversations: [EMConversation] = conversations.sortedArray(comparator:
-                { (obj1, obj2) -> ComparisonResult in
-                    let conversation1 = obj1 as? EMConversation
-                    let conversation2 = obj2 as? EMConversation
-                    
-                    if let conver1 = conversation1, let conver2 = conversation2 {
-                        if conver1.latestMessage.timestamp > conver2.latestMessage.timestamp {
-                            return .orderedAscending
-                        } else {
-                            return .orderedDescending
-                        }
-                    }
-                    return .orderedSame
-                    
-                }) as! [EMConversation]
-                
-                // 处理数据源
-                self.dataSource.removeAllObjects()
-                for conversation in sortedConversations {
-                    let model = ConversationModel(conversation: conversation)
-                    self.dataSource.add(model)
+            conversations.enumerateObjects({ (emConversation, idx, stop) in
+                let conversation = (emConversation as! EMConversation)
+                if conversation.latestMessage == nil {
+                    // 当消息为空则删除
+                    EMClient.shared().chatManager.deleteConversation(conversation.conversationId,
+                                                                     isDeleteMessages: true, completion: nil)
                 }
+            })
+            
+            // 降序排列会话
+            let sortedConversations: [EMConversation] = conversations.sortedArray(comparator:
+            { (obj1, obj2) -> ComparisonResult in
+                let conversation1 = obj1 as? EMConversation
+                let conversation2 = obj2 as? EMConversation
                 
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                if let conver1 = conversation1, let conver2 = conversation2 {
+                    if conver1.latestMessage.timestamp > conver2.latestMessage.timestamp {
+                        return .orderedAscending
+                    } else {
+                        return .orderedDescending
+                    }
                 }
+                return .orderedSame
+                
+            }) as! [EMConversation]
+            
+            // 处理数据源
+            self.dataSource.removeAllObjects()
+            for conversation in sortedConversations {
+                let model = ConversationModel(conversation: conversation)
+                self.dataSource.add(model)
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
     }

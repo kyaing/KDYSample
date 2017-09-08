@@ -60,10 +60,12 @@ class ConversationCell: UITableViewCell, NibReusable {
             unReadLabel.text = newValue.unReadCount
             
             if counts >= 10 {
-                unReadLabelWidthConstraint.constant = 22
+                unReadLabelWidthConstraint.constant = 23
                 if counts > 99 {
                     unReadLabel.text = "99+"
                 }
+            } else {
+                unReadLabelWidthConstraint.constant = 19
             }
         }
     }

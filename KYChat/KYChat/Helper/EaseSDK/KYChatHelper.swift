@@ -39,9 +39,15 @@ class KYChatHelper: NSObject {
     // MARK: - Public Methods
     
     func asyncPushOptions() {
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async { 
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             var error: EMError?
             EMClient.shared().getPushOptionsFromServerWithError(&error)
+        }
+    }
+    
+    func asyncGroupFromServer() {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            
         }
     }
     

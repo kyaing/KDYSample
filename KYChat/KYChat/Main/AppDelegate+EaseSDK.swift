@@ -42,6 +42,7 @@ extension AppDelegate {
                 }
                 
                 KYChatHelper.share.asyncPushOptions()
+                KYChatHelper.share.asyncGroupFromServer()
                 KYChatHelper.share.asyncConversationFromDB()
                 KYChatHelper.share.mainTabbarVC = mainTabbarVC
                 
@@ -62,16 +63,6 @@ extension AppDelegate {
     
     // MARK: -
     
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // 进入前台，重连SDK
-        EMClient.shared().applicationWillEnterForeground(application)
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // 进入后台，断开SDK
-        EMClient.shared().applicationDidEnterBackground(application)
-    }
-    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // 注册远程通知成功，交给SDK并绑定
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
@@ -81,8 +72,7 @@ extension AppDelegate {
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         // 注册远程通知失败，若有失败看看环境配置或证书是否有误
-        print("APN error: %@", error.localizedDescription)
+        print("APN error: \(error.localizedDescription)")
     }
 }
-
 

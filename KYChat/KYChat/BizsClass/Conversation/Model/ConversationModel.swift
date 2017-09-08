@@ -75,7 +75,7 @@ class ConversationModel: NSObject {
             case EMMessageBodyTypeImage:    latestMsgTitle = "[图片]"
             case EMMessageBodyTypeVideo:    latestMsgTitle = "[视频]"
             case EMMessageBodyTypeLocation: latestMsgTitle = "[位置]"
-            case EMMessageBodyTypeVoice:    latestMsgTitle = "[音频]"
+            case EMMessageBodyTypeVoice:    latestMsgTitle = "[语音]"
             default:
                 latestMsgTitle = ""
             }

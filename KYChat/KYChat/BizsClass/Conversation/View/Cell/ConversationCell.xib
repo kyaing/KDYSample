@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="381" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="381" height="64"/>
+                <rect key="frame" x="0.0" y="0.0" width="381" height="64.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="rsT-5Z-yHG">
@@ -25,11 +25,11 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ep-Y3-0KV" userLabel="unReadLabel">
-                        <rect key="frame" x="50" y="4" width="18" height="18"/>
+                        <rect key="frame" x="49" y="2" width="19" height="18"/>
                         <color key="backgroundColor" red="1" green="0.1019084168" blue="0.19941424029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="Vez-xl-0cD"/>
-                            <constraint firstAttribute="width" constant="18" id="W3w-HW-927"/>
+                            <constraint firstAttribute="width" constant="19" id="W3w-HW-927"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,7 +69,7 @@
                     <constraint firstItem="rsT-5Z-yHG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qAF-If-CIW"/>
                     <constraint firstItem="BY4-MR-w7f" firstAttribute="top" secondItem="697-NF-s4f" secondAttribute="bottom" constant="3" id="rZJ-qp-3NZ"/>
                     <constraint firstItem="xRF-m3-7Ol" firstAttribute="baseline" secondItem="697-NF-s4f" secondAttribute="baseline" id="uME-z2-EAG"/>
-                    <constraint firstItem="1Ep-Y3-0KV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="wHY-jR-3UG"/>
+                    <constraint firstItem="1Ep-Y3-0KV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="wHY-jR-3UG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -80,10 +80,10 @@
                 <outlet property="unReadLabel" destination="1Ep-Y3-0KV" id="9Hp-6s-gq3"/>
                 <outlet property="unReadLabelWidthConstraint" destination="W3w-HW-927" id="D4P-72-OSS"/>
             </connections>
-            <point key="canvasLocation" x="-727.5" y="-1232.5"/>
+            <point key="canvasLocation" x="-731" y="-1354"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_avatar" width="132" height="132"/>
+        <image name="icon_avatar" width="66" height="66"/>
     </resources>
 </document>
