@@ -6,9 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KYFormViewController.h"
 
-@interface ViewController : UIViewController
-
+@interface ViewController : KYFormViewController
 
 @end
-
