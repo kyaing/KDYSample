@@ -9,4 +9,22 @@
 
 @implementation FormRowModel
 
+- (instancetype)init {
+    if (self = [super init]) {
+    }
+    return self;
+}
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{};
+}
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"lists": [FormRowListModel class]};
+}
+
+@end
+
+@implementation FormRowListModel
+
 @end

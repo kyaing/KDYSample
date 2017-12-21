@@ -6,13 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FormRowModel.h"
+
+@class FormRowModel;
 
 @interface FormSectionModel : NSObject
 
-@property (nonatomic, copy)   NSString *title;
-@property (nonatomic, copy)   NSString *footerTitle;
+@property (nonatomic, copy)  NSString *key;         // key
+@property (nonatomic, copy)  NSString *title;       // 头标题
+@property (nonatomic, copy)  NSString *footerTitle; // 尾标题
 
-@property (nonatomic, strong) FormRowModel *rowModel;
+@property (nonatomic, strong) NSArray<FormRowModel *> *rows;  // 所有行的数据
 
 @end

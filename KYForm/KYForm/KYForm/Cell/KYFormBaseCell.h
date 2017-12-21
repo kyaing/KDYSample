@@ -9,4 +9,7 @@
 
 @interface KYFormBaseCell : UITableViewCell
 
+- (void)setupViews;
+- (void)setupDatas;
+
 @end

@@ -21,14 +21,23 @@
 #import "KYFormTextFieldCell.h"
 #import "KYFormTextViewCell.h"
 
+// Models
+#import "FormRowModel.h"
+#import "FormSectionModel.h"
+
 // Libs
+#import "Tools.h"
 #import "NSObject+YYModel.h"
 
 extern NSString *const kFormRowTypeText;
 extern NSString *const kFormRowTypePhone;
+extern NSString *const kFormRowTypeMail;
 extern NSString *const kFormRowTypeNumber;
 extern NSString *const kFormRowTypePassword;
 extern NSString *const kFormRowTypeDate;
 extern NSString *const kFormRowTypePicker;
 extern NSString *const kFormRowTypeSwitch;
 extern NSString *const kFormRowTypeTextView;
+extern NSString *const kFormRowTypeChoosePush;
+extern NSString *const kFormRowTypeChoosePop;
+extern NSString *const kFormRowTypeActionSheet;

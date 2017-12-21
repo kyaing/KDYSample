@@ -24,6 +24,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSMutableArray *dataSource = [NSMutableArray array];
+    
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Personal" ofType:@"json"]];
+    NSMutableDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
+    NSMutableArray *array = [dataDic objectForKey:@"details"];
+    
+    for (NSDictionary *dict in array) {
+        FormSectionModel *sectionModel = [FormSectionModel modelWithDictionary:dict];
+        [dataSource addObject:sectionModel];
+    }
 }
 
 @end

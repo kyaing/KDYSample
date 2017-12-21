@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-static inline NSString *ObjectToJson(id obj) {
+static inline NSString *objectToJson(id obj) {
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj
                                                        options:NSJSONWritingPrettyPrinted
@@ -23,7 +23,7 @@ static inline NSString *ObjectToJson(id obj) {
     return jsonString;
 }
 
-static inline id JsonToObject(NSString *str) {
+static inline id jsonToObject(NSString *str) {
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
     if (!jsonObject) {

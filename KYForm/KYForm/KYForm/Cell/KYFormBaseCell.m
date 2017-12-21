@@ -9,5 +9,20 @@
 
 @implementation KYFormBaseCell
 
+- (instancetype)init {
+    if (self = [super init]) {
+        
+    }
+    
+    return self;
+}
+
+- (void)setupViews {
+    
+}
+
+- (void)setupDatas {
+    
+}
 
 @end

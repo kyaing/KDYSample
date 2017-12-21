@@ -1,0 +1,153 @@
+{
+    "details":[
+         {
+            "key": "requiredInfo",
+            "title":"必填信息",
+            "rows":[
+                    {
+                        "key": "name",
+                        "title": "姓名",
+                        "tip":"请输入姓名",
+                        "type":"text",
+                        "value":""
+                    },
+                    {
+                        "key": "sex",
+                        "title": "性别",
+                        "tip":"请选择性别",
+                        "type":"choosePush",
+                        "value":"",
+                        "lists":[
+                                 {"key": "0", "value": "男"},
+                                 {"key": "1", "value": "女"}
+                                ]
+                    },
+                    {
+                        "key": "birthday",
+                        "title": "生日",
+                        "tip":"选择您的生日",
+                        "type":"date",
+                        "value":""
+                    },
+                    {
+                        "key": "phone",
+                        "title": "手机号",
+                        "tip":"请填入手机号",
+                        "type":"phone",
+                        "value":""
+                    },
+                    {
+                        "key": "mail",
+                        "title": "邮箱",
+                        "tip":"请输入电子邮箱",
+                        "type":"mail",
+                        "value":""
+                    },
+                    {
+                        "key": "address",
+                        "title": "地址",
+                        "tip":"请填写居住地址",
+                        "type":"text",
+                        "value":"",
+                    }
+                 ]
+            },
+        {
+            "key":"userInfo",
+            "title":"基本信息",
+            "rows":[
+                    {
+                        "key": "channel",
+                        "title": "了解渠道",
+                        "tip":"请输入了解渠道",
+                        "type":"text",
+                        "value":""
+                    },
+                    {
+                        "key": "source",
+                        "title": "人员来源",
+                        "tip":"",
+                        "type":"choosePush",
+                        "value":"",
+                        "lists":[
+                                 {"key": "0", "value": "人才市场"},
+                                 {"key": "1", "value": "大学内招"},
+                                 {"key": "2", "value": "公司面试"},
+                                 {"key": "3", "value": "内部推荐"}
+                            ]
+                    },
+                    {
+                        "key": "education",
+                        "title": "学历",
+                        "tip":"请选择学历",
+                        "type":"choosePush",
+                        "value":"",
+                        "lists":[
+                                 {"key": "0", "value": "大专"},
+                                 {"key": "1", "value": "本科"},
+                                 {"key": "2", "value": "研究生"},
+                                 {"key": "3", "value": "其它"}
+                            ]
+                    },
+                    {
+                        "key": "career",
+                        "title": "职业",
+                        "tip":"请选择您的职业",
+                        "type":"choose",
+                        "lists":[
+                                 {"key": "0", "value": "公司职业"},
+                                 {"key": "1", "value": "机关人员"},
+                                 {"key": "2", "value": "医生"},
+                                 {"key": "3", "value": "消防员"},
+                                 {"key": "4", "value": "环卫工人"},
+                                 {"key": "5", "value": "自由职业"}
+                             ],
+                        "value":""
+                    },
+                    {
+                        "key": "income",
+                        "title": "收入",
+                        "tip":"请输入每月收入",
+                        "type":"text",
+                        "value":""
+                    },
+                    {
+                        "key": "political",
+                        "title": "党派",
+                        "tip":"",
+                        "type":"choosePush",
+                        "lists":[
+                                 {"key": "0", "value": "共产党"},
+                                 {"key": "1", "value": "国民党"},
+                                 {"key": "2", "value": "群众"},
+                                 {"key": "3", "value": "其它"}
+                            ],
+                        "value":""
+                    },
+                    {
+                        "key": "account",
+                        "title": "户口是否为本地",
+                        "tip":"请选择户口",
+                        "type":"choosePush",
+                        "value":"",
+                        "lists":[
+                                 {"key": "0", "value": "是本地户口"},
+                                 {"key": "1", "value": "不是本地户口"}
+                            ]
+                    },
+                    {
+                        "key": "health",
+                        "title": "健康状况",
+                        "tip":"请输入您的健康状况",
+                        "type":"choosePush",
+                        "lists":[
+                                 {"key": "0", "value": "优秀"},
+                                 {"key": "1", "value": "良好"},
+                                 {"key": "2", "value": "一般"}
+                            ],
+                        "value":""
+                    }
+                ]
+        }
+     ]
+}
