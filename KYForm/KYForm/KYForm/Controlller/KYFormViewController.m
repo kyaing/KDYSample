@@ -70,11 +70,11 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return nil;
+    return [self.form.formSections objectAtIndex:section].title;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return nil;
+    return [self.form.formSections objectAtIndex:section].footerTitle;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -112,6 +112,7 @@
 - (UITableView *)fromTableView {
     if (!_fromTableView) {
         _fromTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _fromTableView.backgroundColor = [UIColor whiteColor];
         _fromTableView.dataSource = self;
         _fromTableView.delegate = self;
     }

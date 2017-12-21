@@ -25,6 +25,14 @@
 		95A4129E1FEB8C1000BF3DFF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A4129D1FEB8C0F00BF3DFF /* ViewController.m */; };
 		95A412A41FEB8D2600BF3DFF /* KYFormTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412A31FEB8D2600BF3DFF /* KYFormTextFieldCell.m */; };
 		95A412A71FEB8FEE00BF3DFF /* KYFormTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412A61FEB8FEE00BF3DFF /* KYFormTextViewCell.m */; };
+		95A412AC1FEB9ADF00BF3DFF /* FormRowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412AB1FEB9ADF00BF3DFF /* FormRowModel.m */; };
+		95A412AF1FEB9AEB00BF3DFF /* FormSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412AE1FEB9AEB00BF3DFF /* FormSectionModel.m */; };
+		95A412B11FEB9C7F00BF3DFF /* Private.json in Resources */ = {isa = PBXBuildFile; fileRef = 95A412B01FEB9C7F00BF3DFF /* Private.json */; };
+		95A413C21FEBA2B200BF3DFF /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413BF1FEBA2B200BF3DFF /* NSObject+YYModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		95A413C31FEBA2B200BF3DFF /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C11FEBA2B200BF3DFF /* YYClassInfo.m */; };
+		95A413C61FEBA8B400BF3DFF /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C51FEBA8B400BF3DFF /* PersonalViewController.m */; };
+		95A413C91FEBA8E600BF3DFF /* SetttingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C81FEBA8E600BF3DFF /* SetttingViewController.m */; };
+		95A413CC1FEBAB7A00BF3DFF /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413CB1FEBAB7A00BF3DFF /* LoanViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +70,21 @@
 		95A412A31FEB8D2600BF3DFF /* KYFormTextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormTextFieldCell.m; sourceTree = "<group>"; };
 		95A412A51FEB8FEE00BF3DFF /* KYFormTextViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormTextViewCell.h; sourceTree = "<group>"; };
 		95A412A61FEB8FEE00BF3DFF /* KYFormTextViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormTextViewCell.m; sourceTree = "<group>"; };
+		95A412AA1FEB9ADF00BF3DFF /* FormRowModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormRowModel.h; sourceTree = "<group>"; };
+		95A412AB1FEB9ADF00BF3DFF /* FormRowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormRowModel.m; sourceTree = "<group>"; };
+		95A412AD1FEB9AEB00BF3DFF /* FormSectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormSectionModel.h; sourceTree = "<group>"; };
+		95A412AE1FEB9AEB00BF3DFF /* FormSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormSectionModel.m; sourceTree = "<group>"; };
+		95A412B01FEB9C7F00BF3DFF /* Private.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Private.json; sourceTree = "<group>"; };
+		95A413BE1FEBA2B200BF3DFF /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		95A413BF1FEBA2B200BF3DFF /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		95A413C01FEBA2B200BF3DFF /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		95A413C11FEBA2B200BF3DFF /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		95A413C41FEBA8B400BF3DFF /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		95A413C51FEBA8B400BF3DFF /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		95A413C71FEBA8E600BF3DFF /* SetttingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetttingViewController.h; sourceTree = "<group>"; };
+		95A413C81FEBA8E600BF3DFF /* SetttingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetttingViewController.m; sourceTree = "<group>"; };
+		95A413CA1FEBAB7A00BF3DFF /* LoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoanViewController.h; sourceTree = "<group>"; };
+		95A413CB1FEBAB7A00BF3DFF /* LoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
 		95C08D821FE8BF680030C765 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +115,10 @@
 		9530041E1FEA3254002A44E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				95A412AA1FEB9ADF00BF3DFF /* FormRowModel.h */,
+				95A412AB1FEB9ADF00BF3DFF /* FormRowModel.m */,
+				95A412AD1FEB9AEB00BF3DFF /* FormSectionModel.h */,
+				95A412AE1FEB9AEB00BF3DFF /* FormSectionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +151,7 @@
 				958A286F1FE796C20071EACE /* main.m */,
 				95A4129B1FEB8C0F00BF3DFF /* Demos */,
 				958A28761FE79B4D0071EACE /* KYForm */,
+				95A412B21FEBA24000BF3DFF /* Libs */,
 			);
 			path = KYForm;
 			sourceTree = "<group>";
@@ -167,6 +195,8 @@
 			children = (
 				958A287F1FE7AED60071EACE /* KYFormViewController.h */,
 				958A28801FE7AED60071EACE /* KYFormViewController.m */,
+				95A412A91FEB9A5900BF3DFF /* Dynamic */,
+				95A412A81FEB9A5900BF3DFF /* Static */,
 			);
 			path = Controlller;
 			sourceTree = "<group>";
@@ -174,6 +204,7 @@
 		958A28791FE79B4E0071EACE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				95A412B01FEB9C7F00BF3DFF /* Private.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -193,8 +224,47 @@
 			children = (
 				95A4129C1FEB8C0F00BF3DFF /* ViewController.h */,
 				95A4129D1FEB8C0F00BF3DFF /* ViewController.m */,
+				95A413C41FEBA8B400BF3DFF /* PersonalViewController.h */,
+				95A413C51FEBA8B400BF3DFF /* PersonalViewController.m */,
+				95A413C71FEBA8E600BF3DFF /* SetttingViewController.h */,
+				95A413C81FEBA8E600BF3DFF /* SetttingViewController.m */,
+				95A413CA1FEBAB7A00BF3DFF /* LoanViewController.h */,
+				95A413CB1FEBAB7A00BF3DFF /* LoanViewController.m */,
 			);
 			path = Demos;
+			sourceTree = "<group>";
+		};
+		95A412A81FEB9A5900BF3DFF /* Static */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Static;
+			sourceTree = "<group>";
+		};
+		95A412A91FEB9A5900BF3DFF /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		95A412B21FEBA24000BF3DFF /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				95A413BD1FEBA2B200BF3DFF /* YYModel */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		95A413BD1FEBA2B200BF3DFF /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				95A413BE1FEBA2B200BF3DFF /* NSObject+YYModel.h */,
+				95A413BF1FEBA2B200BF3DFF /* NSObject+YYModel.m */,
+				95A413C01FEBA2B200BF3DFF /* YYClassInfo.h */,
+				95A413C11FEBA2B200BF3DFF /* YYClassInfo.m */,
+			);
+			path = YYModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				958A286D1FE796C20071EACE /* LaunchScreen.storyboard in Resources */,
+				95A412B11FEB9C7F00BF3DFF /* Private.json in Resources */,
 				958A286A1FE796C20071EACE /* Assets.xcassets in Resources */,
 				958A28681FE796C20071EACE /* Main.storyboard in Resources */,
 			);
@@ -267,20 +338,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A413C91FEBA8E600BF3DFF /* SetttingViewController.m in Sources */,
 				953004201FEA3254002A44E5 /* KYFormRowObject.m in Sources */,
 				95A412941FEA42C900BF3DFF /* KYFormSwitchCell.m in Sources */,
 				95A4129A1FEA42FF00BF3DFF /* KYFormPickViewCell.m in Sources */,
 				95A412A41FEB8D2600BF3DFF /* KYFormTextFieldCell.m in Sources */,
 				95A412911FEA3D6800BF3DFF /* KYFormImageCell.m in Sources */,
 				95A412881FEA395500BF3DFF /* KYFormObject.m in Sources */,
+				95A412AC1FEB9ADF00BF3DFF /* FormRowModel.m in Sources */,
 				958A28811FE7AED60071EACE /* KYFormViewController.m in Sources */,
 				95A4129E1FEB8C1000BF3DFF /* ViewController.m in Sources */,
+				95A413C21FEBA2B200BF3DFF /* NSObject+YYModel.m in Sources */,
 				95A4128B1FEA3CFC00BF3DFF /* KYFormBaseCell.m in Sources */,
+				95A412AF1FEB9AEB00BF3DFF /* FormSectionModel.m in Sources */,
 				95A412A71FEB8FEE00BF3DFF /* KYFormTextViewCell.m in Sources */,
+				95A413C31FEBA2B200BF3DFF /* YYClassInfo.m in Sources */,
 				958A28701FE796C20071EACE /* main.m in Sources */,
+				95A413CC1FEBAB7A00BF3DFF /* LoanViewController.m in Sources */,
 				95A4128E1FEA3D2800BF3DFF /* KYFormDateCell.m in Sources */,
 				953004211FEA3254002A44E5 /* KYFormSectionObject.m in Sources */,
 				958A28621FE796C20071EACE /* AppDelegate.m in Sources */,
+				95A413C61FEBA8B400BF3DFF /* PersonalViewController.m in Sources */,
 				9530040B1FEA0CB2002A44E5 /* KYForm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +495,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAMM686MJ7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KYForm/Libs/YYKit/Vendor",
+				);
 				INFOPLIST_FILE = KYForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyaing.KYForm;
@@ -431,6 +513,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAMM686MJ7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KYForm/Libs/YYKit/Vendor",
+				);
 				INFOPLIST_FILE = KYForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyaing.KYForm;

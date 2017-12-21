@@ -6,6 +6,7 @@
 //
 
 #import "KYFormRowObject.h"
+#import "KYFormViewController.h"
 
 @implementation KYFormRowObject
 
@@ -34,7 +35,16 @@
 }
 
 - (KYFormBaseCell *)cellForFormController:(KYFormViewController *)formController {
-    return nil;
+    if (!_baseCell) {
+        id cellClass = self.cellClass ?: [KYFormViewController cellClassesForRowTypes][self.rowType];
+        if ([cellClass isKindOfClass:[NSString class]]) {
+            
+        } else {
+            _baseCell = [[cellClass alloc] initWithStyle:self.cellStyle reuseIdentifier:nil];
+        }
+    }
+    
+    return _baseCell;
 }
 
 @end

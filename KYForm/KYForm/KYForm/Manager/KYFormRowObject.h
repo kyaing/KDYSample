@@ -14,10 +14,12 @@
 
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *rowType;
-@property (nonatomic, assign) CGFloat   height;
+@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, strong) id cellClass;
 @property (nonatomic, strong) id value;
-@property (nonatomic, assign)   UITableViewStyle cellStyle;
+@property (nonatomic, assign) UITableViewCellStyle cellStyle;
+
+@property (nonatomic, strong) KYFormBaseCell *baseCell;
 
 + (instancetype)formRowWithTitle:(NSString *)title;
 + (instancetype)formRowWithTitle:(NSString *)title rowType:(NSString *)rowType;

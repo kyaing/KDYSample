@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+// Manager
 #import "KYFormObject.h"
 #import "KYFormSectionObject.h"
 #import "KYFormRowObject.h"
@@ -19,6 +20,9 @@
 #import "KYFormPickViewCell.h"
 #import "KYFormTextFieldCell.h"
 #import "KYFormTextViewCell.h"
+
+// Libs
+#import "NSObject+YYModel.h"
 
 extern NSString *const kFormRowTypeText;
 extern NSString *const kFormRowTypePhone;
