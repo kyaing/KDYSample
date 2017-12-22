@@ -25,6 +25,7 @@
 
 + (instancetype)formRowWithTitle:(NSString *)title;
 + (instancetype)formRowWithTitle:(NSString *)title rowType:(NSString *)rowType;
++ (instancetype)formRowWithModel:(FormRowModel *)model;
 
 - (KYFormBaseCell *)cellForFormController:(KYFormViewController *)formController;
 

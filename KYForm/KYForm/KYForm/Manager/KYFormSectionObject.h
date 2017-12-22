@@ -19,6 +19,7 @@
 
 + (instancetype)formSection;
 + (instancetype)formSectionWithTitle:(NSString *)title;
++ (instancetype)formSectoinWithModel:(FormSectionModel *)model;
 
 // Static
 

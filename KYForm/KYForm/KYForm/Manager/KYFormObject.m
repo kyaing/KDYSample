@@ -56,6 +56,11 @@
 
 - (void)setDataSource:(NSMutableArray *)dataSource {
     _dataSource = dataSource;
+    
+    for (FormSectionModel *sectionModel in dataSource) {
+        KYFormSectionObject *sectionObj = [KYFormSectionObject formSectoinWithModel:sectionModel];
+        [self.formSections addObject:sectionObj];
+    }
 }
 
 @end

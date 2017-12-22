@@ -7,9 +7,7 @@
 
 #import "PersonalViewController.h"
 
-@interface PersonalViewController () {
-    NSMutableArray *dataSource;
-}
+@interface PersonalViewController ()
 
 @end
 
@@ -17,16 +15,17 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        dataSource = [NSMutableArray array];
-        
+        NSMutableArray *array = [NSMutableArray array];
         NSMutableArray *modelArray = JsonToModel(@"personal.json");
+        
         for (NSDictionary *dict in modelArray) {
             FormSectionModel *sectionModel = [FormSectionModel modelWithDictionary:dict];
-            [dataSource addObject:sectionModel];
+            [array addObject:sectionModel];
         }
         
         KYFormObject *form = [KYFormObject formCreateWithTitle:@"个人中心"];
-        form.dataSource = dataSource;
+        form.dataSource = array;
+        
         self.form = form;
     }
     

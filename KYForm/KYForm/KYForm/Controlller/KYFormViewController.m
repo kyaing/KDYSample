@@ -36,7 +36,6 @@
     
     self.title = _form.title;
     [self.view addSubview:self.fromTableView];
-    [_fromTableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,7 +54,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[[self.form.formSections objectAtIndex:section] formRows] count];
+    return [[self.form.formSections objectAtIndex:section].formRows count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,6 +121,7 @@
 
 - (void)setForm:(KYFormObject *)form {
     _form = form;
+    
     [self.fromTableView reloadData];
 }
 

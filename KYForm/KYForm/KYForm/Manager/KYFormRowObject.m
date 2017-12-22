@@ -26,6 +26,18 @@
     return self;
 }
 
+- (instancetype)initWithModel:(FormRowModel *)model {
+    if (self = [self init]) {
+        self.rowModel = model;
+        
+        self.title = model.title;
+        self.rowType = model.type;
+        self.cellStyle = UITableViewCellStyleValue1;
+    }
+    
+    return self;
+}
+
 + (instancetype)formRowWithTitle:(NSString *)title {
     return [[self class] formRowWithTitle:title rowType:nil];
 }
@@ -33,6 +45,12 @@
 + (instancetype)formRowWithTitle:(NSString *)title rowType:(NSString *)rowType {
     return [[[self class] alloc] initWithTitle:title rowType:rowType];
 }
+
++ (instancetype)formRowWithModel:(FormRowModel *)model {
+    return [[[self class] alloc] initWithModel:model];
+}
+
+// MARK: - Public Methods
 
 - (KYFormBaseCell *)cellForFormController:(KYFormViewController *)formController {
     if (!_baseCell) {
