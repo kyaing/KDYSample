@@ -11,6 +11,10 @@ static inline UIFont *Font(NSInteger a) {
     return [UIFont systemFontOfSize:a];
 }
 
+static inline UIFont *BFont(NSInteger a) {
+    return [UIFont boldSystemFontOfSize:a];
+}
+
 static inline NSString *ObjectToJson(id obj) {
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj

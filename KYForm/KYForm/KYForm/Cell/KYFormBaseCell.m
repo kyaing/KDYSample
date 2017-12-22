@@ -24,8 +24,8 @@
     
     self.textLabel.textColor = [UIColor black33];
     self.detailTextLabel.textColor = [UIColor black95];
-    self.textLabel.font = Font(16);
-    self.detailTextLabel.font = Font(15);
+    self.textLabel.font = Font(15);
+    self.detailTextLabel.font = Font(14);
 }
 
 - (void)configure {

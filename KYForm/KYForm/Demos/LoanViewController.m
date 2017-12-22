@@ -24,6 +24,7 @@
         }
         
         KYFormObject *form = [KYFormObject formCreateWithTitle:@"贷款机构"];
+        form.dataSource = array;
         self.form = form;
     }
     

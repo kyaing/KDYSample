@@ -14,12 +14,9 @@
 
 // Cells
 #import "KYFormBaseCell.h"
-#import "KYFormDateCell.h"
-#import "KYFormImageCell.h"
 #import "KYFormSwitchCell.h"
 #import "KYFormPickViewCell.h"
 #import "KYFormTextFieldCell.h"
-#import "KYFormTextViewCell.h"
 
 // Models
 #import "FormRowModel.h"

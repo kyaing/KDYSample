@@ -16,8 +16,6 @@
 - (instancetype)init {
     if (self = [super init]) {
         KYFormObject *form = [KYFormObject formCreateWithTitle:@"个人中心"];
-        form.dataSource = array;
-        
         self.form = form;
     }
     

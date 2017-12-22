@@ -18,6 +18,7 @@
 - (instancetype)initWithForm:(KYFormObject *)form tableStyle:(UITableViewStyle)style;
 
 - (KYFormBaseCell *)updateWithRow:(KYFormRowObject *)rowObject;
+- (void)didSelectFormRow:(KYFormRowObject *)rowObject;
 
 + (NSMutableDictionary *)cellClassesForRowTypes;
 

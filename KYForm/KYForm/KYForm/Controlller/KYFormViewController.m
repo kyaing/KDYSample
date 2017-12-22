@@ -68,6 +68,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    KYFormRowObject *formRow = [self.form formRowAtIndex:indexPath];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -76,6 +78,13 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     return [self.form.formSections objectAtIndex:section].footerTitle;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
+    header.textLabel.textColor = [UIColor black33];
+    header.textLabel.font = BFont(14);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -93,6 +102,10 @@
     cell.rowModel = rowObject.rowModel;
     
     return cell;
+}
+
+- (void)didSelectFormRow:(KYFormRowObject *)rowObject {
+    KYFormBaseCell *cell = [rowObject cellForFormController:self];
 }
 
 + (NSMutableDictionary *)cellClassesForRowTypes {
@@ -125,6 +138,7 @@
     if (!_fromTableView) {
         _fromTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _fromTableView.backgroundColor = [UIColor whiteColor];
+        _fromTableView.separatorColor = [UIColor colorWithHexString:@"#f3f3f3"];
         _fromTableView.showsVerticalScrollIndicator = NO;
         _fromTableView.dataSource = self;
         _fromTableView.delegate = self;
