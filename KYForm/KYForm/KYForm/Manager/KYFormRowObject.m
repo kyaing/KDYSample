@@ -18,7 +18,7 @@
 
 - (instancetype)initWithTitle:(NSString *)title rowType:(NSString *)rowType {
     if (self = [self init]) {
-        self.text = title;
+        self.title = title;
         self.rowType = rowType;
         self.cellStyle = UITableViewCellStyleValue1;
     }
@@ -26,11 +26,11 @@
     return self;
 }
 
-+ (nonnull instancetype)formRowWithTitle:(nonnull NSString *)title {
++ (instancetype)formRowWithTitle:(NSString *)title {
     return [[self class] formRowWithTitle:title rowType:nil];
 }
 
-+ (nonnull instancetype)formRowWithTitle:(nonnull NSString *)title rowType:(nonnull NSString *)rowType {
++ (instancetype)formRowWithTitle:(NSString *)title rowType:(NSString *)rowType {
     return [[[self class] alloc] initWithTitle:title rowType:rowType];
 }
 

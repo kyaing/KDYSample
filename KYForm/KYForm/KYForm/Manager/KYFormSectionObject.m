@@ -35,4 +35,7 @@
     return [[[self class] alloc] initWithTitle:title];
 }
 
+#pragma mark - Properties
+
+
 @end

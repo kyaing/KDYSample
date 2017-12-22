@@ -7,7 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
-static inline NSString *objectToJson(id obj) {
+
+static inline NSString *ObjectToJson(id obj) {
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj
                                                        options:NSJSONWritingPrettyPrinted
@@ -23,7 +24,7 @@ static inline NSString *objectToJson(id obj) {
     return jsonString;
 }
 
-static inline id jsonToObject(NSString *str) {
+static inline id JsonToObject(NSString *str) {
     NSError *error = nil;
     id jsonObject = [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
     if (!jsonObject) {
@@ -31,4 +32,15 @@ static inline id jsonToObject(NSString *str) {
     }
     
     return jsonObject;
+}
+
+static inline NSMutableArray* JsonToModel(NSString *fileName) {
+    NSString *jsonName = [fileName componentsSeparatedByString:@"."].firstObject;
+    NSString *type = [fileName componentsSeparatedByString:@"."].lastObject;
+    
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:jsonName ofType:type]];
+    NSMutableDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
+    NSMutableArray *array = [dataDic objectForKey:@"details"];
+    
+    return array;
 }

@@ -7,7 +7,9 @@
 
 #import "PersonalViewController.h"
 
-@interface PersonalViewController ()
+@interface PersonalViewController () {
+    NSMutableArray *dataSource;
+}
 
 @end
 
@@ -15,7 +17,16 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        dataSource = [NSMutableArray array];
+        
+        NSMutableArray *modelArray = JsonToModel(@"personal.json");
+        for (NSDictionary *dict in modelArray) {
+            FormSectionModel *sectionModel = [FormSectionModel modelWithDictionary:dict];
+            [dataSource addObject:sectionModel];
+        }
+        
         KYFormObject *form = [KYFormObject formCreateWithTitle:@"个人中心"];
+        form.dataSource = dataSource;
         self.form = form;
     }
     
@@ -24,17 +35,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSMutableArray *dataSource = [NSMutableArray array];
-    
-    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Personal" ofType:@"json"]];
-    NSMutableDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
-    NSMutableArray *array = [dataDic objectForKey:@"details"];
-    
-    for (NSDictionary *dict in array) {
-        FormSectionModel *sectionModel = [FormSectionModel modelWithDictionary:dict];
-        [dataSource addObject:sectionModel];
-    }
 }
 
 @end

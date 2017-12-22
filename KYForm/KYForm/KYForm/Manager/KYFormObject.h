@@ -14,6 +14,7 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, strong) NSMutableArray<KYFormSectionObject *> *formSections;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 + (instancetype)formCreate;
 + (instancetype)formCreateWithTitle:(NSString *)title;

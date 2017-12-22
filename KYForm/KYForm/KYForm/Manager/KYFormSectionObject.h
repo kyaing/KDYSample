@@ -6,16 +6,22 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class KYFormRowObject;
+#import "KYFormRowObject.h"
+#import "FormSectionModel.h"
 
 @interface KYFormSectionObject : NSObject
 
 @property (nonatomic, copy )  NSString  *title;
 @property (nonatomic, copy )  NSString  *footerTitle;
+
 @property (nonatomic, strong) NSMutableArray<KYFormRowObject *> *formRows;
+@property (nonatomic, strong) FormSectionModel *sectionModel;  // 分组的数据源
 
 + (instancetype)formSection;
 + (instancetype)formSectionWithTitle:(NSString *)title;
+
+// Static
+
+// Dynamic
 
 @end

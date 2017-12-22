@@ -27,7 +27,7 @@
 		95A412A71FEB8FEE00BF3DFF /* KYFormTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412A61FEB8FEE00BF3DFF /* KYFormTextViewCell.m */; };
 		95A412AC1FEB9ADF00BF3DFF /* FormRowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412AB1FEB9ADF00BF3DFF /* FormRowModel.m */; };
 		95A412AF1FEB9AEB00BF3DFF /* FormSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412AE1FEB9AEB00BF3DFF /* FormSectionModel.m */; };
-		95A412B11FEB9C7F00BF3DFF /* Personal.json in Resources */ = {isa = PBXBuildFile; fileRef = 95A412B01FEB9C7F00BF3DFF /* Personal.json */; };
+		95A412B11FEB9C7F00BF3DFF /* personal.json in Resources */ = {isa = PBXBuildFile; fileRef = 95A412B01FEB9C7F00BF3DFF /* personal.json */; };
 		95A413C21FEBA2B200BF3DFF /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413BF1FEBA2B200BF3DFF /* NSObject+YYModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		95A413C31FEBA2B200BF3DFF /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C11FEBA2B200BF3DFF /* YYClassInfo.m */; };
 		95A413C61FEBA8B400BF3DFF /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C51FEBA8B400BF3DFF /* PersonalViewController.m */; };
@@ -74,7 +74,7 @@
 		95A412AB1FEB9ADF00BF3DFF /* FormRowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormRowModel.m; sourceTree = "<group>"; };
 		95A412AD1FEB9AEB00BF3DFF /* FormSectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormSectionModel.h; sourceTree = "<group>"; };
 		95A412AE1FEB9AEB00BF3DFF /* FormSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormSectionModel.m; sourceTree = "<group>"; };
-		95A412B01FEB9C7F00BF3DFF /* Personal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Personal.json; sourceTree = "<group>"; };
+		95A412B01FEB9C7F00BF3DFF /* personal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = personal.json; sourceTree = "<group>"; };
 		95A413BE1FEBA2B200BF3DFF /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
 		95A413BF1FEBA2B200BF3DFF /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
 		95A413C01FEBA2B200BF3DFF /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		958A28791FE79B4E0071EACE /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				95A412B01FEB9C7F00BF3DFF /* Personal.json */,
+				95A412B01FEB9C7F00BF3DFF /* personal.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -325,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				958A286D1FE796C20071EACE /* LaunchScreen.storyboard in Resources */,
-				95A412B11FEB9C7F00BF3DFF /* Personal.json in Resources */,
+				95A412B11FEB9C7F00BF3DFF /* personal.json in Resources */,
 				958A286A1FE796C20071EACE /* Assets.xcassets in Resources */,
 				958A28681FE796C20071EACE /* Main.storyboard in Resources */,
 			);

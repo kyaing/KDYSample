@@ -36,6 +36,7 @@
     
     self.title = _form.title;
     [self.view addSubview:self.fromTableView];
+    [_fromTableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,7 +67,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {

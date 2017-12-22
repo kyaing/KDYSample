@@ -19,6 +19,7 @@
     if (self = [super init]) {
         self.title = title;
         self.formSections = [NSMutableArray array];
+        self.dataSource = [NSMutableArray array];
     }
     
     return self;
@@ -49,6 +50,12 @@
     }
     
     return nil;
+}
+
+#pragma mark - Properties
+
+- (void)setDataSource:(NSMutableArray *)dataSource {
+    _dataSource = dataSource;
 }
 
 @end
