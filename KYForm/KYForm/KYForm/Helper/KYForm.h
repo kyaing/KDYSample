@@ -29,11 +29,15 @@
 #import "Tools.h"
 #import "NSObject+YYModel.h"
 
+// Extension
+#import "UIColor+Extensions.h"
+
 extern NSString *const kFormRowTypeText;
 extern NSString *const kFormRowTypePhone;
 extern NSString *const kFormRowTypeMail;
 extern NSString *const kFormRowTypeNumber;
 extern NSString *const kFormRowTypePassword;
+
 extern NSString *const kFormRowTypeDate;
 extern NSString *const kFormRowTypePicker;
 extern NSString *const kFormRowTypeSwitch;

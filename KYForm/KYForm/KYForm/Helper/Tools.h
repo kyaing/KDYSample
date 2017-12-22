@@ -7,6 +7,9 @@
 
 #import <UIKit/UIKit.h>
 
+static inline UIFont *Font(NSInteger a) {
+    return [UIFont systemFontOfSize:a];
+}
 
 static inline NSString *ObjectToJson(id obj) {
     NSError *error;

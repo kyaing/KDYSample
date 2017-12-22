@@ -59,6 +59,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     KYFormRowObject *formRow = [self.form formRowAtIndex:indexPath];
+    [self updateWithRow:formRow];
+    
     return [formRow cellForFormController:self];
 }
 
@@ -77,14 +79,21 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 15;
+    return 30;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 15;
+    return 30;
 }
 
 #pragma mark - Public Methods
+
+- (KYFormBaseCell *)updateWithRow:(KYFormRowObject *)rowObject {
+    KYFormBaseCell *cell = [rowObject cellForFormController:self];
+    cell.rowModel = rowObject.rowModel;
+    
+    return cell;
+}
 
 + (NSMutableDictionary *)cellClassesForRowTypes {
     static NSMutableDictionary *shareInstance;
@@ -92,14 +101,18 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareInstance = [@{
-                           kFormRowTypeText     : [KYFormTextFieldCell class],
-                           kFormRowTypePhone    : [KYFormTextFieldCell class],
-                           kFormRowTypeNumber   : [KYFormTextFieldCell class],
-                           kFormRowTypePassword : [KYFormTextFieldCell class],
-                           kFormRowTypeDate     : [KYFormDateCell class],
-                           kFormRowTypePicker   : [KYFormPickViewCell class],
-                           kFormRowTypeSwitch   : [KYFormSwitchCell class],
-                           kFormRowTypeTextView : [KYFormTextViewCell class]
+                           kFormRowTypeText:    [KYFormBaseCell class],
+                           kFormRowTypePhone:   [KYFormBaseCell class],
+                           kFormRowTypeMail:    [KYFormBaseCell class],
+                           kFormRowTypeNumber:  [KYFormBaseCell class],
+                           kFormRowTypePassword: [KYFormBaseCell class],
+                           kFormRowTypeDate:    [KYFormBaseCell class],
+                           kFormRowTypePicker:  [KYFormBaseCell class],
+                           kFormRowTypeSwitch:  [KYFormBaseCell class],
+                           kFormRowTypeTextView:    [KYFormBaseCell class],
+                           kFormRowTypeChoosePush:  [KYFormBaseCell class],
+                           kFormRowTypeChoosePop:   [KYFormBaseCell class],
+                           kFormRowTypeActionSheet: [KYFormBaseCell class]
                           } mutableCopy];
     });
     
@@ -112,6 +125,7 @@
     if (!_fromTableView) {
         _fromTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _fromTableView.backgroundColor = [UIColor whiteColor];
+        _fromTableView.showsVerticalScrollIndicator = NO;
         _fromTableView.dataSource = self;
         _fromTableView.delegate = self;
     }
@@ -121,8 +135,10 @@
 
 - (void)setForm:(KYFormObject *)form {
     _form = form;
-    
-    [self.fromTableView reloadData];
+
+    if (self.isViewLoaded) {
+        [self.fromTableView reloadData];
+    }    
 }
 
 @end

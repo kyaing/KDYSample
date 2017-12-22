@@ -62,11 +62,11 @@
     
     NSInteger row = indexPath.row;
     if (row == 0) {
-        [self.navigationController pushViewController:[PersonalViewController new] animated:YES];
+        [self.navigationController pushViewController:[LoanViewController new] animated:YES];
     } else if (row == 1) {
         [self.navigationController pushViewController:[SetttingViewController new] animated:YES];
     } else {
-        [self.navigationController pushViewController:[LoanViewController new] animated:YES];
+        [self.navigationController pushViewController:[PersonalViewController new] animated:YES];
     }
 }
 
@@ -84,7 +84,7 @@
 
 - (NSMutableArray *)dataSource {
     if (!_dataSource) {
-        _dataSource = [NSMutableArray arrayWithArray:@[@"个人中心", @"设置中心", @"贷款机构"]];
+        _dataSource = [NSMutableArray arrayWithArray:@[@"贷款机构", @"设置中心", @"个人中心"]];
     }
     
     return _dataSource;

@@ -66,7 +66,7 @@
                     {
                         "key": "source",
                         "title": "人员来源",
-                        "tip":"",
+                        "tip":"请选择人员来源",
                         "type":"choosePush",
                         "value":"",
                         "lists":[
@@ -93,7 +93,7 @@
                         "key": "career",
                         "title": "职业",
                         "tip":"请选择您的职业",
-                        "type":"choose",
+                        "type":"choosePush",
                         "lists":[
                                  {"key": "0", "value": "公司职业"},
                                  {"key": "1", "value": "机关人员"},
@@ -114,7 +114,7 @@
                     {
                         "key": "political",
                         "title": "党派",
-                        "tip":"",
+                        "tip":"请选择您的党派",
                         "type":"choosePush",
                         "lists":[
                                  {"key": "0", "value": "共产党"},

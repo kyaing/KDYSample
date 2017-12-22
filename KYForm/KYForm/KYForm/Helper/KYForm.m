@@ -12,6 +12,7 @@ NSString *const kFormRowTypePhone       = @"phone";
 NSString *const kFormRowTypeMail        = @"mail";
 NSString *const kFormRowTypeNumber      = @"number";
 NSString *const kFormRowTypePassword    = @"password";
+
 NSString *const kFormRowTypeDate        = @"date";
 NSString *const kFormRowTypePicker      = @"picker";
 NSString *const kFormRowTypeSwitch      = @"switch";

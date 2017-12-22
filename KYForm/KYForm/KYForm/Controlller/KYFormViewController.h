@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KYFormBaseCell.h"
 #import "KYForm.h"
 
 @interface KYFormViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
@@ -15,6 +16,8 @@
 
 - (instancetype)initWithForm:(KYFormObject *)form;
 - (instancetype)initWithForm:(KYFormObject *)form tableStyle:(UITableViewStyle)style;
+
+- (KYFormBaseCell *)updateWithRow:(KYFormRowObject *)rowObject;
 
 + (NSMutableDictionary *)cellClassesForRowTypes;
 

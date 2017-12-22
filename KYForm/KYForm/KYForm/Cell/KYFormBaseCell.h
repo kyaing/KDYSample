@@ -6,10 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FormRowModel.h"
 
 @interface KYFormBaseCell : UITableViewCell
 
-- (void)setupViews;
-- (void)setupDatas;
+@property (nonatomic, strong) FormRowModel *rowModel;
+
+- (void)setupView;
+- (void)configure;
 
 @end

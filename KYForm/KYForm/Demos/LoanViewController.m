@@ -15,6 +15,14 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        NSMutableArray *array = [NSMutableArray array];
+        NSMutableArray *modelArray = JsonToModel(@"personal.json");
+        
+        for (NSDictionary *dict in modelArray) {
+            FormSectionModel *sectionModel = [FormSectionModel modelWithDictionary:dict];
+            [array addObject:sectionModel];
+        }
+        
         KYFormObject *form = [KYFormObject formCreateWithTitle:@"贷款机构"];
         self.form = form;
     }

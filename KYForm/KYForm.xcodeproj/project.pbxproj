@@ -33,6 +33,8 @@
 		95A413C61FEBA8B400BF3DFF /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C51FEBA8B400BF3DFF /* PersonalViewController.m */; };
 		95A413C91FEBA8E600BF3DFF /* SetttingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C81FEBA8E600BF3DFF /* SetttingViewController.m */; };
 		95A413CC1FEBAB7A00BF3DFF /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413CB1FEBAB7A00BF3DFF /* LoanViewController.m */; };
+		95A413D11FECD51200BF3DFF /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413D01FECD51200BF3DFF /* UIColor+Extensions.m */; };
+		95A413D41FECE1D300BF3DFF /* KYFormTextFeildController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413D31FECE1D300BF3DFF /* KYFormTextFeildController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,10 @@
 		95A413C81FEBA8E600BF3DFF /* SetttingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetttingViewController.m; sourceTree = "<group>"; };
 		95A413CA1FEBAB7A00BF3DFF /* LoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoanViewController.h; sourceTree = "<group>"; };
 		95A413CB1FEBAB7A00BF3DFF /* LoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
+		95A413CF1FECD51200BF3DFF /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
+		95A413D01FECD51200BF3DFF /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
+		95A413D21FECE1D300BF3DFF /* KYFormTextFeildController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormTextFeildController.h; sourceTree = "<group>"; };
+		95A413D31FECE1D300BF3DFF /* KYFormTextFeildController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormTextFeildController.m; sourceTree = "<group>"; };
 		95C08D821FE8BF680030C765 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +171,7 @@
 				958A287A1FE79B4E0071EACE /* Helper */,
 				953004171FEA3254002A44E5 /* Manager */,
 				9530041E1FEA3254002A44E5 /* Model */,
+				95A413CD1FECD3F300BF3DFF /* View */,
 			);
 			path = KYForm;
 			sourceTree = "<group>";
@@ -195,8 +202,8 @@
 			children = (
 				958A287F1FE7AED60071EACE /* KYFormViewController.h */,
 				958A28801FE7AED60071EACE /* KYFormViewController.m */,
-				95A412A91FEB9A5900BF3DFF /* Dynamic */,
-				95A412A81FEB9A5900BF3DFF /* Static */,
+				95A413D21FECE1D300BF3DFF /* KYFormTextFeildController.h */,
+				95A413D31FECE1D300BF3DFF /* KYFormTextFeildController.m */,
 			);
 			path = Controlller;
 			sourceTree = "<group>";
@@ -215,6 +222,7 @@
 				953004091FEA0CB2002A44E5 /* KYForm.h */,
 				9530040A1FEA0CB2002A44E5 /* KYForm.m */,
 				95C08D821FE8BF680030C765 /* Tools.h */,
+				95A413CE1FECD51200BF3DFF /* Extension */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -234,20 +242,6 @@
 			path = Demos;
 			sourceTree = "<group>";
 		};
-		95A412A81FEB9A5900BF3DFF /* Static */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Static;
-			sourceTree = "<group>";
-		};
-		95A412A91FEB9A5900BF3DFF /* Dynamic */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Dynamic;
-			sourceTree = "<group>";
-		};
 		95A412B21FEBA24000BF3DFF /* Libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +259,22 @@
 				95A413C11FEBA2B200BF3DFF /* YYClassInfo.m */,
 			);
 			path = YYModel;
+			sourceTree = "<group>";
+		};
+		95A413CD1FECD3F300BF3DFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95A413CE1FECD51200BF3DFF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				95A413CF1FECD51200BF3DFF /* UIColor+Extensions.h */,
+				95A413D01FECD51200BF3DFF /* UIColor+Extensions.m */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,10 +359,12 @@
 				958A28811FE7AED60071EACE /* KYFormViewController.m in Sources */,
 				95A4129E1FEB8C1000BF3DFF /* ViewController.m in Sources */,
 				95A413C21FEBA2B200BF3DFF /* NSObject+YYModel.m in Sources */,
+				95A413D41FECE1D300BF3DFF /* KYFormTextFeildController.m in Sources */,
 				95A4128B1FEA3CFC00BF3DFF /* KYFormBaseCell.m in Sources */,
 				95A412AF1FEB9AEB00BF3DFF /* FormSectionModel.m in Sources */,
 				95A412A71FEB8FEE00BF3DFF /* KYFormTextViewCell.m in Sources */,
 				95A413C31FEBA2B200BF3DFF /* YYClassInfo.m in Sources */,
+				95A413D11FECD51200BF3DFF /* UIColor+Extensions.m in Sources */,
 				958A28701FE796C20071EACE /* main.m in Sources */,
 				95A413CC1FEBAB7A00BF3DFF /* LoanViewController.m in Sources */,
 				95A4128E1FEA3D2800BF3DFF /* KYFormDateCell.m in Sources */,

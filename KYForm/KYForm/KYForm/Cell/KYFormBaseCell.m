@@ -6,23 +6,36 @@
 //
 
 #import "KYFormBaseCell.h"
+#import "UIColor+Extensions.h"
+#import "Tools.h"
 
 @implementation KYFormBaseCell
 
-- (instancetype)init {
-    if (self = [super init]) {
-        
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self setupView];
     }
     
     return self;
 }
 
-- (void)setupViews {
+- (void)setupView {
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    self.textLabel.textColor = [UIColor black33];
+    self.detailTextLabel.textColor = [UIColor black95];
+    self.textLabel.font = Font(16);
+    self.detailTextLabel.font = Font(15);
 }
 
-- (void)setupDatas {
+- (void)configure {
+}
+
+- (void)setRowModel:(FormRowModel *)rowModel {
+    _rowModel = rowModel;
     
+    self.textLabel.text = rowModel.title;
+    self.detailTextLabel.text = rowModel.tip;
 }
 
 @end
