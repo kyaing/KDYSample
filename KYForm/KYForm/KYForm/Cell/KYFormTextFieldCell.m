@@ -1,13 +1,13 @@
 //
-//  KYFormSwitchCell.m
+//  KYFormTextFieldCell.m
 //  KYForm
 //
-//  Created by mac on 2017/12/20.
+//  Created by mac on 2017/12/26.
 //
 
-#import "KYFormSwitchCell.h"
+#import "KYFormTextFieldCell.h"
 
-@implementation KYFormSwitchCell
+@implementation KYFormTextFieldCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {

@@ -5,6 +5,13 @@
             "title":"必填信息",
             "rows":[
                     {
+                        "key": "avatar",
+                        "title": "头像",
+                        "tip":"",
+                        "type":"avatar",
+                        "value":""
+                    },
+                    {
                         "key": "name",
                         "title": "姓名",
                         "tip":"请输入姓名",

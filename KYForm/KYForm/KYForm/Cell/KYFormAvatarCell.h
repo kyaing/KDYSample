@@ -1,5 +1,5 @@
 //
-//  KYFormTextFieldCell.h
+//  KYFormAvatarCell.h
 //  KYForm
 //
 //  Created by mac on 2017/12/26.
@@ -7,6 +7,6 @@
 
 #import "KYFormBaseCell.h"
 
-@interface KYFormTextFieldCell : KYFormBaseCell
+@interface KYFormAvatarCell : KYFormBaseCell
 
 @end

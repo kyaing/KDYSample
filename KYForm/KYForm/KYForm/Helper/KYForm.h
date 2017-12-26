@@ -14,6 +14,7 @@
 
 // Cells
 #import "KYFormBaseCell.h"
+#import "KYFormAvatarCell.h"
 #import "KYFormSwitchCell.h"
 #import "KYFormPickViewCell.h"
 #import "KYFormTextFieldCell.h"
@@ -29,6 +30,7 @@
 // Extension
 #import "UIColor+Extensions.h"
 
+extern NSString *const kFormRowTypeAvatar;
 extern NSString *const kFormRowTypeText;
 extern NSString *const kFormRowTypePhone;
 extern NSString *const kFormRowTypeMail;

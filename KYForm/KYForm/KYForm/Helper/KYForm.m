@@ -7,6 +7,7 @@
 
 #import "KYForm.h"
 
+NSString *const kFormRowTypeAvatar      = @"avatar";
 NSString *const kFormRowTypeText        = @"text";
 NSString *const kFormRowTypePhone       = @"phone";
 NSString *const kFormRowTypeMail        = @"mail";

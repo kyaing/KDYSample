@@ -70,6 +70,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     KYFormRowObject *formRow = [self.form formRowAtIndex:indexPath];
+    [self didSelectFormRow:formRow];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -114,10 +115,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareInstance = [@{
-                           kFormRowTypeText:    [KYFormBaseCell class],
-                           kFormRowTypePhone:   [KYFormBaseCell class],
-                           kFormRowTypeMail:    [KYFormBaseCell class],
-                           kFormRowTypeNumber:  [KYFormBaseCell class],
+                           kFormRowTypeAvatar:  [KYFormAvatarCell class],
+                           kFormRowTypeText:    [KYFormTextFieldCell class],
+                           kFormRowTypePhone:   [KYFormTextFieldCell class],
+                           kFormRowTypeMail:    [KYFormTextFieldCell class],
+                           kFormRowTypeNumber:  [KYFormTextFieldCell class],
                            kFormRowTypePassword: [KYFormBaseCell class],
                            kFormRowTypeDate:    [KYFormBaseCell class],
                            kFormRowTypePicker:  [KYFormBaseCell class],
