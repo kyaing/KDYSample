@@ -74,6 +74,7 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.separatorColor = [UIColor groupTableViewBackgroundColor];
         _tableView.tableFooterView = [UIView new];
         _tableView.dataSource = self;
         _tableView.delegate = self;

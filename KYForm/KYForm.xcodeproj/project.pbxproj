@@ -7,50 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9530040B1FEA0CB2002A44E5 /* KYForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9530040A1FEA0CB2002A44E5 /* KYForm.m */; };
-		953004201FEA3254002A44E5 /* KYFormRowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9530041B1FEA3254002A44E5 /* KYFormRowObject.m */; };
-		953004211FEA3254002A44E5 /* KYFormSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9530041D1FEA3254002A44E5 /* KYFormSectionObject.m */; };
 		958A28621FE796C20071EACE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A28611FE796C20071EACE /* AppDelegate.m */; };
 		958A28681FE796C20071EACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958A28661FE796C20071EACE /* Main.storyboard */; };
 		958A286A1FE796C20071EACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 958A28691FE796C20071EACE /* Assets.xcassets */; };
 		958A286D1FE796C20071EACE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958A286B1FE796C20071EACE /* LaunchScreen.storyboard */; };
 		958A28701FE796C20071EACE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A286F1FE796C20071EACE /* main.m */; };
-		958A28811FE7AED60071EACE /* KYFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958A28801FE7AED60071EACE /* KYFormViewController.m */; };
-		95A412881FEA395500BF3DFF /* KYFormObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412871FEA395500BF3DFF /* KYFormObject.m */; };
-		95A4128B1FEA3CFC00BF3DFF /* KYFormBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A4128A1FEA3CFC00BF3DFF /* KYFormBaseCell.m */; };
-		95A412941FEA42C900BF3DFF /* KYFormSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412931FEA42C900BF3DFF /* KYFormSwitchCell.m */; };
-		95A4129A1FEA42FF00BF3DFF /* KYFormPickViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412991FEA42FF00BF3DFF /* KYFormPickViewCell.m */; };
 		95A4129E1FEB8C1000BF3DFF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A4129D1FEB8C0F00BF3DFF /* ViewController.m */; };
-		95A412AC1FEB9ADF00BF3DFF /* FormRowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412AB1FEB9ADF00BF3DFF /* FormRowModel.m */; };
-		95A412AF1FEB9AEB00BF3DFF /* FormSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A412AE1FEB9AEB00BF3DFF /* FormSectionModel.m */; };
-		95A412B11FEB9C7F00BF3DFF /* Loaninfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 95A412B01FEB9C7F00BF3DFF /* Loaninfo.json */; };
 		95A413C21FEBA2B200BF3DFF /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413BF1FEBA2B200BF3DFF /* NSObject+YYModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		95A413C31FEBA2B200BF3DFF /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C11FEBA2B200BF3DFF /* YYClassInfo.m */; };
 		95A413C61FEBA8B400BF3DFF /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C51FEBA8B400BF3DFF /* PersonalViewController.m */; };
 		95A413C91FEBA8E600BF3DFF /* SetttingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413C81FEBA8E600BF3DFF /* SetttingViewController.m */; };
 		95A413CC1FEBAB7A00BF3DFF /* LoanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413CB1FEBAB7A00BF3DFF /* LoanViewController.m */; };
-		95A413D11FECD51200BF3DFF /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413D01FECD51200BF3DFF /* UIColor+Extensions.m */; };
-		95A413D41FECE1D300BF3DFF /* KYFormTextFeildController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413D31FECE1D300BF3DFF /* KYFormTextFeildController.m */; };
-		95A413D71FED074800BF3DFF /* KYFormListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A413D61FED074700BF3DFF /* KYFormListViewController.m */; };
-		95DB6E7A1FF1DA1600D336A5 /* KYSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E791FF1DA1600D336A5 /* KYSwitch.m */; };
-		95DB6E7D1FF1DA7500D336A5 /* KYDatePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E7C1FF1DA7500D336A5 /* KYDatePickView.m */; };
-		95DB6E801FF1DB8A00D336A5 /* KYActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E7F1FF1DB8A00D336A5 /* KYActionSheet.m */; };
-		95DB6E831FF1DB9B00D336A5 /* KYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E821FF1DB9B00D336A5 /* KYAlertView.m */; };
-		95DB6E861FF1DBC400D336A5 /* KYFormMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E851FF1DBC400D336A5 /* KYFormMapViewController.m */; };
-		95DB6E891FF1DD7900D336A5 /* KYFormCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E881FF1DD7900D336A5 /* KYFormCityViewController.m */; };
-		95DB6E8C1FF1F92C00D336A5 /* KYFormAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E8B1FF1F92C00D336A5 /* KYFormAvatarCell.m */; };
-		95DB6E8F1FF1F97C00D336A5 /* KYFormTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E8E1FF1F97C00D336A5 /* KYFormTextFieldCell.m */; };
-		95DB6E941FF23AB300D336A5 /* defaultAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95DB6E921FF23AB300D336A5 /* defaultAvatar@2x.png */; };
-		95DB6E951FF23AB300D336A5 /* defaultAvatar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95DB6E931FF23AB300D336A5 /* defaultAvatar@3x.png */; };
+		95C7B3301FF33E5800EE3885 /* KYFormAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B2FA1FF33E5800EE3885 /* KYFormAvatarCell.m */; };
+		95C7B3311FF33E5800EE3885 /* KYFormBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B2FC1FF33E5800EE3885 /* KYFormBaseCell.m */; };
+		95C7B3321FF33E5800EE3885 /* KYFormPickViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B2FF1FF33E5800EE3885 /* KYFormPickViewCell.m */; };
+		95C7B3331FF33E5800EE3885 /* KYFormSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3011FF33E5800EE3885 /* KYFormSwitchCell.m */; };
+		95C7B3341FF33E5800EE3885 /* KYFormTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3031FF33E5800EE3885 /* KYFormTextFieldCell.m */; };
+		95C7B3351FF33E5800EE3885 /* KYFormCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3061FF33E5800EE3885 /* KYFormCityViewController.m */; };
+		95C7B3361FF33E5800EE3885 /* KYFormListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3081FF33E5800EE3885 /* KYFormListViewController.m */; };
+		95C7B3371FF33E5800EE3885 /* KYFormMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B30A1FF33E5800EE3885 /* KYFormMapViewController.m */; };
+		95C7B3381FF33E5800EE3885 /* KYFormTextFeildController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B30C1FF33E5800EE3885 /* KYFormTextFeildController.m */; };
+		95C7B3391FF33E5800EE3885 /* KYFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B30E1FF33E5800EE3885 /* KYFormViewController.m */; };
+		95C7B33A1FF33E5800EE3885 /* Loaninfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 95C7B3101FF33E5800EE3885 /* Loaninfo.json */; };
+		95C7B33B1FF33E5800EE3885 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3141FF33E5800EE3885 /* UIColor+Extensions.m */; };
+		95C7B33C1FF33E5800EE3885 /* KYForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3161FF33E5800EE3885 /* KYForm.m */; };
+		95C7B33D1FF33E5800EE3885 /* KYFormObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B31A1FF33E5800EE3885 /* KYFormObject.m */; };
+		95C7B33E1FF33E5800EE3885 /* KYFormRowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B31C1FF33E5800EE3885 /* KYFormRowObject.m */; };
+		95C7B33F1FF33E5800EE3885 /* KYFormSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B31E1FF33E5800EE3885 /* KYFormSectionObject.m */; };
+		95C7B3401FF33E5800EE3885 /* FormRowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3211FF33E5800EE3885 /* FormRowModel.m */; };
+		95C7B3411FF33E5800EE3885 /* FormSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3231FF33E5800EE3885 /* FormSectionModel.m */; };
+		95C7B3421FF33E5800EE3885 /* defaultAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C7B3251FF33E5800EE3885 /* defaultAvatar@2x.png */; };
+		95C7B3431FF33E5800EE3885 /* defaultAvatar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95C7B3261FF33E5800EE3885 /* defaultAvatar@3x.png */; };
+		95C7B3441FF33E5800EE3885 /* KYActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B3291FF33E5800EE3885 /* KYActionSheet.m */; };
+		95C7B3451FF33E5800EE3885 /* KYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B32B1FF33E5800EE3885 /* KYAlertView.m */; };
+		95C7B3461FF33E5800EE3885 /* KYDatePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B32D1FF33E5800EE3885 /* KYDatePickView.m */; };
+		95C7B3471FF33E5800EE3885 /* KYSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C7B32F1FF33E5800EE3885 /* KYSwitch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		953004091FEA0CB2002A44E5 /* KYForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYForm.h; sourceTree = "<group>"; };
-		9530040A1FEA0CB2002A44E5 /* KYForm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYForm.m; sourceTree = "<group>"; };
-		9530041A1FEA3254002A44E5 /* KYFormRowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormRowObject.h; sourceTree = "<group>"; };
-		9530041B1FEA3254002A44E5 /* KYFormRowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormRowObject.m; sourceTree = "<group>"; };
-		9530041C1FEA3254002A44E5 /* KYFormSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormSectionObject.h; sourceTree = "<group>"; };
-		9530041D1FEA3254002A44E5 /* KYFormSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormSectionObject.m; sourceTree = "<group>"; };
 		958A285D1FE796C20071EACE /* KYForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		958A28601FE796C20071EACE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		958A28611FE796C20071EACE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,23 +53,8 @@
 		958A286C1FE796C20071EACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		958A286E1FE796C20071EACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		958A286F1FE796C20071EACE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		958A287F1FE7AED60071EACE /* KYFormViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormViewController.h; sourceTree = "<group>"; };
-		958A28801FE7AED60071EACE /* KYFormViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormViewController.m; sourceTree = "<group>"; };
-		95A412861FEA395500BF3DFF /* KYFormObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormObject.h; sourceTree = "<group>"; };
-		95A412871FEA395500BF3DFF /* KYFormObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormObject.m; sourceTree = "<group>"; };
-		95A412891FEA3CFC00BF3DFF /* KYFormBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormBaseCell.h; sourceTree = "<group>"; };
-		95A4128A1FEA3CFC00BF3DFF /* KYFormBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormBaseCell.m; sourceTree = "<group>"; };
-		95A412921FEA42C900BF3DFF /* KYFormSwitchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormSwitchCell.h; sourceTree = "<group>"; };
-		95A412931FEA42C900BF3DFF /* KYFormSwitchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormSwitchCell.m; sourceTree = "<group>"; };
-		95A412981FEA42FF00BF3DFF /* KYFormPickViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormPickViewCell.h; sourceTree = "<group>"; };
-		95A412991FEA42FF00BF3DFF /* KYFormPickViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormPickViewCell.m; sourceTree = "<group>"; };
 		95A4129C1FEB8C0F00BF3DFF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		95A4129D1FEB8C0F00BF3DFF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		95A412AA1FEB9ADF00BF3DFF /* FormRowModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormRowModel.h; sourceTree = "<group>"; };
-		95A412AB1FEB9ADF00BF3DFF /* FormRowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormRowModel.m; sourceTree = "<group>"; };
-		95A412AD1FEB9AEB00BF3DFF /* FormSectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormSectionModel.h; sourceTree = "<group>"; };
-		95A412AE1FEB9AEB00BF3DFF /* FormSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormSectionModel.m; sourceTree = "<group>"; };
-		95A412B01FEB9C7F00BF3DFF /* Loaninfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loaninfo.json; sourceTree = "<group>"; };
 		95A413BE1FEBA2B200BF3DFF /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
 		95A413BF1FEBA2B200BF3DFF /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
 		95A413C01FEBA2B200BF3DFF /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
@@ -86,32 +65,53 @@
 		95A413C81FEBA8E600BF3DFF /* SetttingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetttingViewController.m; sourceTree = "<group>"; };
 		95A413CA1FEBAB7A00BF3DFF /* LoanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoanViewController.h; sourceTree = "<group>"; };
 		95A413CB1FEBAB7A00BF3DFF /* LoanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoanViewController.m; sourceTree = "<group>"; };
-		95A413CF1FECD51200BF3DFF /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
-		95A413D01FECD51200BF3DFF /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
-		95A413D21FECE1D300BF3DFF /* KYFormTextFeildController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormTextFeildController.h; sourceTree = "<group>"; };
-		95A413D31FECE1D300BF3DFF /* KYFormTextFeildController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormTextFeildController.m; sourceTree = "<group>"; };
-		95A413D51FED074700BF3DFF /* KYFormListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormListViewController.h; sourceTree = "<group>"; };
-		95A413D61FED074700BF3DFF /* KYFormListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormListViewController.m; sourceTree = "<group>"; };
-		95C08D821FE8BF680030C765 /* Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
-		95DB6E781FF1DA1600D336A5 /* KYSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYSwitch.h; sourceTree = "<group>"; };
-		95DB6E791FF1DA1600D336A5 /* KYSwitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYSwitch.m; sourceTree = "<group>"; };
-		95DB6E7B1FF1DA7500D336A5 /* KYDatePickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYDatePickView.h; sourceTree = "<group>"; };
-		95DB6E7C1FF1DA7500D336A5 /* KYDatePickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYDatePickView.m; sourceTree = "<group>"; };
-		95DB6E7E1FF1DB8A00D336A5 /* KYActionSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYActionSheet.h; sourceTree = "<group>"; };
-		95DB6E7F1FF1DB8A00D336A5 /* KYActionSheet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYActionSheet.m; sourceTree = "<group>"; };
-		95DB6E811FF1DB9B00D336A5 /* KYAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYAlertView.h; sourceTree = "<group>"; };
-		95DB6E821FF1DB9B00D336A5 /* KYAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYAlertView.m; sourceTree = "<group>"; };
-		95DB6E841FF1DBC400D336A5 /* KYFormMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormMapViewController.h; sourceTree = "<group>"; };
-		95DB6E851FF1DBC400D336A5 /* KYFormMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormMapViewController.m; sourceTree = "<group>"; };
-		95DB6E871FF1DD7900D336A5 /* KYFormCityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormCityViewController.h; sourceTree = "<group>"; };
-		95DB6E881FF1DD7900D336A5 /* KYFormCityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormCityViewController.m; sourceTree = "<group>"; };
-		95DB6E8A1FF1F92C00D336A5 /* KYFormAvatarCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormAvatarCell.h; sourceTree = "<group>"; };
-		95DB6E8B1FF1F92C00D336A5 /* KYFormAvatarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormAvatarCell.m; sourceTree = "<group>"; };
-		95DB6E8D1FF1F97C00D336A5 /* KYFormTextFieldCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormTextFieldCell.h; sourceTree = "<group>"; };
-		95DB6E8E1FF1F97C00D336A5 /* KYFormTextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormTextFieldCell.m; sourceTree = "<group>"; };
-		95DB6E901FF1FAE800D336A5 /* KYFormCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormCellProtocol.h; sourceTree = "<group>"; };
-		95DB6E921FF23AB300D336A5 /* defaultAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultAvatar@2x.png"; sourceTree = "<group>"; };
-		95DB6E931FF23AB300D336A5 /* defaultAvatar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultAvatar@3x.png"; sourceTree = "<group>"; };
+		95C7B2F91FF33E5800EE3885 /* KYFormAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormAvatarCell.h; sourceTree = "<group>"; };
+		95C7B2FA1FF33E5800EE3885 /* KYFormAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormAvatarCell.m; sourceTree = "<group>"; };
+		95C7B2FB1FF33E5800EE3885 /* KYFormBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormBaseCell.h; sourceTree = "<group>"; };
+		95C7B2FC1FF33E5800EE3885 /* KYFormBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormBaseCell.m; sourceTree = "<group>"; };
+		95C7B2FD1FF33E5800EE3885 /* KYFormCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormCellProtocol.h; sourceTree = "<group>"; };
+		95C7B2FE1FF33E5800EE3885 /* KYFormPickViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormPickViewCell.h; sourceTree = "<group>"; };
+		95C7B2FF1FF33E5800EE3885 /* KYFormPickViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormPickViewCell.m; sourceTree = "<group>"; };
+		95C7B3001FF33E5800EE3885 /* KYFormSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormSwitchCell.h; sourceTree = "<group>"; };
+		95C7B3011FF33E5800EE3885 /* KYFormSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormSwitchCell.m; sourceTree = "<group>"; };
+		95C7B3021FF33E5800EE3885 /* KYFormTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormTextFieldCell.h; sourceTree = "<group>"; };
+		95C7B3031FF33E5800EE3885 /* KYFormTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormTextFieldCell.m; sourceTree = "<group>"; };
+		95C7B3051FF33E5800EE3885 /* KYFormCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormCityViewController.h; sourceTree = "<group>"; };
+		95C7B3061FF33E5800EE3885 /* KYFormCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormCityViewController.m; sourceTree = "<group>"; };
+		95C7B3071FF33E5800EE3885 /* KYFormListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormListViewController.h; sourceTree = "<group>"; };
+		95C7B3081FF33E5800EE3885 /* KYFormListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormListViewController.m; sourceTree = "<group>"; };
+		95C7B3091FF33E5800EE3885 /* KYFormMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormMapViewController.h; sourceTree = "<group>"; };
+		95C7B30A1FF33E5800EE3885 /* KYFormMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormMapViewController.m; sourceTree = "<group>"; };
+		95C7B30B1FF33E5800EE3885 /* KYFormTextFeildController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormTextFeildController.h; sourceTree = "<group>"; };
+		95C7B30C1FF33E5800EE3885 /* KYFormTextFeildController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormTextFeildController.m; sourceTree = "<group>"; };
+		95C7B30D1FF33E5800EE3885 /* KYFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormViewController.h; sourceTree = "<group>"; };
+		95C7B30E1FF33E5800EE3885 /* KYFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormViewController.m; sourceTree = "<group>"; };
+		95C7B3101FF33E5800EE3885 /* Loaninfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loaninfo.json; sourceTree = "<group>"; };
+		95C7B3131FF33E5800EE3885 /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
+		95C7B3141FF33E5800EE3885 /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
+		95C7B3151FF33E5800EE3885 /* KYForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYForm.h; sourceTree = "<group>"; };
+		95C7B3161FF33E5800EE3885 /* KYForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYForm.m; sourceTree = "<group>"; };
+		95C7B3171FF33E5800EE3885 /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		95C7B3191FF33E5800EE3885 /* KYFormObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormObject.h; sourceTree = "<group>"; };
+		95C7B31A1FF33E5800EE3885 /* KYFormObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormObject.m; sourceTree = "<group>"; };
+		95C7B31B1FF33E5800EE3885 /* KYFormRowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormRowObject.h; sourceTree = "<group>"; };
+		95C7B31C1FF33E5800EE3885 /* KYFormRowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormRowObject.m; sourceTree = "<group>"; };
+		95C7B31D1FF33E5800EE3885 /* KYFormSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormSectionObject.h; sourceTree = "<group>"; };
+		95C7B31E1FF33E5800EE3885 /* KYFormSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormSectionObject.m; sourceTree = "<group>"; };
+		95C7B3201FF33E5800EE3885 /* FormRowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormRowModel.h; sourceTree = "<group>"; };
+		95C7B3211FF33E5800EE3885 /* FormRowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormRowModel.m; sourceTree = "<group>"; };
+		95C7B3221FF33E5800EE3885 /* FormSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormSectionModel.h; sourceTree = "<group>"; };
+		95C7B3231FF33E5800EE3885 /* FormSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormSectionModel.m; sourceTree = "<group>"; };
+		95C7B3251FF33E5800EE3885 /* defaultAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultAvatar@2x.png"; sourceTree = "<group>"; };
+		95C7B3261FF33E5800EE3885 /* defaultAvatar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultAvatar@3x.png"; sourceTree = "<group>"; };
+		95C7B3281FF33E5800EE3885 /* KYActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYActionSheet.h; sourceTree = "<group>"; };
+		95C7B3291FF33E5800EE3885 /* KYActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYActionSheet.m; sourceTree = "<group>"; };
+		95C7B32A1FF33E5800EE3885 /* KYAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYAlertView.h; sourceTree = "<group>"; };
+		95C7B32B1FF33E5800EE3885 /* KYAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYAlertView.m; sourceTree = "<group>"; };
+		95C7B32C1FF33E5800EE3885 /* KYDatePickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYDatePickView.h; sourceTree = "<group>"; };
+		95C7B32D1FF33E5800EE3885 /* KYDatePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYDatePickView.m; sourceTree = "<group>"; };
+		95C7B32E1FF33E5800EE3885 /* KYSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYSwitch.h; sourceTree = "<group>"; };
+		95C7B32F1FF33E5800EE3885 /* KYSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYSwitch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,30 +125,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		953004171FEA3254002A44E5 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				95A412861FEA395500BF3DFF /* KYFormObject.h */,
-				95A412871FEA395500BF3DFF /* KYFormObject.m */,
-				9530041A1FEA3254002A44E5 /* KYFormRowObject.h */,
-				9530041B1FEA3254002A44E5 /* KYFormRowObject.m */,
-				9530041C1FEA3254002A44E5 /* KYFormSectionObject.h */,
-				9530041D1FEA3254002A44E5 /* KYFormSectionObject.m */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		9530041E1FEA3254002A44E5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				95A412AA1FEB9ADF00BF3DFF /* FormRowModel.h */,
-				95A412AB1FEB9ADF00BF3DFF /* FormRowModel.m */,
-				95A412AD1FEB9AEB00BF3DFF /* FormSectionModel.h */,
-				95A412AE1FEB9AEB00BF3DFF /* FormSectionModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		958A28541FE796C10071EACE = {
 			isa = PBXGroup;
 			children = (
@@ -176,79 +152,11 @@
 				958A286E1FE796C20071EACE /* Info.plist */,
 				958A286F1FE796C20071EACE /* main.m */,
 				95A4129B1FEB8C0F00BF3DFF /* Demos */,
-				958A28761FE79B4D0071EACE /* KYForm */,
 				95A412B21FEBA24000BF3DFF /* Libs */,
+				95C7B2F71FF33E5800EE3885 /* KYForm_OC */,
+				95C7B2F61FF33E5800EE3885 /* KYForm_Swift */,
 			);
 			path = KYForm;
-			sourceTree = "<group>";
-		};
-		958A28761FE79B4D0071EACE /* KYForm */ = {
-			isa = PBXGroup;
-			children = (
-				958A28771FE79B4D0071EACE /* Cell */,
-				958A28781FE79B4D0071EACE /* Controlller */,
-				953004171FEA3254002A44E5 /* Manager */,
-				9530041E1FEA3254002A44E5 /* Model */,
-				95A413CD1FECD3F300BF3DFF /* View */,
-				958A28791FE79B4E0071EACE /* Data */,
-				958A287A1FE79B4E0071EACE /* Helper */,
-				95DB6E911FF2219A00D336A5 /* Resourses */,
-			);
-			path = KYForm;
-			sourceTree = "<group>";
-		};
-		958A28771FE79B4D0071EACE /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				95A412891FEA3CFC00BF3DFF /* KYFormBaseCell.h */,
-				95A4128A1FEA3CFC00BF3DFF /* KYFormBaseCell.m */,
-				95DB6E901FF1FAE800D336A5 /* KYFormCellProtocol.h */,
-				95DB6E8A1FF1F92C00D336A5 /* KYFormAvatarCell.h */,
-				95DB6E8B1FF1F92C00D336A5 /* KYFormAvatarCell.m */,
-				95A412921FEA42C900BF3DFF /* KYFormSwitchCell.h */,
-				95A412931FEA42C900BF3DFF /* KYFormSwitchCell.m */,
-				95A412981FEA42FF00BF3DFF /* KYFormPickViewCell.h */,
-				95A412991FEA42FF00BF3DFF /* KYFormPickViewCell.m */,
-				95DB6E8D1FF1F97C00D336A5 /* KYFormTextFieldCell.h */,
-				95DB6E8E1FF1F97C00D336A5 /* KYFormTextFieldCell.m */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		958A28781FE79B4D0071EACE /* Controlller */ = {
-			isa = PBXGroup;
-			children = (
-				958A287F1FE7AED60071EACE /* KYFormViewController.h */,
-				958A28801FE7AED60071EACE /* KYFormViewController.m */,
-				95A413D21FECE1D300BF3DFF /* KYFormTextFeildController.h */,
-				95A413D31FECE1D300BF3DFF /* KYFormTextFeildController.m */,
-				95A413D51FED074700BF3DFF /* KYFormListViewController.h */,
-				95A413D61FED074700BF3DFF /* KYFormListViewController.m */,
-				95DB6E841FF1DBC400D336A5 /* KYFormMapViewController.h */,
-				95DB6E851FF1DBC400D336A5 /* KYFormMapViewController.m */,
-				95DB6E871FF1DD7900D336A5 /* KYFormCityViewController.h */,
-				95DB6E881FF1DD7900D336A5 /* KYFormCityViewController.m */,
-			);
-			path = Controlller;
-			sourceTree = "<group>";
-		};
-		958A28791FE79B4E0071EACE /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				95A412B01FEB9C7F00BF3DFF /* Loaninfo.json */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		958A287A1FE79B4E0071EACE /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				95C08D821FE8BF680030C765 /* Tools.h */,
-				953004091FEA0CB2002A44E5 /* KYForm.h */,
-				9530040A1FEA0CB2002A44E5 /* KYForm.m */,
-				95A413CE1FECD51200BF3DFF /* Extension */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		95A4129B1FEB8C0F00BF3DFF /* Demos */ = {
@@ -285,37 +193,137 @@
 			path = YYModel;
 			sourceTree = "<group>";
 		};
-		95A413CD1FECD3F300BF3DFF /* View */ = {
+		95C7B2F61FF33E5800EE3885 /* KYForm_Swift */ = {
 			isa = PBXGroup;
 			children = (
-				95DB6E781FF1DA1600D336A5 /* KYSwitch.h */,
-				95DB6E791FF1DA1600D336A5 /* KYSwitch.m */,
-				95DB6E7B1FF1DA7500D336A5 /* KYDatePickView.h */,
-				95DB6E7C1FF1DA7500D336A5 /* KYDatePickView.m */,
-				95DB6E7E1FF1DB8A00D336A5 /* KYActionSheet.h */,
-				95DB6E7F1FF1DB8A00D336A5 /* KYActionSheet.m */,
-				95DB6E811FF1DB9B00D336A5 /* KYAlertView.h */,
-				95DB6E821FF1DB9B00D336A5 /* KYAlertView.m */,
 			);
-			path = View;
+			path = KYForm_Swift;
 			sourceTree = "<group>";
 		};
-		95A413CE1FECD51200BF3DFF /* Extension */ = {
+		95C7B2F71FF33E5800EE3885 /* KYForm_OC */ = {
 			isa = PBXGroup;
 			children = (
-				95A413CF1FECD51200BF3DFF /* UIColor+Extensions.h */,
-				95A413D01FECD51200BF3DFF /* UIColor+Extensions.m */,
+				95C7B2F81FF33E5800EE3885 /* Cell */,
+				95C7B3041FF33E5800EE3885 /* Controlller */,
+				95C7B30F1FF33E5800EE3885 /* Data */,
+				95C7B3111FF33E5800EE3885 /* Helper */,
+				95C7B3181FF33E5800EE3885 /* Manager */,
+				95C7B31F1FF33E5800EE3885 /* Model */,
+				95C7B3241FF33E5800EE3885 /* Resourses */,
+				95C7B3271FF33E5800EE3885 /* View */,
+			);
+			path = KYForm_OC;
+			sourceTree = "<group>";
+		};
+		95C7B2F81FF33E5800EE3885 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				95C7B2FB1FF33E5800EE3885 /* KYFormBaseCell.h */,
+				95C7B2FC1FF33E5800EE3885 /* KYFormBaseCell.m */,
+				95C7B2F91FF33E5800EE3885 /* KYFormAvatarCell.h */,
+				95C7B2FA1FF33E5800EE3885 /* KYFormAvatarCell.m */,
+				95C7B2FD1FF33E5800EE3885 /* KYFormCellProtocol.h */,
+				95C7B2FE1FF33E5800EE3885 /* KYFormPickViewCell.h */,
+				95C7B2FF1FF33E5800EE3885 /* KYFormPickViewCell.m */,
+				95C7B3001FF33E5800EE3885 /* KYFormSwitchCell.h */,
+				95C7B3011FF33E5800EE3885 /* KYFormSwitchCell.m */,
+				95C7B3021FF33E5800EE3885 /* KYFormTextFieldCell.h */,
+				95C7B3031FF33E5800EE3885 /* KYFormTextFieldCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		95C7B3041FF33E5800EE3885 /* Controlller */ = {
+			isa = PBXGroup;
+			children = (
+				95C7B30D1FF33E5800EE3885 /* KYFormViewController.h */,
+				95C7B30E1FF33E5800EE3885 /* KYFormViewController.m */,
+				95C7B3051FF33E5800EE3885 /* KYFormCityViewController.h */,
+				95C7B3061FF33E5800EE3885 /* KYFormCityViewController.m */,
+				95C7B3071FF33E5800EE3885 /* KYFormListViewController.h */,
+				95C7B3081FF33E5800EE3885 /* KYFormListViewController.m */,
+				95C7B3091FF33E5800EE3885 /* KYFormMapViewController.h */,
+				95C7B30A1FF33E5800EE3885 /* KYFormMapViewController.m */,
+				95C7B30B1FF33E5800EE3885 /* KYFormTextFeildController.h */,
+				95C7B30C1FF33E5800EE3885 /* KYFormTextFeildController.m */,
+			);
+			path = Controlller;
+			sourceTree = "<group>";
+		};
+		95C7B30F1FF33E5800EE3885 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				95C7B3101FF33E5800EE3885 /* Loaninfo.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		95C7B3111FF33E5800EE3885 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				95C7B3171FF33E5800EE3885 /* Tools.h */,
+				95C7B3151FF33E5800EE3885 /* KYForm.h */,
+				95C7B3161FF33E5800EE3885 /* KYForm.m */,
+				95C7B3121FF33E5800EE3885 /* Extension */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		95C7B3121FF33E5800EE3885 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				95C7B3131FF33E5800EE3885 /* UIColor+Extensions.h */,
+				95C7B3141FF33E5800EE3885 /* UIColor+Extensions.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		95DB6E911FF2219A00D336A5 /* Resourses */ = {
+		95C7B3181FF33E5800EE3885 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				95DB6E921FF23AB300D336A5 /* defaultAvatar@2x.png */,
-				95DB6E931FF23AB300D336A5 /* defaultAvatar@3x.png */,
+				95C7B3191FF33E5800EE3885 /* KYFormObject.h */,
+				95C7B31A1FF33E5800EE3885 /* KYFormObject.m */,
+				95C7B31B1FF33E5800EE3885 /* KYFormRowObject.h */,
+				95C7B31C1FF33E5800EE3885 /* KYFormRowObject.m */,
+				95C7B31D1FF33E5800EE3885 /* KYFormSectionObject.h */,
+				95C7B31E1FF33E5800EE3885 /* KYFormSectionObject.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		95C7B31F1FF33E5800EE3885 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95C7B3201FF33E5800EE3885 /* FormRowModel.h */,
+				95C7B3211FF33E5800EE3885 /* FormRowModel.m */,
+				95C7B3221FF33E5800EE3885 /* FormSectionModel.h */,
+				95C7B3231FF33E5800EE3885 /* FormSectionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95C7B3241FF33E5800EE3885 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				95C7B3251FF33E5800EE3885 /* defaultAvatar@2x.png */,
+				95C7B3261FF33E5800EE3885 /* defaultAvatar@3x.png */,
 			);
 			path = Resourses;
+			sourceTree = "<group>";
+		};
+		95C7B3271FF33E5800EE3885 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95C7B32E1FF33E5800EE3885 /* KYSwitch.h */,
+				95C7B32F1FF33E5800EE3885 /* KYSwitch.m */,
+				95C7B3281FF33E5800EE3885 /* KYActionSheet.h */,
+				95C7B3291FF33E5800EE3885 /* KYActionSheet.m */,
+				95C7B32A1FF33E5800EE3885 /* KYAlertView.h */,
+				95C7B32B1FF33E5800EE3885 /* KYAlertView.m */,
+				95C7B32C1FF33E5800EE3885 /* KYDatePickView.h */,
+				95C7B32D1FF33E5800EE3885 /* KYDatePickView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,10 +384,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				958A286D1FE796C20071EACE /* LaunchScreen.storyboard in Resources */,
-				95DB6E941FF23AB300D336A5 /* defaultAvatar@2x.png in Resources */,
-				95A412B11FEB9C7F00BF3DFF /* Loaninfo.json in Resources */,
+				95C7B33A1FF33E5800EE3885 /* Loaninfo.json in Resources */,
 				958A286A1FE796C20071EACE /* Assets.xcassets in Resources */,
-				95DB6E951FF23AB300D336A5 /* defaultAvatar@3x.png in Resources */,
+				95C7B3421FF33E5800EE3885 /* defaultAvatar@2x.png in Resources */,
+				95C7B3431FF33E5800EE3885 /* defaultAvatar@3x.png in Resources */,
 				958A28681FE796C20071EACE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,35 +399,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95C7B3391FF33E5800EE3885 /* KYFormViewController.m in Sources */,
+				95C7B33C1FF33E5800EE3885 /* KYForm.m in Sources */,
+				95C7B3331FF33E5800EE3885 /* KYFormSwitchCell.m in Sources */,
+				95C7B3301FF33E5800EE3885 /* KYFormAvatarCell.m in Sources */,
+				95C7B3461FF33E5800EE3885 /* KYDatePickView.m in Sources */,
+				95C7B33F1FF33E5800EE3885 /* KYFormSectionObject.m in Sources */,
 				95A413C91FEBA8E600BF3DFF /* SetttingViewController.m in Sources */,
-				95DB6E7A1FF1DA1600D336A5 /* KYSwitch.m in Sources */,
-				953004201FEA3254002A44E5 /* KYFormRowObject.m in Sources */,
-				95A412941FEA42C900BF3DFF /* KYFormSwitchCell.m in Sources */,
-				95A4129A1FEA42FF00BF3DFF /* KYFormPickViewCell.m in Sources */,
-				95DB6E801FF1DB8A00D336A5 /* KYActionSheet.m in Sources */,
-				95A412881FEA395500BF3DFF /* KYFormObject.m in Sources */,
-				95A412AC1FEB9ADF00BF3DFF /* FormRowModel.m in Sources */,
-				958A28811FE7AED60071EACE /* KYFormViewController.m in Sources */,
-				95DB6E8F1FF1F97C00D336A5 /* KYFormTextFieldCell.m in Sources */,
+				95C7B3401FF33E5800EE3885 /* FormRowModel.m in Sources */,
+				95C7B3361FF33E5800EE3885 /* KYFormListViewController.m in Sources */,
+				95C7B3321FF33E5800EE3885 /* KYFormPickViewCell.m in Sources */,
+				95C7B3471FF33E5800EE3885 /* KYSwitch.m in Sources */,
+				95C7B3411FF33E5800EE3885 /* FormSectionModel.m in Sources */,
+				95C7B3351FF33E5800EE3885 /* KYFormCityViewController.m in Sources */,
 				95A4129E1FEB8C1000BF3DFF /* ViewController.m in Sources */,
-				95A413D71FED074800BF3DFF /* KYFormListViewController.m in Sources */,
+				95C7B33D1FF33E5800EE3885 /* KYFormObject.m in Sources */,
+				95C7B3441FF33E5800EE3885 /* KYActionSheet.m in Sources */,
 				95A413C21FEBA2B200BF3DFF /* NSObject+YYModel.m in Sources */,
-				95A413D41FECE1D300BF3DFF /* KYFormTextFeildController.m in Sources */,
-				95A4128B1FEA3CFC00BF3DFF /* KYFormBaseCell.m in Sources */,
-				95DB6E831FF1DB9B00D336A5 /* KYAlertView.m in Sources */,
-				95DB6E861FF1DBC400D336A5 /* KYFormMapViewController.m in Sources */,
-				95DB6E8C1FF1F92C00D336A5 /* KYFormAvatarCell.m in Sources */,
-				95A412AF1FEB9AEB00BF3DFF /* FormSectionModel.m in Sources */,
+				95C7B3371FF33E5800EE3885 /* KYFormMapViewController.m in Sources */,
+				95C7B3451FF33E5800EE3885 /* KYAlertView.m in Sources */,
 				95A413C31FEBA2B200BF3DFF /* YYClassInfo.m in Sources */,
-				95DB6E891FF1DD7900D336A5 /* KYFormCityViewController.m in Sources */,
-				95A413D11FECD51200BF3DFF /* UIColor+Extensions.m in Sources */,
+				95C7B3341FF33E5800EE3885 /* KYFormTextFieldCell.m in Sources */,
+				95C7B3381FF33E5800EE3885 /* KYFormTextFeildController.m in Sources */,
 				958A28701FE796C20071EACE /* main.m in Sources */,
 				95A413CC1FEBAB7A00BF3DFF /* LoanViewController.m in Sources */,
-				953004211FEA3254002A44E5 /* KYFormSectionObject.m in Sources */,
 				958A28621FE796C20071EACE /* AppDelegate.m in Sources */,
-				95DB6E7D1FF1DA7500D336A5 /* KYDatePickView.m in Sources */,
+				95C7B33E1FF33E5800EE3885 /* KYFormRowObject.m in Sources */,
 				95A413C61FEBA8B400BF3DFF /* PersonalViewController.m in Sources */,
-				9530040B1FEA0CB2002A44E5 /* KYForm.m in Sources */,
+				95C7B3311FF33E5800EE3885 /* KYFormBaseCell.m in Sources */,
+				95C7B33B1FF33E5800EE3885 /* UIColor+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,7 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AAMM686MJ7;
+				DEVELOPMENT_TEAM = SDZV3AM9BB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KYForm/Libs/YYKit/Vendor",
@@ -572,7 +580,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AAMM686MJ7;
+				DEVELOPMENT_TEAM = SDZV3AM9BB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KYForm/Libs/YYKit/Vendor",

@@ -23,6 +23,12 @@
 #import "FormRowModel.h"
 #import "FormSectionModel.h"
 
+// Views
+#import "KYSwitch.h"
+#import "KYDatePickView.h"
+#import "KYActionSheet.h"
+#import "KYAlertView.h"
+
 // Libs
 #import "Tools.h"
 #import "NSObject+YYModel.h"

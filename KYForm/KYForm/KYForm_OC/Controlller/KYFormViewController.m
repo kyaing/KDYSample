@@ -78,7 +78,7 @@
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     header.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
     header.textLabel.textColor = [UIColor black33];
-    header.textLabel.font = BFont(14);
+    header.textLabel.font = BFont(15);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,11 +89,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30;
+    return 35;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 30;
+    return 35;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -105,7 +105,7 @@
         return height;
     }
     
-    return self.fromTableView.rowHeight;
+    return 45;
 }
 
 #pragma mark - Public Methods
@@ -156,7 +156,7 @@
     if (!_fromTableView) {
         _fromTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _fromTableView.backgroundColor = [UIColor whiteColor];
-        _fromTableView.separatorColor = [UIColor colorWithHexString:@"#f3f3f3"];
+        _fromTableView.separatorColor = [UIColor groupTableViewBackgroundColor];
         _fromTableView.showsVerticalScrollIndicator = NO;
         _fromTableView.dataSource = self;
         _fromTableView.delegate = self;
