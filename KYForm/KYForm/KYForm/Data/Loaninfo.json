@@ -8,7 +8,7 @@
                         "key": "avatar",
                         "title": "头像",
                         "tip":"",
-                        "type":"avatar",
+                        "type":"image",
                         "value":""
                     },
                     {

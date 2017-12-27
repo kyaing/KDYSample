@@ -7,12 +7,10 @@
 
 #import <UIKit/UIKit.h>
 #import "FormRowModel.h"
+#import "KYFormCellProtocol.h"
 
-@interface KYFormBaseCell : UITableViewCell
+@interface KYFormBaseCell : UITableViewCell <KYFormCellProtocol>
 
 @property (nonatomic, strong) FormRowModel *rowModel;
-
-- (void)setupView;
-- (void)configure;
 
 @end

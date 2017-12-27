@@ -10,6 +10,10 @@
 
 @implementation KYFormRowObject
 
+@synthesize rowHeight = _rowHeight;
+
+#pragma mark - Life Cycle
+
 - (instancetype)init {
     if (self = [super init]) {
     }
@@ -21,18 +25,16 @@
         self.title = title;
         self.rowType = rowType;
         self.cellStyle = UITableViewCellStyleValue1;
+        self.validators = [NSMutableArray array];
+        self.rowHeight = -2.f;
     }
     
     return self;
 }
 
 - (instancetype)initWithModel:(FormRowModel *)model {
-    if (self = [self init]) {
+    if (self = [self initWithTitle:model.title rowType:model.type]) {
         self.rowModel = model;
-        
-        self.title = model.title;
-        self.rowType = model.type;
-        self.cellStyle = UITableViewCellStyleValue1;
     }
     
     return self;
@@ -63,6 +65,24 @@
     }
     
     return _baseCell;
+}
+
+#pragma mark - Properties
+
+- (void)setRowHeight:(CGFloat)rowHeight {
+    _rowHeight = rowHeight;
+}
+
+- (CGFloat)rowHeight {
+    if (_rowHeight == -2.f) {
+        if ([[self.baseCell class] respondsToSelector:@selector(formCellHeightForRowObject:)]) {
+            return [[self.baseCell class] formCellHeightForRowObject:self];
+        } else {
+            return -2.f;
+        }
+    }
+    
+    return _rowHeight;
 }
 
 @end

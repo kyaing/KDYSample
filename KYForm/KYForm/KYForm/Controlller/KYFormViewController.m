@@ -58,20 +58,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    KYFormRowObject *formRow = [self.form formRowAtIndex:indexPath];
-    [self updateWithRow:formRow];
+    KYFormRowObject *rowObject = [self.form formRowAtIndex:indexPath];
+    [self updateWithRow:rowObject];
     
-    return [formRow cellForFormController:self];
+    return [rowObject cellForFormController:self];
 }
 
 #pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    KYFormRowObject *formRow = [self.form formRowAtIndex:indexPath];
-    [self didSelectFormRow:formRow];
-}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [self.form.formSections objectAtIndex:section].title;
@@ -88,6 +81,13 @@
     header.textLabel.font = BFont(14);
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    KYFormRowObject *formRow = [self.form formRowAtIndex:indexPath];
+    [self didSelectFormRow:formRow];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 30;
 }
@@ -96,17 +96,33 @@
     return 30;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    KYFormRowObject *rowObject = [self.form formRowAtIndex:indexPath];
+    [rowObject cellForFormController:self];
+    
+    CGFloat height = rowObject.rowHeight;
+    if (height != -2.f) {
+        return height;
+    }
+    
+    return self.fromTableView.rowHeight;
+}
+
 #pragma mark - Public Methods
 
 - (KYFormBaseCell *)updateWithRow:(KYFormRowObject *)rowObject {
     KYFormBaseCell *cell = [rowObject cellForFormController:self];
     cell.rowModel = rowObject.rowModel;
+    [cell configure];
     
     return cell;
 }
 
 - (void)didSelectFormRow:(KYFormRowObject *)rowObject {
     KYFormBaseCell *cell = [rowObject cellForFormController:self];
+    if ([cell respondsToSelector:@selector(formCellDidSelectedWithController:)]) {
+        [cell formCellDidSelectedWithController:self];
+    }
 }
 
 + (NSMutableDictionary *)cellClassesForRowTypes {
@@ -115,7 +131,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareInstance = [@{
-                           kFormRowTypeAvatar:  [KYFormAvatarCell class],
+                           kFormRowTypeImage:   [KYFormAvatarCell class],
                            kFormRowTypeText:    [KYFormTextFieldCell class],
                            kFormRowTypePhone:   [KYFormTextFieldCell class],
                            kFormRowTypeMail:    [KYFormTextFieldCell class],

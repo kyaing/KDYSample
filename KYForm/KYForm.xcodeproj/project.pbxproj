@@ -40,6 +40,8 @@
 		95DB6E891FF1DD7900D336A5 /* KYFormCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E881FF1DD7900D336A5 /* KYFormCityViewController.m */; };
 		95DB6E8C1FF1F92C00D336A5 /* KYFormAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E8B1FF1F92C00D336A5 /* KYFormAvatarCell.m */; };
 		95DB6E8F1FF1F97C00D336A5 /* KYFormTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB6E8E1FF1F97C00D336A5 /* KYFormTextFieldCell.m */; };
+		95DB6E941FF23AB300D336A5 /* defaultAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95DB6E921FF23AB300D336A5 /* defaultAvatar@2x.png */; };
+		95DB6E951FF23AB300D336A5 /* defaultAvatar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95DB6E931FF23AB300D336A5 /* defaultAvatar@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,7 +109,9 @@
 		95DB6E8B1FF1F92C00D336A5 /* KYFormAvatarCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormAvatarCell.m; sourceTree = "<group>"; };
 		95DB6E8D1FF1F97C00D336A5 /* KYFormTextFieldCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormTextFieldCell.h; sourceTree = "<group>"; };
 		95DB6E8E1FF1F97C00D336A5 /* KYFormTextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFormTextFieldCell.m; sourceTree = "<group>"; };
-		95DB6E901FF1FAE800D336A5 /* KYFormCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormCellDelegate.h; sourceTree = "<group>"; };
+		95DB6E901FF1FAE800D336A5 /* KYFormCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFormCellProtocol.h; sourceTree = "<group>"; };
+		95DB6E921FF23AB300D336A5 /* defaultAvatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultAvatar@2x.png"; sourceTree = "<group>"; };
+		95DB6E931FF23AB300D336A5 /* defaultAvatar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultAvatar@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,11 +187,12 @@
 			children = (
 				958A28771FE79B4D0071EACE /* Cell */,
 				958A28781FE79B4D0071EACE /* Controlller */,
-				958A28791FE79B4E0071EACE /* Data */,
-				958A287A1FE79B4E0071EACE /* Helper */,
 				953004171FEA3254002A44E5 /* Manager */,
 				9530041E1FEA3254002A44E5 /* Model */,
 				95A413CD1FECD3F300BF3DFF /* View */,
+				958A28791FE79B4E0071EACE /* Data */,
+				958A287A1FE79B4E0071EACE /* Helper */,
+				95DB6E911FF2219A00D336A5 /* Resourses */,
 			);
 			path = KYForm;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 			children = (
 				95A412891FEA3CFC00BF3DFF /* KYFormBaseCell.h */,
 				95A4128A1FEA3CFC00BF3DFF /* KYFormBaseCell.m */,
+				95DB6E901FF1FAE800D336A5 /* KYFormCellProtocol.h */,
 				95DB6E8A1FF1F92C00D336A5 /* KYFormAvatarCell.h */,
 				95DB6E8B1FF1F92C00D336A5 /* KYFormAvatarCell.m */,
 				95A412921FEA42C900BF3DFF /* KYFormSwitchCell.h */,
@@ -205,7 +211,6 @@
 				95A412991FEA42FF00BF3DFF /* KYFormPickViewCell.m */,
 				95DB6E8D1FF1F97C00D336A5 /* KYFormTextFieldCell.h */,
 				95DB6E8E1FF1F97C00D336A5 /* KYFormTextFieldCell.m */,
-				95DB6E901FF1FAE800D336A5 /* KYFormCellDelegate.h */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -304,6 +309,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		95DB6E911FF2219A00D336A5 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				95DB6E921FF23AB300D336A5 /* defaultAvatar@2x.png */,
+				95DB6E931FF23AB300D336A5 /* defaultAvatar@3x.png */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -362,8 +376,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				958A286D1FE796C20071EACE /* LaunchScreen.storyboard in Resources */,
+				95DB6E941FF23AB300D336A5 /* defaultAvatar@2x.png in Resources */,
 				95A412B11FEB9C7F00BF3DFF /* Loaninfo.json in Resources */,
 				958A286A1FE796C20071EACE /* Assets.xcassets in Resources */,
+				95DB6E951FF23AB300D336A5 /* defaultAvatar@3x.png in Resources */,
 				958A28681FE796C20071EACE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

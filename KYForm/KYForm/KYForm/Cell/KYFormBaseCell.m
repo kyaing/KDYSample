@@ -19,6 +19,8 @@
     return self;
 }
 
+#pragma mark - KYFormCellDelegate
+
 - (void)setupView {
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -28,8 +30,9 @@
     self.detailTextLabel.font = Font(14);
 }
 
-- (void)configure {
-}
+- (void)configure {}
+
+#pragma mark - Properties
 
 - (void)setRowModel:(FormRowModel *)rowModel {
     _rowModel = rowModel;

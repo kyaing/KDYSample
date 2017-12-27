@@ -30,7 +30,7 @@
 // Extension
 #import "UIColor+Extensions.h"
 
-extern NSString *const kFormRowTypeAvatar;
+extern NSString *const kFormRowTypeImage;
 extern NSString *const kFormRowTypeText;
 extern NSString *const kFormRowTypePhone;
 extern NSString *const kFormRowTypeMail;
