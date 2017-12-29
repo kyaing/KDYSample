@@ -19,8 +19,8 @@ typedef NS_ENUM(NSInteger, KYActionSheetItemType) {
 @property (nonatomic, strong) UIImage  *image;  // 图片
 @property (nonatomic, assign) KYActionSheetItemType type;  // item的状态
 
-+ (instancetype)initWithTitle:(NSString *)title
-                        image:(UIImage *)image
-                         type:(KYActionSheetItemType)type;
++ (instancetype)initWithTitle:(NSString *)title;
++ (instancetype)initWithTitle:(NSString *)title image:(UIImage *)image;
++ (instancetype)initWithTitle:(NSString *)title image:(UIImage *)image type:(KYActionSheetItemType)type;
 
 @end
