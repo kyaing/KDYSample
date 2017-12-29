@@ -35,7 +35,7 @@
 
 #pragma mark - Public Methods
 
-- (KYFormRowObject *)formRowAtIndex:(NSIndexPath *)indexPath {
+- (KYFormRowItem *)formRowAtIndex:(NSIndexPath *)indexPath {
     if ([self.formSections count] > indexPath.section &&
         [[[self.formSections objectAtIndex:indexPath.section] formRows] count] > indexPath.row) {
         return [[[self.formSections objectAtIndex:indexPath.section] formRows] objectAtIndex:indexPath.row];
@@ -44,7 +44,7 @@
     return nil;
 }
 
-- (KYFormSectionObject *)formSectionAtIndex:(NSIndexPath *)indexPath {
+- (KYFormSectionItem *)formSectionAtIndex:(NSIndexPath *)indexPath {
     if ([self.formSections count] > indexPath.section) {
         return [self.formSections objectAtIndex:indexPath.section];
     }
@@ -58,7 +58,7 @@
     _dataSource = dataSource;
     
     for (FormSectionModel *sectionModel in dataSource) {
-        KYFormSectionObject *sectionObj = [KYFormSectionObject formSectoinWithModel:sectionModel];
+        KYFormSectionItem *sectionObj = [KYFormSectionItem formSectoinWithModel:sectionModel];
         [self.formSections addObject:sectionObj];
     }
 }

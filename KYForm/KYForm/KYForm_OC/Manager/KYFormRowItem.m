@@ -1,14 +1,14 @@
 //
-//  KYFormRowObject.m
+//  KYFormRowItem.m
 //  KYForm
 //
 //  Created by mac on 2017/12/19.
 //
 
-#import "KYFormRowObject.h"
+#import "KYFormRowItem.h"
 #import "KYFormViewController.h"
 
-@implementation KYFormRowObject
+@implementation KYFormRowItem
 
 @synthesize rowHeight = _rowHeight;
 

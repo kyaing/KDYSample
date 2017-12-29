@@ -1,13 +1,13 @@
 //
-//  KYFormSectionObject.m
+//  KYFormSectionItem.m
 //  KYForm
 //
 //  Created by mac on 2017/12/19.
 //
 
-#import "KYFormSectionObject.h"
+#import "KYFormSectionItem.h"
 
-@implementation KYFormSectionObject
+@implementation KYFormSectionItem
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -53,11 +53,11 @@
 
 #pragma mark - Properties
 
-- (void)setFormRows:(NSMutableArray<KYFormRowObject *> *)formRows {
+- (void)setFormRows:(NSMutableArray<KYFormRowItem *> *)formRows {
     _formRows = formRows;
     
     for (FormRowModel *rowModel in self.sectionModel.rows) {
-        KYFormRowObject *rowObj = [KYFormRowObject formRowWithModel:rowModel];
+        KYFormRowItem *rowObj = [KYFormRowItem formRowWithModel:rowModel];
         [self.formRows addObject:rowObj];
     }
 }

@@ -9,8 +9,8 @@
 
 // Manager
 #import "KYFormObject.h"
-#import "KYFormSectionObject.h"
-#import "KYFormRowObject.h"
+#import "KYFormSectionItem.h"
+#import "KYFormRowItem.h"
 
 // Cells
 #import "KYFormBaseCell.h"

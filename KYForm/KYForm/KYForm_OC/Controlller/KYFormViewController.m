@@ -58,7 +58,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    KYFormRowObject *rowObject = [self.form formRowAtIndex:indexPath];
+    KYFormRowItem *rowObject = [self.form formRowAtIndex:indexPath];
     [self updateWithRow:rowObject];
     
     return [rowObject cellForFormController:self];
@@ -84,7 +84,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    KYFormRowObject *formRow = [self.form formRowAtIndex:indexPath];
+    KYFormRowItem *formRow = [self.form formRowAtIndex:indexPath];
     [self didSelectFormRow:formRow];
 }
 
@@ -97,7 +97,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    KYFormRowObject *rowObject = [self.form formRowAtIndex:indexPath];
+    KYFormRowItem *rowObject = [self.form formRowAtIndex:indexPath];
     [rowObject cellForFormController:self];
     
     CGFloat height = rowObject.rowHeight;
@@ -110,7 +110,7 @@
 
 #pragma mark - Public Methods
 
-- (KYFormBaseCell *)updateWithRow:(KYFormRowObject *)rowObject {
+- (KYFormBaseCell *)updateWithRow:(KYFormRowItem *)rowObject {
     KYFormBaseCell *cell = [rowObject cellForFormController:self];
     cell.rowModel = rowObject.rowModel;
     [cell configure];
@@ -118,7 +118,7 @@
     return cell;
 }
 
-- (void)didSelectFormRow:(KYFormRowObject *)rowObject {
+- (void)didSelectFormRow:(KYFormRowItem *)rowObject {
     KYFormBaseCell *cell = [rowObject cellForFormController:self];
     if ([cell respondsToSelector:@selector(formCellDidSelectedWithController:)]) {
         [cell formCellDidSelectedWithController:self];

@@ -42,7 +42,7 @@
     NSLog(@"[Click: %@]", NSStringFromClass([self class]));
 }
 
-+ (CGFloat)formCellHeightForRowObject:(KYFormRowObject *)rowObject {
++ (CGFloat)formCellHeightForRowObject:(KYFormRowItem *)rowObject {
     return 60.f;
 }
 

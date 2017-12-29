@@ -1,5 +1,5 @@
 //
-//  KYFormRowObject.h
+//  KYFormRowItem.h
 //  KYForm
 //
 //  Created by mac on 2017/12/19.
@@ -11,7 +11,7 @@
 @class FormRowModel;
 @class KYFormViewController;
 
-@interface KYFormRowObject : NSObject
+@interface KYFormRowItem : NSObject
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *rowType;

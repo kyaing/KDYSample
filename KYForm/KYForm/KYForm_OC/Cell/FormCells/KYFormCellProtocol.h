@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class KYFormRowObject;
+@class KYFormRowItem;
 @class KYFormViewController;
 
 @protocol KYFormCellProtocol <NSObject>
@@ -18,7 +18,7 @@
 
 @optional
 - (void)formCellDidSelectedWithController:(KYFormViewController *)controller;
-+ (CGFloat)formCellHeightForRowObject:(KYFormRowObject *)rowObject;
++ (CGFloat)formCellHeightForRowObject:(KYFormRowItem *)rowObject;
 
 @end
 
