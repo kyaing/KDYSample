@@ -150,10 +150,10 @@
 		957DBA671FF3842100440BB2 /* FormCells */ = {
 			isa = PBXGroup;
 			children = (
-				957DBA681FF3842100440BB2 /* KYFormAvatarCell.h */,
-				957DBA691FF3842100440BB2 /* KYFormAvatarCell.m */,
 				957DBA6A1FF3842100440BB2 /* KYFormBaseCell.h */,
 				957DBA6B1FF3842100440BB2 /* KYFormBaseCell.m */,
+				957DBA681FF3842100440BB2 /* KYFormAvatarCell.h */,
+				957DBA691FF3842100440BB2 /* KYFormAvatarCell.m */,
 				957DBA6C1FF3842100440BB2 /* KYFormCellProtocol.h */,
 				957DBA6D1FF3842100440BB2 /* KYFormPickViewCell.h */,
 				957DBA6E1FF3842100440BB2 /* KYFormPickViewCell.m */,

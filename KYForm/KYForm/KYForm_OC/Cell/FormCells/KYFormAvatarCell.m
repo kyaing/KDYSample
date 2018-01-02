@@ -6,6 +6,7 @@
 //
 
 #import "KYFormAvatarCell.h"
+#import "KYActionSheet.h"
 
 @interface KYFormAvatarCell()
 
@@ -40,6 +41,9 @@
 
 - (void)formCellDidSelectedWithController:(KYFormViewController *)controller {
     NSLog(@"[Click: %@]", NSStringFromClass([self class]));
+    
+    KYActionSheet *actionSheet = [[KYActionSheet alloc] initWithTitles:@[@"拍照", @"从相册中选择"]];
+    [actionSheet showSheet];
 }
 
 + (CGFloat)formCellHeightForRowObject:(KYFormRowItem *)rowObject {

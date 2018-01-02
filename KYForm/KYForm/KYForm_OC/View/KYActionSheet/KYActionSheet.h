@@ -9,7 +9,7 @@
 
 @class KYActionSheet;
 @protocol KYActionSheetDelegate <NSObject>
-- (void)kyAtionSheetClickWith:(KYActionSheet *)actonSheet atIndex:(NSInteger)index;
+- (void)kyAtionSheetClick:(KYActionSheet *)actonSheet atIndex:(NSInteger)index;
 
 @end
 
@@ -19,12 +19,16 @@ typedef void(^KYActionSheetBlock)(NSInteger sheetIndex);
 
 - (instancetype)initWithTitles:(NSArray *)otherTitles;
 
-- (instancetype)initWithTitle:(NSString *)title
-                  cancelTitle:(NSString *)cancelTitle
-                  otherTitles:(NSArray *)otherTitles;
+- (instancetype)initWithTitles:(NSArray *)otherTitles hightlightTitle:(NSString *)hightlightTitle;
 
 - (instancetype)initWithTitle:(NSString *)title
                   cancelTitle:(NSString *)cancelTitle
+                  otherTitles:(NSArray *)otherTitles
+              hightlightTitle:(NSString *)hightlightTitle;
+
+- (instancetype)initWithTitle:(NSString *)title
+                  cancelTitle:(NSString *)cancelTitle
+              hightlightTitle:(NSString *)hightlightTitle
                   otherTitles:(NSArray *)otherTitles
                   sheetDelegate:(id<KYActionSheetDelegate>)delegate;
 
