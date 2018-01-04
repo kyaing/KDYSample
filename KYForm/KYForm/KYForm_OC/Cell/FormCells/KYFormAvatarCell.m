@@ -43,11 +43,28 @@
     NSLog(@"[Click: %@]", NSStringFromClass([self class]));
     
     KYActionSheet *actionSheet = [[KYActionSheet alloc] initWithTitles:@[@"拍照", @"从相册中选择"]];
-    [actionSheet showSheet];
+    
+    __weak typeof(self) weakSelf = self;
+    [actionSheet showSheetWithBlock:^(NSInteger sheetIndex) {
+        if (sheetIndex == 0) {
+            [weakSelf openCamera];
+        } else if (sheetIndex == 1) {
+            [weakSelf openPhotoAlbum];
+        }
+    }];
 }
 
 + (CGFloat)formCellHeightForRowObject:(KYFormRowItem *)rowObject {
     return 60.f;
 }
 
+#pragma mark - KYActionSheet
+
+- (void)openCamera {
+    NSLog(@"openCamera");
+}
+
+- (void)openPhotoAlbum {
+    NSLog(@"openPhotoAlbum");
+}
 @end

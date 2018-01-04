@@ -138,10 +138,10 @@
                            kFormRowTypeNumber:  [KYFormTextFieldCell class],
                            kFormRowTypePassword: [KYFormBaseCell class],
                            kFormRowTypeDate:    [KYFormBaseCell class],
-                           kFormRowTypePicker:  [KYFormBaseCell class],
                            kFormRowTypeSwitch:  [KYFormBaseCell class],
                            kFormRowTypeTextView:    [KYFormBaseCell class],
-                           kFormRowTypeChoosePush:  [KYFormBaseCell class],
+                           kFormRowTypePickerView:  [KYFormSelectorCell class],
+                           kFormRowTypeChoosePush:  [KYFormSelectorCell class],
                            kFormRowTypeChoosePop:   [KYFormBaseCell class],
                            kFormRowTypeActionSheet: [KYFormBaseCell class]
                           } mutableCopy];

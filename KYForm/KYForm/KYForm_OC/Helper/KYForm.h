@@ -16,7 +16,7 @@
 #import "KYFormBaseCell.h"
 #import "KYFormAvatarCell.h"
 #import "KYFormSwitchCell.h"
-#import "KYFormPickViewCell.h"
+#import "KYFormSelectorCell.h"
 #import "KYFormTextFieldCell.h"
 
 // Models
@@ -44,9 +44,9 @@ extern NSString *const kFormRowTypeNumber;
 extern NSString *const kFormRowTypePassword;
 
 extern NSString *const kFormRowTypeDate;
-extern NSString *const kFormRowTypePicker;
 extern NSString *const kFormRowTypeSwitch;
 extern NSString *const kFormRowTypeTextView;
+extern NSString *const kFormRowTypePickerView;
 extern NSString *const kFormRowTypeChoosePush;
 extern NSString *const kFormRowTypeChoosePop;
 extern NSString *const kFormRowTypeActionSheet;

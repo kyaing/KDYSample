@@ -15,9 +15,9 @@ NSString *const kFormRowTypeNumber      = @"number";
 NSString *const kFormRowTypePassword    = @"password";
 
 NSString *const kFormRowTypeDate        = @"date";
-NSString *const kFormRowTypePicker      = @"picker";
 NSString *const kFormRowTypeSwitch      = @"switch";
 NSString *const kFormRowTypeTextView    = @"textView";
+NSString *const kFormRowTypePickerView  = @"pickerView";
 NSString *const kFormRowTypeChoosePush  = @"choosePush";
 NSString *const kFormRowTypeChoosePop   = @"choosePop";
 NSString *const kFormRowTypeActionSheet = @"actionSheet";
