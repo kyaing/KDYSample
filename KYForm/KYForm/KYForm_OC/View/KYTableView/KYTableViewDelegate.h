@@ -13,6 +13,7 @@
 @optional
 
 - (void)didSelectObject:(id)object forIndexPath:(NSIndexPath *)indexPath;
+
 - (UIView *)headerViewForSectionObject:(KYTableViewSectionObject *)sectionObject forSection:(NSInteger)section;
 - (UIView *)footerViewForSectionObject:(KYTableViewSectionObject *)sectionObject forSection:(NSInteger)section;
 

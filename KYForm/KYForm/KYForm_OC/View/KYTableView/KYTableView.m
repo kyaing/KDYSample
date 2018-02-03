@@ -11,32 +11,19 @@
 
 #pragma mark - Life Cycle
 
-- (instancetype)init {
-    if (self = [super init]) {
-        
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    self = [super initWithFrame:frame style:style];
+    if (self) {
+        self.autoresizingMask =  UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.separatorColor = [UIColor clearColor];
+        self.showsVerticalScrollIndicator = YES;
+        self.showsHorizontalScrollIndicator = NO;
+        self.sectionHeaderHeight = 0;
+        self.sectionFooterHeight = 0;
+        self.delegate = self;
     }
     
     return self;
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
@@ -50,14 +37,6 @@
 }
 
 #pragma mark - Getter
-
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    }
-    
-    return _tableView;
-}
 
 - (NSMutableArray *)datasArray {
     if (_datasArray) {

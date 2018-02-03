@@ -10,9 +10,9 @@
 
 @interface KYTableViewItemObject : NSObject
 
-@property (nonatomic, copy  ) NSString *identifier;
 @property (nonatomic, copy  ) NSString *title;
 @property (nonatomic, copy  ) NSString *subTitle;
+@property (nonatomic, copy  ) NSString *identifier;
 @property (nonatomic, strong) UIImage  *image;
 @property (nonatomic, assign) CGFloat   cellHeight;
 

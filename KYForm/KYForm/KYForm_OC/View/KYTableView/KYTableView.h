@@ -9,12 +9,11 @@
 #import "KYTableViewDataSource.h"
 #import "KYTableViewDelegate.h"
 
-@interface KYTableView : UIView <KYTableViewDataSource, KYTableViewDelegate>
+@interface KYTableView : UITableView <UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView    *tableView;
 @property (nonatomic, strong) NSMutableArray *datasArray;
 
-@property (nonatomic, weak) id <KYTableViewDataSource> dataSource;
-@property (nonatomic, weak) id <KYTableViewDelegate> delegate;
+@property (nonatomic, weak) id <KYTableViewDataSource> kyDataSource;
+@property (nonatomic, weak) id <KYTableViewDelegate> kyDelegate;
 
 @end

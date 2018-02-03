@@ -14,6 +14,8 @@
 		954FC9902024015B00CF114D /* KYTableViewSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 954FC98F2024015B00CF114D /* KYTableViewSectionObject.m */; };
 		954FC993202401D900CF114D /* KYTableViewItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 954FC992202401D900CF114D /* KYTableViewItemObject.m */; };
 		954FC996202412D300CF114D /* KYTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 954FC995202412D300CF114D /* KYTableViewModel.m */; };
+		954FC99D202553CB00CF114D /* KYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954FC99C202553CB00CF114D /* KYTableViewCell.m */; };
+		954FC9A12025563D00CF114D /* NSArray+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 954FC9A02025563D00CF114D /* NSArray+extension.m */; };
 		957DBA731FF3842200440BB2 /* KYFormAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 957DBA691FF3842100440BB2 /* KYFormAvatarCell.m */; };
 		957DBA741FF3842200440BB2 /* KYFormBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 957DBA6B1FF3842100440BB2 /* KYFormBaseCell.m */; };
 		957DBA761FF3842200440BB2 /* KYFormSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 957DBA701FF3842100440BB2 /* KYFormSwitchCell.m */; };
@@ -68,6 +70,10 @@
 		954FC992202401D900CF114D /* KYTableViewItemObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYTableViewItemObject.m; sourceTree = "<group>"; };
 		954FC994202412D300CF114D /* KYTableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYTableViewModel.h; sourceTree = "<group>"; };
 		954FC995202412D300CF114D /* KYTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYTableViewModel.m; sourceTree = "<group>"; };
+		954FC99B202553CB00CF114D /* KYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYTableViewCell.h; sourceTree = "<group>"; };
+		954FC99C202553CB00CF114D /* KYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYTableViewCell.m; sourceTree = "<group>"; };
+		954FC99F2025563D00CF114D /* NSArray+extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+extension.h"; sourceTree = "<group>"; };
+		954FC9A02025563D00CF114D /* NSArray+extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+extension.m"; sourceTree = "<group>"; };
 		957DBA681FF3842100440BB2 /* KYFormAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormAvatarCell.h; sourceTree = "<group>"; };
 		957DBA691FF3842100440BB2 /* KYFormAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYFormAvatarCell.m; sourceTree = "<group>"; };
 		957DBA6A1FF3842100440BB2 /* KYFormBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYFormBaseCell.h; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 		952DDC101FFDD5C9001E11EB /* KYTableView */ = {
 			isa = PBXGroup;
 			children = (
+				954FC99E2025560100CF114D /* Extension */,
+				954FC99A202553CB00CF114D /* Cell */,
 				954FC98D2024015B00CF114D /* Model */,
 				952DDC111FFDD63F001E11EB /* KYTableView.h */,
 				952DDC121FFDD63F001E11EB /* KYTableView.m */,
@@ -169,6 +177,24 @@
 				954FC98F2024015B00CF114D /* KYTableViewSectionObject.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		954FC99A202553CB00CF114D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				954FC99B202553CB00CF114D /* KYTableViewCell.h */,
+				954FC99C202553CB00CF114D /* KYTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		954FC99E2025560100CF114D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				954FC99F2025563D00CF114D /* NSArray+extension.h */,
+				954FC9A02025563D00CF114D /* NSArray+extension.m */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		957DBA651FF3842100440BB2 /* Cell */ = {
@@ -526,9 +552,11 @@
 				95A413C21FEBA2B200BF3DFF /* NSObject+YYModel.m in Sources */,
 				95C7B3371FF33E5800EE3885 /* KYFormMapViewController.m in Sources */,
 				95A413C31FEBA2B200BF3DFF /* YYClassInfo.m in Sources */,
+				954FC99D202553CB00CF114D /* KYTableViewCell.m in Sources */,
 				95C7B3381FF33E5800EE3885 /* KYFormTextFeildController.m in Sources */,
 				958A28701FE796C20071EACE /* main.m in Sources */,
 				95A413CC1FEBAB7A00BF3DFF /* LoanViewController.m in Sources */,
+				954FC9A12025563D00CF114D /* NSArray+extension.m in Sources */,
 				958A28621FE796C20071EACE /* AppDelegate.m in Sources */,
 				95C7B33E1FF33E5800EE3885 /* KYFormRowItem.m in Sources */,
 				95A413C61FEBA8B400BF3DFF /* PersonalViewController.m in Sources */,
