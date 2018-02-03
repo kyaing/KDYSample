@@ -7,7 +7,16 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol KYTableViewDelegate <NSObject>
+@class KYTableViewSectionObject;
+@protocol KYTableViewDelegate <UITableViewDelegate>
+
+@optional
+
+- (void)didSelectObject:(id)object forIndexPath:(NSIndexPath *)indexPath;
+- (UIView *)headerViewForSectionObject:(KYTableViewSectionObject *)sectionObject forSection:(NSInteger)section;
+- (UIView *)footerViewForSectionObject:(KYTableViewSectionObject *)sectionObject forSection:(NSInteger)section;
+
+- (void)pullUpToRefresh;
+- (void)pullDownToRefresh;
 
 @end
-

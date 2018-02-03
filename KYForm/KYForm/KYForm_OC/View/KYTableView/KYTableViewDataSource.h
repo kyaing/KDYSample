@@ -7,6 +7,12 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol KYTableViewDataSource <NSObject>
+@class KYTableViewItemObject;
+@protocol KYTableViewDataSource <UITableViewDataSource>
+
+@optional
+
+- (KYTableViewItemObject *)tableView:(UITableView *)tableView objectForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (Class)tableView:(UITableView *)tableView cellClassForObject:(KYTableViewItemObject *)itemObject;
 
 @end
