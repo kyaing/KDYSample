@@ -1,2 +1,2 @@
 # KDYSampleCode
-Some demos with Swift.
+Some demos with Swift or Python.
