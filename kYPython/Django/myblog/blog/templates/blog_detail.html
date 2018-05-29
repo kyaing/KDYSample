@@ -4,6 +4,10 @@
     {{blog.title}}
 {% endblock title %}
 
+{% block nav_blog_active %}
+    active
+{% endblock nav_blog_active %}
+
 {% block content %}
     <h3>{{ blog.title }}</h3>
     <p>作者：{{ blog.auther }}</p>
