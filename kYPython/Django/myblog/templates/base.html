@@ -10,17 +10,24 @@
         {% endblock %}
     </title>
     <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.7/css/' 'bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-3.3.7/js/' 'bootstrap.min.js' %}"></script>
     {% block header_extends %}
     {% endblock header_extends %}
 </head>
 
 <body>
-    <div class="nav">
-        <a class="logo" href="{% url 'home' %}">
-            <h3>个人博客网站</h3>
-        </a>
-        <a href="/">首页</a>
-        <a href="/blog/">博客列表</a>
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'home' %}">个人博客网站</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">首页</a></li>
+                <li><a href="{% url 'blog_list' %}">博客</a></li>
+            </ul>
+        </div>
     </div>
     {% block content %}
     {% endblock %}
