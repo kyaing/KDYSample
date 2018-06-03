@@ -4,7 +4,7 @@ from helper import is_isbn_or_key
 from fisher_book import FisherBook
 from . import web
 
-@web.route('/book/search/<q>/<page>')
+@web.route('/book/search/')
 def search():  # 从路由中得到参数
     '''
     q: 普通关键字 isbn
@@ -12,6 +12,7 @@ def search():  # 从路由中得到参数
     '''
     q = request.args['q']
     page = request.args['page']
+
     isbn_or_key = is_isbn_or_key(q)
     if isbn_or_key == 'isbn':
         result = FisherBook.search_by_isbn(q)
