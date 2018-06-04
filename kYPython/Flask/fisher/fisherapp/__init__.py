@@ -2,7 +2,8 @@ from flask import Flask
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('config')  # 引入配置文件的路径 
+    app.config.from_object('fisherapp.secure')  # 引入配置文件的路径 
+    app.config.from_object('fisherapp.setting')
     register_blueprint(app)
     return app
 
