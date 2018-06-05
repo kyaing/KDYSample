@@ -2,7 +2,7 @@ from flask import jsonify, request
 
 from . import web
 from fisherapp.spider.fisher_book import FisherBook
-from fisherapp.libs.httper import is_isbn_or_key
+from fisherapp.libs.helper import is_isbn_or_key
 from fisherapp.forms.book import SearchForm
 
 @web.route('/book/search')
