@@ -29,4 +29,17 @@ def search():  # 从路由中得到参数
         return jsonify(result)
     else:
         return jsonify({'msg': '参数校验失败'})
+
+    
+@web.route('/test')
+def test():
+    from flask import request
+    from fisherapp.libs.none_local import n
+    print(n.v)
+    n.v = 2
+    print('---------------------')
+    print(getattr(request, 'v', None))
+    setattr(request, 'v', 2)
+    print('---------------------')
+    return ''
     
