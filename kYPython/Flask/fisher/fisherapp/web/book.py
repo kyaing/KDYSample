@@ -4,6 +4,7 @@ from . import web
 from fisherapp.spider.fisher_book import FisherBook
 from fisherapp.libs.helper import is_isbn_or_key
 from fisherapp.forms.book import SearchForm
+from fisherapp.view_models.book import BookViewModel, BookCollection
 
 @web.route('/book/search')
 def search():  # 从路由中得到参数
@@ -14,18 +15,19 @@ def search():  # 从路由中得到参数
     # q = request.args['q']
     # page = request.args['page']
     form = SearchForm(request.args)
+    books = BookCollection()
 
     if form.validate():
         q = form.q.data.strip()
         page = form.page.data
 
         isbn_or_key = is_isbn_or_key(q)
+        fisher_book = FisherBook()
         if isbn_or_key == 'isbn':
-            result = FisherBook.search_by_isbn(q)
+            fisher_book.search_by_isbn(q)
         else:
-            result = FisherBook.search_by_keyword(q, page)
-        # return json.dumps(result), 200, {'content-type': 'application/json'}
-        # dict 序列化；API（难点在于设计）
+            fisher_book.search_by_keyword(q, page)
+        books.fill(fisher_book, q)
         return jsonify(result)
     else:
         return jsonify({'msg': '参数校验失败'})
