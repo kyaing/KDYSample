@@ -38,8 +38,10 @@ def search():  # 从路由中得到参数
         flash('关键字不符合要求，请重新输入')
     return render_template('search_result.html', books=books)
     
-@web.route('/book/<isbn/>')
-    
+@web.route('/book/<isbn>/detail')
+def book_detail(isbn):
+    pass
+
 @web.route('/test')
 def test():
     r = {
