@@ -20,6 +20,7 @@ class BookCollection():
         self.keyword = keyword
         self.books = [BookViewModel() for book in fisher_book.books]
 
+# 弃用
 class _BookViewModel():
     @classmethod
     def package_single(cls, data, keyword):
