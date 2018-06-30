@@ -34,20 +34,11 @@ def search():  # 从路由中得到参数
         # json.dumps(books, default=lambda o: o.__dict__)
         # return jsonify(books.__dict__)
     else:
-        return jsonify(form.errors)
-
+        # return jsonify(form.errors)
+        flash('关键字不符合要求，请重新输入')
+    return render_template('search_result.html', books=books)
     
-@web.route('/test1')
-def test1():
-    from flask import request
-    from fisherapp.libs.none_local import n
-    print(n.v)
-    n.v = 2
-    print('---------------------')
-    print(getattr(request, 'v', None))
-    setattr(request, 'v', 2)
-    print('---------------------')
-    return ''
+@web.route('/book/<isbn/>')
     
 @web.route('/test')
 def test():
