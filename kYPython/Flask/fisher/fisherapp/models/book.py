@@ -1,12 +1,10 @@
 from sqlalchemy import Column, Integer, String
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from fisherapp.models.base import Base
 
 '''
 Book的模型类，用SqlAlchemy将类的属性映射成数据表
 '''
-class Book(db.Model):
+class Book(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(50), nullable=False)
     author = Column(String(30), default='未名')
@@ -23,4 +21,4 @@ class Book(db.Model):
     # ORM，对象关系映射，Code First
     
     def sample(self):
-        pass
+        pass 

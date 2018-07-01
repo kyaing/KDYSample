@@ -14,6 +14,18 @@ class FisherBook():
         result = HTTP.get(url)
         self.__fill__single(result)
 
+    def search_by_keyword(self, keyword, page=1):
+        url = self.keyword_url.format(keyword, current_app.config['PER_PAGE'], self.calculat_start(page))
+        result = HTTP.get(url)
+        self.__fill_collection(result)
+
+    def calculat_start(self, page):
+        return  (page - 1) * current_app.config['PER_PAGE']
+
+    @property
+    def first(self):
+        return self.books[0] if self.total >= 1 else None
+
     def __fill__single(self, data):
         if data:
             self.total = 1
@@ -22,11 +34,3 @@ class FisherBook():
     def __fill_collection(self, data):
         self.total = data['total']
         self.books = data['books']
-
-    def search_by_keyword(self, keyword, page=1):
-        url = self.keyword_url.format(keyword, current_app.config['PER_PAGE'], self.calculat_start(page))
-        result = HTTP.get(url)
-        self.__fill_collection(result)
-
-    def calculat_start(self, page):
-        return  (page - 1) * current_app.config['PER_PAGE']

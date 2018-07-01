@@ -1,5 +1,5 @@
 from flask import Flask
-from fisherapp.models.book import db
+from fisherapp.models.base import db
 
 def create_app():
     app = Flask(__name__)

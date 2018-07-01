@@ -35,12 +35,15 @@ def search():  # 从路由中得到参数
         # return jsonify(books.__dict__)
     else:
         # return jsonify(form.errors)
-        flash('关键字不符合要求，请重新输入')
+        flash('搜索关键字不符合要求，请重新输入关键字')
     return render_template('search_result.html', books=books)
     
 @web.route('/book/<isbn>/detail')
 def book_detail(isbn):
-    pass
+    yushu_book = FisherBook()
+    yushu_book.search_by_isbn(isbn)
+    book = BookViewModel(yushu_book.first)
+    return render_template('book_detail.html', book=book, wishes=[], gifts=[])
 
 @web.route('/test')
 def test():

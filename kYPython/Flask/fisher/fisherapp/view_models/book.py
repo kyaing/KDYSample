@@ -8,17 +8,25 @@ class BookViewModel():
         self.price = book['price']
         self.summary = book['summary']
         self.pages = book['pages']
+        self.isbn = book['isbn']
+
+    @property
+    def intro(self):
+        intros = filter(lambda x: True if x else False, 
+                        [self.author, self.publisher, self.price])
+                        
+        return ' / '.join(intros)
 
 class BookCollection():
     def __init__(self):
         self.total = 0
-        self.books = []
         self.keyword = ''
+        self.books = []
 
     def fill(self, fisher_book, keyword):
         self.total = fisher_book.total
         self.keyword = keyword
-        self.books = [BookViewModel() for book in fisher_book.books]
+        self.books = [BookViewModel(book) for book in fisher_book.books]
 
 # 弃用
 class _BookViewModel():
