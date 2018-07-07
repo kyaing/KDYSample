@@ -9,7 +9,8 @@ class Base(db.Model):
     # create_time = Column('create_time', Integer)
     status = Column(SmallInteger, default=1)
 
+    # 整体赋值属性
     def set_attrs(self, attrs_dict):
-        for key, value in attrs_dict.item():
+        for key, value in attrs_dict.items():
             if hasattr(self, key) and key != 'id':
                 setattr(self, key, value)

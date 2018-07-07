@@ -31,10 +31,12 @@ class RegisterForm(EmailForm):
     password = PasswordField('密码', validators=[
         DataRequired(), Length(6, 20)])
 
+    # 自定义验证器（以 validate_ 接上验证的字段）
     def validate_email(self, field):
         if User.query.filter_by(email=field.data).first():
             raise ValidationError('电子邮件已被注册')
 
+    # 自定义验证器，用以验证 nickname
     def validate_nickname(self, field):
         if User.query.filter_by(nickname=field.data).first():
             raise ValidationError('昵称已存在')

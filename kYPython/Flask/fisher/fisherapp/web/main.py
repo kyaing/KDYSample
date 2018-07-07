@@ -2,7 +2,7 @@ from . import web
 
 @web.route('/')
 def index():
-    pass
+    return 'Hello'
 
 @web.route('/personal')
 def personal_center():
