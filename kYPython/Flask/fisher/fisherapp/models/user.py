@@ -3,6 +3,10 @@ from fisherapp.models.base import Base
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from fisherapp import login_manager
+from fisherapp.spider.fisher_book import FisherBook
+from fisherapp.libs.helper import is_isbn_or_key
+from fisherapp.models.gift import Gift
+from fisherapp.models.wish import Wish
 
 class User(UserMixin, Base):
     # __tablename = 'user1'  # 可以修改数据库中对应的表名
@@ -29,6 +33,22 @@ class User(UserMixin, Base):
 
     def check_password(self, raw):
         return check_password_hash(self._password, raw)
+
+    def can_save_to_list(self, isbn):
+        if is_isbn_or_key(isbn) != 'isbn':
+            return False
+        yushu_book = FisherBook()
+        yushu_book.search_by_isbn(isbn)
+        if not yushu_book.first:
+            return False
+        gifting = Gift.query.filter_by(uid=self.id, isbn=isbn, lanunched=False).first()
+        wishing = Wish.query.filter_by(uid=self.id, isbn=isbn, lanunched=False).first()
+
+        if not gifting and not wishing:
+            return True
+        else:
+            return False
+            
 
 @login_manager.user_loader
 def get_user(uid):
