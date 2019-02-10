@@ -1,5 +1,4 @@
 class Dog:
-    
     def __del__(self):
         print('--- game over ---')
 

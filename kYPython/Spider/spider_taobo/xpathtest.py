@@ -33,6 +33,7 @@ html = """
 </html>
 """
 
+# 解析HTML文档为HTML DOM模型
 selector = etree.HTML(html)
 content = selector.xpath('//div[@id="content"]/ul[@id="ul"]/li/text()')
 for i in content:
