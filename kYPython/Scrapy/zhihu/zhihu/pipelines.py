@@ -27,6 +27,7 @@ class MongoPipeline(object):
         self.client.close()
 
     def process_item(self, item, spider):
-        # 这里通过mongodb进行了一个去重的操作，每次更新插入数据之前都会进行查询，判断要插入的url_token是否已经存在，如果不存在再进行数据插入，否则放弃数据
-        self.db['user'].update({'url_token':item["url_token"]},{'$set':item},True)
+        # 这里通过mongodb进行了一个去重的操作，每次更新插入数据之前都会进行查询，判断要插入的url_token是否已经存在，
+        # 如果不存在再进行数据插入，否则放弃数据
+        self.db['user'].update({'url_token':item["url_token"]}, {'$set':item}, True)
         return item
